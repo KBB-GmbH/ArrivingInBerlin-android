@@ -1,11 +1,15 @@
 package com.hkw.arrivinginberlin;
 
+import android.graphics.drawable.Drawable;
 import android.icu.text.StringPrepParseException;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
 
+import com.mapbox.mapboxsdk.annotations.Icon;
+import com.mapbox.mapboxsdk.annotations.IconFactory;
 import com.mapbox.mapboxsdk.annotations.MarkerViewOptions;
 import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.maps.MapView;
@@ -23,7 +27,11 @@ import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 
+
+
 public class MainActivity extends Activity {
+
+//    private static final String TAG = "MainActivity";
 
     private MapView mapView;
 
@@ -105,11 +113,19 @@ public class MainActivity extends Activity {
 
                 JSONObject properties = feature.getJSONObject("properties");
                 String name = properties.getString("name");
+                String beschreibung = properties.getString("beschreibung");
+//              String adresse = properties.getString("adresse")
+//              Log.v("MainActivity", "ADDRESS: ");
+                String telefon = properties.getString("telefon");
+                String medium = properties.getString("medium");
+                String transport = properties.getString("transport");
+
 
 
                 MarkerViewOptions marker = new MarkerViewOptions()
                         .position(latLng)
-                        .title(name);
+                        .title(name)
+                        .snippet(beschreibung +"\n"+ telefon + "\n"+ transport +"\n" +medium);
                 mapboxMap.addMarker(marker);
 
             }
