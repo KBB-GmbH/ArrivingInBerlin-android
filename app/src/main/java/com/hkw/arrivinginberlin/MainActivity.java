@@ -131,6 +131,8 @@ public class MainActivity extends Activity {
                 String medium = properties.getString("medium");
                 String transport = properties.getString("transport");
 
+                
+
                 MarkerViewOptions marker = new MarkerViewOptions()
                         .position(latLng)
                         .title(name)
