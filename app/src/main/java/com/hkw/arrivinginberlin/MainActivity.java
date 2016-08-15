@@ -126,7 +126,6 @@ public class MainActivity extends Activity {
                 String name = properties.getString("name");
                 String beschreibung = properties.getString("beschreibung");
                 String adresse = properties.getString("adresse");
-//                String address = properties.getString("adresse");
                 String telefon = properties.getString("telefon");
                 String medium = properties.getString("medium");
                 String transport = properties.getString("transport");
