@@ -2,12 +2,16 @@ package com.hkw.arrivinginberlin;
 
 import android.graphics.drawable.Drawable;
 import android.icu.text.StringPrepParseException;
+import android.net.Uri;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
 
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.mapbox.mapboxsdk.annotations.Icon;
 import com.mapbox.mapboxsdk.annotations.IconFactory;
 import com.mapbox.mapboxsdk.annotations.MarkerViewOptions;
@@ -28,12 +32,16 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 
-
 public class MainActivity extends Activity {
 
 //    private static final String TAG = "MainActivity";
 
     private MapView mapView;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +62,9 @@ public class MainActivity extends Activity {
             }
 
         });
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     // Add the mapView lifecycle to the activity's lifecycle methods
@@ -114,18 +125,16 @@ public class MainActivity extends Activity {
                 JSONObject properties = feature.getJSONObject("properties");
                 String name = properties.getString("name");
                 String beschreibung = properties.getString("beschreibung");
-//              String adresse = properties.getString("adresse")
-//              Log.v("MainActivity", "ADDRESS: ");
+                String adresse = properties.getString("adresse");
+//                String address = properties.getString("adresse");
                 String telefon = properties.getString("telefon");
                 String medium = properties.getString("medium");
                 String transport = properties.getString("transport");
 
-
-
                 MarkerViewOptions marker = new MarkerViewOptions()
                         .position(latLng)
                         .title(name)
-                        .snippet(beschreibung +"\n"+ telefon + "\n"+ transport +"\n" +medium);
+                        .snippet(beschreibung + "\n" + adresse + "\n" + telefon + "\n" + transport + "\n" + medium);
                 mapboxMap.addMarker(marker);
 
             }
@@ -133,5 +142,45 @@ public class MainActivity extends Activity {
             Log.e("MainActivity", "Exception Loading GeoJSON: " + e.toString());
         }
 
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "Main Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app URL is correct.
+                Uri.parse("android-app://com.hkw.arrivinginberlin/http/host/path")
+        );
+        AppIndex.AppIndexApi.start(client, viewAction);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "Main Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app URL is correct.
+                Uri.parse("android-app://com.hkw.arrivinginberlin/http/host/path")
+        );
+        AppIndex.AppIndexApi.end(client, viewAction);
+        client.disconnect();
     }
 }
