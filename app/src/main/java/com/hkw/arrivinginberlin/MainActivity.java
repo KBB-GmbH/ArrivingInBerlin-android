@@ -32,9 +32,13 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 
+import net.hockeyapp.android.CrashManager;
+import net.hockeyapp.android.UpdateManager;
+
+
 public class MainActivity extends Activity {
 
-//    private static final String TAG = "MainActivity";
+    private static final String TAG = "MainActivity";
 
     private MapView mapView;
     /**
@@ -46,6 +50,9 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Hockeyapp
+        checkForUpdates();
 
         // Mapbox access token only needs to be configured once in your app
         MapboxAccountManager.start(this, getString(R.string.access_token));
@@ -72,12 +79,14 @@ public class MainActivity extends Activity {
     public void onResume() {
         super.onResume();
         mapView.onResume();
+        checkForCrashes();
     }
 
     @Override
     public void onPause() {
         super.onPause();
         mapView.onPause();
+        unregisterManagers();
     }
 
     @Override
@@ -90,6 +99,7 @@ public class MainActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         mapView.onDestroy();
+        unregisterManagers();
     }
 
     @Override
@@ -122,19 +132,29 @@ public class MainActivity extends Activity {
                 LatLng latLng = new LatLng(coord.getDouble(1), coord.getDouble(0));
                 points.add(latLng);
 
+                // Information in Each point
                 JSONObject properties = feature.getJSONObject("properties");
                 String name = properties.getString("name");
-                String beschreibung = properties.getString("beschreibung");
-                String adresse = properties.getString("adresse");
-                String telefon = properties.getString("telefon");
-                String medium = properties.getString("medium");
-                String transport = properties.getString("transport");
+                String beschreibung = properties.getString("beschreibung").replace("*", "");
+                String adresse = properties.getString("adresse").replace("*", "");
+                if (adresse.length() != 0 ) {
+                    adresse = adresse.substring(0,1).toUpperCase() + adresse.substring​(1);
+                }
+                String telefon = properties.getString("telefon").replace("*", "");
+                String medium = properties.getString("medium").replace("*", "");
+                String transport = properties.getString("transport").replace("*", "");
 
-                
+                // Make Custom Icon
+                String uri = "@drawable/police";  // where myresource (without the extension) is the file
+                int imageResource = getResources().getIdentifier(uri, null, getPackageName());
+                IconFactory iconFactory = IconFactory.getInstance(MainActivity.this);
+                Drawable iconDrawable = getResources().getDrawable(imageResource);
+                Icon icon = iconFactory.fromDrawable(iconDrawable);
 
                 MarkerViewOptions marker = new MarkerViewOptions()
                         .position(latLng)
                         .title(name)
+                        .icon(icon)
                         .snippet(beschreibung + "\n" + adresse + "\n" + telefon + "\n" + transport + "\n" + medium);
                 mapboxMap.addMarker(marker);
 
@@ -184,4 +204,19 @@ public class MainActivity extends Activity {
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();
     }
+
+    // Hockeyapp methods
+    private void checkForCrashes() {
+        CrashManager.register(this);
+    }
+
+    private void checkForUpdates() {
+        // Remove this for store builds!
+        UpdateManager.register(this);
+    }
+
+    private void unregisterManagers() {
+        UpdateManager.unregister();
+    }
+
 }
