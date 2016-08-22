@@ -145,7 +145,7 @@ public class MainActivity extends Activity {
                 String transport = properties.getString("transport").replace("*", "");
 
                 // Make Custom Icon
-                String uri = "@drawable/police";  // where myresource (without the extension) is the file
+                String uri = "@drawable/lawyers";  // where myresource (without the extension) is the file
                 int imageResource = getResources().getIdentifier(uri, null, getPackageName());
                 IconFactory iconFactory = IconFactory.getInstance(MainActivity.this);
                 Drawable iconDrawable = getResources().getDrawable(imageResource);
