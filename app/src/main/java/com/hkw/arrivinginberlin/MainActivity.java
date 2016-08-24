@@ -3,6 +3,7 @@ package com.hkw.arrivinginberlin;
 import android.graphics.drawable.Drawable;
 import android.icu.text.StringPrepParseException;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,17 +27,21 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends Activity {
 
-//    private static final String TAG = "MainActivity";
+    private static final String TAG = "MainActivity";
 
     private MapView mapView;
+    private MapboxMap mapBox;
+    private List<JSONObject> locations = new ArrayList<>();
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -58,7 +63,8 @@ public class MainActivity extends Activity {
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(MapboxMap mapboxMap) {
-                addGeoPoints("_arriving_in_berlin___a_map_made_by_refugees___german_version_.geojson", mapboxMap);
+                mapBox = mapboxMap;
+                new FetchLocationsTask().execute();
             }
 
         });
@@ -96,6 +102,59 @@ public class MainActivity extends Activity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         mapView.onSaveInstanceState(outState);
+    }
+
+    public class FetchLocationsTask extends AsyncTask<Void, Void, List<JSONObject>>{
+        @Override
+        protected List<JSONObject> doInBackground(Void... params) {
+            Log.i(TAG, "fetching locations");
+            return new UmapDataRequest().fetchLocations();
+        }
+
+        @Override
+        protected void onPostExecute(List<JSONObject> newLocations){
+            locations = newLocations;
+            //check if the map exists already
+            Log.i("FETCH", "arrived at post exec");
+
+            if (locations != null){
+                for (JSONObject location : locations) {
+                    updateGeoPoints(location, mapBox);
+                }
+            }
+        }
+    }
+
+    public void updateGeoPoints(JSONObject json, MapboxMap mapboxMap) {
+        ArrayList<LatLng> points = new ArrayList<>();
+        try {
+            JSONArray features = json.getJSONArray("features");
+            for (int i = 0; i < features.length(); i++) {
+                JSONObject feature = features.getJSONObject(i);
+                JSONObject geometry = feature.getJSONObject("geometry");
+                JSONArray coord = geometry.getJSONArray("coordinates");
+                LatLng latLng = new LatLng(coord.getDouble(1), coord.getDouble(0));
+                points.add(latLng);
+
+                JSONObject properties = feature.getJSONObject("properties");
+                String name = properties.getString("name");
+                String beschreibung = properties.getString("beschreibung");
+                String adresse = properties.getString("adresse");
+                String telefon = properties.getString("telefon");
+                String medium = properties.getString("medium");
+                String transport = properties.getString("transport");
+
+                MarkerViewOptions marker = new MarkerViewOptions()
+                        .position(latLng)
+                        .title(name)
+                        .snippet(beschreibung + "\n" + adresse + "\n" + telefon + "\n" + transport + "\n" + medium);
+                mapboxMap.addMarker(marker);
+
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Exception Loading GeoJSON: " + e.toString());
+        }
+
     }
 
     public void addGeoPoints(String fileName, MapboxMap mapboxMap) {
