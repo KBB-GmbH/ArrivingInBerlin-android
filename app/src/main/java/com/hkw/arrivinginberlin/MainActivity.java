@@ -3,6 +3,7 @@ package com.hkw.arrivinginberlin;
 import android.graphics.drawable.Drawable;
 import android.icu.text.StringPrepParseException;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,10 +27,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.List;
 
 
 import net.hockeyapp.android.CrashManager;
@@ -41,6 +44,8 @@ public class MainActivity extends Activity {
     private static final String TAG = "MainActivity";
 
     private MapView mapView;
+    private MapboxMap mapBox;
+    private List<JSONObject> locations = new ArrayList<>();
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -65,7 +70,8 @@ public class MainActivity extends Activity {
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(MapboxMap mapboxMap) {
-                addGeoPoints("_arriving_in_berlin___a_map_made_by_refugees___english_version_.geojson", mapboxMap);
+                mapBox = mapboxMap;
+                new FetchLocationsTask().execute();
             }
 
         });
@@ -108,21 +114,31 @@ public class MainActivity extends Activity {
         mapView.onSaveInstanceState(outState);
     }
 
-    public void addGeoPoints(String fileName, MapboxMap mapboxMap) {
+    public class FetchLocationsTask extends AsyncTask<Void, Void, List<JSONObject>>{
+        @Override
+        protected List<JSONObject> doInBackground(Void... params) {
+            Log.i(TAG, "fetching locations");
+            return new UmapDataRequest().fetchLocations();
+        }
+
+        @Override
+        protected void onPostExecute(List<JSONObject> newLocations){
+            locations = newLocations;
+            //check if the map exists already
+            Log.i("FETCH", "arrived at post exec");
+
+            if (locations != null){
+                for (JSONObject location : locations) {
+                    addGeoPoints(location, mapBox);
+                }
+            }
+        }
+    }
+
+
+    public void addGeoPoints(JSONObject json, MapboxMap mapboxMap) {
         ArrayList<LatLng> points = new ArrayList<>();
         try {
-            // Load GeoJSON file
-            InputStream inputStream = getAssets().open(fileName);
-            BufferedReader bufferReader = new BufferedReader(new InputStreamReader(inputStream, Charset.forName("UTF-8")));
-            StringBuilder stringBuilder = new StringBuilder();
-            int charPointer;
-            while ((charPointer = bufferReader.read()) != -1) {
-                stringBuilder.append((char) charPointer);
-            }
-            inputStream.close();
-
-            // Parse JSON
-            JSONObject json = new JSONObject(stringBuilder.toString());
             JSONArray features = json.getJSONArray("features");
 
             for (int i = 0; i < features.length(); i++) {
