@@ -39,6 +39,7 @@ captures/
 .idea/libraries/lost_1_1_0.xml
 .idea/libraries/mapbox_android_services_1_2_1.xml
 .idea/libraries/support_v4_24_1_1.xml
+.idea/misc.xml
 
 # Keystore files
 *.jks
