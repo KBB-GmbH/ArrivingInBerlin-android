@@ -1,0 +1,5045 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.42825,
+          52.48896
+        ]
+      },
+      "properties": {
+        "name": "Afghanisches Kommunikations- und Kulturzentrum e.V.",
+        "beschreibung": "Support and consultation services for refugees. Languages: German, Dari",
+        "adresse": "**Adress:** Friedelstraße 10, 12047 Berlin",
+        "telefon": "**Phone: ** 030 831 060 88",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.35291,
+          52.49508
+        ]
+      },
+      "properties": {
+        "name": "Afrika Center in Berlin",
+        "beschreibung": "Consultation services for refugees and migrants from African countries. Appointment upon request.",
+        "adresse": "**Adress:** Hohenstaufenstr. 3, 10781 Berlin",
+        "telefon": "**Phone:** 030 2169170",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail:** afrika-center.berlin@t-online.de",
+        "link": "**Website:** [[http://www.afrika-center-berlin.com|www.afrika-center-berlin.com]]",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.43291,
+          52.47731
+        ]
+      },
+      "properties": {
+        "name": "Al Muntada (Diakoniewerk Simeon e.V.)",
+        "beschreibung": "Free support and consultation services for refugees and migrants, especially from Arabic countries.",
+        "adresse": "**Adress: **Morusstraße 18a, 12053 Berlin-Neukölln",
+        "telefon": "**Phone:** 030 682 47 719",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail:** almuntada@diakoniewerk-simeon.de",
+        "link": "**Website:** [[http://www.diakonie-integrationshilfe.de/sis-leistungen/beratung/al-muntada.html|www.diakonie-integrationshilfe.de]]",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3323439,
+          52.4684505
+        ]
+      },
+      "properties": {
+        "name": "AL NADI: Treffpunkt und Beratungsstelle für arabische Frauen",
+        "beschreibung": "Free support, language courses and consultation services for Arabic women. Appointment upon request.",
+        "adresse": "**Adress:** Rheinstr. 53-54, 12161 Berlin",
+        "telefon": "**Phone: ** 030 8520602",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail:** alnadi@nbhs.de",
+        "link": "**Website:** [[https://www.nbhs.de/stadtteilarbeit/al-nadi-fuer-arabische-frauen|www.nbhs.de]]",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.43951,
+          52.48695
+        ]
+      },
+      "properties": {
+        "name": "Amaro Drom e.V.",
+        "beschreibung": "Free support and consultation services for Roma.",
+        "adresse": "**Adress:** Weichselplatz 8, 12045 Berlin",
+        "telefon": "**Phone: ** 030 43205373",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail:** info@amarodrom.de",
+        "link": "**Website:** [[http://www.amarodrom.de|www.amarodrom.de]]",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4254535,
+          52.5286403
+        ]
+      },
+      "properties": {
+        "name": "Amnesty International",
+        "beschreibung": "Consultation Services for refugees and migrants. ",
+        "adresse": "**Adress:** Greifswalder Straße 4, 10405 Berlin",
+        "telefon": "**Phone:** 030 84109052",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**Website:** [[http://www.amnesty-asylgruppe-berlin.de/Main/Asylberatung|www.amnesty-asylgruppe-berlin.de]]",
+        "link": "",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4064671,
+          52.5005346
+        ]
+      },
+      "properties": {
+        "name": "Asyl in der Kirche, Asyl- und Flüchtlingsberatung",
+        "beschreibung": "Free support and consultation services for refugees and migrants.",
+        "adresse": "**Adress: ** St.-Simeon-Kirche, Wassertorstraße 21a 10969 Berlin (Ab 06.10.2015)",
+        "telefon": "**Phone:** 030 691 41 83",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail:** beratung@kirchenasyl-berlin.de",
+        "link": "**Website:** [[http://www.kirchenasyl-berlin.de|www.kirchenasyl-berlin.de]]",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.50331,
+          52.52653
+        ]
+      },
+      "properties": {
+        "name": "Asylerstberatung in der Erstaufnahme für Asylsuchende",
+        "beschreibung": "Free support and consultation services for refugees and migrants.",
+        "adresse": "**Adress: **Herzbergstraße 82-84, 10365 Berlin-Lichtenberg",
+        "telefon": "**Phone:** 030 22502757 31 / -43",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail:** asyl@awo-mitte.de",
+        "link": "",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.17623,
+          52.46843
+        ]
+      },
+      "properties": {
+        "name": "Asylerstberatung in der Erstaufnahme für Asylsuchende",
+        "beschreibung": "Free support and consultation services for refugees and migrants.",
+        "adresse": "**Adress: **Waldschluchtpfad 27, 14089 Berlin-Gatow",
+        "telefon": "**Phone:** 030 36508 313 ( 328)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail:** asyl@awo-mitte.de",
+        "link": "",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3325126,
+          52.5267962
+        ]
+      },
+      "properties": {
+        "name": "BBZ - Beratung- und Betreuungszentrum für junge Flüchtlinge und Migranten",
+        "beschreibung": "Free support and consultation services for refugees and migrants.",
+        "adresse": "**Adress: **Turmstraße 72, 10551 Berlin-Tiergarten",
+        "telefon": "**Phone:** 030 66640720",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**Website:** [[http://www.bbzberlin.de|www.bbzberlin.de]]",
+        "link": "",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3481716,
+          52.5264629
+        ]
+      },
+      "properties": {
+        "name": "Behandlungszentrum für Folteropfer Berlin e.V. (bzfo)",
+        "beschreibung": "Treatment of torture victims. Free medical, psychotherapeutic help and social assistance refugees and migrants.",
+        "adresse": "**Adress: **Turmstraße 21, 10559 Berlin-Moabit (Haus K, Eingang C, 3. Etage)",
+        "telefon": "**Phone:** 030 3039060",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5292108,
+          52.528494
+        ]
+      },
+      "properties": {
+        "name": "Beratung für ausländische Mitbürger Reistrommel e.V.",
+        "beschreibung": "Free support and consultation services for refugees and migrants.",
+        "adresse": "**Adress: **Coswiger Straße 5, 12681 Berlin-Marzahn",
+        "telefon": "**Phone:** 030 21 75 85 48",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail: info@reistrommel-ev.de",
+        "link": "**Website:** [[http://www.reistrommel-ev.de|www.reistrommel-ev.de]]",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.49597,
+          52.53767
+        ]
+      },
+      "properties": {
+        "name": "Bürgerinitiative Ausländische Mitbürgerinnen e.V.",
+        "beschreibung": "Free support and consultation services for refugees and migrants.",
+        "adresse": "**Adress: **Neustrelitzer Straße 63, 13055 Berlin-Hohenschönhausen",
+        "telefon": "**Phone:** 030 981 45 35",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**Website:** [[http://www.bi-berlin.org|www.bi-berlin.org]]",
+        "link": "",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.38817,
+          52.49191
+        ]
+      },
+      "properties": {
+        "name": "Büro für Medizinische Flüchtlingshilfe",
+        "beschreibung": "Free medical assistance for refugees and migrants.",
+        "adresse": "**Adress: **Gneisenaustraße 2a, 10961 Berlin-Kreuzberg",
+        "telefon": "**Phone:** 030 694 67 46",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail:** info@medibuero.de",
+        "link": "**Website:** [[http://www.medibuero.de|www.medibuero.de]]",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3355638,
+          52.5276601
+        ]
+      },
+      "properties": {
+        "name": "CARITAS - Beratungsstelle für Flüchtlinge und Ehrenamtliche",
+        "beschreibung": "Free support and consultation services for refugees and migrants.",
+        "adresse": "**Adress: **Oldenburger Straße 45, 10551 Berlin",
+        "telefon": "**Phone:** 030 32669159",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail:** d.wagner@caritas-berlin.de",
+        "link": "**Website:** [[http://www.caritas-berlin.de|www.caritas-berlin.de]]",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.44045,
+          52.47534
+        ]
+      },
+      "properties": {
+        "name": "Deutsch-Arabisches Zentrum für Bildung und Integration",
+        "beschreibung": "Support and consultation services for migrants from Arabic countries.",
+        "adresse": "**Adress: **Uthmannstr. 23. 12043 Berlin",
+        "telefon": "**Phone: ** 030 56826648",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail:** daz@ejf.de",
+        "link": "**Website:** [[https://www.ejf.de/fluechtlingshilfe/sprach-und-bildungskurse/deutsch-arabisches-zentrum.html|www.ejf.de]]",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3481716,
+          52.5264629
+        ]
+      },
+      "properties": {
+        "name": "EJF - Ev. Jugend- und Fürsorgewerk Wohnungen für Flüchtlinge - Beratung und Vermittlung",
+        "beschreibung": "Free support and consultation services for refugees and migrants.",
+        "adresse": "**Adress: **Turmstraße 21, 10559 Berlin-Moabit (Turmstr. 21 Haus K)",
+        "telefon": "**Phone:** 030 30873652",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail:** wohnungen-fuer-fluechtlinge@ejf.de",
+        "link": "",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4069711,
+          52.5327557
+        ]
+      },
+      "properties": {
+        "name": "Frauenkreise Berlin",
+        "beschreibung": "Legal advice for women, who are refugees or asylum-seekers. Free and anonymous consultations twice a month. Contact via phone for appointment.",
+        "adresse": "**Adress: **Choriner Str. 10, 10119 Berlin",
+        "telefon": "**Phone:** 030 2806185",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**Website: ** [[http://www.frauenkreise-berlin.de/beratung.php| www.frauenkreise-berlin.de]]",
+        "link": "",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.43291,
+          52.47731
+        ]
+      },
+      "properties": {
+        "name": "Haus der Begegnung (Jugendmigrationsdienst - Diakoniewerk Simeon e.V.)",
+        "beschreibung": "Free support and consultation services for refugees and migrants (youths and young adults).",
+        "adresse": "**Adress: **Morusstraße 18 a, 12053 Berlin",
+        "telefon": "**Phone:** 030 68247755",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail:** jmd@diakoniewerk-simeon.de",
+        "link": "**Website:** [[http://www.jmd-neukoelln.de/beratung.html|www.jmd-neukoelln.de]]",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4379658,
+          52.4647395
+        ]
+      },
+      "properties": {
+        "name": "Jugendberatungshaus Neukölln (Jugendmigrationsdienst - Diakoniewerk Simeon e.V.)",
+        "beschreibung": "Free support and consultation services for refugees and migrants (youths and young adults).",
+        "adresse": "**Adress: **Glasower Straße 18, 12051 Berlin",
+        "telefon": "**Phone:** 030 62608211",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail:** jmd@diakoniewerk-simeon.de",
+        "link": "**Website:** [[http://www.jmd-neukoelln.de/beratung.html|www.jmd-neukoelln.de]]",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4132902,
+          52.5027402
+        ]
+      },
+      "properties": {
+        "name": "Kontakt- und Beratungsstelle für Flüchtlinge und Migrant_innen e.V. (KUB)",
+        "beschreibung": "Free support and consultation services for refugees and migrants. **Languages:** Arabic, Kurdish, Rumanian, Italian, Spanish, French, Persian, Turkish, English, Russian",
+        "adresse": "**Adress: ** Oranienstr. 159, 10969 Berlin",
+        "telefon": "**Phone: ** 030 6149400 , 030 6149404",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail:** kontakt@kub-berlin.org",
+        "link": "**Website:** [[http://www.kub-berlin.org|www.kub-berlin.org]]",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.47775,
+          52.4231
+        ]
+      },
+      "properties": {
+        "name": "Kontakt- und Beratungsstelle in der Kirchengemeinde Gropiusstadt Süd (Jugendmigrationsdienst - Diakoniewerk Simeon e.V.)",
+        "beschreibung": "Free support and consultation services for refugees and migrants (youths and young adults).",
+        "adresse": "**Adress: **Joachim-Gottschalk-Weg 41, 12353 Berlin",
+        "telefon": "**Phone:** 030 66090915",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail:** jmd@diakoniewerk-simeon.de",
+        "link": "**Website:** [[http://www.jmd-neukoelln.de/beratung.html|www.jmd-neukoelln.de]]",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.43291,
+          52.47731
+        ]
+      },
+      "properties": {
+        "name": "Migrationsberatung für erwachsene Zuwanderer (Diakoniewerk Simeon e.V.)",
+        "beschreibung": "Free support and consultation services for migrants and families.",
+        "adresse": "**Adress: **Morusstr. 18 A, 12053 Berlin",
+        "telefon": "**Phone:** 030 682477-14 (18/19)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail:** migrationsberatung@diakoniewerk-simeon.de",
+        "link": "**Website:** [[http://www.diakonie-integrationshilfe.de/sis-leistungen/beratung/erwachsene-zuwanderer.html|www.diakonie-integrationshilfe.de]]",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3492231,
+          52.5001906
+        ]
+      },
+      "properties": {
+        "name": "MILES (Zentrum für Migranten, Lesben und Schwule)",
+        "beschreibung": "Counselling and legal advice for homosexual migrants. Contact via e-mail or phone to make an appointment.",
+        "adresse": "**Adress:** Kleiststraße 35, 10787 Berlin",
+        "telefon": "**Phone: **030 22502215",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail: **miles@blsb.de",
+        "link": "**Website:** [[https://berlin.lsvd.de/projekte/miles/| www.berlin.lsvd.de]]",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.40967,
+          52.55343
+        ]
+      },
+      "properties": {
+        "name": "Oase Berlin e.V.",
+        "beschreibung": "Free support and consultation services for refugees and migrants.",
+        "adresse": "**Adress: **Schönfließer Straße 7, 10439 Berlin-Prenzlauer Berg",
+        "telefon": "**Phone:** 030 300 24 40 40",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail:** kontakt@oase-berlin.org",
+        "link": "**Website:** [[http://www.oase-berlin.org|www.oase-berlin.org]]",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2985,
+          52.52532
+        ]
+      },
+      "properties": {
+        "name": "Papatya",
+        "beschreibung": "Anonymous crisis shelter and support for girls and young women.",
+        "adresse": "**Adress: **Mindener Straße 14, 10589 Berlin",
+        "telefon": "**Phone:** 030 610062 (**Emergency Call**: 030 610063)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail:** beratung@papatya.org",
+        "link": "**Website:** [[http://www.papatya.org|www.papatya.org]]",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5134046,
+          52.4545097
+        ]
+      },
+      "properties": {
+        "name": "Projekt InteraXion (Zentrum für Demokratie)",
+        "beschreibung": "Free support and consultation services for migrants and refugees who experienced discrimination and traumatic events.",
+        "adresse": "**Adress: **c/o Villa offensiv, Hasselwerderstr. 38 - 40, 12439 Berlin",
+        "telefon": "**Phone:** 030 65487293",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail:** interaxion@offensiv91.de",
+        "link": "**Website:** [[http://www.zentrum-für-demokratie.de/index.php/interaxion|www.zentrum-für-demokratie.de]]",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3771211,
+          52.5514907
+        ]
+      },
+      "properties": {
+        "name": "Salam Kulturclub",
+        "beschreibung": "Free support and consultation services for Syrian refugees and migrants.",
+        "adresse": "**Adress: ** Buttmannstraße 9A, 13357 Berlin",
+        "telefon": "**Phone:** 030 23914409",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail:** info@salamkulturclub.de",
+        "link": "**Website:** [[http://salamkulturclub.de/|Salam Kulturclub]]",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.43864,
+          52.50331
+        ]
+      },
+      "properties": {
+        "name": "TIO e.V. Beratungsstelle",
+        "beschreibung": "Consultation services and legal advice for women.",
+        "adresse": "**Adress: **Köpenicker Str. 9b, 10997 Berlin",
+        "telefon": "**Phone: ** 030 6122050",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail:** tio-ev@gmx.de",
+        "link": "**Website:** [[http://www.tio-berlin.de/beratungsstelle/|www.tio-berlin.de]]",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4147892,
+          52.502487
+        ]
+      },
+      "properties": {
+        "name": "Verband binationaler Familien und Partnerschaften iaf e.V. rechtliche und psychosoziale Beratung für binationale Paare",
+        "beschreibung": "Free support and consultation services for refugees and migrants.",
+        "adresse": "**Adress: **Oranienstraße 44, 10999 Berlin-Kreuzberg",
+        "telefon": "**Phone:** 030 6153499",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail:** berlin@verband-binationaler.de",
+        "link": "",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.42839,
+          52.48927
+        ]
+      },
+      "properties": {
+        "name": "Verein Iranischer Flüchtlinge e.V.",
+        "beschreibung": "Free support and consultation services for refugees and migrants. Language: Farsi",
+        "adresse": "**Adress: **Reuterstr. 52, 12047 Berlin-Neukölln",
+        "telefon": "**Phone: 030 62981530",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**Website:** [[http://www.iprberlin.com|www.iprberlin.com]]",
+        "link": "",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3107949,
+          52.4603993
+        ]
+      },
+      "properties": {
+        "name": "Xenion (Psychosoziale Hilfen für politische Verfolgte)",
+        "beschreibung": "Free support and consultation services for traumatized refugees and migrants. Appointment upon request.",
+        "adresse": "**Adress: **Paulsenstraße 55/56, 12163 Berlin-Steglitz",
+        "telefon": "**Phone:** 030 3232933",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail:** info@xenion.org",
+        "link": "**Website:** [[http://www.xenion.org|www.xenion.org]]",
+        "category": "Counseling",
+        "category_id": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.38302,
+          52.45985
+        ]
+      },
+      "properties": {
+        "name": "Abdul Hamid Bae",
+        "beschreibung": "Doctor (General Practitioner, Arabic)",
+        "adresse": "**Adress: ** Kaiserin-Augusta-Str. 11, Berlin, Tempelhof-Schöneberg Tempelhof",
+        "telefon": "**Phone:** 030 7510102, 030 7510101",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Arabic)",
+        "category_id": "2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.34672,
+          52.55266
+        ]
+      },
+      "properties": {
+        "name": "Abdul-Aziz Chabarek",
+        "beschreibung": "Doctor (General Practitioner, Arabic)",
+        "adresse": "**Adress: ** Kongostr. 52, Berlin, Mitte-Wedding",
+        "telefon": "**Phone:** 030 4525102",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Arabic)",
+        "category_id": "2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.429965,
+          52.4884328
+        ]
+      },
+      "properties": {
+        "name": "Ahmad Hodroj",
+        "beschreibung": "Doctor (General Practitioner, Arabic)",
+        "adresse": "**Adress: ** Nansenstr. 2, Berlin, Neukölln",
+        "telefon": "**Phone:** 030 6230080",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Arabic)",
+        "category_id": "2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4329352,
+          52.4828372
+        ]
+      },
+      "properties": {
+        "name": "Ali Souliman",
+        "beschreibung": "Doctor (General Practitioner, Arabic)",
+        "adresse": "**Adress: ** Karl-Marx-Str. 61, Berlin, Neukölln",
+        "telefon": "**Phone:** 030 6239132",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Arabic)",
+        "category_id": "2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.34946,
+          52.54974
+        ]
+      },
+      "properties": {
+        "name": "Dallal Seidl",
+        "beschreibung": "Doctor (General Practitioner, Arabic)",
+        "adresse": "**Adress: ** Seestr. 99, Berlin, Mitte Wedding",
+        "telefon": "**Phone:** 030 4556081",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Arabic)",
+        "category_id": "2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.44186,
+          52.47066
+        ]
+      },
+      "properties": {
+        "name": "Darius Dalmis",
+        "beschreibung": "Doctor (General Practitioner, Arabic)",
+        "adresse": "**Adress: ** Karl-Marx-Str. 215, Berlin, Neukölln",
+        "telefon": "**Phone:** 030 6822288",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Arabic)",
+        "category_id": "2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4403899,
+          52.4813291
+        ]
+      },
+      "properties": {
+        "name": "Diplome de Docteur-en Medicine Algerien Abdelhamid Brahimi",
+        "beschreibung": "Doctor (General Practitioner, Arabic)",
+        "adresse": "**Adress: ** Sonnenallee 110, Berlin, Neukölln",
+        "telefon": "**Phone:** 030 6874869",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Arabic)",
+        "category_id": "2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3143,
+          52.6034
+        ]
+      },
+      "properties": {
+        "name": "Dr. med. (Univ. Istanbul) Adnan Yücetas",
+        "beschreibung": "Doctor (General Practitioner, Arabic)",
+        "adresse": "**Adress: ** Hochjagdstr. 6, Berlin, Reinickendorf",
+        "telefon": "**Phone:** 030 4146113",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Arabic)",
+        "category_id": "2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.21888,
+          52.55711
+        ]
+      },
+      "properties": {
+        "name": "Dr. UNIMI Mohamad Al Abed",
+        "beschreibung": "Doctor (General Practitioner, Arabic)",
+        "adresse": "**Adress: ** Franz-Meyer-Str. 2, Berlin-Spandau",
+        "telefon": "**Phone:** 030 33772092, 030 33772093",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Arabic)",
+        "category_id": "2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.33567,
+          52.4509575
+        ]
+      },
+      "properties": {
+        "name": "Dr.med. Essam Shaltout",
+        "beschreibung": "Doctor (General Practitioner, Arabic)",
+        "adresse": "**Adress: ** Albrechtstr. 41, Berlin, Steglitz-Zehlendorf",
+        "telefon": "**Phone:** 030 7965777",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Arabic)",
+        "category_id": "2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.424963,
+          52.4989396
+        ]
+      },
+      "properties": {
+        "name": "Dr.med. Fathi Aziz Ghattas",
+        "beschreibung": "Doctor (General Practitioner, Arabic)",
+        "adresse": "**Adress: ** Skalitzer Str. 33, Berlin, Friedrichshain-Kreuzberg",
+        "telefon": "**Phone:** 030 6123794",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Arabic)",
+        "category_id": "2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.35318,
+          52.54162
+        ]
+      },
+      "properties": {
+        "name": "Dr.med. Hassan Naoum",
+        "beschreibung": "Doctor (General Practitioner, Arabic)",
+        "adresse": "**Adress: ** Sprengelstr. 19, Berlin, Mitte Wedding",
+        "telefon": "**Phone:** 030 4534097",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Arabic)",
+        "category_id": "2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.47223,
+          52.43127
+        ]
+      },
+      "properties": {
+        "name": "Dr.med. Heidrun Fröhlich",
+        "beschreibung": "Doctor (General Practitioner, Arabic)",
+        "adresse": "**Adress: ** Goldammerstr. 1, Berlin, Neukölln",
+        "telefon": "**Phone:** 030 6034075",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Arabic)",
+        "category_id": "2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4250078,
+          52.5018312
+        ]
+      },
+      "properties": {
+        "name": "Dr.med. Karim Soltani",
+        "beschreibung": "Doctor (General Practitioner, Arabic)",
+        "adresse": "**Adress: ** Mariannenstr. 9-10, Berlin, Friedrichshain-Kreuzberg",
+        "telefon": "**Phone:** 030 61403930",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Arabic)",
+        "category_id": "2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5722894,
+          52.5677957
+        ]
+      },
+      "properties": {
+        "name": "Dr.med. Salim Zaid",
+        "beschreibung": "Doctor (General Practitioner, Arabic)",
+        "adresse": "**Adress: ** Havemannstr. 24, Berlin, Marzahn-Hellersdorf",
+        "telefon": "**Phone:** 030 93881305, 030 93881386",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Arabic)",
+        "category_id": "2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3854137,
+          52.5506115
+        ]
+      },
+      "properties": {
+        "name": "Hasan Kurtoglu",
+        "beschreibung": "Doctor (General Practitioner, Arabic)",
+        "adresse": "**Adress: ** Badstr. 12, Berlin, Mitte-Wedding",
+        "telefon": "**Phone:** 030 4626070",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Arabic)",
+        "category_id": "2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2084497,
+          52.548199
+        ]
+      },
+      "properties": {
+        "name": "Ibrahim Mohamed",
+        "beschreibung": "Doctor (General Practitioner, Arabic)",
+        "adresse": "**Adress: ** Kurstr. 20, Berlin, Spandau",
+        "telefon": "**Phone:** 030 3359312",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Arabic)",
+        "category_id": "2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.44116,
+          52.47073
+        ]
+      },
+      "properties": {
+        "name": "Jamal Mohamed",
+        "beschreibung": "Doctor (General Practitioner, Arabic)",
+        "adresse": "**Adress: ** Karl-Marx-Str. 214, Berlin, Neukölln",
+        "telefon": "**Phone:** 030 6283831",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Arabic)",
+        "category_id": "2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4258734,
+          52.4777783
+        ]
+      },
+      "properties": {
+        "name": "Jihan Saeed",
+        "beschreibung": "Doctor (General Practitioner, Arabic)",
+        "adresse": "**Adress: ** Hermannstr. 52, Berlin, Neukölln",
+        "telefon": "**Phone:** 030 6213007",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Arabic)",
+        "category_id": "2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.509301,
+          52.4660782
+        ]
+      },
+      "properties": {
+        "name": "Mohamad Al-Raai",
+        "beschreibung": "Doctor (General Practitioner, Arabic)",
+        "adresse": "**Adress: ** Wattstr. 12, Berlin, Treptow-Köpenick",
+        "telefon": "**Phone:** 030 5350535",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Arabic)",
+        "category_id": "2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.45769,
+          52.54961
+        ]
+      },
+      "properties": {
+        "name": "Muhammad Abu Ghosh",
+        "beschreibung": "Doctor (General Practitioner, Arabic)",
+        "adresse": "**Adress: ** Berliner Allee 96, Berlin-Pankow",
+        "telefon": "**Phone:** 030 9274357",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Arabic)",
+        "category_id": "2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.49331,
+          52.41974
+        ]
+      },
+      "properties": {
+        "name": "Salah El-Tounsy",
+        "beschreibung": "Doctor (General Practitioner, Arabic)",
+        "adresse": "**Adress: ** Alt-Rudow 29, Berlin, Neukölln",
+        "telefon": "**Phone:** 030 66909733",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Arabic)",
+        "category_id": "2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4387076171204,
+          52.4763541
+        ]
+      },
+      "properties": {
+        "name": "Ajeh Bromand",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Karl-Marx-Str. 148, Neukölln, Berlin",
+        "telefon": "**Phone:** 030 6824430",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3132839,
+          52.4808788
+        ]
+      },
+      "properties": {
+        "name": "Badri Sadraie",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Mecklenburgische Str. 20, Charlottenburg-Wilmersdorf/Wilmersdorf, Berlin",
+        "telefon": "**Phone:** 030 8243368",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3773573586961,
+          52.45647945
+        ]
+      },
+      "properties": {
+        "name": "Beman Rostami Asr-Abadi",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Friedrich-Karl-Str. 34, Tempelhof-Schöneberg/Tempelhof, Berlin",
+        "telefon": "**Phone:** 030 7517590",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.434955,
+          52.4829582
+        ]
+      },
+      "properties": {
+        "name": "Dr.med. Abbas Moslehi",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Fuldastr. 6, Neukölln, Berlin",
+        "telefon": "**Phone:** 030 6235805",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3587623,
+          52.434067
+        ]
+      },
+      "properties": {
+        "name": "Dr.med. Afsaneh Bohlmann",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Kamenzer Damm 40, Steglitz-Zehlendorf/Steglitz, Berlin",
+        "telefon": "**Phone:** 030 7755999",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3889289,
+          52.4896657
+        ]
+      },
+      "properties": {
+        "name": "Dr.med. Ahad Mohammadi Fahimi",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Bergmannstr. 5, Friedrichshain-Kreuzberg/Kreuzberg, Berlin",
+        "telefon": "**Phone:** 030 6143635",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4241086,
+          52.4189644
+        ]
+      },
+      "properties": {
+        "name": "Dr.med. Fatemeh Musebrink",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Salmbacher Str. 6, Neukölln, Berlin",
+        "telefon": "**Phone:** 030 7423990",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4470771,
+          52.4752081
+        ]
+      },
+      "properties": {
+        "name": "Dr.med. Jalaluddin Ramez",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Hertzbergstr. 30, Neukölln, Berlin",
+        "telefon": "**Phone:** 030 6871220",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4224908,
+          52.4996901
+        ]
+      },
+      "properties": {
+        "name": "Dr.med. Karim Soltani",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Mariannenstr. 9-10, Friedrichshain-Kreuzberg/Kreuzberg, Berlin",
+        "telefon": "**Phone:** 030 61403930",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3343969,
+          52.5031149
+        ]
+      },
+      "properties": {
+        "name": "Dr.med. Larissa Khodai",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Rankestr. 8, Charlottenburg-Wilmersdorf/Charlottenburg, Berlin",
+        "telefon": "**Phone:** 030 30104670",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4010039,
+          52.4451224
+        ]
+      },
+      "properties": {
+        "name": "Dr.med. Madjid Massih",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Rixdorfer Str. 113, Tempelhof-Schöneberg/Tempelhof, Berlin",
+        "telefon": "**Phone:** 030 7019250",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3583469,
+          52.5466096
+        ]
+      },
+      "properties": {
+        "name": "Dr.med. Mahmoud Pakzad",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Müllerstr. 151, Mitte/Wedding, Berlin",
+        "telefon": "**Phone:** 030 4579790",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4348252,
+          52.4606368
+        ]
+      },
+      "properties": {
+        "name": "Dr.med. Masoumeh Amiri",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Britzer Damm 26, Neukölln, Berlin",
+        "telefon": "**Phone:** 030 6256085",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.436072,
+          52.4181156
+        ]
+      },
+      "properties": {
+        "name": "Dr.med. Mohsen Lotfi",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Christoph-Ruden-Str. 7, Neukölln/Neukölln, Berlin",
+        "telefon": "**Phone:** 030 7427077",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3063303,
+          52.5057988
+        ]
+      },
+      "properties": {
+        "name": "Dr.med. Nazanin Bakhtari",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Stuttgarter Platz 1, Charlottenburg-Wilmersdorf/Charlottenburg, Berlin",
+        "telefon": "**Phone:** 030 3236125",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4182081,
+          52.5327176
+        ]
+      },
+      "properties": {
+        "name": "Dr.med. Rochane Falsafi Amin",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Kolmarer Str. 1, Pankow/Prenzlauer Berg, Berlin",
+        "telefon": "**Phone:** 030 44308331",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3523101,
+          52.5234913
+        ]
+      },
+      "properties": {
+        "name": "Dr.med. Schiva Maher",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Calvinstr. 32, Mitte, Berlin, Berlin",
+        "telefon": "**Phone:** 030 3914785",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.1836711,
+          52.5481
+        ]
+      },
+      "properties": {
+        "name": "Dr.med. Soheila Hansel",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Falkenseer Chaussee 34, Spandau/Spandau, Berlin",
+        "telefon": "**Phone:** 030 3722909",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3889289,
+          52.4896657
+        ]
+      },
+      "properties": {
+        "name": "Dr.med. Sohrab Fahimi",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Bergmannstr. 5, Friedrichshain-Kreuzberg/Kreuzberg, Berlin",
+        "telefon": "**Phone:** 030 6143635",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.435715,
+          52.484053
+        ]
+      },
+      "properties": {
+        "name": "Efat Torabi Paridari",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Sonnenallee 73, Neukölln, Berlin",
+        "telefon": "**Phone:** 030 6234702",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4591009873504,
+          52.44127205
+        ]
+      },
+      "properties": {
+        "name": "Elham Rahmani",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Rudower Str. 27, Neukölln, Berlin",
+        "telefon": "**Phone:** 030 66528802",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3497323,
+          52.5448366
+        ]
+      },
+      "properties": {
+        "name": "Farideh Golshahi",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Lütticher Str. 13, Mitte/Wedding, Berlin",
+        "telefon": "**Phone:** 030 45490303, 030 45490304",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3730149,
+          52.4456124
+        ]
+      },
+      "properties": {
+        "name": "Fariha Abassy-Ahmadi",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Gersdorfstr. 54, Tempelhof-Schöneberg/Tempelhof, Berlin",
+        "telefon": "**Phone:** 030 7064977",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.24102735,
+          52.4426854
+        ]
+      },
+      "properties": {
+        "name": "Fereshteh Rath",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Fischerhüttenstr. 89, Steglitz-Zehlendorf/Zehlendorf, Berlin",
+        "telefon": "**Phone:** 030 81472930",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2083629,
+          52.5474196
+        ]
+      },
+      "properties": {
+        "name": "Ghulam Mushfiq",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Lutherstr. 23, Spandau, Berlin",
+        "telefon": "**Phone:** 030 35503316",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.47554,
+          52.4231562
+        ]
+      },
+      "properties": {
+        "name": "Jafer Abbassi",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Joachim-Gottschalk-Weg 21, Neukölln, Berlin",
+        "telefon": "**Phone:** 030 68809756",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3587623,
+          52.434067
+        ]
+      },
+      "properties": {
+        "name": "Khadijeh Jahangir-Bakhtiary",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Kamenzer Damm 40, Steglitz-Zehlendorf/Steglitz, Berlin",
+        "telefon": "**Phone:** 030 7754388",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4341377,
+          52.4814347
+        ]
+      },
+      "properties": {
+        "name": "Masoud Vali Mohammadi",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Karl-Marx-Str. 80, Neukölln, Berlin",
+        "telefon": "**Phone:** 030 6233214",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.399850468641,
+          52.38558395
+        ]
+      },
+      "properties": {
+        "name": "Mehdi Bozorgizadeh",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Briesingstr. 13a, Tempelhof-Schöneberg/Tempelhof, Berlin",
+        "telefon": "**Phone:** 030 7445050",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3192889,
+          52.4631901
+        ]
+      },
+      "properties": {
+        "name": "Mehdi Rafii",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Schildhornstr. 85, Steglitz-Zehlendorf/Steglitz, Berlin",
+        "telefon": "**Phone:** 030 7914346",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4357183,
+          52.459908
+        ]
+      },
+      "properties": {
+        "name": "Modjtaba Barghi",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Britzer Damm 33, Neukölln, Berlin",
+        "telefon": "**Phone:** 030 6283690",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.435964,
+          52.4620767
+        ]
+      },
+      "properties": {
+        "name": "Nasila Nouniaz-Wirbelauer",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Wederstr. 85, Neukölln, Berlin",
+        "telefon": "**Phone:** 030 62730401",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4307313,
+          52.4679454
+        ]
+      },
+      "properties": {
+        "name": "Nasrin Alidousti",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Hermannstr. 111, Neukölln, Berlin",
+        "telefon": "**Phone:** 030 6255108, 030 6256008",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3762316,
+          52.4686484
+        ]
+      },
+      "properties": {
+        "name": "Schahrzad Arfa Kaboodvand",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Ringbahnstr. 78-80, Tempelhof-Schöneberg/Tempelhof, Berlin",
+        "telefon": "**Phone:** 030 7523006",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.1603261,
+          52.4614499
+        ]
+      },
+      "properties": {
+        "name": "Schokufeh Gaschtassbi-Amiri",
+        "beschreibung": "Doctor (General Practitioner, Farsi)",
+        "adresse": "**Adress:** Kladower Damm 221, Spandau, Berlin",
+        "telefon": "**Phone:** 030 343334100",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (General Practitioner, Farsi)",
+        "category_id": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3334256,
+          52.5952005
+        ]
+      },
+      "properties": {
+        "name": "Babak Assadi-Moghadam",
+        "beschreibung": "Doctor (Gynaecologist, Farsi)",
+        "adresse": "**Adress: **Oranienburger Str. 86, Berlin, Reinickendorf",
+        "telefon": "**Phone: ** 030 41477861",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (Gynaecologist, Farsi)",
+        "category_id": "5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.32175,
+          52.4576
+        ]
+      },
+      "properties": {
+        "name": "Dr.med. Andreas Reich",
+        "beschreibung": "Doctor (Gynaecologist, Farsi)",
+        "adresse": "**Adress: **Schloßstr. 88, Berlin, Steglitz-Zehlendorf",
+        "telefon": "**Phone: ** 030 7919855",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (Gynaecologist, Farsi)",
+        "category_id": "5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.28126,
+          52.51028
+        ]
+      },
+      "properties": {
+        "name": "Dr.med. Arezou Rosa Mazhari",
+        "beschreibung": "Doctor (Gynaecologist, Farsi)",
+        "adresse": "**Adress: **Kaiserdamm 26, Berlin, Charlottenburg",
+        "telefon": "**Phone: ** 030 95605065",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (Gynaecologist, Farsi)",
+        "category_id": "5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3578079,
+          52.5464409
+        ]
+      },
+      "properties": {
+        "name": "Dr.med. Mahmoud Pakzad",
+        "beschreibung": "Doctor (Gynaecologist, Farsi)",
+        "adresse": "**Adress: **Müllerstr. 151, Berlin, Mitte/Wedding",
+        "telefon": "**Phone: ** 030 4579790",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (Gynaecologist, Farsi)",
+        "category_id": "5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3979553,
+          52.5351307
+        ]
+      },
+      "properties": {
+        "name": "Dr.med. Sepideh Abhari",
+        "beschreibung": "Doctor (Gynaecologist, Farsi)",
+        "adresse": "**Adress: **Brunnenstr. 160, Berlin, Mitte",
+        "telefon": "**Phone: ** 030 473726900",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (Gynaecologist, Farsi)",
+        "category_id": "5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4198973,
+          52.5017871
+        ]
+      },
+      "properties": {
+        "name": "Dr.med. Sohela Rduch-Jandi",
+        "beschreibung": "Doctor (Gynaecologist, Farsi)",
+        "adresse": "**Adress: **Adalbertstr. 16, Berlin, Friedrichshain-Kreuzberg",
+        "telefon": "**Phone: ** 030 6169540",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Doctor (Gynaecologist, Farsi)",
+        "category_id": "5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4206563,
+          52.5010652
+        ]
+      },
+      "properties": {
+        "name": "Akarsu e. V.",
+        "beschreibung": "Free German lessons for refugees and asylum-seekers (men and women).",
+        "adresse": "**Adress:** Oranienstrasse 25, 10999 Berlin",
+        "telefon": "**Phone:** 030 61676930",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail:** info@akarsu-ev.de",
+        "link": "**Website:** [[http://akarsu-ev.de/index.html| www.akarsu-ev.de]]",
+        "category": "German Courses",
+        "category_id": "6"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.43558,
+          52.46584
+        ]
+      },
+      "properties": {
+        "name": "JACK Bildungsstätte",
+        "beschreibung": "Free German classes for girls and women in vulnerable situations.",
+        "adresse": "**Adress: ** Kranoldstraße 22, 12051 Berlin",
+        "telefon": "**Phone: **030 91566720",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail: **info@jack-berlin.org",
+        "link": "**Website: **http://www.jack-berlin.org/kurse/",
+        "category": "German Courses",
+        "category_id": "6"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4132902,
+          52.5027402
+        ]
+      },
+      "properties": {
+        "name": "Kontakt- und Beratungsstelle für Flüchtlinge und Migrant_innen e.V. (KUB)",
+        "beschreibung": "Free German Classes for refugees, contact KUB for more information.",
+        "adresse": "**Adress: ** Oranienstr. 159, 10969 Berlin",
+        "telefon": "**Phone: ** 030 6149400 , 030 6149404",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-Mail: **kontakt@kub-berlin.org",
+        "link": "**Website: **http://www.kub-berlin.org",
+        "category": "German Courses",
+        "category_id": "6"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.401651,
+          52.5027059
+        ]
+      },
+      "properties": {
+        "name": "Multitude e.V.",
+        "beschreibung": "Free German classes for refugees. Organized by volunteers of Multitude e.V. in refugee camps in Adlershof, Charlottenburg, Köpenick, Lichtenberg, Marzahn, Mitte, Spandau.",
+        "adresse": "**Info: ** Fore more information about the courses: info@multitude-berlin.de",
+        "telefon": "",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**On Facebook:** https://www.facebook.com/Multitude-Berlin-246361335423988/",
+        "link": "",
+        "category": "German Courses",
+        "category_id": "6"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3034421,
+          52.5084391
+        ]
+      },
+      "properties": {
+        "name": "Volkshochschule Charlottenburg-Wilmersdorf",
+        "beschreibung": "The Berliner Volkshochschule offers free German language classes for refugees and asylum-seekers. As there are just few courses, there might be a waiting list.",
+        "adresse": "**Adress:** Pestalozzistraße 40/41, 10627 Berlin",
+        "telefon": "**Phone:** 030 90292 8871",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**Info / Registration:** Find language courses [[http://www.vhsit.berlin.de/VHSKURSE/BusinessPages/CourseSearch.aspx?direkt=1&bezirk=37&begonnen=0&beendet=0&titel=Deutschkurs%20f%FCr%20Fl%FCchtlinge |here]]. Before attending a course, an assessment interview is necessary.",
+        "link": "",
+        "category": "German Courses",
+        "category_id": "6"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.46162,
+          52.51529
+        ]
+      },
+      "properties": {
+        "name": "Volkshochschule Friedrichshain-Kreuzberg",
+        "beschreibung": "The Berliner Volkshochschule offers free German language classes for refugees and asylum-seekers. As there are just few courses, there might be a waiting list.",
+        "adresse": "**Adress:** Frankfurter Allee 37, 10247 Berlin",
+        "telefon": "**Phone:** 030 90298 4600",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**Info / Registration:** Find language courses [[http://www.vhsit.berlin.de/VHSKURSE/BusinessPages/CourseSearch.aspx?direkt=1&bezirk=37&begonnen=0&beendet=0&titel=Deutschkurs%20f%FCr%20Fl%FCchtlinge |here]]. Before attending a course, an assessment interview is necessary.",
+        "link": "",
+        "category": "German Courses",
+        "category_id": "6"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.47802,
+          52.5285
+        ]
+      },
+      "properties": {
+        "name": "Volkshochschule Lichtenberg",
+        "beschreibung": "The Berliner Volkshochschule offers free German language classes for refugees and asylum-seekers. As there are just few courses, there might be a waiting list.",
+        "adresse": "**Adress:** Paul-Junius-Straße 71, 10369 Berlin",
+        "telefon": "**Phone:** 030 90296 5971",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**Info / Registration:** Find language courses [[http://www.vhsit.berlin.de/VHSKURSE/BusinessPages/CourseSearch.aspx?direkt=1&bezirk=37&begonnen=0&beendet=0&titel=Deutschkurs%20f%FCr%20Fl%FCchtlinge |here]]. Before attending a course, an assessment interview is necessary.",
+        "link": "",
+        "category": "German Courses",
+        "category_id": "6"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.61074,
+          52.53601
+        ]
+      },
+      "properties": {
+        "name": "Volkshochschule Marzahn-Hellersdorf",
+        "beschreibung": "The Berliner Volkshochschule offers free German language classes for refugees and asylum-seekers. As there are just few courses, there might be a waiting list.",
+        "adresse": "**Adress:** Mark Twain Straße 27, 12627 Berlin",
+        "telefon": "**Phone:** 030 90293 2590",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**Info / Registration:** Find language courses [[http://www.vhsit.berlin.de/VHSKURSE/BusinessPages/CourseSearch.aspx?direkt=1&bezirk=37&begonnen=0&beendet=0&titel=Deutschkurs%20f%FCr%20Fl%FCchtlinge |here]]. Before attending a course, an assessment interview is necessary.",
+        "link": "",
+        "category": "German Courses",
+        "category_id": "6"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3632186,
+          52.5471327
+        ]
+      },
+      "properties": {
+        "name": "Volkshochschule Mitte",
+        "beschreibung": "The Berliner Volkshochschule offers free German language classes for refugees and asylum-seekers. As there are just few courses, there might be a waiting list.",
+        "adresse": "**Adress:** Antonstraße 37, 13347 Berlin",
+        "telefon": "**Phone:** 030 9018 37474",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**Info / Registration:** Find language courses [[http://www.vhsit.berlin.de/VHSKURSE/BusinessPages/CourseSearch.aspx?direkt=1&bezirk=37&begonnen=0&beendet=0&titel=Deutschkurs%20f%FCr%20Fl%FCchtlinge |here]]. Before attending a course, an assessment interview is necessary.",
+        "link": "",
+        "category": "German Courses",
+        "category_id": "6"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4265977,
+          52.4797671
+        ]
+      },
+      "properties": {
+        "name": "Volkshochschule Neukölln",
+        "beschreibung": "The Berliner Volkshochschule offers free German language classes for refugees and asylum-seekers. As there are just few courses, there might be a waiting list.",
+        "adresse": "**Adress:** Boddinstraße 34, 12053 Berlin",
+        "telefon": "**Phone:** 030 90239 2433",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**Info / Registration:** Find language courses [[http://www.vhsit.berlin.de/VHSKURSE/BusinessPages/CourseSearch.aspx?direkt=1&bezirk=37&begonnen=0&beendet=0&titel=Deutschkurs%20f%FCr%20Fl%FCchtlinge |here]]. Before attending a course, an assessment interview is necessary.",
+        "link": "",
+        "category": "German Courses",
+        "category_id": "6"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.40976,
+          52.56902
+        ]
+      },
+      "properties": {
+        "name": "Volkshochschule Pankow",
+        "beschreibung": "The Berliner Volkshochschule offers free German language classes for refugees and asylum-seekers. As there are just few courses, there might be a waiting list.",
+        "adresse": "**Adress:** Schulstraße 29, 13187 Berlin",
+        "telefon": "**Phone:** 030 90295 1700",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**Info / Registration:** Find language courses [[http://www.vhsit.berlin.de/VHSKURSE/BusinessPages/CourseSearch.aspx?direkt=1&bezirk=37&begonnen=0&beendet=0&titel=Deutschkurs%20f%FCr%20Fl%FCchtlinge |here]]. Before attending a course, an assessment interview is necessary.",
+        "link": "",
+        "category": "German Courses",
+        "category_id": "6"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.28664,
+          52.59053
+        ]
+      },
+      "properties": {
+        "name": "Volkshochschule Reinickendorf",
+        "beschreibung": "The Berliner Volkshochschule offers free German language classes for refugees and asylum-seekers. As there are just few courses, there might be a waiting list.",
+        "adresse": "**Adress:** Buddestraße 21, 13507 Berlin",
+        "telefon": "**Phone:** 030 90294 4800",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**Info / Registration:** Find language courses [[http://www.vhsit.berlin.de/VHSKURSE/BusinessPages/CourseSearch.aspx?direkt=1&bezirk=37&begonnen=0&beendet=0&titel=Deutschkurs%20f%FCr%20Fl%FCchtlinge |here]]. Before attending a course, an assessment interview is necessary.",
+        "link": "",
+        "category": "German Courses",
+        "category_id": "6"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2017902,
+          52.538131
+        ]
+      },
+      "properties": {
+        "name": "Volkshochschule Spandau",
+        "beschreibung": "The Berliner Volkshochschule offers free German language classes for refugees and asylum-seekers. As there are just few courses, there might be a waiting list.",
+        "adresse": "**Adress:** Moritzstraße 17, 13597 Berlin",
+        "telefon": "**Phone:** 030 90279 5000",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**Info / Registration:** Find language courses [[http://www.vhsit.berlin.de/VHSKURSE/BusinessPages/CourseSearch.aspx?direkt=1&bezirk=37&begonnen=0&beendet=0&titel=Deutschkurs%20f%FCr%20Fl%FCchtlinge |here]]. Before attending a course, an assessment interview is necessary.",
+        "link": "",
+        "category": "German Courses",
+        "category_id": "6"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2552169,
+          52.4337226
+        ]
+      },
+      "properties": {
+        "name": "Volkshochschule Steglitz-Zehlendorf",
+        "beschreibung": "The Berliner Volkshochschule offers free German language classes for refugees and asylum-seekers. As there are just few courses, there might be a waiting list.",
+        "adresse": "**Adress:** Markgrafenstraße 3, 14163 Berlin",
+        "telefon": "**Phone:** 030 90299 5020",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**Info / Registration:** Find language courses [[http://www.vhsit.berlin.de/VHSKURSE/BusinessPages/CourseSearch.aspx?direkt=1&bezirk=37&begonnen=0&beendet=0&titel=Deutschkurs%20f%FCr%20Fl%FCchtlinge |here]]. Before attending a course, an assessment interview is necessary.",
+        "link": "",
+        "category": "German Courses",
+        "category_id": "6"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.348538875579834,
+          52.52665279403019
+        ]
+      },
+      "properties": {
+        "name": "Zentrum für Flüchtlingshilfen und Migrationsdienste",
+        "beschreibung": "Integration courses, literacy classes but also free classes for refugees.  Registration at: Haus K, Eingang D, 3. Etage, Raum 356\n",
+        "adresse": "**Adress:** Turmstraße 21, 10559 Berlin (Haus K, Eingang D, 3. Etage, Raum 356)",
+        "telefon": "**Phone:** 030 30 39 06 -52 -53",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**Website:** http://www.migrationsdienste.org/",
+        "link": "",
+        "category": "German Courses",
+        "category_id": "6"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.33019,
+          52.5111765
+        ]
+      },
+      "properties": {
+        "name": "Zwille",
+        "beschreibung": "Free German classes for refugees organized by volunteers at TU Berlin",
+        "adresse": "**Adress: **Fasanenstraße 1, 10623 Berlin â€Ž(Zwille TU Berlin, Z-Gebäude)",
+        "telefon": "**Phone: **030 314 23261",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**Facebook: **https://www.facebook.com/pages/Zwille-Deutschkurs/539628329445424",
+        "link": "",
+        "category": "German Courses",
+        "category_id": "6"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3811952,
+          52.4984352
+        ]
+      },
+      "properties": {
+        "name": "Lawyer: Berenice Böhlo",
+        "beschreibung": "Legal advice for refugees, residence and foreigners law",
+        "adresse": "**Adress: **Tempelhofer Ufer 23-24, 10963 Berlin",
+        "telefon": "**Phone:** 030 25935770",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Lawyers",
+        "category_id": "7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.38688,
+          52.49224
+        ]
+      },
+      "properties": {
+        "name": "Lawyer: Renate Ebrahaim",
+        "beschreibung": "Legal advice for refugees, residence and foreigners law",
+        "adresse": "**Adress: **Mehringdamm 48, 10961 Berlin",
+        "telefon": "**Phone:** 030 7852045",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Lawyers",
+        "category_id": "7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.403191,
+          52.5244609
+        ]
+      },
+      "properties": {
+        "name": "Lawyer: Rolf Stahmann",
+        "beschreibung": "Legal advice for refugees, residence and foreigners law",
+        "adresse": "**Adress: **Rosenthaler Str. 46/47, 10178 Berlin",
+        "telefon": "**Phone:** 030 28390963",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**Website:** www.stahmann-anwalt.de",
+        "link": "",
+        "category": "Lawyers",
+        "category_id": "7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.43148,
+          52.48684
+        ]
+      },
+      "properties": {
+        "name": "Lawyers: Julia Kraft und Simone Rapp",
+        "beschreibung": "Legal advice for refugees, residence and foreigners law",
+        "adresse": "**Adress: **Pannierstraße 8, 12047 Berlin",
+        "telefon": "**Phone:** 030 23919825",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-mail:** kontakt@kraftundrapp.de",
+        "link": "**Website:** http://www.kraftundrapp.de/",
+        "category": "Lawyers",
+        "category_id": "7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3868686,
+          52.5308346
+        ]
+      },
+      "properties": {
+        "name": "Lawyers: Oda Jentsch, Berthe Obermanns, Dr. Matthias Lehnert",
+        "beschreibung": "Legal advice for refugees, residence and foreigners law",
+        "adresse": "**Adress: **Eichendorffstr. 13, 10115 Berlin",
+        "telefon": "**Phone:** 030 252987-77",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "**E-mail:** kontakt@aufenthaltsrecht.net",
+        "link": "**Website:** www.aufenthaltsrecht.net",
+        "category": "Lawyers",
+        "category_id": "7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3660936,
+          52.5221208
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Alt-Moabit 145, 10557 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.59081,
+          52.51481
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Heinrich-GrüberStr. 35, 12621 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.32573,
+          52.58722
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Am Nordgraben 6, 13437 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.31163,
+          52.44327
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Augustaplatz 7, 12203 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5119974,
+          52.4311082
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Berliner Str. 35, 13507 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.46707,
+          52.55734
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Berliner Allee 210, 13088 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3188927,
+          52.5120194
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Bismarckstr. 111, 10625 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3986388,
+          52.5325307
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Brunnenstr. 175, 10119 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5623551,
+          52.5289407
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Cecilienstr. 92, 12683 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2286563,
+          52.5281129
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Charlottenburger Chaussee 67, 13597 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2287,
+          52.5282
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Charlottenburger Chaussee 75, 13597 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4079569,
+          52.5418757
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Eberswalder Str. 6-9, 10437 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3507274,
+          52.4281078
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Eiswaldtstr. 18, 12249 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.39034,
+          52.50498
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Friedrichstr. 219, 10969 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3947129,
+          52.4862781
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Friesenstr. 16, 10965 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.34743,
+          52.42812
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Gallwitzallee 87, 12249 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3470927,
+          52.4886092
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Gothaer Str. 19, 10823 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.38729,
+          52.4645014
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Götzstr. 6, 12099 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4149987,
+          52.5698116
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Hadlichstr. 37, 13187 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.34989,
+          52.48337
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Hauptstr. 45, 10827 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.19538,
+          52.43169
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Alemannenstr. 10, 14129 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.29575,
+          52.51121
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Kaiserdamm 1, 14057 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.57958,
+          52.44231
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Karlstr. 8, 12557 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3579237,
+          52.5330662
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Kruppstr. 2, 10557 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.40731,
+          52.39424
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Lichtenrader Damm 211, 12305 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.19914,
+          52.53945
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Moritzstr. 10, 13597 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3605023,
+          52.5533009
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Oudenarder Str. 16, 13347 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.51537,
+          52.56646
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Pablo-Picasso-Str. 2, 13057 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3754792,
+          52.5483268
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Pankstr. 29, 13357 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.352991342544556,
+          52.53347986245227
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Perleberger Str. 61 A, 10559 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.53847,
+          52.53504
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Poelchaustr. 1, 12681 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.43481,
+          52.47907
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Rollbergstr. 9, 12053 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3075218,
+          52.4844496
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Rudolstädter Str. 81, 10713 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.50875,
+          52.4435
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Segelfliegerdamm 42, 12487 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4408497,
+          52.4817768
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Sonnenallee 107, 12045 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4523575,
+          52.537975
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Storkower Str. 101, 10407 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.44437,
+          52.51211
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Wedekindstr. 10, 10243 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.47739,
+          52.41947
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Zwickauer Damm 58, 12353 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.18784,
+          52.52225
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:** Schmidt-Knobelsdorf-Str. 27, 13581 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4159485,
+          52.5249611
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:**Keibelstr. 35, 10178 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4840412,
+          52.5021922
+        ]
+      },
+      "properties": {
+        "name": "Police",
+        "beschreibung": "",
+        "adresse": "**Adress:**Nöldnerstr. 35, 10317 Berlin",
+        "telefon": "**Phone:** 030 4664-4664 (**Emergency Call:** 110)",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Police",
+        "category_id": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3559123,
+          52.5381991
+        ]
+      },
+      "properties": {
+        "name": "Ausländerbehörde Berlin",
+        "beschreibung": "Temporary residence permits, residence permits after the asylum procedure, family reunification as well as negative asylum decision and deportations.",
+        "adresse": "**Adress:** Friedrich-Krause-Ufer 24 , 13353 Berlin",
+        "telefon": "",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Public Authorities",
+        "category_id": "9"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2021029,
+          52.5542563
+        ]
+      },
+      "properties": {
+        "name": "Außenstelle Bundesamt für Migration und Flüchtlinge (BAMF)",
+        "beschreibung": "Responsible both for the hearings about the reasons for escape and for the decision on whether or not asylum is granted.",
+        "adresse": "**Adress:** Askanierring 106, 13587 Berlin",
+        "telefon": "",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Public Authorities",
+        "category_id": "9"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3481716,
+          52.5264629
+        ]
+      },
+      "properties": {
+        "name": "Landesamt für Gesundheit und Soziales (LaGeSO)",
+        "beschreibung": "Central reception facility for refugees in Berlin. Registers refugees who want to apply for asylum.",
+        "adresse": "**Adress:** Turmstraße 21, 10559 Berlin",
+        "telefon": "",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Public Authorities",
+        "category_id": "9"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2526616,
+          52.534648
+        ]
+      },
+      "properties": {
+        "name": "Zentrale Aufnahmestelle für Flüchtlinge Berlin",
+        "beschreibung": "\"The mother of all Heims\" (Hamid)",
+        "adresse": "**Adress:** Motardstraße 101A, 13629 Berlin",
+        "telefon": "",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "",
+        "link": "",
+        "category": "Public Authorities",
+        "category_id": "9"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.28801,
+          52.4777
+        ]
+      },
+      "properties": {
+        "name": "Adolf-Reichwein-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Berkaer Pl. 1, 14199 Berlin",
+        "telefon": "**Phone:** 030 90290",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/ba-charlottenburg-wilmersdorf/verwaltung/bibliotheken/adolf-reichwein-bibliothek-201473.php| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3903134,
+          52.4963116
+        ]
+      },
+      "properties": {
+        "name": "Amerika-Gedenkbibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Blücherplatz 1, 10961 Berlin",
+        "telefon": "**Phone:** 030 902260",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.zlb.de/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5061303,
+          52.5650537
+        ]
+      },
+      "properties": {
+        "name": "Anna-Seghers-Bibliothek im Linden-Center",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Prerower Pl. 2, 13051 Berlin",
+        "telefon": "**Phone:** 030 9279640",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/ba-lichtenberg/auf-einen-blick/buergerservice/bildung/artikel.298017.php| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.47082,
+          52.53066
+        ]
+      },
+      "properties": {
+        "name": "Anton-Saefkow-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Anton-Saefkow-Platz 14, 10369 Berlin",
+        "telefon": "**Phone:** 030 902963773",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/ba-lichtenberg/auf-einen-blick/buergerservice/bildung/artikel.298020.php| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.40446,
+          52.51534
+        ]
+      },
+      "properties": {
+        "name": "Berliner Stadtbibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Breite Straße 30-36, 10178 Berlin",
+        "telefon": "**Phone:** 030 902260",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.zlb.de/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.414202,
+          52.5514211
+        ]
+      },
+      "properties": {
+        "name": "Bettina-von-Arnim-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Schönhauser Allee 75, 10439 Berlin",
+        "telefon": "**Phone:** 030 4457346",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-pankow/bibliotheken/bettina-von-arnim-bibliothek/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5554319,
+          52.5472261
+        ]
+      },
+      "properties": {
+        "name": "Bezirkszentralbibliothek \"Mark Twain\"",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Marzahner Promenade 52-54, 12679 Berlin",
+        "telefon": "**Phone:** 030 54704144",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[https://www.berlin.de/ba-marzahn-hellersdorf/politik-und-verwaltung/aemter/amt-fuer-weiterbildung-und-kultur/bibliotheken/artikel.290055.php#02| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2010102,
+          52.5361091
+        ]
+      },
+      "properties": {
+        "name": "Bezirkszentralbibliothek Spandau",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Carl-Schurz-Str. 13, 13597 Berlin",
+        "telefon": "**Phone:** 030 902795537",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-spandau/bibliotheken/bezirkszentralbibliothek/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.57273,
+          52.5687
+        ]
+      },
+      "properties": {
+        "name": "Bibliothek \"Heinrich von Kleist\"",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Havemannstraße 17B, 12689 Berlin",
+        "telefon": "**Phone:** 030 9339380",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[https://www.berlin.de/ba-marzahn-hellersdorf/politik-und-verwaltung/aemter/amt-fuer-weiterbildung-und-kultur/bibliotheken/artikel.290055.php#02| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3810122,
+          52.5552512
+        ]
+      },
+      "properties": {
+        "name": "Bibliothek am Luisenbad",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Travemünder Str. 2, 13357 Berlin",
+        "telefon": "**Phone:** 030 901845610",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[www.berlin.de/stadtbibliothek-mitte/bibliotheken/bibliothek-am-luisenbad/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.42027,
+          52.53334
+        ]
+      },
+      "properties": {
+        "name": "Bibliothek am Wasserturm",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Prenzlauer Allee 227-228, 10405 Berlin",
+        "telefon": "**Phone:** 030 902953921",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-pankow/bibliotheken/bibliothek-am-wasserturm/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5895436,
+          52.5217783
+        ]
+      },
+      "properties": {
+        "name": "Bibliothek Kaulsdorf/Nord",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Cecilienplatz 12, 12619 Berlin",
+        "telefon": "**Phone:** 030 5636705",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[https://www.berlin.de/ba-marzahn-hellersdorf/politik-und-verwaltung/aemter/amt-fuer-weiterbildung-und-kultur/bibliotheken/artikel.290055.php#02| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.36331,
+          52.50381
+        ]
+      },
+      "properties": {
+        "name": "Bibliothek Tiergarten-Süd",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Lützowstraße 27, 10785 Berlin",
+        "telefon": "**Phone:** 030 901824411",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-mitte/bibliotheken/bibliothek-tiergarten-sued/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5202894,
+          52.4976748
+        ]
+      },
+      "properties": {
+        "name": "Bodo-Uhse-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Erich-Kurz-Straße 9, 10319 Berlin",
+        "telefon": "**Phone:** 030 5122102",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/ba-lichtenberg/auf-einen-blick/buergerservice/bildung/artikel.298025.php| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4071327,
+          52.5050264
+        ]
+      },
+      "properties": {
+        "name": "Bona-Peiser-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Oranienstraße 72, 10969 Berlin",
+        "telefon": "**Phone:** 030 50586414",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-friedrichshain-kreuzberg/bibliotheken/stadtteilbibliothek-oranienstrasse/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.347705,
+          52.5313198
+        ]
+      },
+      "properties": {
+        "name": "Bruno-Lösche-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Perleberger Str. 33, 10559 Berlin",
+        "telefon": "**Phone:** 030 901833025",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-mitte/bibliotheken/bruno-loesche-bibliothek/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.31996,
+          52.48717
+        ]
+      },
+      "properties": {
+        "name": "Dietrich-Bonhoeffer-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Brandenburgische Str. 2, 10713 Berlin",
+        "telefon": "**Phone:** 030 902915900",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/ba-charlottenburg-wilmersdorf/verwaltung/bibliotheken/dietrichbonhoefferbibliothek-201474.php| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3139604,
+          52.47204
+        ]
+      },
+      "properties": {
+        "name": "Eberhard-Alexander-Burgh-Bibliothek (Kinderbibliothek)",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Rüdesheimer Str. 14, 14197 Berlin",
+        "telefon": "**Phone:** 030 902917061",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/ba-charlottenburg-wilmersdorf/verwaltung/bibliotheken/eberhard-alexander-burgh-bibliothek-201477.php| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.39874,
+          52.38568
+        ]
+      },
+      "properties": {
+        "name": "Edith-Stein-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Briesingstr. 6, 12307 Berlin",
+        "telefon": "**Phone:** 030 902778286",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/ba-tempelhof-schoeneberg/organisationseinheit/stadtbibliothek/lichtenrade.html| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4805884,
+          52.5134578
+        ]
+      },
+      "properties": {
+        "name": "Egon-Erwin-Kisch-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Frankfurter Allee 149, 10365 Berlin",
+        "telefon": "**Phone:** 030 5556719",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/ba-lichtenberg/auf-einen-blick/buergerservice/bildung/artikel.298028.php| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.435913,
+          52.4922783
+        ]
+      },
+      "properties": {
+        "name": "Else-Ury-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Glogauer Straße 13, 10999 Berlin",
+        "telefon": "**Phone:** 030 22502613",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-friedrichshain-kreuzberg/bibliotheken/familienbibliothek-glogauer-strasse/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3873495,
+          52.4645293
+        ]
+      },
+      "properties": {
+        "name": "Eva-Maria-Buch-Haus",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Götzstr. 8-12, 12099 Berlin",
+        "telefon": "**Phone:** 030 902772516",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/ba-tempelhof-schoeneberg/organisationseinheit/stadtbibliothek/bzb.html| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3831476,
+          52.485185
+        ]
+      },
+      "properties": {
+        "name": "Friedrich-von-Raumer-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Dudenstraße 18-20, 10965 Berlin",
+        "telefon": "**Phone:** 030 5058 7613",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-friedrichshain-kreuzberg/bibliotheken/stadtteilbibliothek-dudenstrasse/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3359846,
+          52.4727146
+        ]
+      },
+      "properties": {
+        "name": "Gerhart-Hauptmann-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Niedstr. 1-2, 12159 Berlin",
+        "telefon": "**Phone:** 030 902776870",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/ba-tempelhof-schoeneberg/organisationseinheit/stadtbibliothek/friedenau.html| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3586252,
+          52.4943908
+        ]
+      },
+      "properties": {
+        "name": "Gertrud-Kolmar-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Pallasstr. 27, 10781 Berlin",
+        "telefon": "**Phone:** 030 902776398",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/ba-tempelhof-schoeneberg/organisationseinheit/stadtbibliothek/nord.html| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2397306,
+          52.4479646
+        ]
+      },
+      "properties": {
+        "name": "Gottfried-Benn-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Nentershäuser Platz 1, 14163 Berlin",
+        "telefon": "**Phone:** 030 902995458",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-steglitz-zehlendorf/bibliotheken/gottfried-benn-bibliothek/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3427346,
+          52.5170827
+        ]
+      },
+      "properties": {
+        "name": "Hansabibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Altonaer Str. 15, 10557 Berlin",
+        "telefon": "**Phone:** 030 901832156",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-mitte/bibliotheken/hansabibliothek/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.44151,
+          52.5422739
+        ]
+      },
+      "properties": {
+        "name": "Heinrich-Böll-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Greifswalder Straße 87, 10409 Berlin",
+        "telefon": "**Phone:** 030 4212041",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-pankow/bibliotheken/heinrich-boell-bibliothek/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.30902,
+          52.51749
+        ]
+      },
+      "properties": {
+        "name": "Heinrich-Schulz-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Otto-Suhr-Allee 96, 10585 Berlin",
+        "telefon": "**Phone:** 030 902912217",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/ba-charlottenburg-wilmersdorf/verwaltung/bibliotheken/heinrichschulzbibliothek-203398.php| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.432996,
+          52.4821579
+        ]
+      },
+      "properties": {
+        "name": "Helene-Nathan-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Karl-Marx-Straße 66, 12043 Berlin (Befinde sich in Neukölln Arcaden)",
+        "telefon": "**Phone:** 030 902394342",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-neukoelln/bibliotheken/bezirkszentralbibliothek-helene-nathan-bibliothek/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2938654,
+          52.514893
+        ]
+      },
+      "properties": {
+        "name": "Ingeborg Bachmann Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Nehringstraße 10, 14059 Berlin",
+        "telefon": "**Phone:** 030 902924313",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/ba-charlottenburg-wilmersdorf/verwaltung/bibliotheken/ingeborg-bachmann-bibliothek-194044.php| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3194004,
+          52.4576886
+        ]
+      },
+      "properties": {
+        "name": "Ingeborg-Drewitz-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Grunewaldstraße 3, 12165 Berlin",
+        "telefon": "**Phone:** 030 902992410",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-steglitz-zehlendorf/bibliotheken/ingeborg-drewitz-bibliothek/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.41221,
+          52.5686
+        ]
+      },
+      "properties": {
+        "name": "Janusz-Korczak-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Berliner Straße 120/121, 13187 Berlin",
+        "telefon": "**Phone:** 030 47486683",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-pankow/bibliotheken/janusz-korczak-bibliothek/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2579324,
+          52.5106633
+        ]
+      },
+      "properties": {
+        "name": "Johanna-Moosdorf-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Westendallee 45, 14052 Berlin",
+        "telefon": "**Phone:** 030 902927803",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/ba-charlottenburg-wilmersdorf/verwaltung/bibliotheken/johanna-moosdorf-bibliothek-194063.php| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.6210918,
+          52.4551035
+        ]
+      },
+      "properties": {
+        "name": "Johannes-Bobrowski-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Peter-Hille-Str. 1, 12587 Berlin",
+        "telefon": "**Phone:** 030 6455391",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.sb-tk.de/web/bibliotheken.php?bid=14| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.43221,
+          52.53297
+        ]
+      },
+      "properties": {
+        "name": "Kurt-Tucholsky-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Esmarchstraße 18, 10407 Berlin",
+        "telefon": "**Phone:** 030 40048668",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-pankow/bibliotheken/kurt-tucholsky-bibliothek/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.32586,
+          52.53187
+        ]
+      },
+      "properties": {
+        "name": "Kurt-Tucholsky-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Rostocker Str. 32B, 10553 Berlin",
+        "telefon": "**Phone:** 030 39480264",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-mitte/bibliotheken/kurt-tucholsky-bibliothek/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4513109,
+          52.4887957
+        ]
+      },
+      "properties": {
+        "name": "Manfred-Bofinger-Bibliothek im Gerard Philipe",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Karl-Kunger-Str. 30, 12435 Berlin",
+        "telefon": "**Phone:** 030 53218166",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.sb-tk.de/web/bibliotheken.php?bid=1| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.36658,
+          52.41684
+        ]
+      },
+      "properties": {
+        "name": "Medienhaus Marienfelde",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Marienfelder Allee 107/109, 12277 Berlin",
+        "telefon": "**Phone:** 030 902774144",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/ba-tempelhof-schoeneberg/organisationseinheit/stadtbibliothek/marienfelde.html| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.59209,
+          52.5465
+        ]
+      },
+      "properties": {
+        "name": "Mittelpunktbibliothek \"Ehm Welk\"",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Alte Hellersdorfer Straße 125, 12629 Berlin",
+        "telefon": "**Phone:** 030 998956",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[https://www.berlin.de/ba-marzahn-hellersdorf/politik-und-verwaltung/aemter/amt-fuer-weiterbildung-und-kultur/bibliotheken/artikel.290055.php#02| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4184674,
+          52.4997736
+        ]
+      },
+      "properties": {
+        "name": "Mittelpunktbibliothek Adalbertstraße",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Adalbertstraße 2, 10999 Berlin",
+        "telefon": "**Phone:** 030 50585225/ 27",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-friedrichshain-kreuzberg/bibliotheken/mittelpunktbibliothek-adalbertstrasse/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.57881,
+          52.44577
+        ]
+      },
+      "properties": {
+        "name": "Mittelpunktbibliothek Köpenick Alter Markt",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Alter Markt 2, 12555 Berlin",
+        "telefon": "**Phone:** 030 902973422",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.sb-tk.de/web/bibliotheken.php?bid=24| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5137921,
+          52.4540973
+        ]
+      },
+      "properties": {
+        "name": "Mittelpunktbibliothek Treptow",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Michael-Brückner-Str. 9, 12439 Berlin",
+        "telefon": "**Phone:** 030 902976800",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.sb-tk.de/web/bibliotheken.php?bid=7| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.45697,
+          52.51457
+        ]
+      },
+      "properties": {
+        "name": "Pablo-Neruda-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Frankfurter Allee 14 A, 10247 Berlin",
+        "telefon": "**Phone:** 030 902985750",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-friedrichshain-kreuzberg/bibliotheken/bezirkszentralbibliothek-frankfurter-allee/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3993016,
+          52.5316945
+        ]
+      },
+      "properties": {
+        "name": "Philipp-Schaeffer-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Brunnenstraße 181, 10119 Berlin",
+        "telefon": "**Phone:** 030 901824444",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-mitte/bibliotheken/bezirkszentralbibliothek-philipp-schaeffer/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.35766,
+          52.5469
+        ]
+      },
+      "properties": {
+        "name": "Schiller-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Müllerstraße 149, 13353 Berlin",
+        "telefon": "**Phone:** 030 901845683",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[https://www.berlin.de/stadtbibliothek-mitte/bibliotheken/schiller-bibliothek-mit-hugojugendmedienetage/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.28063,
+          52.59205
+        ]
+      },
+      "properties": {
+        "name": "Stadtbibliothek Reinickendorf",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Karolinenstraße 19, 13507 Berlin",
+        "telefon": "**Phone:** 030 4373680",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/ba-reinickendorf/politik-und-verwaltung/bezirksamt/schule-bildung-und-kultur/artikel.127288.php| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5384324,
+          52.5283791
+        ]
+      },
+      "properties": {
+        "name": "Stadtteilbibliothek \"Erich Weinert\"",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Helene-Weigel-Platz 4, 12681 Berlin",
+        "telefon": "**Phone:** 030 5429251",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[https://www.berlin.de/ba-marzahn-hellersdorf/politik-und-verwaltung/aemter/amt-fuer-weiterbildung-und-kultur/bibliotheken/artikel.290055.php#02| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.52817,
+          52.40336
+        ]
+      },
+      "properties": {
+        "name": "Stadtteilbibliothek Altglienicke im Bürgerhaus",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Ortolfstr. 182, 12524 Berlin",
+        "telefon": "**Phone:** 030 902976722",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.sb-tk.de/web/bibliotheken.php?bid=17| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.44587,
+          52.4367
+        ]
+      },
+      "properties": {
+        "name": "Stadtteilbibliothek Britz Süd",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Gutschmidtstraße 33/35, 12359 Berlin",
+        "telefon": "**Phone:** 030 902391223",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-neukoelln/bibliotheken/stadtteilbibliothek-britz-sued/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4938183,
+          52.6359504
+        ]
+      },
+      "properties": {
+        "name": "Stadtteilbibliothek Buch",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Wiltbergstraße 19-23, 13125 Berlin",
+        "telefon": "**Phone:** 030 94794960",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-pankow/bibliotheken/stadtteilbliothek-buch-karow/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.1774702,
+          52.5497878
+        ]
+      },
+      "properties": {
+        "name": "Stadtteilbibliothek Falkenhagener Feld",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Westerwaldstr. 9, 13589 Berlin",
+        "telefon": "**Phone:** 030 60400687",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-spandau/bibliotheken/falkenhagener-feld/artikel.182168.php| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.28821,
+          52.53836
+        ]
+      },
+      "properties": {
+        "name": "Stadtteilbibliothek Halemweg",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress:** Halemweg 24, 13627 Berlin",
+        "telefon": "**Phone:** 030 902925284",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/ba-charlottenburg-wilmersdorf/verwaltung/bibliotheken/stadtteilbibliothekhalemweg-203397.php| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.24223,
+          52.54317
+        ]
+      },
+      "properties": {
+        "name": "Stadtteilbibliothek Haselhorst",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Gartenfelder Str. 81a, 13599 Berlin",
+        "telefon": "**Phone:** 030 60408390",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-spandau/bibliotheken/haselhorst/stadtteilbibliothek-haselhorst-182097.php| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.16721,
+          52.5216
+        ]
+      },
+      "properties": {
+        "name": "Stadtteilbibliothek Heerstraße",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Obstallee 22F, 13593 Berlin",
+        "telefon": "**Phone:** 030 3631091",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-spandau/bibliotheken/heerstrasse/stadtteilbibliothek-heerstrasse-182099.php| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.46389,
+          52.42547
+        ]
+      },
+      "properties": {
+        "name": "Stadtteilbibliothek im Gemeinschaftshaus",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Bat-Yam-Platz 1, 12353 Berlin",
+        "telefon": "**Phone:** 030 902391494",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-neukoelln/bibliotheken/stadtteilbibliothek-im-gemeinschaftshaus/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.491927,
+          52.6165571
+        ]
+      },
+      "properties": {
+        "name": "Stadtteilbibliothek Karow",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Achillesstraße 77, 13125 Berlin",
+        "telefon": "**Phone:** 030 94800840",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-pankow/bibliotheken/stadtteilbliothek-buch-karow/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.1297339,
+          52.4490307
+        ]
+      },
+      "properties": {
+        "name": "Stadtteilbibliothek Kladow",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Sakrower Landtsr. 214089 Berlin",
+        "telefon": "**Phone:** 030 81615889",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-spandau/bibliotheken/kladow/stadtteilbibliothek-kladow-182136.php| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3507656,
+          52.4361371
+        ]
+      },
+      "properties": {
+        "name": "Stadtteilbibliothek Lankwitz",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Bruchwitzstraße 37, 12247 Berlin",
+        "telefon": "**Phone:** 030 768905012",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-steglitz-zehlendorf/bibliotheken/stadtteilbibliothek-lankwitz/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.6103352,
+          52.5055294
+        ]
+      },
+      "properties": {
+        "name": "Stadtteilbibliothek Mahlsdorf",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Alt Mahlsdorf 24-26, 12623 Berlin",
+        "telefon": "**Phone:** 030 5676866",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[https://www.berlin.de/ba-marzahn-hellersdorf/politik-und-verwaltung/aemter/amt-fuer-weiterbildung-und-kultur/bibliotheken/artikel.290055.php#02| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.55008,
+          52.43889
+        ]
+      },
+      "properties": {
+        "name": "Stefan-Heym-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Dörpfeldstr. 56, 12489 Berlin",
+        "telefon": "**Phone:** 030 902975731",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.sb-tk.de/web/bibliotheken.php?bid=5| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3511837,
+          52.4835864
+        ]
+      },
+      "properties": {
+        "name": "Theodor-Heuss-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Hauptstr. 40, 10827 Berlin",
+        "telefon": "**Phone:** 030 902774574",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/ba-tempelhof-schoeneberg/organisationseinheit/stadtbibliothek/mpb.html| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.45306,
+          52.54782
+        ]
+      },
+      "properties": {
+        "name": "Wolfdietrich-Schnurre-Bibliothek",
+        "beschreibung": "Public Library",
+        "adresse": "**Adress: **Bizetstraße 41, 13088 Berlin",
+        "telefon": "**Phone:** 030 92090972",
+        "transport": "**Transport: **[[http://fahrinfo.bvg.de/Fahrinfo/bin/query.bin/en?| BVG Routeplanner ]]",
+        "medium": "Visit the [[http://www.berlin.de/stadtbibliothek-pankow/bibliotheken/wolfdietrich-schnurre-bibliothek/| website]] for more information",
+        "link": "",
+        "category": "Public Libraries",
+        "category_id": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.365640640258789,
+          52.52546480183439
+        ]
+      },
+      "properties": {
+        "name": "Bus Stop",
+        "beschreibung": "Travel with Bus 120, 149. To go to Turmstraße take line 123, 245",
+        "adresse": "",
+        "telefon": "",
+        "transport": "",
+        "medium": "",
+        "link": "",
+        "category": "Public Transport",
+        "category_id": "11"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.341205716133118,
+          52.52624483329973
+        ]
+      },
+      "properties": {
+        "name": "BVG-Shop",
+        "beschreibung": "Buy your BVG-Ticket inside the station (U9 Turmstraße)",
+        "adresse": "",
+        "telefon": "",
+        "transport": "",
+        "medium": "",
+        "link": "",
+        "category": "Public Transport",
+        "category_id": "11"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.279874324798584,
+          52.507497398981926
+        ]
+      },
+      "properties": {
+        "name": "ICC / MESSE",
+        "beschreibung": "Travel to other destinations in Germany",
+        "adresse": "",
+        "telefon": "",
+        "transport": "",
+        "medium": "",
+        "link": "",
+        "category": "Public Transport",
+        "category_id": "11"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.339451551437378,
+          52.52648308282658
+        ]
+      },
+      "properties": {
+        "name": "Arabic Restaurant",
+        "beschreibung": "Arabic food to normal prices",
+        "adresse": "",
+        "telefon": "",
+        "transport": "",
+        "medium": "",
+        "link": "",
+        "category": "Shopping & Food",
+        "category_id": "12"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.344998359680176,
+          52.52643086386279
+        ]
+      },
+      "properties": {
+        "name": "Bar/Restaurant",
+        "beschreibung": "Soft Drinks, Coffee, Döner, Pizza",
+        "adresse": "",
+        "telefon": "",
+        "transport": "",
+        "medium": "",
+        "link": "",
+        "category": "Shopping & Food",
+        "category_id": "12"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.336780071258545,
+          52.52661362996448
+        ]
+      },
+      "properties": {
+        "name": "Halal Food Shops",
+        "beschreibung": "Halal Food",
+        "adresse": "",
+        "telefon": "",
+        "transport": "",
+        "medium": "",
+        "link": "",
+        "category": "Shopping & Food",
+        "category_id": "12"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.337091207504272,
+          52.52498176285224
+        ]
+      },
+      "properties": {
+        "name": "International Food - TS Food",
+        "beschreibung": "Different products from Pakistan, India, Iran and Afghanistan",
+        "adresse": "",
+        "telefon": "",
+        "transport": "",
+        "medium": "",
+        "link": "",
+        "category": "Shopping & Food",
+        "category_id": "12"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.350663185119627,
+          52.53298385881811
+        ]
+      },
+      "properties": {
+        "name": "LIDL",
+        "beschreibung": "Grocery store, food for low prices",
+        "adresse": "",
+        "telefon": "",
+        "transport": "",
+        "medium": "",
+        "link": "",
+        "category": "Shopping & Food",
+        "category_id": "12"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.347294330596922,
+          52.53298385881811
+        ]
+      },
+      "properties": {
+        "name": "Netto",
+        "beschreibung": "Grocery store, food for low prices",
+        "adresse": "",
+        "telefon": "",
+        "transport": "",
+        "medium": "",
+        "link": "",
+        "category": "Shopping & Food",
+        "category_id": "12"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.35864543914795,
+          52.52379372545992
+        ]
+      },
+      "properties": {
+        "name": "Penny Markt",
+        "beschreibung": "Grocery store, food for low prices",
+        "adresse": "",
+        "telefon": "",
+        "transport": "",
+        "medium": "",
+        "link": "",
+        "category": "Shopping & Food",
+        "category_id": "12"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3528733253479,
+          52.52665279403019
+        ]
+      },
+      "properties": {
+        "name": "Turkish Restaurant",
+        "beschreibung": "Turkish Food",
+        "adresse": "",
+        "telefon": "",
+        "transport": "",
+        "medium": "",
+        "link": "",
+        "category": "Shopping & Food",
+        "category_id": "12"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.359525203704834,
+          52.534360907724434
+        ]
+      },
+      "properties": {
+        "name": "Filmrauschpalast",
+        "beschreibung": "Cinema",
+        "adresse": "**Adress:** Lehrter Str. 35, 10557 Berlin",
+        "telefon": "",
+        "transport": "",
+        "medium": "**Website:** [[http://www.filmrausch.de|www.filmrausch.de]]",
+        "link": "",
+        "category": "Sports & Free Time",
+        "category_id": "13"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.35864543914795,
+          52.52901562804919
+        ]
+      },
+      "properties": {
+        "name": "Fritz-Schloß-Park",
+        "beschreibung": "Football, Swimming Pools, Climbing, Sauna, Restaurant, Sporthalle (Basketball)",
+        "adresse": "",
+        "telefon": "",
+        "transport": "",
+        "medium": "",
+        "link": "",
+        "category": "Sports & Free Time",
+        "category_id": "13"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.366305828094482,
+          52.526691958060965
+        ]
+      },
+      "properties": {
+        "name": "Park",
+        "beschreibung": "Taking a walk, relaxing, jogging",
+        "adresse": "",
+        "telefon": "",
+        "transport": "",
+        "medium": "",
+        "link": "",
+        "category": "Sports & Free Time",
+        "category_id": "13"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.196318149566649,
+          52.53263143177868
+        ]
+      },
+      "properties": {
+        "name": "Snooker",
+        "beschreibung": "",
+        "adresse": "",
+        "telefon": "",
+        "transport": "",
+        "medium": "",
+        "link": "",
+        "category": "Sports & Free Time",
+        "category_id": "13"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.468937873840332,
+          52.488477378543585
+        ]
+      },
+      "properties": {
+        "name": "Treptower Park",
+        "beschreibung": "You can rent a boat, go for a walk, relax, Restaurants and Ice Cream",
+        "adresse": "",
+        "telefon": "",
+        "transport": "",
+        "medium": "",
+        "link": "",
+        "category": "Sports & Free Time",
+        "category_id": "13"
+      }
+    }
+  ]
+}

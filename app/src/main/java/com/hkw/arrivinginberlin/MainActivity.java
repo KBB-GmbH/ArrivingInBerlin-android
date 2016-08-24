@@ -32,9 +32,13 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 
+import net.hockeyapp.android.CrashManager;
+import net.hockeyapp.android.UpdateManager;
+
+
 public class MainActivity extends Activity {
 
-//    private static final String TAG = "MainActivity";
+    private static final String TAG = "MainActivity";
 
     private MapView mapView;
     /**
@@ -47,6 +51,9 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Hockeyapp
+        checkForUpdates();
+
         // Mapbox access token only needs to be configured once in your app
         MapboxAccountManager.start(this, getString(R.string.access_token));
 
@@ -58,7 +65,7 @@ public class MainActivity extends Activity {
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(MapboxMap mapboxMap) {
-                addGeoPoints("_arriving_in_berlin___a_map_made_by_refugees___german_version_.geojson", mapboxMap);
+                addGeoPoints("_arriving_in_berlin___a_map_made_by_refugees___english_version_.geojson", mapboxMap);
             }
 
         });
@@ -72,12 +79,14 @@ public class MainActivity extends Activity {
     public void onResume() {
         super.onResume();
         mapView.onResume();
+        checkForCrashes();
     }
 
     @Override
     public void onPause() {
         super.onPause();
         mapView.onPause();
+        unregisterManagers();
     }
 
     @Override
@@ -90,6 +99,7 @@ public class MainActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         mapView.onDestroy();
+        unregisterManagers();
     }
 
     @Override
@@ -122,17 +132,61 @@ public class MainActivity extends Activity {
                 LatLng latLng = new LatLng(coord.getDouble(1), coord.getDouble(0));
                 points.add(latLng);
 
+                // Information in Each point
                 JSONObject properties = feature.getJSONObject("properties");
                 String name = properties.getString("name");
-                String beschreibung = properties.getString("beschreibung");
-                String adresse = properties.getString("adresse");
-                String telefon = properties.getString("telefon");
-                String medium = properties.getString("medium");
-                String transport = properties.getString("transport");
+                String beschreibung = properties.getString("beschreibung").replace("*", "");
+                String adresse = properties.getString("adresse").replace("*", "");
+                if (adresse.length() != 0 ) {
+                    adresse = adresse.substring(0,1).toUpperCase() + adresse.substring​(1);
+                }
+                String telefon = properties.getString("telefon").replace("*", "");
+                String medium = properties.getString("medium").replace("*", "").replace("[[","").replace("]]", "");
+                String transport = properties.getString("transport").replace("*", "").replace("[[","").replace("]]", "");
+                int categoryID = Integer.parseInt(properties.get("category_id").toString());
+
+                // Make Custom Icon
+                String uri = "@drawable/";  // where myresource (without the extension) is the file
+                String iconPng ="";
+                switch (categoryID){
+                    case 1: iconPng ="counseling_services_for_refugees";
+                        break;
+                    case 2: iconPng ="doctors_general_practitioner_arabic";
+                        break;
+                    case 3: iconPng ="doctors_general_practitioner_farsi";
+                        break;
+                    case 4: iconPng ="doctors_gynaecologist_arabic";
+                        break;
+                    case 5: iconPng = "doctors_gynaecologist_farsi";
+                        break;
+                    case 6: iconPng = "german_language_classes";
+                        break;
+                    case 7: iconPng = "lawyers_residence_and_asylum_law";
+                        break;
+                    case 8: iconPng = "police";
+                        break;
+                    case 9: iconPng = "public_authorities";
+                        break;
+                    case 10: iconPng = "public_libraries";
+                        break;
+                    case 11: iconPng = "public_transport";
+                        break;
+                    case 12: iconPng = "shopping_and_food";
+                        break;
+                    case 13: iconPng = "sports_and_freetime";
+                        break;
+
+                }
+                uri = uri + iconPng;
+                int imageResource = getResources().getIdentifier(uri, null, getPackageName());
+                IconFactory iconFactory = IconFactory.getInstance(MainActivity.this);
+                Drawable iconDrawable = getResources().getDrawable(imageResource);
+                Icon icon = iconFactory.fromDrawable(iconDrawable);
 
                 MarkerViewOptions marker = new MarkerViewOptions()
                         .position(latLng)
                         .title(name)
+                        .icon(icon)
                         .snippet(beschreibung + "\n" + adresse + "\n" + telefon + "\n" + transport + "\n" + medium);
                 mapboxMap.addMarker(marker);
 
@@ -182,4 +236,19 @@ public class MainActivity extends Activity {
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();
     }
+
+    // Hockeyapp methods
+    private void checkForCrashes() {
+        CrashManager.register(this);
+    }
+
+    private void checkForUpdates() {
+        // Remove this for store builds!
+        UpdateManager.register(this);
+    }
+
+    private void unregisterManagers() {
+        UpdateManager.unregister();
+    }
+
 }

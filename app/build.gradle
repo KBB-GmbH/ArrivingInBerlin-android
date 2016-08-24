@@ -10,6 +10,7 @@ android {
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
+        manifestPlaceholders = [HOCKEYAPP_APP_ID: "72a2b6a517cc4406b2dd41ee926f0e7e"]
     }
     buildTypes {
         release {
@@ -36,4 +37,7 @@ dependencies {
 
     compile 'com.google.code.gson:gson:2.6.2'
     compile 'com.google.android.gms:play-services-appindexing:8.1.0'
+
+    compile 'net.hockeyapp.android:HockeySDK:4.0.1'
+
 }
