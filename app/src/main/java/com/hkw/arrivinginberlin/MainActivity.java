@@ -141,8 +141,8 @@ public class MainActivity extends Activity {
                     adresse = adresse.substring(0,1).toUpperCase() + adresse.substring​(1);
                 }
                 String telefon = properties.getString("telefon").replace("*", "");
-                String medium = properties.getString("medium").replace("*", "");
-                String transport = properties.getString("transport").replace("*", "");
+                String medium = properties.getString("medium").replace("*", "").replace("[[","").replace("]]", "");
+                String transport = properties.getString("transport").replace("*", "").replace("[[","").replace("]]", "");
                 int categoryID = Integer.parseInt(properties.get("category_id").toString());
 
                 // Make Custom Icon
