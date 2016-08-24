@@ -35,6 +35,10 @@ captures/
 # Intellij
 *.iml
 .idea/workspace.xml
+.idea/libraries/HockeySDK_4_0_1.xml
+.idea/libraries/lost_1_1_0.xml
+.idea/libraries/mapbox_android_services_1_2_1.xml
+.idea/libraries/support_v4_24_1_1.xml
 
 # Keystore files
 *.jks
