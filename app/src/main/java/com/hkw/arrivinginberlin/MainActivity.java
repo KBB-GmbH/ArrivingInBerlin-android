@@ -65,7 +65,7 @@ public class MainActivity extends Activity {
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(MapboxMap mapboxMap) {
-                addGeoPoints("_arriving_in_berlin___a_map_made_by_refugees___german_version_.geojson", mapboxMap);
+                addGeoPoints("_arriving_in_berlin___a_map_made_by_refugees___english_version_.geojson", mapboxMap);
             }
 
         });
@@ -143,9 +143,41 @@ public class MainActivity extends Activity {
                 String telefon = properties.getString("telefon").replace("*", "");
                 String medium = properties.getString("medium").replace("*", "");
                 String transport = properties.getString("transport").replace("*", "");
+                int categoryID = Integer.parseInt(properties.get("category_id").toString());
 
                 // Make Custom Icon
-                String uri = "@drawable/lawyers";  // where myresource (without the extension) is the file
+                String uri = "@drawable/";  // where myresource (without the extension) is the file
+                String iconPng ="";
+                switch (categoryID){
+                    case 1: iconPng ="counseling_services_for_refugees";
+                        break;
+                    case 2: iconPng ="doctors_general_practitioner_arabic";
+                        break;
+                    case 3: iconPng ="doctors_general_practitioner_farsi";
+                        break;
+                    case 4: iconPng ="doctors_gynaecologist_arabic";
+                        break;
+                    case 5: iconPng = "doctors_gynaecologist_farsi";
+                        break;
+                    case 6: iconPng = "german_language_classes";
+                        break;
+                    case 7: iconPng = "lawyers_residence_and_asylum_law";
+                        break;
+                    case 8: iconPng = "police";
+                        break;
+                    case 9: iconPng = "public_authorities";
+                        break;
+                    case 10: iconPng = "public_libraries";
+                        break;
+                    case 11: iconPng = "public_transport";
+                        break;
+                    case 12: iconPng = "shopping_and_food";
+                        break;
+                    case 13: iconPng = "sports_and_freetime";
+                        break;
+
+                }
+                uri = uri + iconPng;
                 int imageResource = getResources().getIdentifier(uri, null, getPackageName());
                 IconFactory iconFactory = IconFactory.getInstance(MainActivity.this);
                 Drawable iconDrawable = getResources().getDrawable(imageResource);
