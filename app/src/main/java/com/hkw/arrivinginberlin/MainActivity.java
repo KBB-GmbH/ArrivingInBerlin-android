@@ -5,8 +5,6 @@ import android.icu.text.StringPrepParseException;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -24,9 +22,11 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.mapbox.mapboxsdk.annotations.Icon;
 import com.mapbox.mapboxsdk.annotations.IconFactory;
 import com.mapbox.mapboxsdk.annotations.MarkerViewOptions;
+import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
+import com.mapbox.mapboxsdk.maps.MapboxMapOptions;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.MapboxAccountManager;
 import com.mapbox.services.commons.utils.TextUtils;
@@ -34,13 +34,11 @@ import com.mapbox.services.commons.utils.TextUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 import net.hockeyapp.android.CrashManager;
@@ -55,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     private MapView mapView;
     private MapboxMap mapBox;
     private List<JSONObject> locations = new ArrayList<>();
+    private Map markers = new HashMap<>();
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -89,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
         mapView = (MapView) findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
+
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(MapboxMap mapboxMap) {
@@ -180,19 +180,33 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(List<JSONObject> newLocations){
             locations = newLocations;
             //check if the map exists already
-            Log.i("FETCH", "arrived at post exec");
+            Log.i("FETCH", "arrived at post exec with location: " + newLocations);
 
             if (locations != null){
                 for (JSONObject location : locations) {
-                    addGeoPoints(location, mapBox);
+                    try {
+                        JSONObject feature = location.getJSONArray("features").getJSONObject(0);
+                        JSONObject properties = feature.getJSONObject("properties");
+                        int categoryID = Integer.parseInt(properties.get("category_id").toString());
+                        addGeoPointsForCategory(categoryID, location, mapBox);
+
+                    }catch (Exception e) {
+                        Log.e("MainActivity", "Exception Loading GeoJSON: " + e.toString());
+                    }
                 }
             }
         }
     }
 
+    public void addMapLayer(JSONObject json, MapboxMap mapboxMap) {
 
-    public void addGeoPoints(JSONObject json, MapboxMap mapboxMap) {
+    }
+
+    public void addGeoPointsForCategory(int categoryID, JSONObject json, MapboxMap mapboxMap) {
         ArrayList<LatLng> points = new ArrayList<>();
+        ArrayList<MarkerViewOptions> sectionMarkers = new ArrayList<>();
+        String uri = getIconForCategory(categoryID);
+
         try {
             JSONArray features = json.getJSONArray("features");
 
@@ -214,41 +228,7 @@ public class MainActivity extends AppCompatActivity {
                 String telefon = properties.getString("telefon").replace("*", "");
                 String medium = properties.getString("medium").replace("*", "").replace("[[","").replace("]]", "");
                 String transport = properties.getString("transport").replace("*", "").replace("[[","").replace("]]", "");
-                int categoryID = Integer.parseInt(properties.get("category_id").toString());
 
-                // Make Custom Icon
-                String uri = "@drawable/";  // where myresource (without the extension) is the file
-                String iconPng ="";
-                switch (categoryID){
-                    case 1: iconPng ="counseling_services_for_refugees";
-                        break;
-                    case 2: iconPng ="doctors_general_practitioner_arabic";
-                        break;
-                    case 3: iconPng ="doctors_general_practitioner_farsi";
-                        break;
-                    case 4: iconPng ="doctors_gynaecologist_arabic";
-                        break;
-                    case 5: iconPng = "doctors_gynaecologist_farsi";
-                        break;
-                    case 6: iconPng = "german_language_classes";
-                        break;
-                    case 7: iconPng = "lawyers_residence_and_asylum_law";
-                        break;
-                    case 8: iconPng = "police";
-                        break;
-                    case 9: iconPng = "public_authorities";
-                        break;
-                    case 10: iconPng = "public_libraries";
-                        break;
-                    case 11: iconPng = "public_transport";
-                        break;
-                    case 12: iconPng = "shopping_and_food";
-                        break;
-                    case 13: iconPng = "sports_and_freetime";
-                        break;
-
-                }
-                uri = uri + iconPng;
                 int imageResource = getResources().getIdentifier(uri, null, getPackageName());
                 IconFactory iconFactory = IconFactory.getInstance(MainActivity.this);
                 Drawable iconDrawable = getResources().getDrawable(imageResource);
@@ -260,26 +240,66 @@ public class MainActivity extends AppCompatActivity {
                         .icon(icon)
                         .snippet(beschreibung + "\n" + adresse + "\n" + telefon + "\n" + transport + "\n" + medium);
                 mapboxMap.addMarker(marker);
-
+                sectionMarkers.add(marker);
             }
         } catch (Exception e) {
             Log.e("MainActivity", "Exception Loading GeoJSON: " + e.toString());
         }
 
+        Map category_dict = new HashMap();
+        markers.put(categoryID, sectionMarkers);
+        Log.i("MainActivity", "my markers:" + markers);
+
     }
 
+    public String getIconForCategory(int categoryID){
+        // Make Custom Icon
+        String uri = "@drawable/";  // where myresource (without the extension) is the file
+        String iconPng ="";
+        switch (categoryID){
+            case 1: iconPng ="counseling_services_for_refugees";
+                break;
+            case 2: iconPng ="doctors_general_practitioner_arabic";
+                break;
+            case 3: iconPng ="doctors_general_practitioner_farsi";
+                break;
+            case 4: iconPng ="doctors_gynaecologist_arabic";
+                break;
+            case 5: iconPng = "doctors_gynaecologist_farsi";
+                break;
+            case 6: iconPng = "german_language_classes";
+                break;
+            case 7: iconPng = "lawyers_residence_and_asylum_law";
+                break;
+            case 8: iconPng = "police";
+                break;
+            case 9: iconPng = "public_authorities";
+                break;
+            case 10: iconPng = "public_libraries";
+                break;
+            case 11: iconPng = "public_transport";
+                break;
+            case 12: iconPng = "shopping_and_food";
+                break;
+            case 13: iconPng = "sports_and_freetime";
+                break;
+
+        }
+        uri = uri + iconPng;
+
+        return uri;
+    }
 
     public void selectDrawerItem(MenuItem menuItem) {
-        // Create a new fragment and specify the fragment to show based on nav item clicked
 
         switch (menuItem.getItemId()) {
-            case R.id.nav_first_fragment:
+            case R.id.nav_counseling:
+                
+                break;
+            case R.id.nav_doctor_gp_arabic:
 
                 break;
-            case R.id.nav_second_fragment:
-
-                break;
-            case R.id.nav_third_fragment:
+            case R.id.nav_doctor_gp_farsi:
 
                 break;
             default:

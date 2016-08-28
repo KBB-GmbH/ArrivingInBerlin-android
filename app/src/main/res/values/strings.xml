@@ -1,4 +1,18 @@
 <resources>
     <string name="app_name">ArrivingInBerlin</string>
     <string name="access_token">pk.eyJ1IjoiYW5vdWtuaWMiLCJhIjoiY2lyb3kwOGg3MDA5ZGh1bmhnaXZqdmdpNyJ9.oFl9SAJR9tYZL1h76EQMIw</string>
+    <string name="counseling">Counseling Services for Refugees </string>
+    <string name="doctor_gp_arabic">Doctors (General Practitioner, Arabic)</string>
+    <string name="doctor_gp_farsi">Doctors (General Practitioner, Farsi)</string>
+    <string name="doctor_gyn_arabic">Doctors (Gynaecologist, Arabic)</string>
+    <string name="doctor_gyn_farsi">Doctors (Gynaecologist, Farsi)</string>
+    <string name="german_language_classes">German Language Classes</string>
+    <string name="lawyers">Lawyers (Residence and Asylum Law)</string>
+    <string name="police">Police</string>
+    <string name="authorities">Public Authorities</string>
+    <string name="libraries">Public Libraries</string>
+    <string name="transport">Public Transport</string>
+    <string name="shopping_food">Shopping and Food</string>
+    <string name="sports_freetime">Sports and Freetime</string>
+    <string name="categories">Categories</string>
 </resources>

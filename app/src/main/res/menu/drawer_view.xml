@@ -3,16 +3,57 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_first_fragment"
-            android:icon="@drawable/ic_one"
-            android:title="First" />
+            android:id="@+id/nav_counseling"
+            android:icon="@drawable/counseling_services_for_refugees"
+            android:title="@string/counseling" />
         <item
-            android:id="@+id/nav_second_fragment"
-            android:icon="@drawable/ic_two"
-            android:title="Second" />
+            android:id="@+id/nav_doctor_gp_arabic"
+            android:icon="@drawable/doctors_general_practitioner_arabic"
+            android:title="@string/doctor_gp_arabic" />
         <item
-            android:id="@+id/nav_third_fragment"
-            android:icon="@drawable/ic_three"
-            android:title="Third" />
+            android:id="@+id/nav_doctor_gp_farsi"
+            android:icon="@drawable/doctors_general_practitioner_farsi"
+            android:title="@string/doctor_gp_farsi" />
+        <item
+            android:id="@+id/nav_doctor_gyn_arabic"
+            android:icon="@drawable/doctors_gynaecologist_arabic"
+            android:title="@string/doctor_gyn_arabic" />
+        <item
+            android:id="@+id/nav_doctor_gyn_farsi"
+            android:icon="@drawable/doctors_gynaecologist_farsi"
+            android:title="@string/doctor_gyn_farsi" />
+        <item
+            android:id="@+id/nav_german_language_classes"
+            android:icon="@drawable/german_language_classes"
+            android:title="@string/german_language_classes" />
+        <item
+            android:id="@+id/nav_lawyers"
+            android:icon="@drawable/lawyers_residence_and_asylum_law"
+            android:title="@string/lawyers" />
+        <item
+            android:id="@+id/nav_police"
+            android:icon="@drawable/police"
+            android:title="@string/police" />
+        <item
+            android:id="@+id/nav_authorities"
+            android:icon="@drawable/public_authorities"
+            android:title="@string/authorities" />
+        <item
+            android:id="@+id/nav_libraries"
+            android:icon="@drawable/public_libraries"
+            android:title="@string/libraries" />
+        <item
+            android:id="@+id/nav_transport"
+            android:icon="@drawable/public_transport"
+            android:title="@string/transport" />
+        <item
+            android:id="@+id/nav_shopping_food"
+            android:icon="@drawable/shopping_and_food"
+            android:title="@string/shopping_food" />
+        <item
+            android:id="@+id/nav_sports_freetime"
+            android:icon="@drawable/sports_and_freetime"
+            android:title="@string/sports_freetime" />
+
     </group>
 </menu>
