@@ -47,10 +47,14 @@ import net.hockeyapp.android.CrashManager;
 import net.hockeyapp.android.UpdateManager;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "MainActivity";
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
     private NavigationView nvDrawer;
     private ActionBarDrawerToggle drawerToggle;
+    private MapView mapView;
+    private MapboxMap mapBox;
+    private List<JSONObject> locations = new ArrayList<>();
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -73,6 +77,27 @@ public class MainActivity extends AppCompatActivity {
         nvDrawer = (NavigationView) findViewById(R.id.nvView);
         // Setup drawer view
         setupDrawerContent(nvDrawer);
+
+        // Hockeyapp
+        checkForUpdates();
+
+        // Mapbox access token only needs to be configured once in your app
+        MapboxAccountManager.start(this, getString(R.string.access_token));
+
+        // This contains the MapView in XML and needs to be called after the account manager
+        setContentView(R.layout.activity_main);
+
+        mapView = (MapView) findViewById(R.id.mapView);
+        mapView.onCreate(savedInstanceState);
+        mapView.getMapAsync(new OnMapReadyCallback() {
+            @Override
+            public void onMapReady(MapboxMap mapboxMap) {
+                mapBox = mapboxMap;
+                new FetchLocationsTask().execute();
+            }
+
+        });
+
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
@@ -110,6 +135,140 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+    // Add the mapView lifecycle to the activity's lifecycle methods
+    @Override
+    public void onResume() {
+        super.onResume();
+        mapView.onResume();
+        checkForCrashes();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mapView.onPause();
+        unregisterManagers();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mapView.onLowMemory();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mapView.onDestroy();
+        unregisterManagers();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mapView.onSaveInstanceState(outState);
+    }
+
+    public class FetchLocationsTask extends AsyncTask<Void, Void, List<JSONObject>>{
+        @Override
+        protected List<JSONObject> doInBackground(Void... params) {
+            Log.i(TAG, "fetching locations");
+            return new UmapDataRequest().fetchLocations();
+        }
+
+        @Override
+        protected void onPostExecute(List<JSONObject> newLocations){
+            locations = newLocations;
+            //check if the map exists already
+            Log.i("FETCH", "arrived at post exec");
+
+            if (locations != null){
+                for (JSONObject location : locations) {
+                    addGeoPoints(location, mapBox);
+                }
+            }
+        }
+    }
+
+
+    public void addGeoPoints(JSONObject json, MapboxMap mapboxMap) {
+        ArrayList<LatLng> points = new ArrayList<>();
+        try {
+            JSONArray features = json.getJSONArray("features");
+
+            for (int i = 0; i < features.length(); i++) {
+                JSONObject feature = features.getJSONObject(i);
+                JSONObject geometry = feature.getJSONObject("geometry");
+                JSONArray coord = geometry.getJSONArray("coordinates");
+                LatLng latLng = new LatLng(coord.getDouble(1), coord.getDouble(0));
+                points.add(latLng);
+
+                // Information in Each point
+                JSONObject properties = feature.getJSONObject("properties");
+                String name = properties.getString("name");
+                String beschreibung = properties.getString("beschreibung").replace("*", "");
+                String adresse = properties.getString("adresse").replace("*", "");
+                if (adresse.length() != 0 ) {
+                    adresse = adresse.substring(0,1).toUpperCase() + adresse.substring​(1);
+                }
+                String telefon = properties.getString("telefon").replace("*", "");
+                String medium = properties.getString("medium").replace("*", "").replace("[[","").replace("]]", "");
+                String transport = properties.getString("transport").replace("*", "").replace("[[","").replace("]]", "");
+                int categoryID = Integer.parseInt(properties.get("category_id").toString());
+
+                // Make Custom Icon
+                String uri = "@drawable/";  // where myresource (without the extension) is the file
+                String iconPng ="";
+                switch (categoryID){
+                    case 1: iconPng ="counseling_services_for_refugees";
+                        break;
+                    case 2: iconPng ="doctors_general_practitioner_arabic";
+                        break;
+                    case 3: iconPng ="doctors_general_practitioner_farsi";
+                        break;
+                    case 4: iconPng ="doctors_gynaecologist_arabic";
+                        break;
+                    case 5: iconPng = "doctors_gynaecologist_farsi";
+                        break;
+                    case 6: iconPng = "german_language_classes";
+                        break;
+                    case 7: iconPng = "lawyers_residence_and_asylum_law";
+                        break;
+                    case 8: iconPng = "police";
+                        break;
+                    case 9: iconPng = "public_authorities";
+                        break;
+                    case 10: iconPng = "public_libraries";
+                        break;
+                    case 11: iconPng = "public_transport";
+                        break;
+                    case 12: iconPng = "shopping_and_food";
+                        break;
+                    case 13: iconPng = "sports_and_freetime";
+                        break;
+
+                }
+                uri = uri + iconPng;
+                int imageResource = getResources().getIdentifier(uri, null, getPackageName());
+                IconFactory iconFactory = IconFactory.getInstance(MainActivity.this);
+                Drawable iconDrawable = getResources().getDrawable(imageResource);
+                Icon icon = iconFactory.fromDrawable(iconDrawable);
+
+                MarkerViewOptions marker = new MarkerViewOptions()
+                        .position(latLng)
+                        .title(name)
+                        .icon(icon)
+                        .snippet(beschreibung + "\n" + adresse + "\n" + telefon + "\n" + transport + "\n" + medium);
+                mapboxMap.addMarker(marker);
+
+            }
+        } catch (Exception e) {
+            Log.e("MainActivity", "Exception Loading GeoJSON: " + e.toString());
+        }
+
+    }
+
+
     public void selectDrawerItem(MenuItem menuItem) {
         // Create a new fragment and specify the fragment to show based on nav item clicked
         Fragment fragment = null;
@@ -135,8 +294,8 @@ public class MainActivity extends AppCompatActivity {
 //        }
 
         // Insert the fragment by replacing any existing fragment
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
 
         // Highlight the selected item has been done by NavigationView
         menuItem.setChecked(true);
@@ -185,6 +344,21 @@ public class MainActivity extends AppCompatActivity {
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();
     }
+
+    // Hockeyapp methods
+    private void checkForCrashes() {
+        CrashManager.register(this);
+    }
+
+    private void checkForUpdates() {
+        // Remove this for store builds!
+        UpdateManager.register(this);
+    }
+
+    private void unregisterManagers() {
+        UpdateManager.unregister();
+    }
+
 }
 //public class MainActivity extends Activity {
 //
@@ -359,7 +533,7 @@ public class MainActivity extends AppCompatActivity {
 //        }
 //
 //    }
-//
+
 //    @Override
 //    public void onStart() {
 //        super.onStart();
@@ -413,5 +587,5 @@ public class MainActivity extends AppCompatActivity {
 //    private void unregisterManagers() {
 //        UpdateManager.unregister();
 //    }
-//
+
 //}
