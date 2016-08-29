@@ -21,6 +21,7 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.mapbox.mapboxsdk.annotations.Icon;
 import com.mapbox.mapboxsdk.annotations.IconFactory;
+import com.mapbox.mapboxsdk.annotations.Marker;
 import com.mapbox.mapboxsdk.annotations.MarkerViewOptions;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.geometry.LatLng;
@@ -29,6 +30,7 @@ import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.MapboxMapOptions;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.MapboxAccountManager;
+import com.mapbox.mapboxsdk.style.layers.Layer;
 import com.mapbox.services.commons.utils.TextUtils;
 
 import org.json.JSONArray;
@@ -63,23 +65,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        // Set a Toolbar to replace the ActionBar.
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        // Find our drawer view
-        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-
-        // Find our drawer view
-        nvDrawer = (NavigationView) findViewById(R.id.nvView);
-        // Setup drawer view
-        setupDrawerContent(nvDrawer);
-
-        // Hockeyapp
-        checkForUpdates();
-
         // Mapbox access token only needs to be configured once in your app
         MapboxAccountManager.start(this, getString(R.string.access_token));
 
@@ -98,6 +83,22 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        // Set a Toolbar to replace the ActionBar.
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // Find our drawer view
+        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        // Find our drawer view
+        nvDrawer = (NavigationView) findViewById(R.id.nvView);
+        // Setup drawer view
+        setupDrawerContent(nvDrawer);
+
+        // Hockeyapp
+        checkForUpdates();
+
+
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
@@ -113,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
         }
 
+        Log.i(TAG, "item drawer selected with id "+ item);
         return super.onOptionsItemSelected(item);
     }
 
@@ -291,10 +293,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void selectDrawerItem(MenuItem menuItem) {
-
+        Log.i(TAG, "drawer selected");
         switch (menuItem.getItemId()) {
             case R.id.nav_counseling:
-                
+                Log.i(TAG, "drawer item tapped");
                 break;
             case R.id.nav_doctor_gp_arabic:
 
@@ -314,6 +316,11 @@ public class MainActivity extends AppCompatActivity {
         // Close the navigation drawer
         mDrawer.closeDrawers();
     }
+
+//
+//    public Object[] getAllMarkers() {
+//        return markers.values().toArray();
+//    }
 
     @Override
     public void onStart() {
