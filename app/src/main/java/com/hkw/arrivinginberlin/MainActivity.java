@@ -293,9 +293,6 @@ public class MainActivity extends AppCompatActivity {
     public void selectDrawerItem(MenuItem menuItem) {
         Log.i(TAG, "drawer selected");
         switch (menuItem.getItemId()) {
-            case R.id.nav_none:
-                removeAllMarkers();
-                break;
             case R.id.nav_all_categories:
                 displayAllMarkers();
                 break;
