@@ -1,9 +1,13 @@
 package com.hkw.arrivinginberlin;
 
+import android.annotation.TargetApi;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.icu.text.StringPrepParseException;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
@@ -22,6 +26,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.mapbox.mapboxsdk.annotations.Icon;
 import com.mapbox.mapboxsdk.annotations.IconFactory;
 import com.mapbox.mapboxsdk.annotations.Marker;
+import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.annotations.MarkerViewOptions;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.geometry.LatLng;
@@ -30,7 +35,8 @@ import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.MapboxMapOptions;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.MapboxAccountManager;
-import com.mapbox.mapboxsdk.style.layers.Layer;
+import com.mapbox.services.commons.geojson.FeatureCollection;
+import com.mapbox.services.commons.geojson.GeoJSON;
 import com.mapbox.services.commons.utils.TextUtils;
 
 import org.json.JSONArray;
@@ -40,11 +46,11 @@ import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 
 import net.hockeyapp.android.CrashManager;
 import net.hockeyapp.android.UpdateManager;
+
+import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.fillColor;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -55,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     private MapView mapView;
     private MapboxMap mapBox;
     private List<JSONObject> locations = new ArrayList<>();
-    private Map markers = new HashMap<>();
+    private List<CategoryMarker> allMarkers = new ArrayList<>();
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -200,13 +206,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void addMapLayer(JSONObject json, MapboxMap mapboxMap) {
-
-    }
-
     public void addGeoPointsForCategory(int categoryID, JSONObject json, MapboxMap mapboxMap) {
         ArrayList<LatLng> points = new ArrayList<>();
-        ArrayList<MarkerViewOptions> sectionMarkers = new ArrayList<>();
         String uri = getIconForCategory(categoryID);
 
         try {
@@ -241,22 +242,19 @@ public class MainActivity extends AppCompatActivity {
                         .title(name)
                         .icon(icon)
                         .snippet(beschreibung + "\n" + adresse + "\n" + telefon + "\n" + transport + "\n" + medium);
-                mapboxMap.addMarker(marker);
-                sectionMarkers.add(marker);
+                CategoryMarker catMarker = new CategoryMarker(mapboxMap.addMarker(marker), categoryID, true, marker);
+                allMarkers.add(catMarker);
             }
         } catch (Exception e) {
             Log.e("MainActivity", "Exception Loading GeoJSON: " + e.toString());
         }
-
-        Map category_dict = new HashMap();
-        markers.put(categoryID, sectionMarkers);
-        Log.i("MainActivity", "my markers:" + markers);
+        Log.i("MainActivity", "my markers:" + allMarkers);
 
     }
 
     public String getIconForCategory(int categoryID){
         // Make Custom Icon
-        String uri = "@drawable/";  // where myresource (without the extension) is the file
+        String uri = "@drawable/";
         String iconPng ="";
         switch (categoryID){
             case 1: iconPng ="counseling_services_for_refugees";
@@ -295,15 +293,52 @@ public class MainActivity extends AppCompatActivity {
     public void selectDrawerItem(MenuItem menuItem) {
         Log.i(TAG, "drawer selected");
         switch (menuItem.getItemId()) {
+            case R.id.nav_none:
+                removeAllMarkers();
+                break;
+            case R.id.nav_all_categories:
+                displayAllMarkers();
+                break;
             case R.id.nav_counseling:
-                Log.i(TAG, "drawer item tapped");
+                displayMarkersForCategory(1);
                 break;
             case R.id.nav_doctor_gp_arabic:
-
+                displayMarkersForCategory(2);
                 break;
             case R.id.nav_doctor_gp_farsi:
-
+                displayMarkersForCategory(3);
                 break;
+            case R.id.nav_doctor_gyn_arabic:
+                displayMarkersForCategory(4);
+                break;
+            case R.id.nav_doctor_gyn_farsi:
+                displayMarkersForCategory(5);
+                break;
+            case R.id.nav_german_language_classes:
+                displayMarkersForCategory(6);
+                break;
+            case R.id.nav_lawyers:
+                displayMarkersForCategory(7);
+                break;
+            case R.id.nav_police:
+                displayMarkersForCategory(8);
+                break;
+            case R.id.nav_authorities:
+                displayMarkersForCategory(9);
+                break;
+            case R.id.nav_libraries:
+                displayMarkersForCategory(10);
+                break;
+            case R.id.nav_transport:
+                displayMarkersForCategory(11);
+                break;
+            case R.id.nav_shopping_food:
+                displayMarkersForCategory(12);
+                break;
+            case R.id.nav_sports_freetime:
+                displayMarkersForCategory(13);
+                break;
+
             default:
                 break;
         }
@@ -317,10 +352,30 @@ public class MainActivity extends AppCompatActivity {
         mDrawer.closeDrawers();
     }
 
-//
-//    public Object[] getAllMarkers() {
-//        return markers.values().toArray();
-//    }
+    public void displayAllMarkers(){
+        removeAllMarkers();
+        mapBox.removeAnnotations();
+        for (CategoryMarker cm:allMarkers) {
+            cm.marker= mapBox.addMarker(cm.markerViewOptions);
+        }
+    }
+
+    public void removeAllMarkers() {
+        for (Marker m:mapBox.getMarkers()) {
+            mapBox.removeMarker(m);
+            mapBox.removeAnnotations();
+        }
+    }
+
+    public void displayMarkersForCategory(final int categoryId) {
+        removeAllMarkers();
+        for (CategoryMarker cm:allMarkers) {
+            if (cm.categoryID == categoryId) {
+                cm.marker = mapBox.addMarker(cm.markerViewOptions);
+            }
+        }
+
+    }
 
     @Override
     public void onStart() {
@@ -377,3 +432,4 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
+

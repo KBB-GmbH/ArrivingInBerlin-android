@@ -3,6 +3,14 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_none"
+            android:icon="@drawable/favorite"
+            android:title="None" />
+        <item
+            android:id="@+id/nav_all_categories"
+            android:icon="@drawable/favorite2"
+            android:title="@string/all_categories" />
+        <item
             android:id="@+id/nav_counseling"
             android:icon="@drawable/counseling_services_for_refugees"
             android:title="@string/counseling" />

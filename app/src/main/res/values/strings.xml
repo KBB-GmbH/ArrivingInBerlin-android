@@ -15,4 +15,5 @@
     <string name="shopping_food">Shopping and Food</string>
     <string name="sports_freetime">Sports and Freetime</string>
     <string name="categories">Categories</string>
+    <string name="all_categories">All</string>
 </resources>
