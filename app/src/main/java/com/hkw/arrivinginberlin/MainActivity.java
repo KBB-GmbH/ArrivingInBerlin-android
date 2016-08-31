@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
     // JSON encoding/decoding
     public final static String JSON_CHARSET = "UTF-8";
-    public final static String JSON_FIELD_REGION_NAME = "FIELD_REGION_NAME";
+    public final static String JSON_FIELD_REGION_NAME = "BERLIN_REGION";
     private boolean isEndNotified;
     private ProgressBar progressBar;
 
