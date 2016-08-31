@@ -25,7 +25,7 @@
         <meta-data android:name="net.hockeyapp.android.appIdentifier" android:value="${HOCKEYAPP_APP_ID}" />
     </application>
 
-    <uses-sdk android:minSdkVersion="15"
+    <uses-sdk android:minSdkVersion="21"
         android:targetSdkVersion="24"
         android:maxSdkVersion="24" />
 

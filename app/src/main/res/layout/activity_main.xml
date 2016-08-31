@@ -1,22 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--xmlns:tools="http://schemas.android.com/tools"-->
-    <!--xmlns:mapbox="http://schemas.android.com/apk/res-auto"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--tools:context=".MainActivity">-->
-
-    <!--&lt;!&ndash; Set the starting camera position and map style using xml&ndash;&gt;-->
-    <!--<com.mapbox.mapboxsdk.maps.MapView-->
-        <!--android:id="@+id/mapView"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--mapbox:style_url="mapbox://styles/mapbox/streets-v9"-->
-        <!--mapbox:center_latitude="52.5200"-->
-        <!--mapbox:center_longitude="13.4050"-->
-        <!--mapbox:zoom="11"/>-->
-
-<!--</RelativeLayout>-->
 
 <!-- This DrawerLayout has two children at the root  -->
 <android.support.v4.widget.DrawerLayout
@@ -48,6 +30,17 @@
             mapbox:center_latitude="52.5200"
             mapbox:center_longitude="13.4050"
             mapbox:zoom="10"/>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="@android:style/Widget.Material.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:visibility="gone" />
 
     </LinearLayout>
 

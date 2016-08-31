@@ -19,6 +19,9 @@ import android.app.Activity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -30,11 +33,17 @@ import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.annotations.MarkerViewOptions;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.geometry.LatLng;
+import com.mapbox.mapboxsdk.geometry.LatLngBounds;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.MapboxMapOptions;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.MapboxAccountManager;
+import com.mapbox.mapboxsdk.offline.OfflineManager;
+import com.mapbox.mapboxsdk.offline.OfflineRegion;
+import com.mapbox.mapboxsdk.offline.OfflineRegionError;
+import com.mapbox.mapboxsdk.offline.OfflineRegionStatus;
+import com.mapbox.mapboxsdk.offline.OfflineTilePyramidRegionDefinition;
 import com.mapbox.services.commons.geojson.FeatureCollection;
 import com.mapbox.services.commons.geojson.GeoJSON;
 import com.mapbox.services.commons.utils.TextUtils;
@@ -66,6 +75,13 @@ public class MainActivity extends AppCompatActivity {
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
+
+    // JSON encoding/decoding
+    public final static String JSON_CHARSET = "UTF-8";
+    public final static String JSON_FIELD_REGION_NAME = "FIELD_REGION_NAME";
+    private boolean isEndNotified;
+    private ProgressBar progressBar;
+
     private GoogleApiClient client;
 
     @Override
@@ -83,8 +99,9 @@ public class MainActivity extends AppCompatActivity {
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(MapboxMap mapboxMap) {
+                startDownloadingMap();
                 mapBox = mapboxMap;
-                new FetchLocationsTask().execute();
+
             }
 
         });
@@ -426,6 +443,124 @@ public class MainActivity extends AppCompatActivity {
 
     private void unregisterManagers() {
         UpdateManager.unregister();
+    }
+
+    private void startDownloadingMap() {
+        // Set up the OfflineManager
+        Log.i(TAG, "start downloading");
+        OfflineManager offlineManager = OfflineManager.getInstance(this);
+
+// BERLIN COORDINATES
+// .include(new LatLng(52.606509, 13.259811))
+//                .include(new LatLng(52.275972, 13.697205))
+
+        // Create a bounding box for the offline region
+        LatLngBounds latLngBounds = new LatLngBounds.Builder()
+                .include(new LatLng(52.506509, 13.359811)) // Northeast
+                .include(new LatLng(52.275972, 13.697205)) // Southwest
+                .build();
+
+        // Define the offline region
+        OfflineTilePyramidRegionDefinition definition = new OfflineTilePyramidRegionDefinition(
+                mapView.getStyleUrl(),
+                latLngBounds,
+                10,
+                15,
+                this.getResources().getDisplayMetrics().density);
+
+        // Set the metadata
+        byte[] metadata;
+        try {
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put(JSON_FIELD_REGION_NAME, "BERLIN");
+            String json = jsonObject.toString();
+            metadata = json.getBytes(JSON_CHARSET);
+            Log.i(TAG, "metadata created");
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to encode metadata: " + e.getMessage());
+            metadata = null;
+        }
+
+        // Create the region asynchronously
+        offlineManager.createOfflineRegion(definition, metadata, new OfflineManager.CreateOfflineRegionCallback() {
+            @Override
+            public void onCreate(OfflineRegion offlineRegion) {
+                offlineRegion.setDownloadState(OfflineRegion.STATE_ACTIVE);
+
+                // Display the download progress bar
+                progressBar = (ProgressBar) findViewById(R.id.progress_bar);
+                startProgress();
+
+                // Monitor the download progress using setObserver
+                offlineRegion.setObserver(new OfflineRegion.OfflineRegionObserver() {
+                    @Override
+                    public void onStatusChanged(OfflineRegionStatus status) {
+
+                        // Calculate the download percentage and update the progress bar
+                        double percentage = status.getRequiredResourceCount() >= 0 ?
+                                (100.0 * status.getCompletedResourceCount() / status.getRequiredResourceCount()) :
+                                0.0;
+
+                        Log.i(TAG, "Percentage done: " + percentage);
+                        if (status.isComplete()) {
+                            // Download complete
+                            Log.i(TAG, "download complete");
+                            new FetchLocationsTask().execute();
+                            endProgress("Region downloaded successfully.");
+
+                        } else if (status.isRequiredResourceCountPrecise()) {
+                            // Switch to determinate state
+                            setPercentage((int) Math.round(percentage));
+                        }
+                    }
+
+                    @Override
+                    public void onError(OfflineRegionError error) {
+                        // If an error occurs, print to logcat
+                        Log.e(TAG, "onError reason: " + error.getReason());
+                        Log.e(TAG, "onError message: " + error.getMessage());
+                    }
+
+                    @Override
+                    public void mapboxTileCountLimitExceeded(long limit) {
+                        // Notify if offline region exceeds maximum tile count
+                        Log.e(TAG, "Mapbox tile count limit exceeded: " + limit);
+                    }
+                });
+            }
+
+            @Override
+            public void onError(String error) {
+                Log.e(TAG, "Error: " + error);
+            }
+        });
+    }
+
+    // Progress bar methods
+    private void startProgress() {
+
+        // Start and show the progress bar
+        isEndNotified = false;
+        progressBar.setIndeterminate(true);
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    private void setPercentage(final int percentage) {
+        progressBar.setIndeterminate(false);
+        progressBar.setProgress(percentage);
+    }
+
+    private void endProgress(final String message) {
+        // Don't notify more than once
+        if (isEndNotified) return;
+
+        // Stop and hide the progress bar
+        isEndNotified = true;
+        progressBar.setIndeterminate(false);
+        progressBar.setVisibility(View.GONE);
+
+        // Show a toast
+        Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
     }
 
 }
