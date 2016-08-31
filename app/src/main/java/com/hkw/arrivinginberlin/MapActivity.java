@@ -365,10 +365,6 @@ public class MapActivity extends AppCompatActivity {
         Log.i(TAG, "start downloading");
         OfflineManager offlineManager = OfflineManager.getInstance(this);
 
-// BERLIN COORDINATES
-// .include(new LatLng(52.606509, 13.259811))
-//                .include(new LatLng(52.275972, 13.697205))
-
         // Create a bounding box for the offline region
         LatLngBounds latLngBounds = new LatLngBounds.Builder()
                 .include(new LatLng(52.506509, 13.359811)) // Northeast
