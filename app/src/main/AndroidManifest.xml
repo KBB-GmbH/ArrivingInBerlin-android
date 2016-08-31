@@ -44,7 +44,10 @@
             android:name="net.hockeyapp.android.appIdentifier"
             android:value="${HOCKEYAPP_APP_ID}" />
 
-        <activity android:name=".MapActivity"></activity>
+        <activity android:name=".MapActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowActionBar="false">
+        </activity>
     </application>
 
 </manifest>
