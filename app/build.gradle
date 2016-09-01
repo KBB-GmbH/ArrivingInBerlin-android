@@ -48,5 +48,7 @@ dependencies {
     compile "com.android.support:recyclerview-v7:${supportLibVersion}"
     compile "com.android.support:percent:${supportLibVersion}"
 
+    compile 'com.roughike:bottom-bar:1.2.1'
+
 
 }

@@ -34,6 +34,8 @@ import com.mapbox.mapboxsdk.offline.OfflineRegion;
 import com.mapbox.mapboxsdk.offline.OfflineRegionError;
 import com.mapbox.mapboxsdk.offline.OfflineRegionStatus;
 import com.mapbox.mapboxsdk.offline.OfflineTilePyramidRegionDefinition;
+import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnMenuTabSelectedListener;
 
 import net.hockeyapp.android.CrashManager;
 import net.hockeyapp.android.UpdateManager;
@@ -95,6 +97,29 @@ public class MapActivity extends AppCompatActivity {
         nvDrawer = (NavigationView) findViewById(R.id.nvView);
         // Setup drawer view
         setupDrawerContent(nvDrawer);
+
+
+        BottomBar bottomBar = BottomBar.attach(this, savedInstanceState);
+        bottomBar.setItemsFromMenu(R.menu.bottom_navigation, new OnMenuTabSelectedListener() {
+            @Override
+            public void onMenuItemSelected(int itemId) {
+                switch (itemId) {
+                    case R.id.info_item:
+                        setContentView(R.layout.info);
+                        break;
+                    case R.id.map_item:
+                        setContentView(R.layout.map);
+                        break;
+                    case R.id.list_item:
+                        setContentView(R.layout.list);
+                        break;
+
+                }
+            }
+        });
+
+        // Set the color for the active tab. Ignored on mobile when there are more than three tabs.
+        bottomBar.setActiveTabColor("#C2185B");
 
     }
 
