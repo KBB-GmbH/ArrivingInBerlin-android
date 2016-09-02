@@ -1,8 +1,11 @@
 package com.hkw.arrivinginberlin;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -52,7 +55,6 @@ public class MapActivity extends AppCompatActivity {
     private ActionBarDrawerToggle drawerToggle;
     private MapView mapView;
     private MapboxMap mapBox;
-    private List<JSONObject> locations = new ArrayList<>();
     private List<CategoryMarker> allMarkers = new ArrayList<>();
 
     // JSON encoding/decoding
@@ -79,7 +81,7 @@ public class MapActivity extends AppCompatActivity {
             public void onMapReady(MapboxMap mapboxMap) {
                 startDownloadingMap();
                 mapBox = mapboxMap;
-
+                new FetchLocationsTask().execute();
             }
 
         });
@@ -170,26 +172,69 @@ public class MapActivity extends AppCompatActivity {
         }
 
         @Override
-        protected void onPostExecute(List<JSONObject> newLocations){
-            locations = newLocations;
+        protected  void onCancelled(){
+            ArrayList<JSONObject> locations = getStoredLocations();
+            if ((locations != null) && (locations.size() > 0)){
+                updateLocationPoints(locations);
+            }
+            else {
+                showOfflineMessage();
+            }
+        }
+
+        @Override
+        protected void onPostExecute(List<JSONObject> locations){
             //check if the map exists already
-            Log.i("FETCH", "arrived at post exec with location: " + newLocations);
+            Log.i("FETCH", "arrived at post exec with location: " + locations);
 
-            if (locations != null){
-                for (JSONObject location : locations) {
-                    try {
-                        JSONObject feature = location.getJSONArray("features").getJSONObject(0);
-                        JSONObject properties = feature.getJSONObject("properties");
-                        int categoryID = Integer.parseInt(properties.get("category_id").toString());
-                        addGeoPointsForCategory(categoryID, location, mapBox);
-
-                    }catch (Exception e) {
-                        Log.e("MainActivity", "Exception Loading GeoJSON: " + e.toString());
-                    }
+            if ((locations != null) && (locations.size() > 0)){
+                //store locations
+                updateLocationPoints(locations);
+                storeLocations((ArrayList<JSONObject>) locations);
+                }
+            else {
+                List<JSONObject> storedLocations = getStoredLocations();
+                if ((storedLocations != null) && (storedLocations.size() > 0)){
+                    updateLocationPoints(locations);
+                }
+                else {
+                    showOfflineMessage();
                 }
             }
         }
+
+        private void showOfflineMessage() {
+            String message = "@string/offline_message";
+            Toast.makeText(MapActivity.this, message, Toast.LENGTH_LONG).show();
+        }
+
+        private void updateLocationPoints(List<JSONObject> locations){
+            for (JSONObject location : locations) {
+                try {
+                    JSONObject feature = location.getJSONArray("features").getJSONObject(0);
+                    JSONObject properties = feature.getJSONObject("properties");
+                    int categoryID = Integer.parseInt(properties.get("category_id").toString());
+                    addGeoPointsForCategory(categoryID, location, mapBox);
+
+                } catch (Exception e) {
+                    Log.e(TAG, "Exception Loading GeoJSON: " + e.toString());
+                }
+            }
+        }
+
+        private ArrayList<JSONObject> getStoredLocations() {
+            SaveArray save = new SaveArray(getApplicationContext());
+            ArrayList<JSONObject> locations = save.getArray("locations");
+            return locations;
+        }
+
+        private void storeLocations(ArrayList<JSONObject> locations) {
+            SaveArray save = new SaveArray(getApplicationContext());
+            save.saveArray("locations", locations);
+            Log.i(TAG, "Saved Locations");
+        }
     }
+
 
     public void addGeoPointsForCategory(int categoryID, JSONObject json, MapboxMap mapboxMap) {
         ArrayList<LatLng> points = new ArrayList<>();
@@ -412,14 +457,14 @@ public class MapActivity extends AppCompatActivity {
                                 (100.0 * status.getCompletedResourceCount() / status.getRequiredResourceCount()) :
                                 0.0;
 
-                        Log.i(TAG, "Percentage done: " + percentage);
+
                         if (status.isComplete()) {
                             // Download complete
                             Log.i(TAG, "download complete");
-                            new FetchLocationsTask().execute();
                             endProgress("Region downloaded successfully.");
 
                         } else if (status.isRequiredResourceCountPrecise()) {
+                            Log.i(TAG, "Percentage done: " + percentage);
                             // Switch to determinate state
                             setPercentage((int) Math.round(percentage));
                         }
