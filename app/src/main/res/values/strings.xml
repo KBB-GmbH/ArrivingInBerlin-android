@@ -17,4 +17,6 @@
     <string name="categories">Categories</string>
     <string name="all_categories">All</string>
     <string name="offline_message">You appear to be offline. Connect to the internet to view locations.</string>
+    <string name="drawer_open_content_desc">open</string>
+    <string name="drawer_close_content_desc">close</string>
 </resources>

@@ -2,6 +2,7 @@ package com.hkw.arrivinginberlin;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -16,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -95,6 +97,7 @@ public class MapActivity extends AppCompatActivity {
 
         // Find our drawer view
         nvDrawer = (NavigationView) findViewById(R.id.nvView);
+        nvDrawer.setItemIconTintList(null);
         // Setup drawer view
         setupDrawerContent(nvDrawer);
 
@@ -119,8 +122,14 @@ public class MapActivity extends AppCompatActivity {
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
+//        drawerToggle.syncState();
     }
 
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+//        drawerToggle.onConfigurationChanged(newConfig);
+    }
 
     private void setupDrawerContent(NavigationView navigationView) {
         navigationView.setNavigationItemSelectedListener(
@@ -167,7 +176,6 @@ public class MapActivity extends AppCompatActivity {
     public class FetchLocationsTask extends AsyncTask<Void, Void, List<JSONObject>> {
         @Override
         protected List<JSONObject> doInBackground(Void... params) {
-            Log.i(TAG, "fetching locations");
             return new UmapDataRequest().fetchLocations();
         }
 
@@ -204,7 +212,7 @@ public class MapActivity extends AppCompatActivity {
         }
 
         private void showOfflineMessage() {
-            String message = "@string/offline_message";
+            String message = getString(R.string.offline_message);
             Toast.makeText(MapActivity.this, message, Toast.LENGTH_LONG).show();
         }
 

@@ -14,5 +14,7 @@
         <item name="colorPrimary">#673AB7</item>
         <item name="colorPrimaryDark">#512DA8</item>
         <item name="colorAccent">#FF4081</item>
+        <item name="homeAsUpIndicator">@drawable/ic_one</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_one</item>
     </style>
 </resources>
