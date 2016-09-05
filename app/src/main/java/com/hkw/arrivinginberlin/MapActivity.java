@@ -21,9 +21,7 @@ import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
+
 import com.mapbox.mapboxsdk.MapboxAccountManager;
 import com.mapbox.mapboxsdk.annotations.Icon;
 import com.mapbox.mapboxsdk.annotations.IconFactory;
@@ -39,9 +37,6 @@ import com.mapbox.mapboxsdk.offline.OfflineRegion;
 import com.mapbox.mapboxsdk.offline.OfflineRegionError;
 import com.mapbox.mapboxsdk.offline.OfflineRegionStatus;
 import com.mapbox.mapboxsdk.offline.OfflineTilePyramidRegionDefinition;
-
-import net.hockeyapp.android.CrashManager;
-import net.hockeyapp.android.UpdateManager;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -98,11 +93,18 @@ public class MapActivity extends AppCompatActivity {
         // Find our drawer view
         nvDrawer = (NavigationView) findViewById(R.id.nvView);
         nvDrawer.setItemIconTintList(null);
+        drawerToggle = setupDrawerToggle();
+        // Tie DrawerLayout events to the ActionBarToggle
+
+        mDrawer.addDrawerListener(drawerToggle);
         // Setup drawer view
         setupDrawerContent(nvDrawer);
 
     }
 
+    private ActionBarDrawerToggle setupDrawerToggle() {
+        return new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.drawer_open,  R.string.drawer_close);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -117,18 +119,31 @@ public class MapActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    // `onPostCreate` called when activity start-up is complete after `onStart()`
-    // NOTE! Make sure to override the method with only a single `Bundle` argument
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-//        drawerToggle.syncState();
-    }
 
     @Override
+
+    protected void onPostCreate(Bundle savedInstanceState) {
+
+        super.onPostCreate(savedInstanceState);
+
+        // Sync the toggle state after onRestoreInstanceState has occurred.
+
+        drawerToggle.syncState();
+
+    }
+
+
+
+    @Override
+
     public void onConfigurationChanged(Configuration newConfig) {
+
         super.onConfigurationChanged(newConfig);
-//        drawerToggle.onConfigurationChanged(newConfig);
+
+        // Pass any configuration change to the drawer toggles
+
+        drawerToggle.onConfigurationChanged(newConfig);
+
     }
 
     private void setupDrawerContent(NavigationView navigationView) {
