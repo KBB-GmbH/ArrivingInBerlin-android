@@ -1,8 +1,12 @@
 package com.hkw.arrivinginberlin;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,12 +17,11 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
+
 import com.mapbox.mapboxsdk.MapboxAccountManager;
 import com.mapbox.mapboxsdk.annotations.Icon;
 import com.mapbox.mapboxsdk.annotations.IconFactory;
@@ -37,9 +40,6 @@ import com.mapbox.mapboxsdk.offline.OfflineTilePyramidRegionDefinition;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabSelectedListener;
 
-import net.hockeyapp.android.CrashManager;
-import net.hockeyapp.android.UpdateManager;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -54,7 +54,6 @@ public class MapActivity extends AppCompatActivity {
     private ActionBarDrawerToggle drawerToggle;
     private MapView mapView;
     private MapboxMap mapBox;
-    private List<JSONObject> locations = new ArrayList<>();
     private List<CategoryMarker> allMarkers = new ArrayList<>();
 
     // JSON encoding/decoding
@@ -81,7 +80,7 @@ public class MapActivity extends AppCompatActivity {
             public void onMapReady(MapboxMap mapboxMap) {
                 startDownloadingMap();
                 mapBox = mapboxMap;
-
+                new FetchLocationsTask().execute();
             }
 
         });
@@ -95,6 +94,11 @@ public class MapActivity extends AppCompatActivity {
 
         // Find our drawer view
         nvDrawer = (NavigationView) findViewById(R.id.nvView);
+        nvDrawer.setItemIconTintList(null);
+        drawerToggle = setupDrawerToggle();
+        // Tie DrawerLayout events to the ActionBarToggle
+
+        mDrawer.addDrawerListener(drawerToggle);
         // Setup drawer view
         setupDrawerContent(nvDrawer);
 
@@ -123,6 +127,9 @@ public class MapActivity extends AppCompatActivity {
 
     }
 
+    private ActionBarDrawerToggle setupDrawerToggle() {
+        return new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.drawer_open,  R.string.drawer_close);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -137,13 +144,32 @@ public class MapActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    // `onPostCreate` called when activity start-up is complete after `onStart()`
-    // NOTE! Make sure to override the method with only a single `Bundle` argument
+
     @Override
+
     protected void onPostCreate(Bundle savedInstanceState) {
+
         super.onPostCreate(savedInstanceState);
+
+        // Sync the toggle state after onRestoreInstanceState has occurred.
+
+        drawerToggle.syncState();
+
     }
 
+
+
+    @Override
+
+    public void onConfigurationChanged(Configuration newConfig) {
+
+        super.onConfigurationChanged(newConfig);
+
+        // Pass any configuration change to the drawer toggles
+
+        drawerToggle.onConfigurationChanged(newConfig);
+
+    }
 
     private void setupDrawerContent(NavigationView navigationView) {
         navigationView.setNavigationItemSelectedListener(
@@ -190,31 +216,73 @@ public class MapActivity extends AppCompatActivity {
     public class FetchLocationsTask extends AsyncTask<Void, Void, List<JSONObject>> {
         @Override
         protected List<JSONObject> doInBackground(Void... params) {
-            Log.i(TAG, "fetching locations");
             return new UmapDataRequest().fetchLocations();
         }
 
         @Override
-        protected void onPostExecute(List<JSONObject> newLocations){
-            locations = newLocations;
+        protected  void onCancelled(){
+            ArrayList<JSONObject> locations = getStoredLocations();
+            if ((locations != null) && (locations.size() > 0)){
+                updateLocationPoints(locations);
+            }
+            else {
+                showOfflineMessage();
+            }
+        }
+
+        @Override
+        protected void onPostExecute(List<JSONObject> locations){
             //check if the map exists already
-            Log.i("FETCH", "arrived at post exec with location: " + newLocations);
+            Log.i("FETCH", "arrived at post exec with location: " + locations);
 
-            if (locations != null){
-                for (JSONObject location : locations) {
-                    try {
-                        JSONObject feature = location.getJSONArray("features").getJSONObject(0);
-                        JSONObject properties = feature.getJSONObject("properties");
-                        int categoryID = Integer.parseInt(properties.get("category_id").toString());
-                        addGeoPointsForCategory(categoryID, location, mapBox);
-
-                    }catch (Exception e) {
-                        Log.e("MainActivity", "Exception Loading GeoJSON: " + e.toString());
-                    }
+            if ((locations != null) && (locations.size() > 0)){
+                //store locations
+                updateLocationPoints(locations);
+                storeLocations((ArrayList<JSONObject>) locations);
+                }
+            else {
+                List<JSONObject> storedLocations = getStoredLocations();
+                if ((storedLocations != null) && (storedLocations.size() > 0)){
+                    updateLocationPoints(locations);
+                }
+                else {
+                    showOfflineMessage();
                 }
             }
         }
+
+        private void showOfflineMessage() {
+            String message = getString(R.string.offline_message);
+            Toast.makeText(MapActivity.this, message, Toast.LENGTH_LONG).show();
+        }
+
+        private void updateLocationPoints(List<JSONObject> locations){
+            for (JSONObject location : locations) {
+                try {
+                    JSONObject feature = location.getJSONArray("features").getJSONObject(0);
+                    JSONObject properties = feature.getJSONObject("properties");
+                    int categoryID = Integer.parseInt(properties.get("category_id").toString());
+                    addGeoPointsForCategory(categoryID, location, mapBox);
+
+                } catch (Exception e) {
+                    Log.e(TAG, "Exception Loading GeoJSON: " + e.toString());
+                }
+            }
+        }
+
+        private ArrayList<JSONObject> getStoredLocations() {
+            SaveArray save = new SaveArray(getApplicationContext());
+            ArrayList<JSONObject> locations = save.getArray("locations");
+            return locations;
+        }
+
+        private void storeLocations(ArrayList<JSONObject> locations) {
+            SaveArray save = new SaveArray(getApplicationContext());
+            save.saveArray("locations", locations);
+            Log.i(TAG, "Saved Locations");
+        }
     }
+
 
     public void addGeoPointsForCategory(int categoryID, JSONObject json, MapboxMap mapboxMap) {
         ArrayList<LatLng> points = new ArrayList<>();
@@ -437,14 +505,14 @@ public class MapActivity extends AppCompatActivity {
                                 (100.0 * status.getCompletedResourceCount() / status.getRequiredResourceCount()) :
                                 0.0;
 
-                        Log.i(TAG, "Percentage done: " + percentage);
+
                         if (status.isComplete()) {
                             // Download complete
                             Log.i(TAG, "download complete");
-                            new FetchLocationsTask().execute();
                             endProgress("Region downloaded successfully.");
 
                         } else if (status.isRequiredResourceCountPrecise()) {
+                            Log.i(TAG, "Percentage done: " + percentage);
                             // Switch to determinate state
                             setPercentage((int) Math.round(percentage));
                         }
