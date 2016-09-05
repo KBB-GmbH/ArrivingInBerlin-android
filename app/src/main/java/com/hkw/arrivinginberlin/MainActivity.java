@@ -5,11 +5,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
-
+import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnMenuTabSelectedListener;
 
 import net.hockeyapp.android.CrashManager;
 import net.hockeyapp.android.UpdateManager;
@@ -25,13 +25,30 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         // This contains the MapView in XML and needs to be called after the account manager
         setContentView(R.layout.activity_main);
-        Button startButton = (Button) findViewById(R.id.startButton);
-        startButton.setOnClickListener(new Button.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent (getApplicationContext(), MapActivity.class);
-                startActivity(intent);
+        BottomBar bottomBar = BottomBar.attach(this, savedInstanceState);
+        bottomBar.setItemsFromMenu(R.menu.bottom_navigation, new OnMenuTabSelectedListener() {
+            @Override
+            public void onMenuItemSelected(int itemId) {
+                switch (itemId) {
+                    case R.id.info_item:
+                        Intent x = new Intent(getApplicationContext(), MapActivity.class);
+                        startActivity(x);
+                        break;
+                    case R.id.map_item:
+                        Intent y = new Intent(getApplicationContext(), MapActivity.class);
+                        startActivity(y);
+                        break;
+                    case R.id.list_item:
+                        Intent z = new Intent(getApplicationContext(), MapActivity.class);
+                        startActivity(z);
+                        break;
+
+                }
             }
         });
+
+        // Set the color for the active tab. Ignored on mobile when there are more than three tabs.
+        bottomBar.setActiveTabColor("#C2185B");
 
         // Hockeyapp
         checkForUpdates();

@@ -1,6 +1,7 @@
 package com.hkw.arrivinginberlin;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
@@ -72,6 +73,32 @@ public class MapActivity extends AppCompatActivity {
         // This contains the MapView in XML and needs to be called after the account manager
         setContentView(R.layout.activity_map);
 
+        BottomBar bottomBar = BottomBar.attach(this, savedInstanceState);
+        bottomBar.setItemsFromMenu(R.menu.bottom_navigation, new OnMenuTabSelectedListener() {
+            @Override
+            public void onMenuItemSelected(int itemId) {
+                switch (itemId) {
+                    case R.id.info_item:
+                        Intent x = new Intent(getApplicationContext(), MapActivity.class);
+                        startActivity(x);
+                        break;
+                    case R.id.map_item:
+                        Intent y = new Intent(getApplicationContext(), MapActivity.class);
+                        startActivity(y);
+                        break;
+                    case R.id.list_item:
+                        Intent z = new Intent(getApplicationContext(), MapActivity.class);
+                        startActivity(z);
+                        break;
+
+                }
+            }
+        });
+
+        // Set the color for the active tab. Ignored on mobile when there are more than three tabs.
+        bottomBar.setActiveTabColor("#C2185B");
+        bottomBar.setSelected(true);
+
         mapView = (MapView) findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
 
@@ -82,7 +109,6 @@ public class MapActivity extends AppCompatActivity {
                 mapBox = mapboxMap;
                 new FetchLocationsTask().execute();
             }
-
         });
 
         // Set a Toolbar to replace the ActionBar.
@@ -101,29 +127,6 @@ public class MapActivity extends AppCompatActivity {
         mDrawer.addDrawerListener(drawerToggle);
         // Setup drawer view
         setupDrawerContent(nvDrawer);
-
-
-        BottomBar bottomBar = BottomBar.attach(this, savedInstanceState);
-        bottomBar.setItemsFromMenu(R.menu.bottom_navigation, new OnMenuTabSelectedListener() {
-            @Override
-            public void onMenuItemSelected(int itemId) {
-                switch (itemId) {
-                    case R.id.info_item:
-                        setContentView(R.layout.info);
-                        break;
-                    case R.id.map_item:
-                        setContentView(R.layout.map);
-                        break;
-                    case R.id.list_item:
-                        setContentView(R.layout.list);
-                        break;
-
-                }
-            }
-        });
-
-        // Set the color for the active tab. Ignored on mobile when there are more than three tabs.
-        bottomBar.setActiveTabColor("#C2185B");
 
     }
 
@@ -150,9 +153,6 @@ public class MapActivity extends AppCompatActivity {
     protected void onPostCreate(Bundle savedInstanceState) {
 
         super.onPostCreate(savedInstanceState);
-
-        // Sync the toggle state after onRestoreInstanceState has occurred.
-
         drawerToggle.syncState();
 
     }
@@ -164,9 +164,6 @@ public class MapActivity extends AppCompatActivity {
     public void onConfigurationChanged(Configuration newConfig) {
 
         super.onConfigurationChanged(newConfig);
-
-        // Pass any configuration change to the drawer toggles
-
         drawerToggle.onConfigurationChanged(newConfig);
 
     }
