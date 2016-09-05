@@ -11,8 +11,8 @@
 <resources>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">#673AB7</item>
-        <item name="colorPrimaryDark">#512DA8</item>
+        <item name="colorPrimary">#FFFFFF</item>
+        <item name="colorPrimaryDark">#888888</item>
         <item name="colorAccent">#FF4081</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
