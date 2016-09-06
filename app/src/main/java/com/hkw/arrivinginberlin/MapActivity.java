@@ -78,26 +78,20 @@ public class MapActivity extends AppCompatActivity {
             @Override
             public void onMenuItemSelected(int itemId) {
                 switch (itemId) {
-                    case R.id.info_item:
-                        Intent x = new Intent(getApplicationContext(), MapActivity.class);
-                        startActivity(x);
-                        break;
                     case R.id.map_item:
-                        Intent y = new Intent(getApplicationContext(), MapActivity.class);
-                        startActivity(y);
+                        break;
+                    case R.id.info_item:
                         break;
                     case R.id.list_item:
-                        Intent z = new Intent(getApplicationContext(), MapActivity.class);
-                        startActivity(z);
                         break;
 
                 }
             }
         });
-
         // Set the color for the active tab. Ignored on mobile when there are more than three tabs.
         bottomBar.setActiveTabColor("#C2185B");
-        bottomBar.setSelected(true);
+        bottomBar.selectTabAtPosition(1, false);
+
 
         mapView = (MapView) findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
