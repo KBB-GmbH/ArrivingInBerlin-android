@@ -10,12 +10,15 @@ import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -23,6 +26,9 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.mapbox.mapboxsdk.MapboxAccountManager;
 import com.mapbox.mapboxsdk.annotations.Icon;
 import com.mapbox.mapboxsdk.annotations.IconFactory;
@@ -47,7 +53,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MapActivity extends AppCompatActivity {
+public class MapActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
     private static final String TAG = "MapActivity";
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
@@ -62,7 +68,10 @@ public class MapActivity extends AppCompatActivity {
     public final static String JSON_FIELD_REGION_NAME = "BERLIN_REGION";
     private boolean isEndNotified;
     private ProgressBar progressBar;
-
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,8 +133,31 @@ public class MapActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_search, menu);
+
+        MenuItem searchItem = menu.findItem(R.id.search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        searchView.setOnQueryTextListener(this);
+
+        return true;
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        // User pressed the search button
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        // User changed the text
+        return false;
+    }
+
     private ActionBarDrawerToggle setupDrawerToggle() {
-        return new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.drawer_open,  R.string.drawer_close);
+        return new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.drawer_open, R.string.drawer_close);
     }
 
     @Override
@@ -137,7 +169,7 @@ public class MapActivity extends AppCompatActivity {
                 return true;
         }
 
-        Log.i(TAG, "item drawer selected with id "+ item);
+        Log.i(TAG, "item drawer selected with id " + item);
         return super.onOptionsItemSelected(item);
     }
 
@@ -150,7 +182,6 @@ public class MapActivity extends AppCompatActivity {
         drawerToggle.syncState();
 
     }
-
 
 
     @Override
@@ -204,6 +235,7 @@ public class MapActivity extends AppCompatActivity {
         mapView.onSaveInstanceState(outState);
     }
 
+
     public class FetchLocationsTask extends AsyncTask<Void, Void, List<JSONObject>> {
         @Override
         protected List<JSONObject> doInBackground(Void... params) {
@@ -211,32 +243,29 @@ public class MapActivity extends AppCompatActivity {
         }
 
         @Override
-        protected  void onCancelled(){
+        protected void onCancelled() {
             ArrayList<JSONObject> locations = getStoredLocations();
-            if ((locations != null) && (locations.size() > 0)){
+            if ((locations != null) && (locations.size() > 0)) {
                 updateLocationPoints(locations);
-            }
-            else {
+            } else {
                 showOfflineMessage();
             }
         }
 
         @Override
-        protected void onPostExecute(List<JSONObject> locations){
+        protected void onPostExecute(List<JSONObject> locations) {
             //check if the map exists already
             Log.i("FETCH", "arrived at post exec with location: " + locations);
 
-            if ((locations != null) && (locations.size() > 0)){
+            if ((locations != null) && (locations.size() > 0)) {
                 //store locations
                 updateLocationPoints(locations);
                 storeLocations((ArrayList<JSONObject>) locations);
-                }
-            else {
+            } else {
                 List<JSONObject> storedLocations = getStoredLocations();
-                if ((storedLocations != null) && (storedLocations.size() > 0)){
+                if ((storedLocations != null) && (storedLocations.size() > 0)) {
                     updateLocationPoints(locations);
-                }
-                else {
+                } else {
                     showOfflineMessage();
                 }
             }
@@ -247,7 +276,7 @@ public class MapActivity extends AppCompatActivity {
             Toast.makeText(MapActivity.this, message, Toast.LENGTH_LONG).show();
         }
 
-        private void updateLocationPoints(List<JSONObject> locations){
+        private void updateLocationPoints(List<JSONObject> locations) {
             for (JSONObject location : locations) {
                 try {
                     JSONObject feature = location.getJSONArray("features").getJSONObject(0);
@@ -294,12 +323,12 @@ public class MapActivity extends AppCompatActivity {
                 String name = properties.getString("name");
                 String beschreibung = properties.getString("beschreibung").replace("*", "");
                 String adresse = properties.getString("adresse").replace("*", "");
-                if (adresse.length() != 0 ) {
-                    adresse = adresse.substring(0,1).toUpperCase() + adresse.substring​(1);
+                if (adresse.length() != 0) {
+                    adresse = adresse.substring(0, 1).toUpperCase() + adresse.substring​(1);
                 }
                 String telefon = properties.getString("telefon").replace("*", "");
-                String medium = properties.getString("medium").replace("*", "").replace("[[","").replace("]]", "");
-                String transport = properties.getString("transport").replace("*", "").replace("[[","").replace("]]", "");
+                String medium = properties.getString("medium").replace("*", "").replace("[[", "").replace("]]", "");
+                String transport = properties.getString("transport").replace("*", "").replace("[[", "").replace("]]", "");
 
                 int imageResource = getResources().getIdentifier(uri, null, getPackageName());
                 IconFactory iconFactory = IconFactory.getInstance(MapActivity.this);
@@ -321,36 +350,49 @@ public class MapActivity extends AppCompatActivity {
 
     }
 
-    public String getIconForCategory(int categoryID){
+    public String getIconForCategory(int categoryID) {
         // Make Custom Icon
         String uri = "@drawable/";
-        String iconPng ="";
-        switch (categoryID){
-            case 1: iconPng ="counseling_services_for_refugees";
+        String iconPng = "";
+        switch (categoryID) {
+            case 1:
+                iconPng = "counseling_services_for_refugees";
                 break;
-            case 2: iconPng ="doctors_general_practitioner_arabic";
+            case 2:
+                iconPng = "doctors_general_practitioner_arabic";
                 break;
-            case 3: iconPng ="doctors_general_practitioner_farsi";
+            case 3:
+                iconPng = "doctors_general_practitioner_farsi";
                 break;
-            case 4: iconPng ="doctors_gynaecologist_arabic";
+            case 4:
+                iconPng = "doctors_gynaecologist_arabic";
                 break;
-            case 5: iconPng = "doctors_gynaecologist_farsi";
+            case 5:
+                iconPng = "doctors_gynaecologist_farsi";
                 break;
-            case 6: iconPng = "german_language_classes";
+            case 6:
+                iconPng = "german_language_classes";
                 break;
-            case 7: iconPng = "lawyers_residence_and_asylum_law";
+            case 7:
+                iconPng = "lawyers_residence_and_asylum_law";
                 break;
-            case 8: iconPng = "police";
+            case 8:
+                iconPng = "police";
                 break;
-            case 9: iconPng = "public_authorities";
+            case 9:
+                iconPng = "public_authorities";
                 break;
-            case 10: iconPng = "public_libraries";
+            case 10:
+                iconPng = "public_libraries";
                 break;
-            case 11: iconPng = "public_transport";
+            case 11:
+                iconPng = "public_transport";
                 break;
-            case 12: iconPng = "shopping_and_food";
+            case 12:
+                iconPng = "shopping_and_food";
                 break;
-            case 13: iconPng = "sports_and_freetime";
+            case 13:
+                iconPng = "sports_and_freetime";
                 break;
 
         }
@@ -418,16 +460,16 @@ public class MapActivity extends AppCompatActivity {
         mDrawer.closeDrawers();
     }
 
-    public void displayAllMarkers(){
+    public void displayAllMarkers() {
         removeAllMarkers();
         mapBox.removeAnnotations();
-        for (CategoryMarker cm:allMarkers) {
-            cm.marker= mapBox.addMarker(cm.markerViewOptions);
+        for (CategoryMarker cm : allMarkers) {
+            cm.marker = mapBox.addMarker(cm.markerViewOptions);
         }
     }
 
     public void removeAllMarkers() {
-        for (Marker m:mapBox.getMarkers()) {
+        for (Marker m : mapBox.getMarkers()) {
             mapBox.removeMarker(m);
             mapBox.removeAnnotations();
         }
@@ -435,7 +477,7 @@ public class MapActivity extends AppCompatActivity {
 
     public void displayMarkersForCategory(final int categoryId) {
         removeAllMarkers();
-        for (CategoryMarker cm:allMarkers) {
+        for (CategoryMarker cm : allMarkers) {
             if (cm.categoryID == categoryId) {
                 cm.marker = mapBox.addMarker(cm.markerViewOptions);
             }
