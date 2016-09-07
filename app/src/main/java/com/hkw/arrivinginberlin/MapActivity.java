@@ -22,6 +22,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -137,9 +138,17 @@ public class MapActivity extends AppCompatActivity implements SearchView.OnQuery
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_search, menu);
 
-        MenuItem searchItem = menu.findItem(R.id.search);
+        final MenuItem searchItem = menu.findItem(R.id.search);
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
         searchView.setOnQueryTextListener(this);
+
+        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                displayAllMarkers();
+                return false;
+            }
+        });
 
         return true;
     }
@@ -147,12 +156,15 @@ public class MapActivity extends AppCompatActivity implements SearchView.OnQuery
     @Override
     public boolean onQueryTextSubmit(String query) {
         // User pressed the search button
+        displayMarkersForSearchTerm(query);
         return false;
     }
 
     @Override
     public boolean onQueryTextChange(String newText) {
-        // User changed the text
+        if (newText.isEmpty()) {
+            displayAllMarkers();
+        }
         return false;
     }
 
@@ -482,7 +494,15 @@ public class MapActivity extends AppCompatActivity implements SearchView.OnQuery
                 cm.marker = mapBox.addMarker(cm.markerViewOptions);
             }
         }
+    }
 
+    public void displayMarkersForSearchTerm(String searchTerm) {
+        removeAllMarkers();
+        for (CategoryMarker cm : allMarkers) {
+            if ((cm.marker.getTitle().contains(searchTerm)) || (cm.marker.getSnippet().contains(searchTerm))) {
+                cm.marker = mapBox.addMarker(cm.markerViewOptions);
+            }
+        }
     }
 
 
