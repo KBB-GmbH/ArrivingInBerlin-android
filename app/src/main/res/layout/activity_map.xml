@@ -4,6 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:mapbox="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -29,6 +30,15 @@
             mapbox:center_latitude="52.5200"
             mapbox:center_longitude="13.4050"
             mapbox:zoom="10"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/location_toggle_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:src="@drawable/favorite"
+            tools:backgroundTint="#E55E5E" />
 
         <ProgressBar
             android:id="@+id/progress_bar"
