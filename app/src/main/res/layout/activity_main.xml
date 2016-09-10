@@ -42,6 +42,15 @@
         mapbox:center_longitude="13.4050"
         mapbox:zoom="10"/>
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/location_toggle_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_my_location_24dp"
+        tools:backgroundTint="#E55E5E" />
+
     <ProgressBar
         android:id="@+id/progress_bar"
         style="@android:style/Widget.Material.ProgressBar.Horizontal"
