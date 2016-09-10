@@ -718,7 +718,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             locationServices.addLocationListener(new LocationListener() {
                 @Override
                 public void onLocationChanged(Location location) {
-                    if (location != null) {
+                    if ((location != null) && (location.getLatitude() >= 52.3 && location.getLatitude() < 52.7) &&
+                            (location.getLongitude() >= 13.1 && location.getLongitude() < 13.7)) {
+                        Log.i(TAG, "latlon: " + location.getLatitude() + location.getLongitude());
                         // Move the map camera to where the user location is
                         mapBox.setCameraPosition(new CameraPosition.Builder()
                                 .target(new LatLng(location))
