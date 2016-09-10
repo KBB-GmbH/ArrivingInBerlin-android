@@ -38,8 +38,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         mapbox:style_url="mapbox://styles/mapbox/streets-v9"
-        mapbox:center_latitude="52.5200"
-        mapbox:center_longitude="13.4050"
+        mapbox:center_latitude="52.516889"
+        mapbox:center_longitude="13.388389"
         mapbox:zoom="12"/>
 
     <android.support.design.widget.FloatingActionButton

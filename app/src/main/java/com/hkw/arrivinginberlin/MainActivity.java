@@ -591,8 +591,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         // Create a bounding box for the offline region
         LatLngBounds latLngBounds = new LatLngBounds.Builder()
-                .include(new LatLng(52.506509, 13.359811)) // Northeast
-                .include(new LatLng(52.275972, 13.697205)) // Southwest
+                .include(new LatLng(52.39471, 13.106689)) // Northeast
+                .include(new LatLng(52.655852, 13.612919)) // Southwest
                 .build();
 
         // Define the offline region
