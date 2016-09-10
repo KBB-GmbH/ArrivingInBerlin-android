@@ -73,13 +73,11 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // This contains the MapView in XML and needs to be called after the account manager
-        setContentView(R.layout.activity_main);
         // Mapbox access token only needs to be configured once in your app
         MapboxAccountManager.start(this, getString(R.string.access_token));
 
         // This contains the MapView in XML and needs to be called after the account manager
-        setContentView(R.layout.activity_map);
+        setContentView(R.layout.activity_main);
 
         BottomBar bottomBar = BottomBar.attach(this, savedInstanceState);
         bottomBar.setItemsFromMenu(R.menu.bottom_navigation, new OnMenuTabSelectedListener() {
