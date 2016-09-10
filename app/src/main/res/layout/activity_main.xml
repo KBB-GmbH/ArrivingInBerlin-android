@@ -40,7 +40,7 @@
         mapbox:style_url="mapbox://styles/mapbox/streets-v9"
         mapbox:center_latitude="52.5200"
         mapbox:center_longitude="13.4050"
-        mapbox:zoom="10"/>
+        mapbox:zoom="12"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/location_toggle_fab"

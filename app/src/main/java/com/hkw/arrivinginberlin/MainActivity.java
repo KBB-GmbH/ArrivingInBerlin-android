@@ -120,6 +120,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             public void onMapReady(MapboxMap mapboxMap) {
                 startDownloadingMap();
                 mapBox = mapboxMap;
+                mapBox.setMyLocationEnabled(true);
                 new FetchLocationsTask().execute();
             }
         });
