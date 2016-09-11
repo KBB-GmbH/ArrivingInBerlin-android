@@ -764,7 +764,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private void showSpinner() {
         if (progressDialog == null) {
             progressDialog = new ProgressDialog(MainActivity.this);
-            progressDialog.setMessage("Loading, please wait...");
+            progressDialog.setMessage(getString(R.string.loading));
             progressDialog.show();
             progressDialog.setCanceledOnTouchOutside(false);
             progressDialog.setCancelable(false);
