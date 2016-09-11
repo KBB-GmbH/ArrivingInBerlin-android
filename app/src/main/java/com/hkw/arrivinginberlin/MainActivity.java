@@ -1,5 +1,6 @@
 package com.hkw.arrivinginberlin;
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
@@ -73,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private List<CategoryMarker> allMarkers = new ArrayList<>();
     FloatingActionButton floatingActionButton;
     LocationServices locationServices;
+    ProgressDialog progressDialog;
 
     // JSON encoding/decoding
     public final static String JSON_CHARSET = "UTF-8";
@@ -110,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         // Set the color for the active tab. Ignored on mobile when there are more than three tabs.
         bottomBar.setActiveTabColor("#C2185B");
         bottomBar.selectTabAtPosition(0, false);
-
+        showSpinner();
 
         mapView = (MapView) findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
@@ -334,6 +336,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         @Override
         protected void onCancelled() {
+            hideSpinner();
             ArrayList<JSONObject> locations = getStoredLocations();
             if ((locations != null) && (locations.size() > 0)) {
                 updateLocationPoints(locations);
@@ -397,7 +400,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     public void addGeoPointsForCategory(int categoryID, JSONObject json, MapboxMap mapboxMap) {
         ArrayList<LatLng> points = new ArrayList<>();
         String uri = getIconForCategory(categoryID);
-
         try {
             JSONArray features = json.getJSONArray("features");
 
@@ -437,6 +439,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             Log.e("MainActivity", "Exception Loading GeoJSON: " + e.toString());
         }
         Log.i("MainActivity", "my markers:" + allMarkers);
+        hideSpinner();
 
     }
 
@@ -747,6 +750,22 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     enableLocation(true);
                 }
             }
+        }
+    }
+
+    private void showSpinner() {
+        if (progressDialog == null) {
+            progressDialog = new ProgressDialog(MainActivity.this);
+            progressDialog.setMessage("Loading, please wait...");
+            progressDialog.show();
+            progressDialog.setCanceledOnTouchOutside(false);
+            progressDialog.setCancelable(false);
+        }
+    }
+
+    private void hideSpinner() {
+        if (progressDialog.isShowing()) {
+            progressDialog.dismiss();
         }
     }
 }
