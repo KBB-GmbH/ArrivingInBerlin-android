@@ -123,6 +123,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 startDownloadingMap();
                 mapBox = mapboxMap;
                 enableLocation(true);
+
                 new FetchLocationsTask().execute();
             }
         });
@@ -348,19 +349,26 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         @Override
         protected void onPostExecute(List<JSONObject> locations) {
             //check if the map exists already
-            Log.i("FETCH", "arrived at post exec with location: " + locations);
+            Log.i("FETCH", "arrived at post exec with locations: " + locations);
 
             if ((locations != null) && (locations.size() > 0)) {
                 //store locations
                 updateLocationPoints(locations);
                 storeLocations((ArrayList<JSONObject>) locations);
             } else {
-                List<JSONObject> storedLocations = getStoredLocations();
-                if ((storedLocations != null) && (storedLocations.size() > 0)) {
-                    updateLocationPoints(locations);
-                } else {
+                if (!showStoredLocations()){
                     showOfflineMessage();
                 }
+            }
+        }
+
+        private boolean showStoredLocations() {
+            List<JSONObject> storedLocations = getStoredLocations();
+            if ((storedLocations != null) && (storedLocations.size() > 0)) {
+                updateLocationPoints(storedLocations);
+                return true;
+            } else {
+                return false;
             }
         }
 
