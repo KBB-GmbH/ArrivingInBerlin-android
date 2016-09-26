@@ -6,6 +6,7 @@ import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -19,6 +20,7 @@ import android.view.MenuItem;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.mapbox.mapboxsdk.maps.MapFragment;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabSelectedListener;
 
@@ -31,8 +33,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private NavigationView nvDrawer;
     private ActionBarDrawerToggle drawerToggle;
     private static final String TAG = "MainActivity";
+    private static final String MapTag = "MAP";
     private GoogleApiClient client;
-    private CustomMapFragment mapFragment;
+
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -45,12 +48,19 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             public void onMenuItemSelected(int itemId) {
                 switch (itemId) {
                     case R.id.map_item:
-                        mapFragment = new CustomMapFragment();
-
+                        CustomMapFragment fragment = new CustomMapFragment();
                         FragmentManager fragmentManager = getFragmentManager();
                         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                        fragmentTransaction.add(R.id.content_container, mapFragment);
+                        fragmentTransaction.add(R.id.content_container, fragment, MapTag);
                         fragmentTransaction.commit();
+                        android.app.Fragment mapFragment = (CustomMapFragment) getFragmentManager().findFragmentByTag(MapTag);
+//                        Log.i(TAG, "MAP COMING");
+//
+//                        if (mapFragment == null) {
+//                            Log.i(TAG, String.valueOf(mapFragment));
+//                        } else {
+//                            Log.i(TAG, "MAP FOUND");
+//                        }
 
                         break;
                     case R.id.info_item:
@@ -227,48 +237,50 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     public void selectDrawerItem(MenuItem menuItem) {
         Log.i(TAG, "drawer selected");
+        CustomMapFragment mapFragment = (CustomMapFragment) getFragmentManager().findFragmentByTag(MapTag);
+        Log.i(TAG, String.valueOf(mapFragment));
         switch (menuItem.getItemId()) {
             case R.id.nav_all_categories:
-//                displayAllMarkers();
+                mapFragment.displayAllMarkers();
                 break;
             case R.id.nav_counseling:
-//                displayMarkersForCategory(1);
+                mapFragment.displayMarkersForCategory(1);
                 break;
             case R.id.nav_doctor_gp_arabic:
-//                displayMarkersForCategory(2);
+                mapFragment.displayMarkersForCategory(2);
                 break;
             case R.id.nav_doctor_gp_farsi:
-//                displayMarkersForCategory(3);
+                mapFragment.displayMarkersForCategory(3);
                 break;
             case R.id.nav_doctor_gyn_arabic:
-//                displayMarkersForCategory(4);
+                mapFragment.displayMarkersForCategory(4);
                 break;
             case R.id.nav_doctor_gyn_farsi:
-//                displayMarkersForCategory(5);
+                mapFragment.displayMarkersForCategory(5);
                 break;
             case R.id.nav_german_language_classes:
-//                displayMarkersForCategory(6);
+                mapFragment.displayMarkersForCategory(6);
                 break;
             case R.id.nav_lawyers:
-//                displayMarkersForCategory(7);
+                mapFragment.displayMarkersForCategory(7);
                 break;
             case R.id.nav_police:
-//                displayMarkersForCategory(8);
+                mapFragment.displayMarkersForCategory(8);
                 break;
             case R.id.nav_authorities:
-//                displayMarkersForCategory(9);
+                mapFragment.displayMarkersForCategory(9);
                 break;
             case R.id.nav_libraries:
-//                displayMarkersForCategory(10);
+                mapFragment.displayMarkersForCategory(10);
                 break;
             case R.id.nav_transport:
-//                displayMarkersForCategory(11);
+                mapFragment.displayMarkersForCategory(11);
                 break;
             case R.id.nav_shopping_food:
-//                displayMarkersForCategory(12);
+                mapFragment.displayMarkersForCategory(12);
                 break;
             case R.id.nav_sports_freetime:
-//                displayMarkersForCategory(13);
+                mapFragment.displayMarkersForCategory(13);
                 break;
 
             default:

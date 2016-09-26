@@ -55,7 +55,7 @@ import java.util.List;
  * Use the {@link CustomMapFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CustomMapFragment extends Fragment {
+public class CustomMapFragment extends android.app.Fragment {
 
     private MapView mapView;
     private MapboxMap mapBox;
