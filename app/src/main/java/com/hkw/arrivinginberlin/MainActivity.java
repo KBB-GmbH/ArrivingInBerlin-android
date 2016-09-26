@@ -156,7 +156,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         searchView.setOnCloseListener(new SearchView.OnCloseListener() {
             @Override
             public boolean onClose() {
-//                displayAllMarkers();
+                if (mapFragment != null) {
+                    mapFragment.displayAllMarkers();
+                }
                 return false;
             }
         });
@@ -167,14 +169,18 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     @Override
     public boolean onQueryTextSubmit(String query) {
         // User pressed the search button
-//        displayMarkersForSearchTerm(query);
+        if (mapFragment != null) {
+            mapFragment.displayMarkersForSearchTerm(query);
+        }
         return false;
     }
 
     @Override
     public boolean onQueryTextChange(String newText) {
         if (newText.isEmpty()) {
-//            displayAllMarkers();
+            if (mapFragment != null) {
+                mapFragment.displayAllMarkers();
+            }
         }
         return false;
     }
@@ -198,7 +204,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
 
     @Override
-
     protected void onPostCreate(Bundle savedInstanceState) {
 
         super.onPostCreate(savedInstanceState);
@@ -208,7 +213,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
 
     @Override
-
     public void onConfigurationChanged(Configuration newConfig) {
 
         super.onConfigurationChanged(newConfig);
