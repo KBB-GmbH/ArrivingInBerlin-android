@@ -1,5 +1,7 @@
 package com.hkw.arrivinginberlin;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
@@ -23,13 +25,14 @@ import com.roughike.bottombar.OnMenuTabSelectedListener;
 import net.hockeyapp.android.CrashManager;
 import net.hockeyapp.android.UpdateManager;
 
-public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
+public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, CustomMapFragment.OnFragmentInteractionListener {
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
     private NavigationView nvDrawer;
     private ActionBarDrawerToggle drawerToggle;
     private static final String TAG = "MainActivity";
     private GoogleApiClient client;
+    private CustomMapFragment mapFragment;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -42,6 +45,13 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             public void onMenuItemSelected(int itemId) {
                 switch (itemId) {
                     case R.id.map_item:
+                        mapFragment = new CustomMapFragment();
+
+                        FragmentManager fragmentManager = getFragmentManager();
+                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                        fragmentTransaction.add(R.id.content_container, mapFragment);
+                        fragmentTransaction.commit();
+
                         break;
                     case R.id.info_item:
                         break;
@@ -272,5 +282,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         setTitle(menuItem.getTitle());
         // Close the navigation drawer
         mDrawer.closeDrawers();
+    }
+
+    public void onFragmentInteraction(Uri uri){
+        //you can leave it empty
     }
 }

@@ -41,7 +41,6 @@ ext {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
     compile('com.mapbox.mapboxsdk:mapbox-android-sdk:4.2.0-beta.1@aar') {
         transitive = true
     }
@@ -51,12 +50,15 @@ dependencies {
     compile('com.mapbox.mapboxsdk:mapbox-android-services:1.2.1@aar') {
         transitive = true
     }
-    compile 'com.google.code.gson:gson:2.6.2'
-    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
-    compile 'net.hockeyapp.android:HockeySDK:4.0.1'
-    compile "com.android.support:appcompat-v7:${supportLibVersion}"
-    compile "com.android.support:design:${supportLibVersion}"
     compile "com.android.support:recyclerview-v7:${supportLibVersion}"
-    compile "com.android.support:percent:${supportLibVersion}"
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:design:24.2.1'
+    compile 'com.android.support:percent:24.2.1'
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.google.android.gms:play-services-appindexing:9.6.1'
+    compile 'net.hockeyapp.android:HockeySDK:4.0.1'
     compile 'com.roughike:bottom-bar:1.2.1'
+    compile 'com.android.support:support-v4:24.2.1'
+    compile 'com.android.support:recyclerview-v7:24.2.1'
+    testCompile 'junit:junit:4.12'
 }
