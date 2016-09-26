@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.hkw.arrivinginberlin.dummy.DummyContent;
 import com.mapbox.mapboxsdk.maps.MapFragment;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabSelectedListener;
@@ -27,7 +28,7 @@ import com.roughike.bottombar.OnMenuTabSelectedListener;
 import net.hockeyapp.android.CrashManager;
 import net.hockeyapp.android.UpdateManager;
 
-public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, CustomMapFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, CustomMapFragment.OnFragmentInteractionListener, LocationFragment.OnListFragmentInteractionListener {
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
     private NavigationView nvDrawer;
@@ -47,18 +48,21 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         bottomBar.setItemsFromMenu(R.menu.bottom_navigation, new OnMenuTabSelectedListener() {
             @Override
             public void onMenuItemSelected(int itemId) {
+                FragmentManager fragmentManager = getFragmentManager();
                 switch (itemId) {
                     case R.id.map_item:
                         mapFragment = new CustomMapFragment();
-                        FragmentManager fragmentManager = getFragmentManager();
                         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                         fragmentTransaction.add(R.id.content_container, mapFragment, MapTag);
                         fragmentTransaction.commit();
-                        android.app.Fragment mapFragment = (CustomMapFragment) getFragmentManager().findFragmentByTag(MapTag);
                         break;
                     case R.id.info_item:
                         break;
                     case R.id.list_item:
+                        LocationFragment listFragment = new LocationFragment();
+                        FragmentTransaction ft = fragmentManager.beginTransaction();
+                        ft.add(R.id.content_container, listFragment, "LIST");
+                        ft.commit();
                         break;
 
                 }
@@ -294,5 +298,10 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     public void onFragmentInteraction(Uri uri){
         //you can leave it empty
+    }
+
+    @Override
+    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+        
     }
 }
