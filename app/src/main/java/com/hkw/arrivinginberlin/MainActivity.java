@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private ActionBarDrawerToggle drawerToggle;
     private static final String TAG = "MainActivity";
     private static final String MapTag = "MAP";
+    private CustomMapFragment mapFragment;
     private GoogleApiClient client;
 
 
@@ -48,20 +49,12 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             public void onMenuItemSelected(int itemId) {
                 switch (itemId) {
                     case R.id.map_item:
-                        CustomMapFragment fragment = new CustomMapFragment();
+                        mapFragment = new CustomMapFragment();
                         FragmentManager fragmentManager = getFragmentManager();
                         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                        fragmentTransaction.add(R.id.content_container, fragment, MapTag);
+                        fragmentTransaction.add(R.id.content_container, mapFragment, MapTag);
                         fragmentTransaction.commit();
                         android.app.Fragment mapFragment = (CustomMapFragment) getFragmentManager().findFragmentByTag(MapTag);
-//                        Log.i(TAG, "MAP COMING");
-//
-//                        if (mapFragment == null) {
-//                            Log.i(TAG, String.valueOf(mapFragment));
-//                        } else {
-//                            Log.i(TAG, "MAP FOUND");
-//                        }
-
                         break;
                     case R.id.info_item:
                         break;
@@ -237,8 +230,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     public void selectDrawerItem(MenuItem menuItem) {
         Log.i(TAG, "drawer selected");
-        CustomMapFragment mapFragment = (CustomMapFragment) getFragmentManager().findFragmentByTag(MapTag);
-        Log.i(TAG, String.valueOf(mapFragment));
+//        mapFragment = (CustomMapFragment) getFragmentManager().findFragmentByTag(MapTag);
         switch (menuItem.getItemId()) {
             case R.id.nav_all_categories:
                 mapFragment.displayAllMarkers();
