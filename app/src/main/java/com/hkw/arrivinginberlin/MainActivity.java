@@ -55,10 +55,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             new FetchLocationsTask().execute();
             FragmentManager fragmentManager = getFragmentManager();
             mapFragment = CustomMapFragment.newInstance(mainLocations);
-            listFragment = new LocationFragment();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.add(R.id.content_container, listFragment, "LIST");
-            fragmentTransaction.hide(listFragment);
             fragmentTransaction.add(R.id.content_container, mapFragment, MapTag);
             fragmentTransaction.commit();
         }
@@ -72,10 +69,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 switch (itemId) {
                     case R.id.map_item:
                         if (mapFragment == null) {
-                            Log.i(TAG, "create new mapFragment");
                             mapFragment = CustomMapFragment.newInstance(mainLocations);
-                        }else {
-                            Log.i(TAG, "use existing mapFragment");
+                            updateLocations();
                         }
                         ft.hide(listFragment);
                         ft.show(mapFragment);
@@ -83,16 +78,20 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     case R.id.info_item:
                         break;
                     case R.id.list_item:
-                        listFragment = new LocationFragment();
+                        if (listFragment == null) {
+                            listFragment = LocationFragment.newInstance(1, mainLocations);
+                            updateLocations();
+                        }
                         ft.hide(mapFragment);
+                        ft.add(R.id.content_container, listFragment, "LIST");
                         ft.show(listFragment);
                         break;
 
                 }
                 ft.commit();
-//                new FetchLocationsTask().execute();
             }
         });
+
 
         // Set the color for the active tab. Ignored on mobile when there are more than three tabs.
         bottomBar.setActiveTabColor("#C2185B");
@@ -122,11 +121,12 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
-    public void getLocations() {
-        if (mainLocations.size() == 0){
+    private void updateLocations() {
+        if (mainLocations.size() == 0) {
             new FetchLocationsTask().execute();
         }
     }
+
 
     @Override
     public void onStart() {
@@ -351,9 +351,13 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         protected void onCancelled() {
             ArrayList<JSONObject> locations = getStoredLocations();
             if ((locations != null) && (locations.size() > 0)) {
+                mainLocations = locations;
                 if (mapFragment != null){
-                    mainLocations = locations;
                     mapFragment.receiveDataFromActivity(locations);
+                }
+
+                if (listFragment != null){
+                    listFragment.receiveDataFromActivity(locations);
                 }
             } else {
                 showOfflineMessage();
@@ -367,10 +371,14 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
             if ((locations != null) && (locations.size() > 0)) {
                 //store locations
+                mainLocations = (ArrayList<JSONObject>) locations;
                 if (mapFragment != null){
-                    mainLocations = (ArrayList<JSONObject>) locations;
                     mapFragment.receiveDataFromActivity((ArrayList<JSONObject>) locations);
                 }
+                if (listFragment != null){
+                    listFragment.receiveDataFromActivity((ArrayList<JSONObject>) locations);
+                }
+
                 storeLocations((ArrayList<JSONObject>) locations);
             } else {
                 if (!showStoredLocations()){
@@ -382,9 +390,13 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         private boolean showStoredLocations() {
             List<JSONObject> storedLocations = getStoredLocations();
             if ((storedLocations != null) && (storedLocations.size() > 0)) {
+                mainLocations = (ArrayList<JSONObject>) storedLocations;
                 if (mapFragment != null){
-                    mainLocations = (ArrayList<JSONObject>) storedLocations;
                     mapFragment.receiveDataFromActivity((ArrayList<JSONObject>) storedLocations);
+                }
+
+                if (listFragment != null){
+                    listFragment.receiveDataFromActivity((ArrayList<JSONObject>) storedLocations);
                 }
 
                 return true;

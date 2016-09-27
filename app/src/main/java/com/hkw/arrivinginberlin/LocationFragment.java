@@ -21,6 +21,7 @@ import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -41,7 +42,10 @@ public class LocationFragment extends SuperFragment {
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
     private static final String TAG = "LocationFragment";
-    private ArrayList<LocationItem> locationItems;
+    private ArrayList<LocationItem> locationItems = new ArrayList<LocationItem>();
+    private ArrayList<JSONObject> locationData = new ArrayList<JSONObject>();
+    private static final String DATA = "data";
+    private RecyclerView.Adapter adapter;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -52,10 +56,18 @@ public class LocationFragment extends SuperFragment {
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static LocationFragment newInstance(int columnCount) {
+    public static LocationFragment newInstance(int columnCount, ArrayList<JSONObject> data) {
         LocationFragment fragment = new LocationFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
+
+        ArrayList<String> newData = new ArrayList<String>();
+
+        for (JSONObject object: data) {
+            newData.add(object.toString());
+        }
+        args.putStringArrayList(DATA, newData);
+
         fragment.setArguments(args);
         return fragment;
     }
@@ -66,6 +78,17 @@ public class LocationFragment extends SuperFragment {
 
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
+            ArrayList<String> oldData = getArguments().getStringArrayList(DATA);
+            for(String str: oldData) {
+                try {
+                    JSONObject json = new JSONObject(str);
+                    locationData.add(json);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } {
+
+                }
+            }
         }
     }
 
@@ -73,11 +96,7 @@ public class LocationFragment extends SuperFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_location_list, container, false);
-
-        MainActivity main = (MainActivity) getActivity();
-        if (main.mainLocations != null) {
-            updateLocationPoints(main.mainLocations);
-        }
+        updateLocationPoints(locationData);
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
@@ -87,7 +106,8 @@ public class LocationFragment extends SuperFragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyLocationRecyclerViewAdapter(locationItems, mListener));
+            adapter = new MyLocationRecyclerViewAdapter(locationItems, mListener);
+            recyclerView.setAdapter(adapter);
         }
         return view;
     }
@@ -125,6 +145,12 @@ public class LocationFragment extends SuperFragment {
         void onListFragmentInteraction(LocationItem item);
     }
 
+    @Override
+    public void receiveDataFromActivity(ArrayList<JSONObject> data){
+        Log.i(TAG, "received data from activity");
+        locationData = data;
+        updateLocationPoints(locationData);
+    }
 
     public void updateLocationPoints(List<JSONObject> locations) {
         for (JSONObject location : locations) {
@@ -141,7 +167,6 @@ public class LocationFragment extends SuperFragment {
     }
 
     public void addLocationForCategory(int categoryID, JSONObject json) {
-        ArrayList<LatLng> points = new ArrayList<>();
         String uri = getIconForCategory(categoryID);
         try {
             JSONArray features = json.getJSONArray("features");
@@ -151,16 +176,18 @@ public class LocationFragment extends SuperFragment {
                 JSONObject properties = feature.getJSONObject("properties");
                 String name = properties.getString("name");
                 String beschreibung = properties.getString("beschreibung").replace("*", "");
-                String adresse = properties.getString("adresse").replace("*", "");
+                String adresse = properties.getString("adresse ").replace("*", "");
                 if (adresse.length() != 0) {
                     adresse = adresse.substring(0, 1).toUpperCase() + adresse.substring​(1);
                 }
                 String telefon = properties.getString("telefon").replace("*", "");
                 String medium = properties.getString("medium").replace("*", "").replace("[[", "").replace("]]", "");
                 String transport = properties.getString("transport").replace("*", "").replace("[[", "").replace("]]", "");
-                String text = beschreibung + "\n" + adresse + "\n" + telefon + "\n" + transport + "\n" + medium;
+                String text = beschreibung + "\n" + "\n" + telefon + "\n" + transport + "\n" + medium;
                 LocationItem loc = new LocationItem(categoryID, name, text, getIconForCategory(categoryID));
                 locationItems.add(loc);
+                adapter.notifyDataSetChanged();
+
             }
         } catch (Exception e) {
             Log.e(TAG, "Exception Loading GeoJSON: " + e.toString());
