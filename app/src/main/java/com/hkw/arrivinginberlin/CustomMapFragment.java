@@ -7,7 +7,6 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.UiThread;
@@ -41,6 +40,7 @@ import com.mapbox.mapboxsdk.offline.OfflineRegionStatus;
 import com.mapbox.mapboxsdk.offline.OfflineTilePyramidRegionDefinition;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -55,7 +55,7 @@ import java.util.List;
  * Use the {@link CustomMapFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CustomMapFragment extends android.app.Fragment {
+public class CustomMapFragment extends SuperFragment {
 
     private MapView mapView;
     private MapboxMap mapBox;
@@ -71,7 +71,9 @@ public class CustomMapFragment extends android.app.Fragment {
     private boolean isEndNotified;
     private ProgressBar progressBar;
     private static final String TAG = "MapFragment";
+    private static final String DATA = "data";
     private OnFragmentInteractionListener mListener;
+    private ArrayList<JSONObject> locationData;
 
     public CustomMapFragment() {
         // Required empty public constructor
@@ -79,9 +81,16 @@ public class CustomMapFragment extends android.app.Fragment {
 
 
     // TODO: Rename and change types and number of parameters
-    public static CustomMapFragment newInstance() {
+    public static CustomMapFragment newInstance(ArrayList<JSONObject> data) {
         CustomMapFragment fragment = new CustomMapFragment();
         Bundle args = new Bundle();
+
+        ArrayList<String> newData = new ArrayList<String>();
+
+        for (JSONObject object: data) {
+            newData.add(object.toString());
+        }
+        args.putStringArrayList(DATA, newData);
 
         fragment.setArguments(args);
         return fragment;
@@ -90,8 +99,19 @@ public class CustomMapFragment extends android.app.Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        locationData = new ArrayList<JSONObject>();
         if (getArguments() != null) {
+            ArrayList<String> oldData = getArguments().getStringArrayList(DATA);
+            for(String str: oldData) {
+                try {
+                    JSONObject json = new JSONObject(str);
+                    locationData.add(json);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } {
 
+                }
+            }
         }
     }
 
@@ -116,8 +136,7 @@ public class CustomMapFragment extends android.app.Fragment {
                 startDownloadingMap();
                 mapBox = mapboxMap;
                 enableLocation(true);
-
-                new FetchLocationsTask().execute();
+                updateLocationPoints(locationData);
             }
         });
 
@@ -169,81 +188,25 @@ public class CustomMapFragment extends android.app.Fragment {
     }
 
     /********* FETCHING AND SETTING LOCATION DATA**********************/
-    public class FetchLocationsTask extends AsyncTask<Void, Void, List<JSONObject>> {
-        @Override
-        protected List<JSONObject> doInBackground(Void... params) {
-            return new UmapDataRequest().fetchLocations();
-        }
-
-        @Override
-        protected void onCancelled() {
-            hideSpinner();
-            ArrayList<JSONObject> locations = getStoredLocations();
-            if ((locations != null) && (locations.size() > 0)) {
-                updateLocationPoints(locations);
-            } else {
-                showOfflineMessage();
-            }
-        }
-
-        @Override
-        protected void onPostExecute(List<JSONObject> locations) {
-            //check if the map exists already
-            Log.i("FETCH", "arrived at post exec with locations: " + locations);
-
-            if ((locations != null) && (locations.size() > 0)) {
-                //store locations
-                updateLocationPoints(locations);
-                storeLocations((ArrayList<JSONObject>) locations);
-            } else {
-                if (!showStoredLocations()){
-                    showOfflineMessage();
-                }
-            }
-        }
-
-        private boolean showStoredLocations() {
-            List<JSONObject> storedLocations = getStoredLocations();
-            if ((storedLocations != null) && (storedLocations.size() > 0)) {
-                updateLocationPoints(storedLocations);
-                return true;
-            } else {
-                return false;
-            }
-        }
-
-        private void showOfflineMessage() {
-            String message = getString(R.string.offline_message);
-            Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
-        }
-
-        private void updateLocationPoints(List<JSONObject> locations) {
-            for (JSONObject location : locations) {
-                try {
-                    JSONObject feature = location.getJSONArray("features").getJSONObject(0);
-                    JSONObject properties = feature.getJSONObject("properties");
-                    int categoryID = Integer.parseInt(properties.get("category_id").toString());
-                    addGeoPointsForCategory(categoryID, location, mapBox);
-
-                } catch (Exception e) {
-                    Log.e(TAG, "Exception Loading GeoJSON: " + e.toString());
-                }
-            }
-        }
-
-        private ArrayList<JSONObject> getStoredLocations() {
-            SaveArray save = new SaveArray(getActivity().getApplicationContext());
-            ArrayList<JSONObject> locations = save.getArray("locations");
-            return locations;
-        }
-
-        private void storeLocations(ArrayList<JSONObject> locations) {
-            SaveArray save = new SaveArray(getActivity().getApplicationContext());
-            save.saveArray("locations", locations);
-            Log.i(TAG, "Saved Locations");
-        }
+    @Override
+    public void receiveDataFromActivity(ArrayList<JSONObject> data){
+        locationData = data;
+        updateLocationPoints(locationData);
     }
 
+    public void updateLocationPoints(List<JSONObject> locations) {
+        for (JSONObject location : locations) {
+            try {
+                JSONObject feature = location.getJSONArray("features").getJSONObject(0);
+                JSONObject properties = feature.getJSONObject("properties");
+                int categoryID = Integer.parseInt(properties.get("category_id").toString());
+                addGeoPointsForCategory(categoryID, location, mapBox);
+
+            } catch (Exception e) {
+                Log.e(TAG, "Exception Loading GeoJSON: " + e.toString());
+            }
+        }
+    }
 
     public void addGeoPointsForCategory(int categoryID, JSONObject json, MapboxMap mapboxMap) {
         ArrayList<LatLng> points = new ArrayList<>();
@@ -258,6 +221,7 @@ public class CustomMapFragment extends android.app.Fragment {
                 LatLng latLng = new LatLng(coord.getDouble(1), coord.getDouble(0));
                 points.add(latLng);
 
+                Log.i("JSON_FEATURE", feature.getJSONObject("properties").toString());
                 // Information in Each point
                 JSONObject properties = feature.getJSONObject("properties");
                 String name = properties.getString("name");

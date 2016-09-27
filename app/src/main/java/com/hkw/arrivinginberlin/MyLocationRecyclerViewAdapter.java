@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.hkw.arrivinginberlin.LocationFragment.OnListFragmentInteractionListener;
-import com.hkw.arrivinginberlin.dummy.DummyContent.DummyItem;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,10 +18,10 @@ import java.util.List;
  */
 public class MyLocationRecyclerViewAdapter extends RecyclerView.Adapter<MyLocationRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private final List<LocationFragment.LocationItem> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyLocationRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public MyLocationRecyclerViewAdapter(ArrayList<LocationFragment.LocationItem> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -36,8 +36,8 @@ public class MyLocationRecyclerViewAdapter extends RecyclerView.Adapter<MyLocati
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mIdView.setText(mValues.get(position).title);
+        holder.mContentView.setText(mValues.get(position).text);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,14 +53,18 @@ public class MyLocationRecyclerViewAdapter extends RecyclerView.Adapter<MyLocati
 
     @Override
     public int getItemCount() {
-        return mValues.size();
+        if (mValues != null) {
+            return mValues.size();
+        } else {
+            return 0;
+        }
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public DummyItem mItem;
+        public LocationFragment.LocationItem mItem;
 
         public ViewHolder(View view) {
             super(view);

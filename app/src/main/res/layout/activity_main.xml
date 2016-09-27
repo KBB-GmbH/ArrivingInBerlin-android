@@ -7,10 +7,12 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:screenOrientation="portrait"
     tools:context="com.hkw.arrivinginberlin.MainActivity">
 
 <!-- This LinearLayout represents the contents of the screen  -->
 <LinearLayout
+    android:screenOrientation="portrait"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -33,6 +35,7 @@
 <!-- Note that `android:layout_gravity` needs to be set to 'start' -->
 <android.support.design.widget.NavigationView
     android:id="@+id/nvView"
+    android:screenOrientation="portrait"
     app:headerLayout="@layout/nav_header"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
