@@ -350,7 +350,7 @@ public class CustomMapFragment extends SuperFragment {
 
         // Create a bounding box for the offline region
         LatLngBounds latLngBounds = new LatLngBounds.Builder()
-                .include(new LatLng(52.56000, 13.206689)) // Northeast
+                .include(new LatLng(52.56000, 13.306689)) // Northeast
                 .include(new LatLng(52.464649, 13.555756)) // Southwest
                 .build();
 
