@@ -112,6 +112,8 @@ public class CustomMapFragment extends SuperFragment {
 
                 }
             }
+        } else {
+            Log.i(TAG, "no arguments found");
         }
     }
 
@@ -190,6 +192,7 @@ public class CustomMapFragment extends SuperFragment {
     /********* FETCHING AND SETTING LOCATION DATA**********************/
     @Override
     public void receiveDataFromActivity(ArrayList<JSONObject> data){
+        Log.i(TAG, "received data from activity");
         locationData = data;
         updateLocationPoints(locationData);
     }
@@ -251,7 +254,6 @@ public class CustomMapFragment extends SuperFragment {
             Log.e("MainActivity", "Exception Loading GeoJSON: " + e.toString());
         }
         Log.i("MainActivity", "my markers:" + allMarkers);
-        hideSpinner();
 
     }
 
@@ -348,16 +350,16 @@ public class CustomMapFragment extends SuperFragment {
 
         // Create a bounding box for the offline region
         LatLngBounds latLngBounds = new LatLngBounds.Builder()
-                .include(new LatLng(52.39471, 13.106689)) // Northeast
-                .include(new LatLng(52.655852, 13.612919)) // Southwest
+                .include(new LatLng(52.56000, 13.206689)) // Northeast
+                .include(new LatLng(52.464649, 13.555756)) // Southwest
                 .build();
 
         // Define the offline region
         OfflineTilePyramidRegionDefinition definition = new OfflineTilePyramidRegionDefinition(
                 mapView.getStyleUrl(),
                 latLngBounds,
-                10,
-                15,
+                12,
+                12,
                 this.getResources().getDisplayMetrics().density);
 
         // Set the metadata
@@ -507,21 +509,6 @@ public class CustomMapFragment extends SuperFragment {
         }
     }
 
-    private void showSpinner() {
-        if (progressDialog == null) {
-            progressDialog = new ProgressDialog(getActivity());
-            progressDialog.setMessage(getString(R.string.loading));
-            progressDialog.show();
-            progressDialog.setCanceledOnTouchOutside(false);
-            progressDialog.setCancelable(false);
-        }
-    }
-
-    private void hideSpinner() {
-        if (progressDialog.isShowing()) {
-            progressDialog.dismiss();
-        }
-    }
 
     @Override
     public void onResume() {
