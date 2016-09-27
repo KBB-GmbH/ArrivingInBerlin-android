@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        new FetchLocationsTask().execute();
-        if (savedInstanceState == null) {
+        if ((savedInstanceState == null) || (mapFragment == null)){
+            new FetchLocationsTask().execute();
             FragmentManager fragmentManager = getFragmentManager();
             mapFragment = CustomMapFragment.newInstance(mainLocations);
             listFragment = new LocationFragment();
@@ -270,7 +270,10 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     public void selectDrawerItem(MenuItem menuItem) {
         Log.i(TAG, "drawer selected");
-//        mapFragment = (CustomMapFragment) getFragmentManager().findFragmentByTag(MapTag);
+        if (mapFragment == null){
+            return;
+        }
+
         switch (menuItem.getItemId()) {
             case R.id.nav_all_categories:
                 mapFragment.displayAllMarkers();

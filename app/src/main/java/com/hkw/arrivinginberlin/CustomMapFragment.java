@@ -112,6 +112,8 @@ public class CustomMapFragment extends SuperFragment {
 
                 }
             }
+        } else {
+            Log.i(TAG, "no arguments found");
         }
     }
 
@@ -190,6 +192,7 @@ public class CustomMapFragment extends SuperFragment {
     /********* FETCHING AND SETTING LOCATION DATA**********************/
     @Override
     public void receiveDataFromActivity(ArrayList<JSONObject> data){
+        Log.i(TAG, "received data from activity");
         locationData = data;
         updateLocationPoints(locationData);
     }
@@ -251,7 +254,6 @@ public class CustomMapFragment extends SuperFragment {
             Log.e("MainActivity", "Exception Loading GeoJSON: " + e.toString());
         }
         Log.i("MainActivity", "my markers:" + allMarkers);
-        hideSpinner();
 
     }
 
@@ -357,7 +359,7 @@ public class CustomMapFragment extends SuperFragment {
                 mapView.getStyleUrl(),
                 latLngBounds,
                 10,
-                15,
+                11,
                 this.getResources().getDisplayMetrics().density);
 
         // Set the metadata
@@ -507,21 +509,6 @@ public class CustomMapFragment extends SuperFragment {
         }
     }
 
-    private void showSpinner() {
-        if (progressDialog == null) {
-            progressDialog = new ProgressDialog(getActivity());
-            progressDialog.setMessage(getString(R.string.loading));
-            progressDialog.show();
-            progressDialog.setCanceledOnTouchOutside(false);
-            progressDialog.setCancelable(false);
-        }
-    }
-
-    private void hideSpinner() {
-        if (progressDialog.isShowing()) {
-            progressDialog.dismiss();
-        }
-    }
 
     @Override
     public void onResume() {
