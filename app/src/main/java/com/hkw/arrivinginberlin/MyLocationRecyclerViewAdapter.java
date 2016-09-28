@@ -1,6 +1,7 @@
 package com.hkw.arrivinginberlin;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,6 +55,7 @@ public class MyLocationRecyclerViewAdapter extends RecyclerView.Adapter<MyLocati
     @Override
     public int getItemCount() {
         if (mValues != null) {
+            Log.i("SIZE VALUES LIST", String.valueOf(mValues.size()));
             return mValues.size();
         } else {
             return 0;

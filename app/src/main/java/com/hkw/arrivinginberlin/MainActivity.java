@@ -75,15 +75,15 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         ft.hide(listFragment);
                         ft.show(mapFragment);
                         break;
-                    case R.id.info_item:
+                    case R.id.info_item: 
                         break;
                     case R.id.list_item:
                         if (listFragment == null) {
                             listFragment = LocationFragment.newInstance(1, mainLocations);
+                            ft.add(R.id.content_container, listFragment, "LIST");
                             updateLocations();
                         }
                         ft.hide(mapFragment);
-                        ft.add(R.id.content_container, listFragment, "LIST");
                         ft.show(listFragment);
                         break;
 
