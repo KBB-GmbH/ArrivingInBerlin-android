@@ -238,6 +238,7 @@ public class CustomMapFragment extends SuperFragment {
                 String transport = properties.getString("transport").replace("*", "").replace("[[", "").replace("]]", "");
 
                 int imageResource = getResources().getIdentifier(uri, null, getActivity().getPackageName());
+                Log.i("IMAGE RESOURCE", String.valueOf(imageResource));
                 IconFactory iconFactory = IconFactory.getInstance(getActivity());
                 Drawable iconDrawable = getResources().getDrawable(imageResource);
                 Icon icon = iconFactory.fromDrawable(iconDrawable);

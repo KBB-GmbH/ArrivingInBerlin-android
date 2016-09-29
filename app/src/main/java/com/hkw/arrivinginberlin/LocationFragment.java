@@ -106,7 +106,7 @@ public class LocationFragment extends SuperFragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            adapter = new MyLocationRecyclerViewAdapter(locationItems, mListener);
+            adapter = new MyLocationRecyclerViewAdapter(context, locationItems, mListener);
             recyclerView.setAdapter(adapter);
         }
         return view;
@@ -167,7 +167,6 @@ public class LocationFragment extends SuperFragment {
     }
 
     public void addLocationForCategory(int categoryID, JSONObject json) {
-        String uri = getIconForCategory(categoryID);
         try {
             JSONArray features = json.getJSONArray("features");
 
@@ -176,23 +175,20 @@ public class LocationFragment extends SuperFragment {
                 JSONObject properties = feature.getJSONObject("properties");
                 String name = properties.getString("name");
                 String beschreibung = properties.getString("beschreibung").replace("*", "");
-                String adresse = properties.getString("adresse ").replace("*", "");
+                String adresse = properties.getString("adresse").replace("*", "");
                 if (adresse.length() != 0) {
                     adresse = adresse.substring(0, 1).toUpperCase() + adresse.substring​(1);
                 }
                 String telefon = properties.getString("telefon").replace("*", "");
                 String medium = properties.getString("medium").replace("*", "").replace("[[", "").replace("]]", "");
-                String transport = properties.getString("transport").replace("*", "").replace("[[", "").replace("]]", "");
-                String text = beschreibung + "\n" + "\n" + telefon + "\n" + transport + "\n" + medium;
+                String text = beschreibung + "\n" + "\n" + adresse + "\n" + telefon + "\n" + medium;
                 LocationItem loc = new LocationItem(categoryID, name, text, getIconForCategory(categoryID));
                 locationItems.add(loc);
-                adapter.notifyDataSetChanged();
-
             }
+            adapter.notifyDataSetChanged();
         } catch (Exception e) {
             Log.e(TAG, "Exception Loading GeoJSON: " + e.toString());
         }
-
     }
 
     public class LocationItem extends Object {
