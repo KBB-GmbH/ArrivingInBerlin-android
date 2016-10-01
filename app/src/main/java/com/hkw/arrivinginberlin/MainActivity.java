@@ -17,6 +17,9 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
@@ -31,12 +34,17 @@ import net.hockeyapp.android.UpdateManager;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, CustomMapFragment.OnFragmentInteractionListener, LocationFragment.OnListFragmentInteractionListener {
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
     private NavigationView nvDrawer;
+    ExpandableListAdapter mMenuAdapter;
+    ExpandableListView expandableList;
+    List<ExpandedMenuItem> listDataHeader;
+    HashMap<ExpandedMenuItem, List<String>> listDataChild;
     private ActionBarDrawerToggle drawerToggle;
     private static final String TAG = "MainActivity";
     private static final String MapTag = "MAP";
@@ -106,13 +114,39 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         // Find our drawer view
         nvDrawer = (NavigationView) findViewById(R.id.nvView);
+        expandableList = (ExpandableListView) findViewById(R.id.navMenu);
         nvDrawer.setItemIconTintList(null);
+
         drawerToggle = setupDrawerToggle();
         // Tie DrawerLayout events to the ActionBarToggle
 
         mDrawer.addDrawerListener(drawerToggle);
         // Setup drawer view
-        setupDrawerContent(nvDrawer);
+        if (nvDrawer != null) {
+            setupDrawerContent(nvDrawer);
+        }
+
+        prepareListData();
+        mMenuAdapter = new ExpandableMenuAdapter(this, listDataHeader, listDataChild, expandableList);
+
+        // setting list adapter
+        expandableList.setAdapter(mMenuAdapter);
+
+        expandableList.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
+                //Log.d("DEBUG", "submenu item clicked");
+                return false;
+            }
+        });
+        expandableList.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+            @Override
+            public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
+                //Log.d("DEBUG", "heading clicked");
+                return false;
+            }
+        });
+
         // Hockeyapp
         checkForUpdates();
 
@@ -120,6 +154,69 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
+
+    private void prepareListData() {
+        listDataHeader = new ArrayList<ExpandedMenuItem>();
+        listDataChild = new HashMap<ExpandedMenuItem, List<String>>();
+
+        ExpandedMenuItem item1 = new ExpandedMenuItem();
+        item1.setIconName("heading1");
+        item1.setIconImg(R.drawable.counseling);
+        // Adding data header
+        listDataHeader.add(item1);
+
+        ExpandedMenuItem item2 = new ExpandedMenuItem();
+        item2.setIconName("heading2");
+        item2.setIconImg(R.drawable.favorite);
+        listDataHeader.add(item2);
+
+        ExpandedMenuItem item3 = new ExpandedMenuItem();
+        item3.setIconName("heading3");
+        item3.setIconImg(R.drawable.lawyers_residence_and_asylum_law);
+        listDataHeader.add(item3);
+
+        // Adding child data
+        List<String> heading1 = new ArrayList<String>();
+        heading1.add("Submenu of item 1");
+
+        List<String> heading2 = new ArrayList<String>();
+        heading2.add("Submenu of item 2");
+        heading2.add("Submenu of item 2");
+        heading2.add("Submenu of item 2");
+
+        listDataChild.put(listDataHeader.get(0), heading1);// Header, Child data
+        listDataChild.put(listDataHeader.get(1), heading2);
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                mDrawer.openDrawer(GravityCompat.START);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void setupDrawerContent(NavigationView navigationView) {
+        //revision: this don't works, use setOnChildClickListener() and setOnGroupClickListener() above instead
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        menuItem.setChecked(true);
+                        mDrawer.closeDrawers();
+                        return true;
+                    }
+                });
+    }
+
 
     private void updateLocations() {
         if (mainLocations.size() == 0) {
@@ -181,27 +278,27 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private void unregisterManagers() {
         UpdateManager.unregister();
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_search, menu);
-
-        final MenuItem searchItem = menu.findItem(R.id.search);
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
-        searchView.setOnQueryTextListener(this);
-
-        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
-            @Override
-            public boolean onClose() {
-                if (mapFragment != null) {
-                    mapFragment.displayAllMarkers();
-                }
-                return false;
-            }
-        });
-
-        return true;
-    }
-
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.menu_search, menu);
+//
+//        final MenuItem searchItem = menu.findItem(R.id.search);
+//        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+//        searchView.setOnQueryTextListener(this);
+//
+//        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+//            @Override
+//            public boolean onClose() {
+//                if (mapFragment != null) {
+//                    mapFragment.displayAllMarkers();
+//                }
+//                return false;
+//            }
+//        });
+//
+//        return true;
+//    }
+//
     @Override
     public boolean onQueryTextSubmit(String query) {
         // User pressed the search button
@@ -225,18 +322,18 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         return new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.drawer_open, R.string.drawer_close);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // The action bar home/up action should open or close the drawer.
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                mDrawer.openDrawer(GravityCompat.START);
-                return true;
-        }
-
-        Log.i(TAG, "item drawer selected with id " + item);
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // The action bar home/up action should open or close the drawer.
+//        switch (item.getItemId()) {
+//            case android.R.id.home:
+//                mDrawer.openDrawer(GravityCompat.START);
+//                return true;
+//        }
+//
+//        Log.i(TAG, "item drawer selected with id " + item);
+//        return super.onOptionsItemSelected(item);
+//    }
 
 
     @Override
@@ -256,80 +353,80 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     }
 
-    private void setupDrawerContent(NavigationView navigationView) {
-        navigationView.setNavigationItemSelectedListener(
-                new NavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(MenuItem menuItem) {
-                        selectDrawerItem(menuItem);
-                        return true;
-                    }
-                });
-    }
+//    private void setupDrawerContent(NavigationView navigationView) {
+//        navigationView.setNavigationItemSelectedListener(
+//                new NavigationView.OnNavigationItemSelectedListener() {
+//                    @Override
+//                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+//                        selectDrawerItem(menuItem);
+//                        return true;
+//                    }
+//                });
+//    }
 
-
-    public void selectDrawerItem(MenuItem menuItem) {
-        Log.i(TAG, "drawer selected");
-        if (mapFragment == null){
-            return;
-        }
-
-        switch (menuItem.getItemId()) {
-            case R.id.nav_all_categories:
-                mapFragment.displayAllMarkers();
-                break;
-            case R.id.nav_counseling:
-                mapFragment.displayMarkersForCategory(1);
-                break;
-            case R.id.nav_doctor_gp_arabic:
-                mapFragment.displayMarkersForCategory(2);
-                break;
-            case R.id.nav_doctor_gp_farsi:
-                mapFragment.displayMarkersForCategory(3);
-                break;
-            case R.id.nav_doctor_gyn_arabic:
-                mapFragment.displayMarkersForCategory(4);
-                break;
-            case R.id.nav_doctor_gyn_farsi:
-                mapFragment.displayMarkersForCategory(5);
-                break;
-            case R.id.nav_german_language_classes:
-                mapFragment.displayMarkersForCategory(6);
-                break;
-            case R.id.nav_lawyers:
-                mapFragment.displayMarkersForCategory(7);
-                break;
-            case R.id.nav_police:
-                mapFragment.displayMarkersForCategory(8);
-                break;
-            case R.id.nav_authorities:
-                mapFragment.displayMarkersForCategory(9);
-                break;
-            case R.id.nav_libraries:
-                mapFragment.displayMarkersForCategory(10);
-                break;
-            case R.id.nav_transport:
-                mapFragment.displayMarkersForCategory(11);
-                break;
-            case R.id.nav_shopping_food:
-                mapFragment.displayMarkersForCategory(12);
-                break;
-            case R.id.nav_sports_freetime:
-                mapFragment.displayMarkersForCategory(13);
-                break;
-
-            default:
-                break;
-        }
-
-
-        // Highlight the selected item has been done by NavigationView
-        menuItem.setChecked(true);
-        // Set action bar title
-        setTitle(menuItem.getTitle());
-        // Close the navigation drawer
-        mDrawer.closeDrawers();
-    }
+//
+//    public void selectDrawerItem(MenuItem menuItem) {
+//        Log.i(TAG, "drawer selected");
+//        if (mapFragment == null){
+//            return;
+//        }
+//
+//        switch (menuItem.getItemId()) {
+//            case R.id.nav_all_categories:
+//                mapFragment.displayAllMarkers();
+//                break;
+//            case R.id.nav_counseling:
+//                mapFragment.displayMarkersForCategory(1);
+//                break;
+//            case R.id.nav_doctor_gp_arabic:
+//                mapFragment.displayMarkersForCategory(2);
+//                break;
+//            case R.id.nav_doctor_gp_farsi:
+//                mapFragment.displayMarkersForCategory(3);
+//                break;
+//            case R.id.nav_doctor_gyn_arabic:
+//                mapFragment.displayMarkersForCategory(4);
+//                break;
+//            case R.id.nav_doctor_gyn_farsi:
+//                mapFragment.displayMarkersForCategory(5);
+//                break;
+//            case R.id.nav_german_language_classes:
+//                mapFragment.displayMarkersForCategory(6);
+//                break;
+//            case R.id.nav_lawyers:
+//                mapFragment.displayMarkersForCategory(7);
+//                break;
+//            case R.id.nav_police:
+//                mapFragment.displayMarkersForCategory(8);
+//                break;
+//            case R.id.nav_authorities:
+//                mapFragment.displayMarkersForCategory(9);
+//                break;
+//            case R.id.nav_libraries:
+//                mapFragment.displayMarkersForCategory(10);
+//                break;
+//            case R.id.nav_transport:
+//                mapFragment.displayMarkersForCategory(11);
+//                break;
+//            case R.id.nav_shopping_food:
+//                mapFragment.displayMarkersForCategory(12);
+//                break;
+//            case R.id.nav_sports_freetime:
+//                mapFragment.displayMarkersForCategory(13);
+//                break;
+//
+//            default:
+//                break;
+//        }
+//
+//
+//        // Highlight the selected item has been done by NavigationView
+//        menuItem.setChecked(true);
+//        // Set action bar title
+//        setTitle(menuItem.getTitle());
+//        // Close the navigation drawer
+//        mDrawer.closeDrawers();
+//    }
 
     public void onFragmentInteraction(Uri uri){
         //you can leave it empty
@@ -337,8 +434,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     @Override
     public void onListFragmentInteraction(LocationFragment.LocationItem item) {
-
     }
+
 
     /********* FETCHING AND SETTING LOCATION DATA**********************/
     public class FetchLocationsTask extends AsyncTask<Void, Void, List<JSONObject>> {
