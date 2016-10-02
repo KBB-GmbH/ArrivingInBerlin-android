@@ -11,6 +11,9 @@ import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -22,14 +25,11 @@ public class ExpandableMenuAdapter extends BaseExpandableListAdapter {
     private Context mContext;
     private List<ExpandedMenuItem> mListDataHeader; // header titles
 
-    // child data in format of header title, child title
-    private HashMap<ExpandedMenuItem, List<String>> mListDataChild;
     ExpandableListView expandList;
 
-    public ExpandableMenuAdapter(Context context, List<ExpandedMenuItem> listDataHeader, HashMap<ExpandedMenuItem, List<String>> listChildData, ExpandableListView mView) {
+    public ExpandableMenuAdapter(Context context, List<ExpandedMenuItem> listDataHeader, ExpandableListView mView) {
         this.mContext = context;
         this.mListDataHeader = listDataHeader;
-        this.mListDataChild = listChildData;
         this.expandList = mView;
     }
 
@@ -44,7 +44,7 @@ public class ExpandableMenuAdapter extends BaseExpandableListAdapter {
     public int getChildrenCount(int groupPosition) {
         int childCount = 0;
         if (groupPosition != 2) {
-            childCount = this.mListDataChild.get(this.mListDataHeader.get(groupPosition))
+            childCount = this.mListDataHeader.get(groupPosition).subItems
                     .size();
         }
         return childCount;
@@ -57,10 +57,9 @@ public class ExpandableMenuAdapter extends BaseExpandableListAdapter {
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        Log.d("CHILD", mListDataChild.get(this.mListDataHeader.get(groupPosition))
-                .get(childPosition).toString());
-        return this.mListDataChild.get(this.mListDataHeader.get(groupPosition))
-                .get(childPosition);
+        Log.d("CHILD", this.mListDataHeader.get(groupPosition).subItems.get(childPosition));
+
+        return this.mListDataHeader.get(groupPosition).subItems.get(childPosition);
     }
 
     @Override
@@ -76,6 +75,11 @@ public class ExpandableMenuAdapter extends BaseExpandableListAdapter {
     @Override
     public boolean hasStableIds() {
         return false;
+    }
+
+    public void updateData(List<ExpandedMenuItem> data) {
+        this.mListDataHeader = data;
+        notifyDataSetChanged();
     }
 
     @Override

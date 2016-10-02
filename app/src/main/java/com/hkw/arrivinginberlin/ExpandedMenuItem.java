@@ -1,5 +1,8 @@
 package com.hkw.arrivinginberlin;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by anouk on 01/10/16.
  */
@@ -7,6 +10,8 @@ package com.hkw.arrivinginberlin;
 public class ExpandedMenuItem {
     String iconName = "";
     int iconImg = -1; // menu icon resource id
+    int categorieId = 0;
+    public List<String> subItems = new ArrayList<String>();
 
     public String getIconName() {
         return iconName;
@@ -17,8 +22,25 @@ public class ExpandedMenuItem {
     public int getIconImg() {
         return iconImg;
     }
-    public void setIconImg(int iconImg) {
-        this.iconImg = iconImg;
+
+    public void setIconImg(int img) {
+        this.iconImg = img;
+    }
+
+    public void setCategorieId(int catId) {
+        this.categorieId = catId;
+    }
+
+    public int getCategorieId() {
+        return categorieId;
+    }
+
+    public List<String> getSubItems() {
+        return subItems;
+    }
+
+    public void setSubItems(List<String> subs) {
+        this.subItems = subs;
     }
 }
 
