@@ -139,9 +139,18 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             @Override
             public boolean onChildClick(ExpandableListView expandableListView, View view, int groupPosition, int childPosition, long childId) {
                 // Highlight the selected item has been done by NavigationView
-                Log.i("NAV DRAWER", "group: " + String.valueOf(groupPosition) + " child: " + String.valueOf(childPosition)+ " id " + childId);
-            // Set action bar title
-            setTitle("Clicked");
+                ExpandedMenuItem item = listDataHeader.get(groupPosition);
+                setTitle(item.getIconName());
+
+                if (mapFragment != null) {
+                    if (groupPosition == 0){
+                        mapFragment.displayAllMarkers();
+                    } else if(childPosition == 0) {
+                       mapFragment.displayMarkersForCategory(item.categorieId);
+                    } else {
+                        mapFragment.displayMarkersForSearchTerm(item.subItems.get(childPosition));
+                    }
+                }
             // Close the navigation drawer
             mDrawer.closeDrawers();
                 return true;
@@ -151,6 +160,14 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             @Override
             public boolean onGroupClick(ExpandableListView expandableListView, View view, int groupPosition, long groupId) {
                 //Log.d("DEBUG", "heading clicked");
+                if (mapFragment != null) {
+                    if (groupPosition == 0){
+                        setTitle("Arriving");
+                        mapFragment.displayAllMarkers();
+                        mDrawer.closeDrawers();
+                        return true;
+                    }
+                }
                 return false;
             }
         });
@@ -179,7 +196,12 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 item.setCategorieId(Integer.parseInt(props.get("category_id").toString()));
                 item.setIconName((String) props.get("category"));
                 item.setIconImg(getIconForCategory(item.getCategorieId()));
-                item.setSubItems(getLocationsFromJSON(features));
+
+                if (item.categorieId == 8) {
+                    item.setSubItems(getPoliceFromJSON(features));
+                } else {
+                    item.setSubItems(getLocationsFromJSON(features));
+                }
                 listDataHeader.add(item);
 
             } catch (Exception e) {
@@ -201,6 +223,12 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         } catch (Exception e) {
             Log.e("MainActivity", "Exception Loading GeoJSON: " + e.toString());
         }
+        return places;
+    }
+
+    public ArrayList<String> getPoliceFromJSON(JSONArray features) {
+        ArrayList<String> places = new ArrayList<String>();
+        places.add("All");
         return places;
     }
 

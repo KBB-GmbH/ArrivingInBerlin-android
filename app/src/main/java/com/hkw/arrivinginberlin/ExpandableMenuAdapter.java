@@ -91,7 +91,7 @@ public class ExpandableMenuAdapter extends BaseExpandableListAdapter {
             convertView = infalInflater.inflate(R.layout.list_header, null);
         }
         TextView lblListHeader = (TextView) convertView
-                .findViewById(R.id.submenu);
+                .findViewById(R.id.headerTxt);
         ImageView headerIcon = (ImageView) convertView.findViewById(R.id.iconImage);
         lblListHeader.setTypeface(null, Typeface.BOLD);
         lblListHeader.setText(headerTitle.getIconName());
@@ -102,6 +102,7 @@ public class ExpandableMenuAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         final String childText = (String) getChild(groupPosition, childPosition);
+        final ExpandedMenuItem item = (ExpandedMenuItem) getGroup(groupPosition);
 
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) this.mContext
@@ -111,7 +112,8 @@ public class ExpandableMenuAdapter extends BaseExpandableListAdapter {
 
         TextView txtListChild = (TextView) convertView
                 .findViewById(R.id.submenu);
-
+        ImageView subIcon = (ImageView) convertView.findViewById(R.id.iconSubMenu);
+        subIcon.setImageResource(item.getIconImg());
         txtListChild.setText(childText);
 
         return convertView;

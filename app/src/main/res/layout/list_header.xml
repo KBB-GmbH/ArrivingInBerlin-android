@@ -14,17 +14,17 @@
             android:id="@+id/iconImage"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:paddingBottom="10dp"
+            android:paddingBottom="5dp"
             android:paddingLeft="10dp"
-            android:paddingTop="10dp"/>
+            android:paddingTop="5dp"/>
 
         <TextView
-            android:id="@+id/submenu"
+            android:id="@+id/headerTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:textColor="#000000"
-            android:textSize="20sp"/>
+            android:textSize="18sp"/>
 
     </LinearLayout>
 </LinearLayout>
