@@ -18,14 +18,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.server.converter.StringToIntConverter;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabSelectedListener;
 
@@ -36,12 +34,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
-public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, CustomMapFragment.OnFragmentInteractionListener, LocationFragment.OnListFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, CustomMapFragment.OnFragmentInteractionListener {
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
     private NavigationView nvDrawer;
@@ -52,7 +47,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private static final String TAG = "MainActivity";
     private static final String MapTag = "MAP";
     private CustomMapFragment mapFragment;
-    private LocationFragment listFragment;
     private GoogleApiClient client;
     public ArrayList<JSONObject> mainLocations = new ArrayList<JSONObject>();
 
@@ -83,20 +77,12 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                             mapFragment = CustomMapFragment.newInstance(mainLocations);
                             updateLocations();
                         }
-                        ft.hide(listFragment);
                         ft.show(mapFragment);
                         break;
                     case R.id.info_item:
                         break;
                     case R.id.list_item:
-                        if (listFragment == null) {
-                            listFragment = LocationFragment.newInstance(1, mainLocations);
-                            ft.add(R.id.content_container, listFragment, "LIST");
-                            ft.hide(mapFragment);
-                            updateLocations();
-                        }
                         ft.hide(mapFragment);
-                        ft.show(listFragment);
                         break;
                 }
                 ft.commit();
@@ -425,10 +411,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         //you can leave it empty
     }
 
-    @Override
-    public void onListFragmentInteraction(LocationFragment.LocationItem item) {
-    }
-
 
     /********* FETCHING AND SETTING LOCATION DATA**********************/
     public class FetchLocationsTask extends AsyncTask<Void, Void, List<JSONObject>> {
@@ -503,10 +485,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             save.saveArray("locations", locations);
             Log.i(TAG, "Saved Locations");
         }
-    }
-
-    private void parseDataForDrawer() {
-
     }
 
 }

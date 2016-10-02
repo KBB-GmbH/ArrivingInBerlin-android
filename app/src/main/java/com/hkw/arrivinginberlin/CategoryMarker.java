@@ -1,7 +1,6 @@
 package com.hkw.arrivinginberlin;
 
 import com.mapbox.mapboxsdk.annotations.Marker;
-import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.annotations.MarkerViewOptions;
 
 
