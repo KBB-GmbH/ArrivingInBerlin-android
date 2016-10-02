@@ -8,6 +8,8 @@ import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.UiThread;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.app.Fragment;
@@ -398,7 +400,7 @@ public class CustomMapFragment extends SuperFragment {
                         if (status.isComplete()) {
                             // Download complete
                             Log.i(TAG, "download complete");
-                            endProgress("Region downloaded successfully.");
+                            endProgress(getString(R.string.region_loaded));
 
                         } else if (status.isRequiredResourceCountPrecise()) {
                             // Switch to determinate state
@@ -430,7 +432,6 @@ public class CustomMapFragment extends SuperFragment {
 
     // Progress bar methods
     private void startProgress() {
-
         // Start and show the progress bar
         isEndNotified = false;
         progressBar.setIndeterminate(true);

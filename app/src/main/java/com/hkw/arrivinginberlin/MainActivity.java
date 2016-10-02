@@ -169,7 +169,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     public ArrayList<ExpandedMenuItem> setMenuItemsFromJSON(List<JSONObject> locations) {
         listDataHeader = new ArrayList<ExpandedMenuItem>();
         ExpandedMenuItem item0 = new ExpandedMenuItem();
-        item0.setIconName("All");
+        item0.setIconName(getString(R.string.all));
         item0.setIconImg(R.drawable.favorite);
         listDataHeader.add(item0);
 
@@ -214,7 +214,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     public ArrayList<String> getPoliceFromJSON(JSONArray features) {
         ArrayList<String> places = new ArrayList<String>();
-        places.add("All");
+        places.add(getString(R.string.all));
         return places;
     }
 
