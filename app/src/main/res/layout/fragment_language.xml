@@ -1,0 +1,64 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hkw.arrivinginberlin.LanguageFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="40dp"
+            android:paddingTop="10dp"
+            android:src="@drawable/favorite"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/logo"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/logo"
+            android:id="@+id/german"
+            android:background="@null"
+            android:textColor="@drawable/button_text_color"
+            android:text="Deutsch"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/german"
+            android:id="@+id/english"
+            android:background="@null"
+            android:textColor="@drawable/button_text_color"
+            android:text="English"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/english"
+            android:id="@+id/farsi"
+            android:background="@null"
+            android:textColor="@drawable/button_text_color"
+            android:text="فارسی"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/farsi"
+            android:id="@+id/arabic"
+            android:background="@null"
+            android:textColor="@drawable/button_text_color"
+            android:text="العربية"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/arabic"
+            android:id="@+id/french"
+            android:background="@null"
+            android:textColor="@drawable/button_text_color"
+            android:text="français"/>
+
+    </RelativeLayout>
+
+</FrameLayout>

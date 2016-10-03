@@ -10,4 +10,8 @@
     <string name="loading">Loading, please wait...</string>
     <string name="region_loaded">Region downloaded successfully.</string>
     <string name="all">All</string>
+    <string name="title_activity_startup">StartupActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
