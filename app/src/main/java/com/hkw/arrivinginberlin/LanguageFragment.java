@@ -57,32 +57,28 @@ public class LanguageFragment extends android.app.Fragment {
         german.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setLocale("de");
-                german.setTextColor(getActivity().getResources().getColor(R.color.colorSelected));
+                languageSelected("de", german);
             }
         });
         final Button english = (Button) layout.findViewById(R.id.english);
         english.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setLocale("en");
-                english.setTextColor(getActivity().getResources().getColor(R.color.colorSelected));
+                languageSelected("en", english);
             }
         });
         final Button farsi = (Button) layout.findViewById(R.id.farsi);
         farsi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setLocale("en");
-                farsi.setTextColor(getActivity().getResources().getColor(R.color.colorSelected));
+                languageSelected("en", farsi);
             }
         });
         final Button arabic = (Button) layout.findViewById(R.id.arabic);
         arabic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setLocale("en");
-                arabic.setTextColor(getActivity().getResources().getColor(R.color.colorSelected));
+                languageSelected("en", arabic);
             }
         });
 
@@ -90,8 +86,7 @@ public class LanguageFragment extends android.app.Fragment {
         french.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setLocale("fr");
-                french.setTextColor(getActivity().getResources().getColor(R.color.colorSelected));
+                languageSelected("fr", french);
             }
         });
 
@@ -105,6 +100,12 @@ public class LanguageFragment extends android.app.Fragment {
         Configuration conf = res.getConfiguration();
         conf.locale = myLocale;
         res.updateConfiguration(conf, dm);
+    }
+
+    public void languageSelected(String lang, Button button){
+        setLocale(lang);
+        button.setTextColor(getActivity().getResources().getColor(R.color.colorSelected));
+        mListener.onLanguageSelection(true);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -144,5 +145,7 @@ public class LanguageFragment extends android.app.Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+
+        void onLanguageSelection(boolean selected);
     }
 }
