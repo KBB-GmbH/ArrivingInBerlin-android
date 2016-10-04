@@ -25,7 +25,9 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.BottomBarFragment;
 import com.roughike.bottombar.OnMenuTabSelectedListener;
+import com.roughike.bottombar.OnTabSelectedListener;
 
 import net.hockeyapp.android.CrashManager;
 import net.hockeyapp.android.UpdateManager;
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private static final String MapTag = "MAP";
     private CustomMapFragment mapFragment;
     private GoogleApiClient client;
+    private BottomBar bottomBar;
     public ArrayList<JSONObject> mainLocations = new ArrayList<JSONObject>();
 
 
@@ -65,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             fragmentTransaction.commit();
         }
 
-        BottomBar bottomBar = BottomBar.attach(this, savedInstanceState);
+        bottomBar = BottomBar.attach(this, savedInstanceState);
         bottomBar.setItemsFromMenu(R.menu.bottom_navigation, new OnMenuTabSelectedListener() {
             @Override
             public void onMenuItemSelected(int itemId) {
@@ -81,14 +84,18 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         break;
                     case R.id.info_item:
                         break;
-                    case R.id.list_item:
-                        ft.hide(mapFragment);
+                    default:
                         break;
                 }
                 ft.commit();
             }
         });
 
+
+        bottomBar.mapColorForTab(0, "#438D8D");
+        bottomBar.mapColorForTab(1, "#438D8D");
+        bottomBar.mapColorForTab(2, "#438D8D");
+        bottomBar.mapColorForTab(3, "#438D8D");
 
         // Set the color for the active tab. Ignored on mobile when there are more than three tabs.
         bottomBar.setActiveTabColor("#C2185B");

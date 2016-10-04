@@ -16,4 +16,12 @@
     <string name="title_screen_two">Overview</string>
     <string name="screen_one">The Arriving in Berlin App is a digital map containing helpful information for refugees and newcomers to Berlin.</string>
     <string name="screen_two">You can use the map or the list view to find places. Use the search box to find specific information. The map also helps you navigate to a destination and even works when you are not online. </string>
+    <string name="map">Map</string>
+    <string name="list">List</string>
+    <string name="info">Info</string>
+    <string name="contact">contact</string>
+    <string name="language">language</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

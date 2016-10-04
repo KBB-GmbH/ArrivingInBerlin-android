@@ -2,14 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/map_item"
-        android:icon="@drawable/ic_location_on_white_24dp"
-        android:title="Map" />
+        android:icon="@drawable/ic_directions_bike_black_24dp"
+        android:title="@string/map" />
     <item
-        android:id="@+id/list_item"
-        android:icon="@drawable/ic_favorite_white_24dp"
-        android:title="List" />
+        android:id="@+id/contact_item"
+        android:icon="@drawable/ic_directions_bike_black_24dp"
+        android:title="@string/contact" />
     <item
         android:id="@+id/info_item"
-        android:icon="@drawable/ic_update_white_24dp"
-        android:title="Info" />
+        android:icon="@drawable/ic_directions_bike_black_24dp"
+        android:title="@string/info" />
+
+    <item
+        android:id="@+id/lang_item"
+        android:icon="@drawable/ic_directions_bike_black_24dp"
+        android:title="@string/language" />
 </menu>
