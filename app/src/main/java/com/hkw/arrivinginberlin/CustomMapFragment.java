@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.UiThread;
 import android.support.design.widget.FloatingActionButton;
@@ -74,6 +75,9 @@ public class CustomMapFragment extends SuperFragment {
     private static final String DATA = "data";
     private OnFragmentInteractionListener mListener;
     private ArrayList<JSONObject> locationData;
+    private Boolean didDownload = false;
+    private static final String DOWNLOADTAG = "download";
+    private static final String LOCDATA = "location_data";
 
     public CustomMapFragment() {
         // Required empty public constructor
@@ -99,10 +103,12 @@ public class CustomMapFragment extends SuperFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Log.i(TAG, "start on create");
         if (savedInstanceState == null) {
+            Log.i(TAG, "saved instance null");
             locationData = new ArrayList<JSONObject>();
             if (getArguments() != null) {
+                Log.i(TAG, "found arguments");
                 ArrayList<String> oldData = getArguments().getStringArrayList(DATA);
                 for (String str : oldData) {
                     try {
@@ -115,47 +121,61 @@ public class CustomMapFragment extends SuperFragment {
             } else {
                 Log.i(TAG, "no arguments found");
             }
+        } else {
+            Log.i(TAG, "saved instance found");
+            locationData = new ArrayList<JSONObject>();
+            didDownload = savedInstanceState.getBoolean(DOWNLOADTAG);
+
+            ArrayList<String> oldData = savedInstanceState.getStringArrayList(LOCDATA);
+            for (String str : oldData) {
+                try {
+                    JSONObject json = new JSONObject(str);
+                    locationData.add(json);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            Log.i(TAG, "location data found and reloaded: "+ locationData);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             final Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View layout =  inflater.inflate(R.layout.fragment_custom_map, container, false);
 
-        if (savedInstanceState == null) {
-
-            // Mapbox access token only needs to be configured once in your app
-            MapboxAccountManager.start(getActivity(), getString(R.string.access_token));
+       // Mapbox access token only needs to be configured once in your app
+        MapboxAccountManager.start(getActivity(), getString(R.string.access_token));
             // This contains the MapView in XML and needs to be called after the account manager
 
-            locationServices = LocationServices.getLocationServices(getActivity());
+        locationServices = LocationServices.getLocationServices(getActivity());
 
-            mapView = (MapView) layout.findViewById(R.id.mapView);
-            mapView.onCreate(savedInstanceState);
+        mapView = (MapView) layout.findViewById(R.id.mapView);
+        mapView.onCreate(savedInstanceState);
 
-            mapView.getMapAsync(new OnMapReadyCallback() {
-                @Override
-                public void onMapReady(MapboxMap mapboxMap) {
+        mapView.getMapAsync(new OnMapReadyCallback() {
+            @Override
+            public void onMapReady(MapboxMap mapboxMap) {
+                mapBox = mapboxMap;
+                enableLocation(true);
+                updateLocationPoints(locationData);
+                if(!didDownload){
                     startDownloadingMap();
-                    mapBox = mapboxMap;
-                    enableLocation(true);
-                    updateLocationPoints(locationData);
                 }
-            });
 
-            floatingActionButton = (FloatingActionButton) layout.findViewById(R.id.location_toggle_fab);
-            floatingActionButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (mapBox != null) {
-                        toggleGps(!mapBox.isMyLocationEnabled());
-                    }
+            }
+        });
+
+        floatingActionButton = (FloatingActionButton) layout.findViewById(R.id.location_toggle_fab);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mapBox != null) {
+                    toggleGps(!mapBox.isMyLocationEnabled());
                 }
-            });
-        }
-        
+            }
+        });
         return layout;
     }
 
@@ -350,6 +370,7 @@ public class CustomMapFragment extends SuperFragment {
     private void startDownloadingMap() {
         // Set up the OfflineManager
         Log.i(TAG, "start downloading");
+        didDownload = true;
         OfflineManager offlineManager = OfflineManager.getInstance(getActivity());
 
         // Create a bounding box for the offline region
@@ -541,5 +562,14 @@ public class CustomMapFragment extends SuperFragment {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         mapView.onSaveInstanceState(outState);
+
+        ArrayList<String> newData = new ArrayList<String>();
+        for (JSONObject object: locationData) {
+            newData.add(object.toString());
+        }
+        Log.i(TAG,"saving data");
+        outState.putStringArrayList(LOCDATA, newData);
+        outState.putBoolean(DOWNLOADTAG, didDownload);
     }
+
 }

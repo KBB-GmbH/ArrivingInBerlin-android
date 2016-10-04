@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private static final String TAG = "MainActivity";
     private static final String MapTag = "MAP";
     private CustomMapFragment mapFragment;
+    private LanguageFragment languageFragment;
     private GoogleApiClient client;
     private BottomBar bottomBar;
     public ArrayList<JSONObject> mainLocations = new ArrayList<JSONObject>();
@@ -63,9 +64,14 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             new FetchLocationsTask().execute();
             FragmentManager fragmentManager = getFragmentManager();
             mapFragment = CustomMapFragment.newInstance(mainLocations);
+            languageFragment = new LanguageFragment();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.add(R.id.content_container, languageFragment, "LANGUAGE");
+            fragmentTransaction.hide(languageFragment);
             fragmentTransaction.add(R.id.content_container, mapFragment, MapTag);
+            fragmentTransaction.show(mapFragment);
             fragmentTransaction.commit();
+
         }
 
         bottomBar = BottomBar.attach(this, savedInstanceState);
@@ -80,15 +86,17 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                             mapFragment = CustomMapFragment.newInstance(mainLocations);
                             updateLocations();
                         }
-                        ft.replace(R.id.content_container, mapFragment, MapTag);
+                        ft.hide(languageFragment);
+                        ft.show(mapFragment);
                         break;
                     case R.id.info_item:
                         break;
                     case R.id.lang_item:
-                        LanguageFragment langFragment = new LanguageFragment();
-                        if(mapFragment != null){
+                        if(languageFragment == null){
+                            languageFragment = new LanguageFragment();
                         }
-                        ft.replace(R.id.content_container, langFragment, "LANGUAGE");
+                        ft.hide(mapFragment);
+                        ft.show(languageFragment);
                         break;
                     case R.id.contact_item:
                         break;
