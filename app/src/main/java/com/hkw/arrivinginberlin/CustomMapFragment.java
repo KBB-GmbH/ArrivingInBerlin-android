@@ -99,21 +99,22 @@ public class CustomMapFragment extends SuperFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        locationData = new ArrayList<JSONObject>();
-        if (getArguments() != null) {
-            ArrayList<String> oldData = getArguments().getStringArrayList(DATA);
-            for(String str: oldData) {
-                try {
-                    JSONObject json = new JSONObject(str);
-                    locationData.add(json);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                } {
 
+        if (savedInstanceState == null) {
+            locationData = new ArrayList<JSONObject>();
+            if (getArguments() != null) {
+                ArrayList<String> oldData = getArguments().getStringArrayList(DATA);
+                for (String str : oldData) {
+                    try {
+                        JSONObject json = new JSONObject(str);
+                        locationData.add(json);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
+            } else {
+                Log.i(TAG, "no arguments found");
             }
-        } else {
-            Log.i(TAG, "no arguments found");
         }
     }
 
@@ -123,36 +124,38 @@ public class CustomMapFragment extends SuperFragment {
         // Inflate the layout for this fragment
         View layout =  inflater.inflate(R.layout.fragment_custom_map, container, false);
 
-        // Mapbox access token only needs to be configured once in your app
-        MapboxAccountManager.start(getActivity(), getString(R.string.access_token));
-        // This contains the MapView in XML and needs to be called after the account manager
+        if (savedInstanceState == null) {
 
-        locationServices = LocationServices.getLocationServices(getActivity());
+            // Mapbox access token only needs to be configured once in your app
+            MapboxAccountManager.start(getActivity(), getString(R.string.access_token));
+            // This contains the MapView in XML and needs to be called after the account manager
 
-        mapView = (MapView) layout.findViewById(R.id.mapView);
-        mapView.onCreate(savedInstanceState);
+            locationServices = LocationServices.getLocationServices(getActivity());
 
-        mapView.getMapAsync(new OnMapReadyCallback() {
-            @Override
-            public void onMapReady(MapboxMap mapboxMap) {
-                startDownloadingMap();
-                mapBox = mapboxMap;
-                enableLocation(true);
-                updateLocationPoints(locationData);
-            }
-        });
+            mapView = (MapView) layout.findViewById(R.id.mapView);
+            mapView.onCreate(savedInstanceState);
 
-        floatingActionButton = (FloatingActionButton) layout.findViewById(R.id.location_toggle_fab);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mapBox != null) {
-                    toggleGps(!mapBox.isMyLocationEnabled());
+            mapView.getMapAsync(new OnMapReadyCallback() {
+                @Override
+                public void onMapReady(MapboxMap mapboxMap) {
+                    startDownloadingMap();
+                    mapBox = mapboxMap;
+                    enableLocation(true);
+                    updateLocationPoints(locationData);
                 }
-            }
-        });
+            });
 
-
+            floatingActionButton = (FloatingActionButton) layout.findViewById(R.id.location_toggle_fab);
+            floatingActionButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mapBox != null) {
+                        toggleGps(!mapBox.isMyLocationEnabled());
+                    }
+                }
+            });
+        }
+        
         return layout;
     }
 

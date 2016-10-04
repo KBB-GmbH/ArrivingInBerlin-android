@@ -38,7 +38,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, CustomMapFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, CustomMapFragment.OnFragmentInteractionListener, LanguageFragment.OnFragmentInteractionListener {
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
     private NavigationView nvDrawer;
@@ -80,9 +80,17 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                             mapFragment = CustomMapFragment.newInstance(mainLocations);
                             updateLocations();
                         }
-                        ft.show(mapFragment);
+                        ft.replace(R.id.content_container, mapFragment, MapTag);
                         break;
                     case R.id.info_item:
+                        break;
+                    case R.id.lang_item:
+                        LanguageFragment langFragment = new LanguageFragment();
+                        if(mapFragment != null){
+                        }
+                        ft.replace(R.id.content_container, langFragment, "LANGUAGE");
+                        break;
+                    case R.id.contact_item:
                         break;
                     default:
                         break;
@@ -491,6 +499,14 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             SaveArray save = new SaveArray(MainActivity.this.getApplicationContext());
             save.saveArray("locations", locations);
             Log.i(TAG, "Saved Locations");
+        }
+    }
+
+    @Override
+    public void onLanguageSelection(boolean selected) {
+        //Move to next fragment
+        if (selected) {
+
         }
     }
 
