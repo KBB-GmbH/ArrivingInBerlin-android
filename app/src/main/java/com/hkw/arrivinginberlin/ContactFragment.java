@@ -3,59 +3,58 @@ package com.hkw.arrivinginberlin;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
-import android.support.v4.app.Fragment;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link StartupTextFragment.OnFragmentInteractionListener} interface
+ * {@link ContactFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
+ * Use the {@link ContactFragment#newInstance} factory method to
+ * create an instance of this fragment.
  */
-public class StartupTextFragment extends Fragment {
+public class ContactFragment extends Fragment {
+
 
     private OnFragmentInteractionListener mListener;
-    private int page;
 
-    public StartupTextFragment() {
+    public ContactFragment() {
         // Required empty public constructor
     }
 
+    public static ContactFragment newInstance() {
+        ContactFragment fragment = new ContactFragment();
+        Bundle args = new Bundle();
+
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        page = 1;
         // Inflate the layout for this fragment
-        View layout =  inflater.inflate(R.layout.fragment_startup_text, container, false);
-        final TextView text = (TextView) layout.findViewById(R.id.startupText);
-        text.setText(getString(R.string.screen_one));
-
-        final TextView title = (TextView) layout.findViewById(R.id.startupTitle);
-        title.setText(getString(R.string.title_screen_one));
-
-        final Button nextButton = (Button) layout.findViewById(R.id.next);
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (page == 1) {
-                    page = 2;
-                    text.setText(getString(R.string.screen_two));
-                    title.setText(getString(R.string.title_screen_two));
-                } else {
-                    mListener.onStartupFlowFinished();
-                }
-            }
-        });
-
-        return layout;
+        return inflater.inflate(R.layout.fragment_contact, container, false);
     }
 
+    // TODO: Rename method, update argument and hook method into UI event
+    public void onButtonPressed(Uri uri) {
+        if (mListener != null) {
+            mListener.onFragmentInteraction(uri);
+        }
+    }
 
     @Override
     public void onAttach(Context context) {
@@ -85,6 +84,6 @@ public class StartupTextFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        void onStartupFlowFinished();
+        void onFragmentInteraction(Uri uri);
     }
 }

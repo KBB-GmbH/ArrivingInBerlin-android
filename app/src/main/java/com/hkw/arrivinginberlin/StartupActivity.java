@@ -1,7 +1,7 @@
 package com.hkw.arrivinginberlin;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -33,10 +33,10 @@ public class StartupActivity extends AppCompatActivity implements LanguageFragme
             if (didShowStartup) {
                 onStartupFlowFinished();
             } else {
-                FragmentManager fragmentManager = getFragmentManager();
+                FragmentManager fragmentManager = getSupportFragmentManager();
                 lang = new LanguageFragment();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.add(R.id.content_container, lang, "Language");
+                fragmentTransaction.add(R.id.content_container, lang, "LANGUAGE");
                 fragmentTransaction.commit();
             }
         }
@@ -50,7 +50,7 @@ public class StartupActivity extends AppCompatActivity implements LanguageFragme
     public void onLanguageSelection(boolean selected) {
         //Move to next fragment
         if (selected) {
-            FragmentManager fragmentManager = getFragmentManager();
+            FragmentManager fragmentManager = getSupportFragmentManager();
             StartupTextFragment textFragment = new StartupTextFragment();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.content_container, textFragment, "TEXT");

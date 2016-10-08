@@ -10,6 +10,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.text.Layout;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,7 @@ import java.util.Locale;
  * Use the {@link LanguageFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class LanguageFragment extends android.app.Fragment {
+public class LanguageFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
@@ -105,7 +106,9 @@ public class LanguageFragment extends android.app.Fragment {
     public void languageSelected(String lang, Button button){
         setLocale(lang);
         button.setTextColor(getActivity().getResources().getColor(R.color.colorSelected));
-        mListener.onLanguageSelection(true);
+        if (mListener != null){
+            mListener.onLanguageSelection(true);
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -118,6 +121,7 @@ public class LanguageFragment extends android.app.Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        Log.i("SET LISTENER", String.valueOf(context));
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {

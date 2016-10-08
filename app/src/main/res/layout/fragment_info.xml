@@ -1,0 +1,160 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hkw.arrivinginberlin.InfoFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/info_general"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/info_general" />
+        <TextView
+            android:id="@+id/info_internet"
+            android:layout_margin="10dp"
+            android:paddingBottom="10dp"
+            android:layout_below="@id/info_general"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/info_internet" />
+        <ImageView
+            android:id="@+id/icon_counseling"
+            android:layout_margin="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:icon="@drawable/counseling"
+            android:layout_below="@id/info_internet"/>
+        <TextView
+            android:id="@+id/info_counseling"
+            android:layout_margin="10dp"
+            android:paddingBottom="10dp"
+            android:layout_below="@id/icon_counseling"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/info_counseling" />
+
+        <ImageView
+            android:id="@+id/icon_doctors"
+            android:layout_margin="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/info_counseling"
+            android:contentDescription="@string/info_counseling" />
+        <TextView
+            android:id="@+id/info_doctors"
+            android:layout_margin="10dp"
+            android:paddingBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/icon_doctors"
+            android:text="@string/info_doctors" />
+
+        <ImageView
+            android:id="@+id/icon_laywers"
+            android:layout_margin="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:icon="@drawable/counseling_services_for_refugees"
+            android:layout_below="@id/info_doctors"/>
+        <TextView
+            android:id="@+id/info_lawyers"
+            android:layout_width="wrap_content"
+            android:paddingBottom="10dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/icon_laywers"
+            android:text="@string/info_laywers" />
+
+        <ImageView
+            android:id="@+id/icon_libraries"
+            android:layout_margin="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:icon="@drawable/counseling_services_for_refugees"
+            android:layout_below="@id/info_lawyers"/>
+        <TextView
+            android:id="@+id/info_libraries"
+            android:layout_margin="10dp"
+            android:paddingBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/icon_libraries"
+            android:text="@string/info_libraries" />
+
+        <ImageView
+            android:id="@+id/icon_german"
+            android:layout_margin="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:icon="@drawable/counseling_services_for_refugees"
+            android:layout_below="@id/info_libraries"/>
+        <TextView
+            android:id="@+id/info_german"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/icon_german"
+            android:text="@string/info_german_courses" />
+
+        <ImageView
+            android:id="@+id/icon_gov"
+            android:layout_margin="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:icon="@drawable/counseling_services_for_refugees"
+            android:layout_below="@id/info_german"/>
+        <TextView
+            android:id="@+id/info_gov"
+            android:layout_margin="10dp"
+            android:paddingBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/icon_gov"
+            android:text="@string/info_gov" />
+
+        <ImageView
+            android:id="@+id/icon_shopping"
+            android:layout_margin="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:icon="@drawable/counseling_services_for_refugees"
+            android:layout_below="@id/info_gov"/>
+        <TextView
+            android:id="@+id/info_shopping"
+            android:layout_margin="10dp"
+            android:paddingBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/icon_shopping"
+            android:text="@string/info_shopping" />
+
+        <ImageView
+            android:id="@+id/icon_transport"
+            android:layout_margin="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:icon="@drawable/counseling_services_for_refugees"
+            android:layout_below="@id/info_shopping"/>
+        <TextView
+            android:id="@+id/info_transport"
+            android:layout_margin="10dp"
+            android:paddingBottom="10dp"
+            android:layout_below="@id/icon_transport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/info_transport" />
+
+        <TextView
+            android:id="@+id/info_final"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/icon_transport"
+            android:text="@string/info_final" />
+    </RelativeLayout>
+
+</FrameLayout>

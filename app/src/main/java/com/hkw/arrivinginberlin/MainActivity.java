@@ -1,7 +1,7 @@
 package com.hkw.arrivinginberlin;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.mapbox.mapboxsdk.MapboxAccountManager;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.BottomBarFragment;
 import com.roughike.bottombar.OnMenuTabSelectedListener;
@@ -38,7 +39,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, CustomMapFragment.OnFragmentInteractionListener, LanguageFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, CustomMapFragment.OnFragmentInteractionListener, LanguageFragment.OnFragmentInteractionListener, InfoFragment.OnFragmentInteractionListener {
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
     private NavigationView nvDrawer;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private static final String MapTag = "MAP";
     private CustomMapFragment mapFragment;
     private LanguageFragment languageFragment;
+    private InfoFragment infoFragment;
     private GoogleApiClient client;
     private BottomBar bottomBar;
     public ArrayList<JSONObject> mainLocations = new ArrayList<JSONObject>();
@@ -58,16 +60,20 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        MapboxAccountManager.start(this, getString(R.string.access_token));
         setContentView(R.layout.activity_main);
 
         if ((savedInstanceState == null) || (mapFragment == null)){
             new FetchLocationsTask().execute();
-            FragmentManager fragmentManager = getFragmentManager();
+            FragmentManager fragmentManager = getSupportFragmentManager();
             mapFragment = CustomMapFragment.newInstance(mainLocations);
             languageFragment = new LanguageFragment();
+            infoFragment = new InfoFragment();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.add(R.id.content_container, languageFragment, "LANGUAGE");
             fragmentTransaction.hide(languageFragment);
+            fragmentTransaction.add(R.id.content_container, infoFragment, "INFO");
+            fragmentTransaction.hide(infoFragment);
             fragmentTransaction.add(R.id.content_container, mapFragment, MapTag);
             fragmentTransaction.show(mapFragment);
             fragmentTransaction.commit();
@@ -78,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         bottomBar.setItemsFromMenu(R.menu.bottom_navigation, new OnMenuTabSelectedListener() {
             @Override
             public void onMenuItemSelected(int itemId) {
-                FragmentManager fragmentManager = getFragmentManager();
+                FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction ft = fragmentManager.beginTransaction();
                 switch (itemId) {
                     case R.id.map_item:
@@ -87,15 +93,24 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                             updateLocations();
                         }
                         ft.hide(languageFragment);
+                        ft.hide(infoFragment);
                         ft.show(mapFragment);
                         break;
                     case R.id.info_item:
+                        setTitle(getString(R.string.info));
+                        if(infoFragment == null){
+                            infoFragment = new InfoFragment();
+                        }
+                        ft.hide(mapFragment);
+                        ft.hide(languageFragment);
+                        ft.show(infoFragment);
                         break;
                     case R.id.lang_item:
                         if(languageFragment == null){
                             languageFragment = new LanguageFragment();
                         }
                         ft.hide(mapFragment);
+                        ft.hide(infoFragment);
                         ft.show(languageFragment);
                         break;
                     case R.id.contact_item:
@@ -517,5 +532,4 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         }
     }
-
 }
