@@ -4,18 +4,45 @@
     android:layout_height="match_parent"
     tools:context="com.hkw.arrivinginberlin.ContactFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/title_info"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="20dp"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:text="@string/contact" />
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/title_contact"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:text="@string/contact" />
+            <TextView
+                android:id="@+id/contact_text"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_below="@id/title_contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/contact_text" />
+            <Button
+                android:id="@+id/email_button"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="40dp"
+                android:backgroundTint="#FFFFFF"
+                android:gravity="center_horizontal"
+                android:layout_below="@id/contact_text"
+                android:text="@string/send_email"/>
+        </RelativeLayout>
+    </ScrollView>
 
 </FrameLayout>

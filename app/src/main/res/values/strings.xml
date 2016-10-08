@@ -40,4 +40,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="main_title">Arriving</string>
+    <string name="contact_text">Do you have question or comments? Or have we forgotten any interesting places? If so, please send us a message</string>
+    <string name="send_email">Send Email</string>
 </resources>
