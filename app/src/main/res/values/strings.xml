@@ -36,4 +36,8 @@
     <string name="info_shopping">Shopping - Cafés, bakeries and supermarkets that sell Halal food are shown in this category.</string>
     <string name="info_transport">Transport - You will find important means of transport, stops and stations and bus lines here.</string>
     <string name="info_final">Have we forgotten any interesting places? If so, please send us a message.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="main_title">Arriving</string>
 </resources>

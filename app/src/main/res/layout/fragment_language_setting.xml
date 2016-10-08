@@ -1,0 +1,71 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hkw.arrivinginberlin.LanguageFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!-- TODO: Update blank fragment layout -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="40dp">
+            <TextView
+                android:id="@+id/title"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:text="@string/language" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title"
+                android:id="@+id/german"
+                android:background="@null"
+                android:textColor="@drawable/button_text_color"
+                android:text="Deutsch"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/german"
+                android:id="@+id/english"
+                android:background="@null"
+                android:textColor="@drawable/button_text_color"
+                android:text="English"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/english"
+                android:id="@+id/farsi"
+                android:background="@null"
+                android:textColor="@drawable/button_text_color"
+                android:text="فارسی"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/farsi"
+                android:id="@+id/arabic"
+                android:background="@null"
+                android:textColor="@drawable/button_text_color"
+                android:text="العربية"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/arabic"
+                android:id="@+id/french"
+                android:background="@null"
+                android:textColor="@drawable/button_text_color"
+                android:text="français"/>
+
+        </RelativeLayout>
+    </ScrollView>
+
+</FrameLayout>

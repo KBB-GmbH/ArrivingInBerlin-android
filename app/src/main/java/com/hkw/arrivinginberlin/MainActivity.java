@@ -39,7 +39,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, CustomMapFragment.OnFragmentInteractionListener, LanguageFragment.OnFragmentInteractionListener, InfoFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, CustomMapFragment.OnFragmentInteractionListener, LanguageSettingFragment.OnFragmentInteractionListener, InfoFragment.OnFragmentInteractionListener, ContactFragment.OnFragmentInteractionListener {
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
     private NavigationView nvDrawer;
@@ -50,8 +50,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private static final String TAG = "MainActivity";
     private static final String MapTag = "MAP";
     private CustomMapFragment mapFragment;
-    private LanguageFragment languageFragment;
+    private LanguageSettingFragment languageFragment;
     private InfoFragment infoFragment;
+    private ContactFragment contactFragment;
     private GoogleApiClient client;
     private BottomBar bottomBar;
     public ArrayList<JSONObject> mainLocations = new ArrayList<JSONObject>();
@@ -67,9 +68,12 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             new FetchLocationsTask().execute();
             FragmentManager fragmentManager = getSupportFragmentManager();
             mapFragment = CustomMapFragment.newInstance(mainLocations);
-            languageFragment = new LanguageFragment();
+            languageFragment = new LanguageSettingFragment();
             infoFragment = new InfoFragment();
+            contactFragment = new ContactFragment();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.add(R.id.content_container, contactFragment, "CONTACT");
+            fragmentTransaction.hide(contactFragment);
             fragmentTransaction.add(R.id.content_container, languageFragment, "LANGUAGE");
             fragmentTransaction.hide(languageFragment);
             fragmentTransaction.add(R.id.content_container, infoFragment, "INFO");
@@ -77,7 +81,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             fragmentTransaction.add(R.id.content_container, mapFragment, MapTag);
             fragmentTransaction.show(mapFragment);
             fragmentTransaction.commit();
-
         }
 
         bottomBar = BottomBar.attach(this, savedInstanceState);
@@ -92,28 +95,43 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                             mapFragment = CustomMapFragment.newInstance(mainLocations);
                             updateLocations();
                         }
+                        hideNavBarItems(false);
                         ft.hide(languageFragment);
                         ft.hide(infoFragment);
+                        ft.hide(contactFragment);
+                        mapFragment.displayAllMarkers();
+                        setTitle(getString(R.string.main_title));
                         ft.show(mapFragment);
                         break;
                     case R.id.info_item:
-                        setTitle(getString(R.string.info));
                         if(infoFragment == null){
                             infoFragment = new InfoFragment();
                         }
+                        hideNavBarItems(true);
                         ft.hide(mapFragment);
                         ft.hide(languageFragment);
+                        ft.hide(contactFragment);
                         ft.show(infoFragment);
                         break;
                     case R.id.lang_item:
                         if(languageFragment == null){
-                            languageFragment = new LanguageFragment();
+                            languageFragment = new LanguageSettingFragment();
                         }
+                        hideNavBarItems(true);
                         ft.hide(mapFragment);
                         ft.hide(infoFragment);
+                        ft.hide(contactFragment);
                         ft.show(languageFragment);
                         break;
                     case R.id.contact_item:
+                        if(contactFragment == null){
+                            contactFragment = new ContactFragment();
+                        }
+                        hideNavBarItems(true);
+                        ft.hide(mapFragment);
+                        ft.hide(infoFragment);
+                        ft.hide(languageFragment);
+                        ft.show(contactFragment);
                         break;
                     default:
                         break;
@@ -204,6 +222,17 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
+    private void hideNavBarItems(Boolean shouldHide){
+        if (shouldHide){
+            mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+            toolbar.setVisibility(View.GONE);
+
+        }else{
+            mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNDEFINED);
+            toolbar.setVisibility(View.VISIBLE);
+
+        }
+    }
     public ArrayList<ExpandedMenuItem> setMenuItemsFromJSON(List<JSONObject> locations) {
         listDataHeader = new ArrayList<ExpandedMenuItem>();
         ExpandedMenuItem item0 = new ExpandedMenuItem();
@@ -525,11 +554,4 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         }
     }
 
-    @Override
-    public void onLanguageSelection(boolean selected) {
-        //Move to next fragment
-        if (selected) {
-
-        }
-    }
 }

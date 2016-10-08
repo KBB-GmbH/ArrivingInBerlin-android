@@ -142,12 +142,7 @@ public class CustomMapFragment extends SuperFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
 
-
-       // Mapbox access token only needs to be configured once in your app
-
-            // This contains the MapView in XML and needs to be called after the account manager
         View layout =  inflater.inflate(R.layout.fragment_custom_map, container, false);
         locationServices = LocationServices.getLocationServices(getActivity());
 

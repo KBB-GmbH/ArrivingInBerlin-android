@@ -1,21 +1,17 @@
 package com.hkw.arrivinginberlin;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.text.Layout;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 
 import java.util.Locale;
 
@@ -23,21 +19,20 @@ import java.util.Locale;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link LanguageFragment.OnFragmentInteractionListener} interface
+ * {@link LanguageSettingFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link LanguageFragment#newInstance} factory method to
+ * Use the {@link LanguageSettingFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class LanguageFragment extends Fragment {
+public class LanguageSettingFragment extends Fragment {
+    private LanguageSettingFragment.OnFragmentInteractionListener mListener;
 
-    private OnFragmentInteractionListener mListener;
-
-    public LanguageFragment() {
+    public LanguageSettingFragment() {
         // Required empty public constructor
     }
 
-    public static LanguageFragment newInstance() {
-        LanguageFragment fragment = new LanguageFragment();
+    public static LanguageSettingFragment newInstance() {
+        LanguageSettingFragment fragment = new LanguageSettingFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -54,7 +49,7 @@ public class LanguageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View layout =  inflater.inflate(R.layout.fragment_language, container, false);
+        View layout =  inflater.inflate(R.layout.fragment_language_setting, container, false);
         final Button german = (Button) layout.findViewById(R.id.german);
         german.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,7 +103,6 @@ public class LanguageFragment extends Fragment {
         setLocale(lang);
         button.setTextColor(getActivity().getResources().getColor(R.color.colorSelected));
         if (mListener != null){
-            mListener.onLanguageSelection(true);
         }
     }
 
@@ -123,8 +117,8 @@ public class LanguageFragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         Log.i("SET LISTENER", String.valueOf(context));
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
+        if (context instanceof LanguageSettingFragment.OnFragmentInteractionListener) {
+            mListener = (LanguageSettingFragment.OnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -136,21 +130,8 @@ public class LanguageFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
-
-        void onLanguageSelection(boolean selected);
     }
 }

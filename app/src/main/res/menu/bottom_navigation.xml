@@ -17,8 +17,4 @@
         android:id="@+id/lang_item"
         android:icon="@drawable/ic_directions_bike_black_24dp"
         android:title="@string/language" />
-    <item
-        android:id="@+id/contact_about"
-        android:icon="@drawable/ic_directions_bike_black_24dp"
-        android:title="@string/about" />
 </menu>

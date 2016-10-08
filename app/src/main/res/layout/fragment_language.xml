@@ -4,6 +4,9 @@
     android:layout_height="match_parent"
     tools:context="com.hkw.arrivinginberlin.LanguageFragment">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
         android:layout_width="match_parent"
@@ -60,5 +63,6 @@
             android:text="français"/>
 
     </RelativeLayout>
+    </ScrollView>
 
 </FrameLayout>

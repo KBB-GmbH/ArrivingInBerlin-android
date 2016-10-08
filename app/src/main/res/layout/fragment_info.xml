@@ -4,35 +4,58 @@
     android:layout_height="match_parent"
     tools:context="com.hkw.arrivinginberlin.InfoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+ <ScrollView
+     android:layout_width="match_parent"
+     android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TextView
+            android:id="@+id/title_info"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="@string/info" />
+
+        <TextView
             android:id="@+id/info_general"
-            android:layout_margin="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/title_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/info_general" />
         <TextView
             android:id="@+id/info_internet"
-            android:layout_margin="10dp"
-            android:paddingBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
             android:layout_below="@id/info_general"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/info_internet" />
         <ImageView
             android:id="@+id/icon_counseling"
-            android:layout_margin="10dp"
+            android:layout_margin="20dp"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:icon="@drawable/counseling"
+            android:src="@drawable/counseling"
             android:layout_below="@id/info_internet"/>
         <TextView
             android:id="@+id/info_counseling"
-            android:layout_margin="10dp"
-            android:paddingBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
             android:layout_below="@id/icon_counseling"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -40,15 +63,21 @@
 
         <ImageView
             android:id="@+id/icon_doctors"
-            android:layout_margin="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_below="@id/info_counseling"
+            android:src="@drawable/doctors_general_practitioner_arabic"
             android:contentDescription="@string/info_counseling" />
         <TextView
             android:id="@+id/info_doctors"
-            android:layout_margin="10dp"
-            android:paddingBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/icon_doctors"
@@ -56,30 +85,41 @@
 
         <ImageView
             android:id="@+id/icon_laywers"
-            android:layout_margin="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:icon="@drawable/counseling_services_for_refugees"
+            android:src="@drawable/lawyers_residence_and_asylum_law"
             android:layout_below="@id/info_doctors"/>
         <TextView
             android:id="@+id/info_lawyers"
             android:layout_width="wrap_content"
-            android:paddingBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/icon_laywers"
             android:text="@string/info_laywers" />
 
         <ImageView
             android:id="@+id/icon_libraries"
-            android:layout_margin="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:icon="@drawable/counseling_services_for_refugees"
+            android:src="@drawable/public_libraries"
             android:layout_below="@id/info_lawyers"/>
         <TextView
             android:id="@+id/info_libraries"
-            android:layout_margin="10dp"
-            android:paddingBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/icon_libraries"
@@ -87,14 +127,20 @@
 
         <ImageView
             android:id="@+id/icon_german"
-            android:layout_margin="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:icon="@drawable/counseling_services_for_refugees"
+            android:src="@drawable/german_language_classes"
             android:layout_below="@id/info_libraries"/>
         <TextView
             android:id="@+id/info_german"
-            android:layout_margin="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/icon_german"
@@ -102,15 +148,21 @@
 
         <ImageView
             android:id="@+id/icon_gov"
-            android:layout_margin="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:icon="@drawable/counseling_services_for_refugees"
+            android:src="@drawable/public_authorities"
             android:layout_below="@id/info_german"/>
         <TextView
             android:id="@+id/info_gov"
-            android:layout_margin="10dp"
-            android:paddingBottom="10dp"
+            android:layout_margin="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/icon_gov"
@@ -118,15 +170,20 @@
 
         <ImageView
             android:id="@+id/icon_shopping"
-            android:layout_margin="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:icon="@drawable/counseling_services_for_refugees"
+            android:src="@drawable/shopping_and_food"
             android:layout_below="@id/info_gov"/>
         <TextView
             android:id="@+id/info_shopping"
-            android:layout_margin="10dp"
-            android:paddingBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/icon_shopping"
@@ -134,15 +191,20 @@
 
         <ImageView
             android:id="@+id/icon_transport"
-            android:layout_margin="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:icon="@drawable/counseling_services_for_refugees"
+            android:src="@drawable/public_transport"
             android:layout_below="@id/info_shopping"/>
         <TextView
             android:id="@+id/info_transport"
-            android:layout_margin="10dp"
-            android:paddingBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
             android:layout_below="@id/icon_transport"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -150,11 +212,15 @@
 
         <TextView
             android:id="@+id/info_final"
-            android:layout_margin="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/icon_transport"
+            android:layout_below="@id/info_transport"
             android:text="@string/info_final" />
     </RelativeLayout>
+ </ScrollView>
 
 </FrameLayout>
