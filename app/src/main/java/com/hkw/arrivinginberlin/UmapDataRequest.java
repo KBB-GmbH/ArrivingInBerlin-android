@@ -34,6 +34,7 @@ public class UmapDataRequest {
             InputStream in = connection.getInputStream();
 
             if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
+                out.close();
                 throw new IOException(connection.getResponseMessage() + ": with" + urlSpec);
             }
 

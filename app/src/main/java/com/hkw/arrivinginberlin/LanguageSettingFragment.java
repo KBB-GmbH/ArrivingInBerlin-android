@@ -26,6 +26,11 @@ import java.util.Locale;
  */
 public class LanguageSettingFragment extends Fragment {
     private LanguageSettingFragment.OnFragmentInteractionListener mListener;
+    private Button english;
+    private Button french;
+    private Button german;
+    private Button farsi;
+    private Button arabic;
 
     public LanguageSettingFragment() {
         // Required empty public constructor
@@ -50,36 +55,38 @@ public class LanguageSettingFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View layout =  inflater.inflate(R.layout.fragment_language_setting, container, false);
-        final Button german = (Button) layout.findViewById(R.id.german);
+        german = (Button) layout.findViewById(R.id.german);
+        english = (Button) layout.findViewById(R.id.english);
+        farsi = (Button) layout.findViewById(R.id.farsi);
+        arabic = (Button) layout.findViewById(R.id.arabic);
+        french = (Button) layout.findViewById(R.id.french);
         german.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 languageSelected("de", german);
             }
         });
-        final Button english = (Button) layout.findViewById(R.id.english);
+
         english.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 languageSelected("en", english);
             }
         });
-        final Button farsi = (Button) layout.findViewById(R.id.farsi);
+
         farsi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 languageSelected("en", farsi);
             }
         });
-        final Button arabic = (Button) layout.findViewById(R.id.arabic);
         arabic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                languageSelected("en", arabic);
+                languageSelected("nl", arabic);
             }
         });
 
-        final Button french = (Button) layout.findViewById(R.id.french);
         french.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,21 +94,59 @@ public class LanguageSettingFragment extends Fragment {
             }
         });
 
+        setLanguageSelected();
+
         return layout;
     }
 
+    private void setLanguageSelected(){
+        String loc = Locale.getDefault().getLanguage();
+        Log.i("LANGUAGE", loc);
+        english.setPressed(false);
+        french.setPressed(false);
+        german.setPressed(false);
+        arabic.setPressed(false);
+        farsi.setPressed(false);
+
+        switch (loc) {
+            case ("en"):
+                english.setPressed(true);
+                break;
+            case ("fr"):
+                french.setPressed(true);
+                break;
+            case ("de"):
+                german.setPressed(true);
+                break;
+            case ("nl"):
+                farsi.setPressed(true);
+                break;
+            case ("ar"):
+                arabic.setPressed(true);
+                break;
+        }
+    }
+
     public void setLocale(String lang) {
-        Locale myLocale = new Locale(lang);
-        Resources res = getResources();
-        DisplayMetrics dm = res.getDisplayMetrics();
-        Configuration conf = res.getConfiguration();
-        conf.locale = myLocale;
-        res.updateConfiguration(conf, dm);
+        Locale loc = new Locale(lang);
+        try {
+            Class<?> activityManagerNative = Class.forName("android.app.ActivityManagerNative");
+            Object am = activityManagerNative.getMethod("getDefault").invoke(activityManagerNative);
+            Object config = am.getClass().getMethod("getConfiguration").invoke(am);
+            config.getClass().getDeclaredField("locale").set(config, loc);
+            config.getClass().getDeclaredField("userSetLocale").setBoolean(config, true);
+
+            am.getClass().getMethod("updateConfiguration",android.content.res.Configuration.class).invoke(am,config);
+            setLanguageSelected();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void languageSelected(String lang, Button button){
         setLocale(lang);
-        button.setTextColor(getActivity().getResources().getColor(R.color.colorSelected));
+        button.setSelected(true);
+
         if (mListener != null){
         }
     }
