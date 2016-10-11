@@ -39,7 +39,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, CustomMapFragment.OnFragmentInteractionListener, LanguageSettingFragment.OnFragmentInteractionListener, InfoFragment.OnFragmentInteractionListener, ContactFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, CustomMapFragment.OnFragmentInteractionListener, LanguageSettingFragment.OnFragmentInteractionListener, InfoFragment.OnFragmentInteractionListener, ContactFragment.OnFragmentInteractionListener, AboutFragment.OnFragmentInteractionListener {
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
     private NavigationView nvDrawer;
@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private CustomMapFragment mapFragment;
     private LanguageSettingFragment languageFragment;
     private InfoFragment infoFragment;
+    private AboutFragment aboutFragment;
     private ContactFragment contactFragment;
     private GoogleApiClient client;
     private BottomBar bottomBar;
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             languageFragment = new LanguageSettingFragment();
             infoFragment = new InfoFragment();
             contactFragment = new ContactFragment();
+            aboutFragment = new AboutFragment();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.add(R.id.content_container, contactFragment, "CONTACT");
             fragmentTransaction.hide(contactFragment);
@@ -78,6 +80,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             fragmentTransaction.hide(languageFragment);
             fragmentTransaction.add(R.id.content_container, infoFragment, "INFO");
             fragmentTransaction.hide(infoFragment);
+            fragmentTransaction.add(R.id.content_container, aboutFragment, "ABOUT");
+            fragmentTransaction.hide(aboutFragment);
             fragmentTransaction.add(R.id.content_container, mapFragment, MapTag);
             fragmentTransaction.show(mapFragment);
             fragmentTransaction.commit();
@@ -102,6 +106,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         mapFragment.displayAllMarkers();
                         setTitle(getString(R.string.main_title));
                         ft.show(mapFragment);
+                        ft.hide(aboutFragment);
                         break;
                     case R.id.info_item:
                         if(infoFragment == null){
@@ -112,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         ft.hide(languageFragment);
                         ft.hide(contactFragment);
                         ft.show(infoFragment);
+                        ft.hide(aboutFragment);
                         break;
                     case R.id.lang_item:
                         if(languageFragment == null){
@@ -122,6 +128,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         ft.hide(infoFragment);
                         ft.hide(contactFragment);
                         ft.show(languageFragment);
+                        ft.hide(aboutFragment);
                         break;
                     case R.id.contact_item:
                         if(contactFragment == null){
@@ -132,6 +139,18 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         ft.hide(infoFragment);
                         ft.hide(languageFragment);
                         ft.show(contactFragment);
+                        ft.hide(aboutFragment);
+                        break;
+                    case R.id.about_item:
+                        if(aboutFragment == null){
+                            aboutFragment = new AboutFragment();
+                        }
+                        hideNavBarItems(true);
+                        ft.hide(mapFragment);
+                        ft.hide(infoFragment);
+                        ft.hide(languageFragment);
+                        ft.hide(contactFragment);
+                        ft.show(aboutFragment);
                         break;
                     default:
                         break;
@@ -145,6 +164,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         bottomBar.mapColorForTab(1, "#438D8D");
         bottomBar.mapColorForTab(2, "#438D8D");
         bottomBar.mapColorForTab(3, "#438D8D");
+        bottomBar.mapColorForTab(4, "#438D8D");
 
         // Set the color for the active tab. Ignored on mobile when there are more than three tabs.
         bottomBar.setActiveTabColor("#C2185B");

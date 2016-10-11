@@ -17,7 +17,7 @@
         android:icon="@drawable/envelope"
         android:title="@string/contact" />
     <item
-        android:id="@+id/general_info"
+        android:id="@+id/about_item"
         android:icon="@drawable/signs"
         android:title="@string/about" />
 </menu>

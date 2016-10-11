@@ -1,0 +1,67 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hkw.arrivinginberlin.AboutFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/title_about"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:text="@string/about" />
+            <TextView
+                android:id="@+id/about_one"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_below="@id/title_about"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_one" />
+            <TextView
+                android:id="@+id/about_two"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_below="@id/about_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_two" />
+            <TextView
+                android:id="@+id/about_three"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_below="@id/about_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_three" />
+            <TextView
+                android:id="@+id/about_four"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_below="@id/about_three"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_four" />
+        </RelativeLayout>
+    </ScrollView>
+</FrameLayout>
