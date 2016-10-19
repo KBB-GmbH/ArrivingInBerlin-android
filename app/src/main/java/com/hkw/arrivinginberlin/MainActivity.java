@@ -529,8 +529,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 MarkerViewOptions marker = new MarkerViewOptions()
                         .position(latLng)
                         .title(name)
-                        .anchor(0.5f, 0.5f)
-                        .infoWindowAnchor(0f, 0f)
                         .icon(icon)
                         .snippet(beschreibung + "\n" + adresse + "\n" + telefon + "\n" + transport + "\n" + medium);
                 CategoryMarker catMarker = new CategoryMarker(mapboxMap.addMarker(marker), categoryID, true, marker);
@@ -796,11 +794,11 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     @Override
     public boolean onMarkerClick(@NonNull Marker marker) {
-        double lat = marker.getPosition().getLatitude() + 0.008;
+        double lat = marker.getPosition().getLatitude() + 0.012;
         double lng = marker.getPosition().getLongitude();
         mapBox.setCameraPosition(new CameraPosition.Builder()
                 .target(new LatLng(lat,lng))
-                .zoom(13)
+                .zoom(12)
                 .build());
         return false;
     }
