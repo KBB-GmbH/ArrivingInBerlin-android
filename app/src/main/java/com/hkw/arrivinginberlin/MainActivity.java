@@ -67,7 +67,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
+public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, MapboxMap.OnMarkerClickListener {
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
     private NavigationView nvDrawer;
@@ -106,31 +106,32 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         MapboxAccountManager.start(this, getString(R.string.access_token));
         setContentView(R.layout.activity_main);
 
-//        locationServices = LocationServices.getLocationServices(this);
+        locationServices = LocationServices.getLocationServices(this);
 
         mapView = (MapView) findViewById(R.id.mapView);
-        mapView.onCreate(savedInstanceState);
+        mapView.onCreate(savedInstanceState);;
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(MapboxMap mapboxMap) {
                 mapBox = mapboxMap;
+                mapBox.setOnMarkerClickListener(MainActivity.this);
                 new FetchLocationsTask().execute();
-//                enableLocation(true);
+                enableLocation(true);
                 if (!didDownload) {
                     startDownloadingMap();
                 }
             }
         });
 
-//        floatingActionButton = (FloatingActionButton) findViewById(R.id.location_toggle_fab);
-//        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (mapBox != null) {
-//                    toggleGps(!mapBox.isMyLocationEnabled());
-//                }
-//            }
-//        });
+        floatingActionButton = (FloatingActionButton) findViewById(R.id.location_toggle_fab);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mapBox != null) {
+                    toggleGps(!mapBox.isMyLocationEnabled());
+                }
+            }
+        });
 
 
         bottomBar = BottomBar.attach(this, savedInstanceState);
@@ -668,7 +669,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 offlineRegion.setDownloadState(OfflineRegion.STATE_ACTIVE);
 
                 // Display the download progress bar
-//                progressBar = (ProgressBar) findViewById(R.id.progress_bar);
+                progressBar = (ProgressBar) findViewById(R.id.progress_bar);
                 startProgress();
 
                 // Monitor the download progress using setObserver
@@ -707,7 +708,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     }
                 });
             }
-
             @Override
             public void onError(String error) {
                 Log.e(TAG, "Error: " + error);
@@ -719,13 +719,13 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private void startProgress() {
         // Start and show the progress bar
         isEndNotified = false;
-//        progressBar.setIndeterminate(true);
-//        progressBar.setVisibility(View.VISIBLE);
+        progressBar.setIndeterminate(true);
+        progressBar.setVisibility(View.VISIBLE);
     }
 
     private void setPercentage(final int percentage) {
-//        progressBar.setIndeterminate(false);
-//        progressBar.setProgress(percentage);
+        progressBar.setIndeterminate(false);
+        progressBar.setProgress(percentage);
     }
 
     private void endProgress(final String message) {
@@ -734,8 +734,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         // Stop and hide the progress bar
         isEndNotified = true;
-//        progressBar.setIndeterminate(false);
-//        progressBar.setVisibility(View.GONE);
+        progressBar.setIndeterminate(false);
+        progressBar.setVisibility(View.GONE);
 
         // Show a toast
         Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
@@ -768,14 +768,14 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         // Move the map camera to where the user location is
                         mapBox.setCameraPosition(new CameraPosition.Builder()
                                 .target(new LatLng(location))
-                                .zoom(16)
+                                .zoom(12)
                                 .build());
                     }
                 }
             });
-//            floatingActionButton.setImageResource(R.drawable.favorite2);
+            floatingActionButton.setImageResource(R.drawable.favorite2);
         } else {
-//            floatingActionButton.setImageResource(R.drawable.favorite);
+            floatingActionButton.setImageResource(R.drawable.favorite);
         }
         // Enable or disable the location layer on the map
         mapBox.setMyLocationEnabled(enabled);
@@ -792,6 +792,17 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 }
             }
         }
+    }
+
+    @Override
+    public boolean onMarkerClick(@NonNull Marker marker) {
+        double lat = marker.getPosition().getLatitude() + 0.008;
+        double lng = marker.getPosition().getLongitude();
+        mapBox.setCameraPosition(new CameraPosition.Builder()
+                .target(new LatLng(lat,lng))
+                .zoom(13)
+                .build());
+        return false;
     }
 
     /********* FETCHING AND SETTING LOCATION DATA**********************/
