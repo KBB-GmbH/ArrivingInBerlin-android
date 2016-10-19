@@ -40,9 +40,9 @@
             android:layout_height="25dp"
             android:paddingLeft="25dp"
             android:paddingRight="25dp"
-            android:visibility="visible"
+            android:visibility="invisible"
             android:layout_below="@id/toolbar"
-            tools:visibility="visible" />
+            tools:visibility="invisible" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/location_toggle_fab"

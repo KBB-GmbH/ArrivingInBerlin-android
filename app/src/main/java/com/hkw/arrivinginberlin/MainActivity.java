@@ -85,7 +85,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private List<CategoryMarker> allMarkers = new ArrayList<>();
     FloatingActionButton floatingActionButton;
     LocationServices locationServices;
-    ProgressDialog progressDialog;
 
     // JSON encoding/decoding
     public final static String JSON_CHARSET = "UTF-8";
@@ -93,8 +92,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private static final int PERMISSIONS_LOCATION = 0;
     private boolean isEndNotified;
     private ProgressBar progressBar;
-    private static final String DATA = "data";
-    private ArrayList<JSONObject> locationData;
     private Boolean didDownload = false;
     private static final String DOWNLOADTAG = "download";
     private static final String LOCDATA = "location_data";
@@ -668,6 +665,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
                 // Display the download progress bar
                 progressBar = (ProgressBar) findViewById(R.id.progress_bar);
+                progressBar.setVisibility(ProgressBar.VISIBLE);
+                didDownload = true;
                 startProgress();
 
                 // Monitor the download progress using setObserver
@@ -718,7 +717,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         // Start and show the progress bar
         isEndNotified = false;
         progressBar.setIndeterminate(true);
-        progressBar.setVisibility(View.VISIBLE);
     }
 
     private void setPercentage(final int percentage) {
@@ -733,8 +731,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         // Stop and hide the progress bar
         isEndNotified = true;
         progressBar.setIndeterminate(false);
-        progressBar.setVisibility(View.GONE);
-
+        progressBar.setVisibility(ProgressBar.INVISIBLE);
         // Show a toast
         Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
     }
@@ -904,6 +901,14 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         mapView.onSaveInstanceState(outState);
+        outState.putBoolean("didDownload", didDownload);
     }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        didDownload = savedInstanceState.getBoolean("didDownload");
+    }
+
 
 }
