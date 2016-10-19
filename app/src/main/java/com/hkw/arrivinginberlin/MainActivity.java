@@ -45,12 +45,9 @@ import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.geometry.LatLngBounds;
 import com.mapbox.mapboxsdk.location.LocationListener;
 import com.mapbox.mapboxsdk.location.LocationServices;
-//import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
-import com.mapbox.mapboxsdk.maps.MapboxMapOptions;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
-import com.mapbox.mapboxsdk.maps.SupportMapFragment;
 import com.mapbox.mapboxsdk.offline.OfflineManager;
 import com.mapbox.mapboxsdk.offline.OfflineRegion;
 import com.mapbox.mapboxsdk.offline.OfflineRegionError;
@@ -70,7 +67,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, LanguageSettingFragment.OnFragmentInteractionListener, InfoFragment.OnFragmentInteractionListener, ContactFragment.OnFragmentInteractionListener, AboutFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
     private NavigationView nvDrawer;
@@ -109,31 +106,31 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         MapboxAccountManager.start(this, getString(R.string.access_token));
         setContentView(R.layout.activity_main);
 
+//        locationServices = LocationServices.getLocationServices(this);
+
         mapView = (MapView) findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(MapboxMap mapboxMap) {
+                mapBox = mapboxMap;
                 new FetchLocationsTask().execute();
+//                enableLocation(true);
                 if (!didDownload) {
                     startDownloadingMap();
                 }
-                // Customize map with markers, polylines, etc.
             }
         });
-        
-        locationServices = LocationServices.getLocationServices(this);
 
-
-        floatingActionButton = (FloatingActionButton) findViewById(R.id.location_toggle_fab);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mapBox != null) {
-                    toggleGps(!mapBox.isMyLocationEnabled());
-                }
-            }
-        });
+//        floatingActionButton = (FloatingActionButton) findViewById(R.id.location_toggle_fab);
+//        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (mapBox != null) {
+//                    toggleGps(!mapBox.isMyLocationEnabled());
+//                }
+//            }
+//        });
 
 
         bottomBar = BottomBar.attach(this, savedInstanceState);
@@ -144,7 +141,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 FragmentTransaction ft = fragmentManager.beginTransaction();
                 switch (itemId) {
                     case R.id.map_item:
-
                         break;
                     case R.id.info_item:
 
@@ -483,11 +479,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     }
 
-
-    public void onFragmentInteraction(Uri uri){
-        //you can leave it empty
-    }
-
     public void updateLocationPoints(List<JSONObject> locations) {
         for (JSONObject location : locations) {
             try {
@@ -677,7 +668,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 offlineRegion.setDownloadState(OfflineRegion.STATE_ACTIVE);
 
                 // Display the download progress bar
-                progressBar = (ProgressBar) findViewById(R.id.progress_bar);
+//                progressBar = (ProgressBar) findViewById(R.id.progress_bar);
                 startProgress();
 
                 // Monitor the download progress using setObserver
@@ -728,13 +719,13 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private void startProgress() {
         // Start and show the progress bar
         isEndNotified = false;
-        progressBar.setIndeterminate(true);
-        progressBar.setVisibility(View.VISIBLE);
+//        progressBar.setIndeterminate(true);
+//        progressBar.setVisibility(View.VISIBLE);
     }
 
     private void setPercentage(final int percentage) {
-        progressBar.setIndeterminate(false);
-        progressBar.setProgress(percentage);
+//        progressBar.setIndeterminate(false);
+//        progressBar.setProgress(percentage);
     }
 
     private void endProgress(final String message) {
@@ -743,8 +734,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         // Stop and hide the progress bar
         isEndNotified = true;
-        progressBar.setIndeterminate(false);
-        progressBar.setVisibility(View.GONE);
+//        progressBar.setIndeterminate(false);
+//        progressBar.setVisibility(View.GONE);
 
         // Show a toast
         Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
@@ -782,9 +773,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     }
                 }
             });
-            floatingActionButton.setImageResource(R.drawable.favorite2);
+//            floatingActionButton.setImageResource(R.drawable.favorite2);
         } else {
-            floatingActionButton.setImageResource(R.drawable.favorite);
+//            floatingActionButton.setImageResource(R.drawable.favorite);
         }
         // Enable or disable the location layer on the map
         mapBox.setMyLocationEnabled(enabled);
@@ -874,6 +865,36 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             save.saveArray("locations", locations);
             Log.i(TAG, "Saved Locations");
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mapView.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mapView.onPause();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mapView.onLowMemory();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mapView.onDestroy();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mapView.onSaveInstanceState(outState);
     }
 
 }

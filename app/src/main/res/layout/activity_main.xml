@@ -11,7 +11,7 @@
     android:fitsSystemWindows="true">
 
     <!-- This LinearLayout represents the contents of the screen  -->
-    <RelativeLayout
+    <LinearLayout
         android:screenOrientation="portrait"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,9 +20,28 @@
         <!-- The ActionBar displayed at the top -->
         <include
             layout="@layout/toolbar"
-            android:id="+@id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="@android:style/Widget.Material.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/location_toggle_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_my_location_24dp"
+            tools:backgroundTint="#E55E5E" >
+            </android.support.design.widget.FloatingActionButton>
 
         <com.mapbox.mapboxsdk.maps.MapView
             android:id="@+id/mapView"
@@ -33,33 +52,12 @@
             mapbox:center_longitude="13.388389"
             mapbox:zoom="12"/>
 
-        <ProgressBar
-            android:id="@+id/progress_bar"
-            style="@android:style/Widget.Material.ProgressBar.Horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:paddingLeft="25dp"
-            android:paddingRight="25dp"
-            android:visibility="visible"
-            android:layout_below="@id/toolbar"
-            tools:visibility="visible" />
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/location_toggle_fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:layout_margin="16dp"
-            android:layout_below="@id/toolbar"
-            android:src="@drawable/ic_my_location_24dp"
-            tools:backgroundTint="#E55E5E" />
-
         <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/bottomBarContainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="16dp" />
-    </RelativeLayout>
+    </LinearLayout>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nvView"
