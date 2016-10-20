@@ -131,14 +131,11 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             }
         });
 
-
         bottomBar = BottomBar.attach(this, savedInstanceState);
         bottomBar.setItemsFromMenu(R.menu.bottom_navigation, new OnMenuTabSelectedListener() {
             @Override
             public void onMenuItemSelected(int itemId) {
                 Log.i(TAG, "menu tapped");
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                FragmentTransaction ft = fragmentManager.beginTransaction();
                 Intent intent = new Intent(getApplicationContext(), SettingActivity.class);
                 switch (itemId) {
                     case R.id.map_item:
@@ -162,7 +159,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     default:
                         break;
                 }
-                ft.commit();
             }
         });
 
@@ -917,6 +913,4 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         super.onRestoreInstanceState(savedInstanceState);
         didDownload = savedInstanceState.getBoolean("didDownload");
     }
-
-
 }
