@@ -18,10 +18,6 @@ import com.roughike.bottombar.OnMenuTabSelectedListener;
 
 public class SettingActivity extends AppCompatActivity implements LanguageSettingFragment.OnFragmentInteractionListener, InfoFragment.OnFragmentInteractionListener, ContactFragment.OnFragmentInteractionListener, AboutFragment.OnFragmentInteractionListener {
     private BottomBar bottomBar;
-    private AboutFragment aboutFragment;
-    private ContactFragment contactFragment;
-    private InfoFragment infoFragment;
-    private LanguageFragment languageFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,57 +26,38 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        languageFragment =  new LanguageFragment();
-        aboutFragment = new AboutFragment();
-        infoFragment = new InfoFragment();
-        contactFragment = new ContactFragment();
+        AboutFragment aboutFragment = new AboutFragment();
 
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.content_container, aboutFragment, "ABOUT");
+        fragmentTransaction.commit();
 
         bottomBar = BottomBar.attach(this, savedInstanceState);
         bottomBar.setItemsFromMenu(R.menu.bottom_navigation, new OnMenuTabSelectedListener() {
             @Override
             public void onMenuItemSelected(int itemId) {
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                FragmentTransaction ft = fragmentManager.beginTransaction();
-
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.add(R.id.content_container, contactFragment, "CONTACT");
-                fragmentTransaction.hide(contactFragment);
-                fragmentTransaction.add(R.id.content_container, languageFragment, "LANGUAGE");
-                fragmentTransaction.hide(languageFragment);
-                fragmentTransaction.add(R.id.content_container, infoFragment, "INFO");
-                fragmentTransaction.hide(infoFragment);
-                fragmentTransaction.add(R.id.content_container, aboutFragment, "ABOUT");
-                fragmentTransaction.hide(aboutFragment);
-                fragmentTransaction.commit();
-
+                FragmentManager fm = getSupportFragmentManager();
+                final FragmentTransaction ft = fm.beginTransaction();
                 switch (itemId) {
                     case R.id.map_item:
                         finish();
                         break;
                     case R.id.info_item:
-                        fragmentTransaction.hide(contactFragment);
-                        fragmentTransaction.hide(languageFragment);
-                        fragmentTransaction.hide(aboutFragment);
-                        fragmentTransaction.show(infoFragment);
+                        InfoFragment info = new InfoFragment();
+                        ft.replace(R.id.content_container, info, "INFO");
                         break;
                     case R.id.lang_item:
-                        fragmentTransaction.hide(contactFragment);
-                        fragmentTransaction.hide(infoFragment);
-                        fragmentTransaction.hide(aboutFragment);
-                        fragmentTransaction.show(languageFragment);
+                        LanguageSettingFragment language = new LanguageSettingFragment();
+                        ft.replace(R.id.content_container, language, "LANG");
                         break;
                     case R.id.contact_item:
-                        fragmentTransaction.hide(languageFragment);
-                        fragmentTransaction.hide(infoFragment);
-                        fragmentTransaction.hide(aboutFragment);
-                        fragmentTransaction.show(contactFragment);
+                        ContactFragment contact = new ContactFragment();
+                        ft.replace(R.id.content_container, contact, "CONTACT");
                         break;
                     case R.id.about_item:
-                        fragmentTransaction.hide(contactFragment);
-                        fragmentTransaction.hide(infoFragment);
-                        fragmentTransaction.hide(languageFragment);
-                        fragmentTransaction.show(aboutFragment);
+                        AboutFragment about = new AboutFragment();
+                        ft.replace(R.id.content_container, about, "ABOUT");
                         break;
                     default:
                         break;
