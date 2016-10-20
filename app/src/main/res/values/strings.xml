@@ -46,4 +46,5 @@
     <string name="contact_text">Do you have question or comments? Or have we forgotten any interesting places? If so, please send us a message</string>
     <string name="send_email">Send Email</string>
     <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_setting">SettingActivity</string>
 </resources>

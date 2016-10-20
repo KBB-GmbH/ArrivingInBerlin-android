@@ -29,4 +29,3 @@
             android:padding="16dp" />
     </LinearLayout>
 </android.support.v4.widget.DrawerLayout>
-

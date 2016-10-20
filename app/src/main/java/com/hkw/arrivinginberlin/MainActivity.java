@@ -2,6 +2,7 @@ package com.hkw.arrivinginberlin;
 
 import android.Manifest;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
@@ -137,20 +138,25 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             public void onMenuItemSelected(int itemId) {
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction ft = fragmentManager.beginTransaction();
+                Intent intent = new Intent(getApplicationContext(), SettingActivity.class);
                 switch (itemId) {
                     case R.id.map_item:
                         break;
                     case R.id.info_item:
-
+                        intent.putExtra("startFragment", 1);
+                        startActivity(intent);
                         break;
                     case R.id.lang_item:
-
+                        intent.putExtra("startFragment", 1);
+                        startActivity(intent);
                         break;
                     case R.id.contact_item:
-
+                        intent.putExtra("startFragment", 1);
+                        startActivity(intent);
                         break;
                     case R.id.about_item:
-
+                        intent.putExtra("startFragment", 1);
+                        startActivity(intent);
                         break;
                     default:
                         break;
