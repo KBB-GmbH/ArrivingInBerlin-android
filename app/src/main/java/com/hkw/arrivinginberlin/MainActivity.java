@@ -136,6 +136,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         bottomBar.setItemsFromMenu(R.menu.bottom_navigation, new OnMenuTabSelectedListener() {
             @Override
             public void onMenuItemSelected(int itemId) {
+                Log.i(TAG, "menu tapped");
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction ft = fragmentManager.beginTransaction();
                 Intent intent = new Intent(getApplicationContext(), SettingActivity.class);
@@ -147,15 +148,15 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         startActivity(intent);
                         break;
                     case R.id.lang_item:
-                        intent.putExtra("startFragment", 1);
+                        intent.putExtra("startFragment", 2);
                         startActivity(intent);
                         break;
                     case R.id.contact_item:
-                        intent.putExtra("startFragment", 1);
+                        intent.putExtra("startFragment", 3);
                         startActivity(intent);
                         break;
                     case R.id.about_item:
-                        intent.putExtra("startFragment", 1);
+                        intent.putExtra("startFragment", 4);
                         startActivity(intent);
                         break;
                     default:
@@ -882,6 +883,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     @Override
     public void onResume() {
         super.onResume();
+        bottomBar.selectTabAtPosition(0, false);
         mapView.onResume();
     }
 
