@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.support.annotation.NonNull;
@@ -24,10 +25,14 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ClickableSpan;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -40,6 +45,7 @@ import com.mapbox.mapboxsdk.annotations.Icon;
 import com.mapbox.mapboxsdk.annotations.IconFactory;
 import com.mapbox.mapboxsdk.annotations.Marker;
 import com.mapbox.mapboxsdk.annotations.MarkerViewOptions;
+import com.mapbox.mapboxsdk.annotations.PolylineOptions;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.constants.Style;
 import com.mapbox.mapboxsdk.geometry.LatLng;
@@ -54,6 +60,14 @@ import com.mapbox.mapboxsdk.offline.OfflineRegion;
 import com.mapbox.mapboxsdk.offline.OfflineRegionError;
 import com.mapbox.mapboxsdk.offline.OfflineRegionStatus;
 import com.mapbox.mapboxsdk.offline.OfflineTilePyramidRegionDefinition;
+import com.mapbox.services.Constants;
+import com.mapbox.services.commons.ServicesException;
+import com.mapbox.services.commons.geojson.LineString;
+import com.mapbox.services.commons.models.Position;
+import com.mapbox.services.directions.v5.DirectionsCriteria;
+import com.mapbox.services.directions.v5.MapboxDirections;
+import com.mapbox.services.directions.v5.models.DirectionsResponse;
+import com.mapbox.services.directions.v5.models.DirectionsRoute;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.BottomBarFragment;
 import com.roughike.bottombar.OnMenuTabSelectedListener;
@@ -68,7 +82,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, MapboxMap.OnMarkerClickListener {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, MapboxMap.OnMarkerClickListener, MapboxMap.OnMapClickListener {
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
     private NavigationView nvDrawer;
@@ -83,9 +101,16 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     private MapView mapView;
     private MapboxMap mapBox;
+    private DirectionsRoute currentRoute;
     private List<CategoryMarker> allMarkers = new ArrayList<>();
     FloatingActionButton floatingActionButton;
+    FloatingActionButton walkButton;
+    FloatingActionButton driveButton;
+    FloatingActionButton publicTransportButton;
     LocationServices locationServices;
+
+    private Position origin;
+    private Position destination;
 
     // JSON encoding/decoding
     public final static String JSON_CHARSET = "UTF-8";
@@ -107,12 +132,13 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         locationServices = LocationServices.getLocationServices(this);
 
         mapView = (MapView) findViewById(R.id.mapView);
-        mapView.onCreate(savedInstanceState);;
+        mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(MapboxMap mapboxMap) {
                 mapBox = mapboxMap;
                 mapBox.setOnMarkerClickListener(MainActivity.this);
+                mapBox.setOnMapClickListener(MainActivity.this);
                 new FetchLocationsTask().execute();
                 enableLocation(true);
                 if (!didDownload) {
@@ -130,6 +156,29 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 }
             }
         });
+
+        walkButton = (FloatingActionButton) findViewById(R.id.walk);
+        walkButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                if(origin != null && destination != null){
+                    try {
+                        getRoute(origin, destination, DirectionsCriteria.PROFILE_WALKING);
+                    } catch (ServicesException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
+        driveButton = (FloatingActionButton) findViewById(R.id.drive);
+        driveButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Log.i(TAG,"drive button clicked" + String.valueOf(origin) + String.valueOf(destination));
+            }
+        });
+        publicTransportButton = (FloatingActionButton) findViewById(R.id.public_transport);
 
         bottomBar = BottomBar.attach(this, savedInstanceState);
         bottomBar.setItemsFromMenu(R.menu.bottom_navigation, new OnMenuTabSelectedListener() {
@@ -247,7 +296,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         } else {
             mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNDEFINED);
             toolbar.setVisibility(View.VISIBLE);
-
         }
     }
 
@@ -384,11 +432,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private void setupDrawerContent(NavigationView navigationView) {
     }
 
-    private void updateLocations() {
-        if (mainLocations.size() == 0) {
-            new FetchLocationsTask().execute();
-        }
-    }
 
     @Override
     public void onStart() {
@@ -517,8 +560,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     adresse = adresse.substring(0, 1).toUpperCase() + adresse.substring​(1);
                 }
                 String telefon = properties.getString("telefon").replace("*", "");
-                String medium = properties.getString("medium").replace("*", "").replace("[[", "").replace("]]", "");
-                String transport = properties.getString("transport").replace("*", "").replace("[[", "").replace("]]", "");
+                String medium = properties.getString("link").replace("*", "").replace("[[", "").replace("]]", "");
 
                 int imageResource = getResources().getIdentifier(uri, null, MainActivity.this.getPackageName());
                 Log.i("IMAGE RESOURCE", String.valueOf(imageResource));
@@ -530,7 +572,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         .position(latLng)
                         .title(name)
                         .icon(icon)
-                        .snippet(beschreibung + "\n" + adresse + "\n" + telefon + "\n" + transport + "\n" + medium);
+                        .snippet(beschreibung + "\n" + adresse + "\n" + telefon + "\n" + medium);
                 CategoryMarker catMarker = new CategoryMarker(mapboxMap.addMarker(marker), categoryID, true, marker);
                 allMarkers.add(catMarker);
             }
@@ -538,7 +580,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             Log.e("MainActivity", "Exception Loading GeoJSON: " + e.toString());
         }
         Log.i("MainActivity", "my markers:" + allMarkers);
-
     }
 
     public String getIconStringForCategory(int categoryID) {
@@ -591,7 +632,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         return uri;
     }
-
 
     public void displayAllMarkers() {
         removeAllMarkers();
@@ -760,20 +800,19 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             locationServices.addLocationListener(new LocationListener() {
                 @Override
                 public void onLocationChanged(Location location) {
-                    if ((location != null) && (location.getLatitude() >= 52.3 && location.getLatitude() < 52.7) &&
-                            (location.getLongitude() >= 13.1 && location.getLongitude() < 13.7)) {
-                        Log.i(TAG, "latlon: " + location.getLatitude() + location.getLongitude());
+                    if (location != null) {
+                        origin = Position.fromCoordinates(location.getLatitude(), location.getLongitude());
                         // Move the map camera to where the user location is
-                        mapBox.setCameraPosition(new CameraPosition.Builder()
-                                .target(new LatLng(location))
-                                .zoom(12)
-                                .build());
+//                        mapBox.setCameraPosition(new CameraPosition.Builder()
+//                                .target(new LatLng(location))
+//                                .zoom(12)
+//                                .build());
                     }
                 }
             });
-            floatingActionButton.setImageResource(R.drawable.favorite2);
+            floatingActionButton.setImageResource(R.drawable.ic_my_location_24dp);
         } else {
-            floatingActionButton.setImageResource(R.drawable.favorite);
+            floatingActionButton.setImageResource(R.drawable.ic_location_disabled_24dp);
         }
         // Enable or disable the location layer on the map
         mapBox.setMyLocationEnabled(enabled);
@@ -792,8 +831,16 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         }
     }
 
+    //MAP HANDLERS
     @Override
     public boolean onMarkerClick(@NonNull Marker marker) {
+        //show direction buttons
+        walkButton.setVisibility(Button.VISIBLE);
+        driveButton.setVisibility(Button.VISIBLE);
+        publicTransportButton.setVisibility(Button.VISIBLE);
+
+        destination = Position.fromCoordinates(marker.getPosition().getLatitude(), marker.getPosition().getLongitude());
+
         double lat = marker.getPosition().getLatitude() + 0.012;
         double lng = marker.getPosition().getLongitude();
         mapBox.setCameraPosition(new CameraPosition.Builder()
@@ -801,6 +848,14 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 .zoom(12)
                 .build());
         return false;
+    }
+
+    @Override
+    public void onMapClick(@NonNull LatLng point) {
+        //remove direction buttons
+        walkButton.setVisibility(Button.INVISIBLE);
+        driveButton.setVisibility(Button.INVISIBLE);
+        publicTransportButton.setVisibility(Button.INVISIBLE);
     }
 
     /********* FETCHING AND SETTING LOCATION DATA**********************/
@@ -836,7 +891,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         protected void onPostExecute(List<JSONObject> locations) {
             //check if the map exists already
             Log.i("FETCH", "arrived at post exec with locations: " + locations);
-
             if ((locations != null) && (locations.size() > 0)) {
                 processDataUpdate((ArrayList<JSONObject>) locations);
                 storeLocations((ArrayList<JSONObject>) locations);
@@ -874,6 +928,68 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             save.saveArray("locations", locations);
             Log.i(TAG, "Saved Locations");
         }
+    }
+
+    private void getRoute(Position origin, Position destination, String profile) throws ServicesException {
+        Log.i(TAG, "destination coord: " + String.valueOf(destination.getLatitude()) + String.valueOf(destination.getLongitude()));
+        MapboxDirections client = new MapboxDirections.Builder()
+                .setOrigin(Position.fromCoordinates(52.588098, 13.176164))
+                .setDestination(destination)
+                .setProfile(profile)
+                .setAccessToken(getString(R.string.access_token))
+                .build();
+
+        client.enqueueCall(new Callback<DirectionsResponse>() {
+            @Override
+            public void onResponse(Call<DirectionsResponse> call, Response<DirectionsResponse> response) {
+                // You can get the generic HTTP info about the response
+
+                Log.d(TAG, "Response code: " + response.code());
+                if (response.body() == null) {
+                    Log.e(TAG, "No routes found, make sure you set the right user and access token.");
+                    return;
+                }
+                Log.i(TAG, "Route response: " + response.body().getRoutes());
+                // Print some info about the route
+                currentRoute = response.body().getRoutes().get(0);
+                Log.d(TAG, "Distance: " + currentRoute.getDistance());
+                Toast.makeText(MainActivity.this, "Route is " + currentRoute.getDistance() + " meters long.", Toast.LENGTH_SHORT).show();
+
+                // Draw the route on the map
+                drawRoute(currentRoute);
+            }
+
+            @Override
+            public void onFailure(Call<DirectionsResponse> call, Throwable t) {
+                Log.e(TAG, "Error: " + t.getMessage());
+                Toast.makeText(MainActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void drawRoute(DirectionsRoute route) {
+        // Convert LineString coordinates into LatLng[]
+//        LineString lineString = LineString.fromPolyline(route.getGeometry(), Constants.OSRM_PRECISION_V5);
+//        List<Position> coordinates = lineString.getCoordinates();
+//        List<LatLng> points = new ArrayList<>();
+//        for (int i = 0; i < coordinates.size(); i++) {
+//            points.add(new LatLng(
+//                    coordinates.get(i).getLatitude(),
+//                    coordinates.get(i).getLongitude()));
+//        }
+//
+//        Log.i(TAG, "start drawing ");
+        // Draw Points on MapView
+        List<LatLng> points = new ArrayList<>();
+        points.add(new LatLng(52.56000, 13.306689));
+        points.add(new LatLng(53.56000, 13.356689));
+        points.add(new LatLng(54.56000, 13.406689));
+
+        PolylineOptions polylineOptions = new PolylineOptions()
+                .addAll(points)
+                .color(Color.RED)
+                .width(3);
+        mapBox.addPolyline(polylineOptions);
     }
 
     @Override
