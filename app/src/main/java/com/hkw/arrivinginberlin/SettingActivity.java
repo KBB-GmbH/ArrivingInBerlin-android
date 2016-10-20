@@ -61,7 +61,9 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
 
         // Set the color for the active tab. Ignored on mobile when there are more than three tabs.
         bottomBar.setActiveTabColor("#C2185B");
-        bottomBar.selectTabAtPosition(1, false);
+
+        int fragment = getIntent().getExtras().getInt("startFragment");
+        bottomBar.selectTabAtPosition(fragment, false);
 
 
     }
