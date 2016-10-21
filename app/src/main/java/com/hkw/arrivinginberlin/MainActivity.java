@@ -64,6 +64,7 @@ import com.mapbox.services.Constants;
 import com.mapbox.services.commons.ServicesException;
 import com.mapbox.services.commons.geojson.LineString;
 import com.mapbox.services.commons.models.Position;
+import com.mapbox.services.directions.v4.models.Waypoint;
 import com.mapbox.services.directions.v5.DirectionsCriteria;
 import com.mapbox.services.directions.v5.MapboxDirections;
 import com.mapbox.services.directions.v5.models.DirectionsResponse;
@@ -109,7 +110,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     FloatingActionButton publicTransportButton;
     LocationServices locationServices;
 
-    private Position origin;
     private Position destination;
 
     // JSON encoding/decoding
@@ -161,9 +161,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         walkButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if(origin != null && destination != null){
+                if(destination != null){
                     try {
-                        getRoute(origin, destination, DirectionsCriteria.PROFILE_WALKING);
+                        getRoute(destination);
                     } catch (ServicesException e) {
                         e.printStackTrace();
                     }
@@ -175,7 +175,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         driveButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Log.i(TAG,"drive button clicked" + String.valueOf(origin) + String.valueOf(destination));
+                Log.i(TAG,"drive button clicked" + String.valueOf(destination));
             }
         });
         publicTransportButton = (FloatingActionButton) findViewById(R.id.public_transport);
@@ -801,7 +801,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 @Override
                 public void onLocationChanged(Location location) {
                     if (location != null) {
-                        origin = Position.fromCoordinates(location.getLatitude(), location.getLongitude());
                         // Move the map camera to where the user location is
 //                        mapBox.setCameraPosition(new CameraPosition.Builder()
 //                                .target(new LatLng(location))
@@ -839,7 +838,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         driveButton.setVisibility(Button.VISIBLE);
         publicTransportButton.setVisibility(Button.VISIBLE);
 
-        destination = Position.fromCoordinates(marker.getPosition().getLatitude(), marker.getPosition().getLongitude());
+        destination = Position.fromCoordinates(marker.getPosition().getLongitude(), marker.getPosition().getLatitude());
 
         double lat = marker.getPosition().getLatitude() + 0.012;
         double lng = marker.getPosition().getLongitude();
@@ -930,12 +929,20 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         }
     }
 
-    private void getRoute(Position origin, Position destination, String profile) throws ServicesException {
-        Log.i(TAG, "destination coord: " + String.valueOf(destination.getLatitude()) + String.valueOf(destination.getLongitude()));
+
+    private void getRoute(Position destination) throws ServicesException {
+
+        Position origin;
+        if (mapBox.getMyLocation() != null) {
+            origin = Position.fromCoordinates(mapBox.getMyLocation().getLongitude(), mapBox.getMyLocation().getLatitude());
+        }else {
+            return;
+        }
+
         MapboxDirections client = new MapboxDirections.Builder()
-                .setOrigin(Position.fromCoordinates(52.588098, 13.176164))
+                .setOrigin(origin)
                 .setDestination(destination)
-                .setProfile(profile)
+                .setProfile(DirectionsCriteria.PROFILE_CYCLING)
                 .setAccessToken(getString(R.string.access_token))
                 .build();
 
@@ -943,17 +950,16 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             @Override
             public void onResponse(Call<DirectionsResponse> call, Response<DirectionsResponse> response) {
                 // You can get the generic HTTP info about the response
-
                 Log.d(TAG, "Response code: " + response.code());
                 if (response.body() == null) {
                     Log.e(TAG, "No routes found, make sure you set the right user and access token.");
                     return;
                 }
-                Log.i(TAG, "Route response: " + response.body().getRoutes());
+
                 // Print some info about the route
                 currentRoute = response.body().getRoutes().get(0);
                 Log.d(TAG, "Distance: " + currentRoute.getDistance());
-                Toast.makeText(MainActivity.this, "Route is " + currentRoute.getDistance() + " meters long.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Route is " +  currentRoute.getDistance() + " meters long.", Toast.LENGTH_SHORT).show();
 
                 // Draw the route on the map
                 drawRoute(currentRoute);
@@ -969,27 +975,20 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     private void drawRoute(DirectionsRoute route) {
         // Convert LineString coordinates into LatLng[]
-//        LineString lineString = LineString.fromPolyline(route.getGeometry(), Constants.OSRM_PRECISION_V5);
-//        List<Position> coordinates = lineString.getCoordinates();
-//        List<LatLng> points = new ArrayList<>();
-//        for (int i = 0; i < coordinates.size(); i++) {
-//            points.add(new LatLng(
-//                    coordinates.get(i).getLatitude(),
-//                    coordinates.get(i).getLongitude()));
-//        }
-//
-//        Log.i(TAG, "start drawing ");
-        // Draw Points on MapView
-        List<LatLng> points = new ArrayList<>();
-        points.add(new LatLng(52.56000, 13.306689));
-        points.add(new LatLng(53.56000, 13.356689));
-        points.add(new LatLng(54.56000, 13.406689));
+        LineString lineString = LineString.fromPolyline(route.getGeometry(), Constants.OSRM_PRECISION_V5);
+        List<Position> coordinates = lineString.getCoordinates();
+        LatLng[] points = new LatLng[coordinates.size()];
+        for (int i = 0; i < coordinates.size(); i++) {
+            points[i] = new LatLng(
+                    coordinates.get(i).getLatitude(),
+                    coordinates.get(i).getLongitude());
+        }
 
-        PolylineOptions polylineOptions = new PolylineOptions()
-                .addAll(points)
-                .color(Color.RED)
-                .width(3);
-        mapBox.addPolyline(polylineOptions);
+        // Draw Points on MapView
+        mapBox.addPolyline(new PolylineOptions()
+                .add(points)
+                .color(Color.parseColor("#009688"))
+                .width(5));
     }
 
     @Override
