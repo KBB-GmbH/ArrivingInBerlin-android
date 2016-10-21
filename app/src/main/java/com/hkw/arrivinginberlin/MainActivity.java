@@ -635,6 +635,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     }
 
     public void displayAllMarkers() {
+        removePolyline();
         removeAllMarkers();
         mapBox.removeAnnotations();
         for (CategoryMarker cm : allMarkers) {
@@ -643,6 +644,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     }
 
     public void removeAllMarkers() {
+        removePolyline();
         for (Marker m : mapBox.getMarkers()) {
             mapBox.removeMarker(m);
             mapBox.removeAnnotations();
@@ -650,6 +652,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     }
 
     public void displayMarkersForCategory(final int categoryId) {
+        removePolyline();
         removeAllMarkers();
         for (CategoryMarker cm : allMarkers) {
             if (cm.categoryID == categoryId) {
@@ -839,6 +842,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         driveButton.setVisibility(Button.VISIBLE);
         publicTransportButton.setVisibility(Button.VISIBLE);
 
+        removePolyline();
+
         destination = Position.fromCoordinates(marker.getPosition().getLongitude(), marker.getPosition().getLatitude());
 
         double lat = marker.getPosition().getLatitude() + 0.012;
@@ -974,10 +979,14 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         });
     }
 
-    private void drawRoute(DirectionsRoute route) {
-        if (polyLine != null) {
+    private void removePolyline() {
+        if (polyLine != null && mapBox != null) {
             mapBox.removePolyline(polyLine.getPolyline());
         }
+    }
+
+    private void drawRoute(DirectionsRoute route) {
+        removePolyline();
         // Convert LineString coordinates into LatLng[]
         LineString lineString = LineString.fromPolyline(route.getGeometry(), Constants.OSRM_PRECISION_V5);
         List<Position> coordinates = lineString.getCoordinates();
