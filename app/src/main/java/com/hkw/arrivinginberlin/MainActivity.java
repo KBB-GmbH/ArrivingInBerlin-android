@@ -45,6 +45,7 @@ import com.mapbox.mapboxsdk.annotations.Icon;
 import com.mapbox.mapboxsdk.annotations.IconFactory;
 import com.mapbox.mapboxsdk.annotations.Marker;
 import com.mapbox.mapboxsdk.annotations.MarkerViewOptions;
+import com.mapbox.mapboxsdk.annotations.Polyline;
 import com.mapbox.mapboxsdk.annotations.PolylineOptions;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.constants.Style;
@@ -99,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private GoogleApiClient client;
     private BottomBar bottomBar;
     public ArrayList<JSONObject> mainLocations = new ArrayList<JSONObject>();
-
+    private PolylineOptions polyLine;
     private MapView mapView;
     private MapboxMap mapBox;
     private DirectionsRoute currentRoute;
@@ -936,7 +937,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         if (mapBox.getMyLocation() != null) {
             origin = Position.fromCoordinates(mapBox.getMyLocation().getLongitude(), mapBox.getMyLocation().getLatitude());
         }else {
-            return;
+            origin = Position.fromCoordinates(13.388389, 52.516889);
         }
 
         MapboxDirections client = new MapboxDirections.Builder()
@@ -974,6 +975,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     }
 
     private void drawRoute(DirectionsRoute route) {
+        if (polyLine != null) {
+            mapBox.removePolyline(polyLine.getPolyline());
+        }
         // Convert LineString coordinates into LatLng[]
         LineString lineString = LineString.fromPolyline(route.getGeometry(), Constants.OSRM_PRECISION_V5);
         List<Position> coordinates = lineString.getCoordinates();
@@ -985,10 +989,11 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         }
 
         // Draw Points on MapView
-        mapBox.addPolyline(new PolylineOptions()
+        polyLine = new PolylineOptions()
                 .add(points)
                 .color(Color.parseColor("#009688"))
-                .width(5));
+                .width(5);
+        mapBox.addPolyline(polyLine);
     }
 
     @Override
