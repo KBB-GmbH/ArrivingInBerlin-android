@@ -88,7 +88,7 @@
             android:layout_margin="10dp"
             android:layout_alignBottom="@id/mapView"
             android:layout_toEndOf="@id/walk"
-            android:src="@drawable/ic_directions_bike_black_24dp"
+            android:src="@drawable/school_bus_front"
             tools:backgroundTint="#438D8D"
             tools:visibility="invisible"
             android:visibility="invisible">

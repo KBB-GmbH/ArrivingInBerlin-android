@@ -25,6 +25,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.text.Layout;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ClickableSpan;
@@ -164,7 +165,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             public void onClick(View v){
                 if(destination != null){
                     try {
-                        getRoute(destination);
+                        getRoute(destination, DirectionsCriteria.PROFILE_WALKING );
                     } catch (ServicesException e) {
                         e.printStackTrace();
                     }
@@ -176,10 +177,33 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         driveButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Log.i(TAG,"drive button clicked" + String.valueOf(destination));
+                if(destination != null){
+                    try {
+                        getRoute(destination, DirectionsCriteria.PROFILE_DRIVING);
+                    } catch (ServicesException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         });
+
         publicTransportButton = (FloatingActionButton) findViewById(R.id.public_transport);
+        publicTransportButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                if (destination != null){
+                    String loc = "http://maps.google.com/maps?daddr="+ destination.getLatitude()+ ","
+                            + destination.getLongitude()+ "&directionsmode=transit";
+
+                    Uri gmmIntentUri = Uri.parse(loc);
+                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                    mapIntent.setPackage("com.google.android.apps.maps");
+                    if (mapIntent.resolveActivity(getPackageManager()) != null) {
+                        startActivity(mapIntent);
+                    }
+                }
+            }
+        });
 
         bottomBar = BottomBar.attach(this, savedInstanceState);
         bottomBar.setItemsFromMenu(R.menu.bottom_navigation, new OnMenuTabSelectedListener() {
@@ -252,6 +276,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         expandableList.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView expandableListView, View view, int groupPosition, int childPosition, long childId) {
+                showTransportButtons(false);
                 // Highlight the selected item has been done by NavigationView
                 ExpandedMenuItem item = listDataHeader.get(groupPosition);
                 setTitle(item.getIconName());
@@ -271,11 +296,12 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         expandableList.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
             public boolean onGroupClick(ExpandableListView expandableListView, View view, int groupPosition, long groupId) {
+                showTransportButtons(false);
                 if (groupPosition == 0) {
                     setTitle("Arriving");
                     displayAllMarkers();
                     mDrawer.closeDrawers();
-                    return true;
+                    return false;
                 }
                 return false;
             }
@@ -806,10 +832,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 public void onLocationChanged(Location location) {
                     if (location != null) {
                         // Move the map camera to where the user location is
-//                        mapBox.setCameraPosition(new CameraPosition.Builder()
-//                                .target(new LatLng(location))
-//                                .zoom(12)
-//                                .build());
+// Update directions
                     }
                 }
             });
@@ -838,10 +861,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     @Override
     public boolean onMarkerClick(@NonNull Marker marker) {
         //show direction buttons
-        walkButton.setVisibility(Button.VISIBLE);
-        driveButton.setVisibility(Button.VISIBLE);
-        publicTransportButton.setVisibility(Button.VISIBLE);
-
+        showTransportButtons(true);
         removePolyline();
 
         destination = Position.fromCoordinates(marker.getPosition().getLongitude(), marker.getPosition().getLatitude());
@@ -858,9 +878,19 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     @Override
     public void onMapClick(@NonNull LatLng point) {
         //remove direction buttons
-        walkButton.setVisibility(Button.INVISIBLE);
-        driveButton.setVisibility(Button.INVISIBLE);
-        publicTransportButton.setVisibility(Button.INVISIBLE);
+        showTransportButtons(false);
+    }
+
+    public void showTransportButtons(Boolean show){
+        if (show){
+            walkButton.setVisibility(Button.VISIBLE);
+            driveButton.setVisibility(Button.VISIBLE);
+            publicTransportButton.setVisibility(Button.VISIBLE);
+        } else {
+            walkButton.setVisibility(Button.INVISIBLE);
+            driveButton.setVisibility(Button.INVISIBLE);
+            publicTransportButton.setVisibility(Button.INVISIBLE);
+        }
     }
 
     /********* FETCHING AND SETTING LOCATION DATA**********************/
@@ -936,7 +966,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     }
 
 
-    private void getRoute(Position destination) throws ServicesException {
+    private void getRoute(Position destination, String profile) throws ServicesException {
 
         Position origin;
         if (mapBox.getMyLocation() != null) {
@@ -948,7 +978,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         MapboxDirections client = new MapboxDirections.Builder()
                 .setOrigin(origin)
                 .setDestination(destination)
-                .setProfile(DirectionsCriteria.PROFILE_CYCLING)
+                .setProfile(profile)
                 .setAccessToken(getString(R.string.access_token))
                 .build();
 
