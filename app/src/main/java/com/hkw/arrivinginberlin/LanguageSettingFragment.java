@@ -133,6 +133,8 @@ public class LanguageSettingFragment extends Fragment {
     public void languageSelected(String language, Button button){
         LocaleUtils.setLocale(getActivity().getApplicationContext(), language);
         button.setSelected(true);
+        getActivity().finish();
+        startActivity(getActivity().getIntent());
 
         if (mListener != null){
         }

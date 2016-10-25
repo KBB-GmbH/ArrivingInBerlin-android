@@ -34,7 +34,7 @@ public class LocaleUtils {
     public static boolean setLocale(Context context, @LocaleDef String language) {
         return updateResources(context, language);
     }
-    
+
     private static boolean updateResources(Context context, String language) {
         Locale locale = new Locale(language);
         Locale.setDefault(locale);

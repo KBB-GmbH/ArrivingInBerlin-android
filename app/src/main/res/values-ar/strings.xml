@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="app_name">Arriving</string>
+<string name="access_token">pk.eyJ1IjoiYW5vdWtuaWMiLCJhIjoiY2lyb3kwOGg3MDA5ZGh1bmhnaXZqdmdpNyJ9.oFl9SAJR9tYZL1h76EQMIw</string>
+<string name="categories">Categories</string>
+<string name="all_categories">All</string>
+<string name="offline_message">You appear to be offline. Connect to the internet to view locations.</string>
+<string name="drawer_open">open</string>
+<string name="drawer_close">close</string>
+<string name="hint_search">hint</string>
+<string name="loading">Loading, please wait...</string>
+<string name="region_loaded">Region downloaded successfully.</string>
+<string name="all">All</string>
+<string name="title_activity_startup">StartupActivity</string>
+<string name="next">Continue</string>
+<string name="title_screen_one">Welcome!</string>
+<string name="title_screen_two">Overview</string>
+<string name="map">Map</string>
+<string name="list">List</string>
+<string name="info">Info</string>
+<string name="contact">Contact</string>
+<string name="language">Language</string>
+<string name="about">About</string>
+
+<string name="screen_one">تطبيق القادمون إلى برلين هو خريطة رقمية تحتوي على معلومات مساعدة من أجل اللاجئين والقادمون الجدد إلى برلين . </string>
+<string name="screen_two">يمكنك إستخدام الخريطة أو قائمة لائحة المشاهدة لإيجاد وجهتك , إستخدم صندوق البحث لتجد المعلومات المحددة . الخريطة أيضا تستطيع مساعدتك في العثور على وجهتك , وأيضا يمكنك إستخدامه عندما تكون غير متصل بشبكة الإنترنت </string>
+
+<string name="info_general">"تطبيق القادمون إلى برلين يقدم الكثير من المعلومات المفيدة للاجئين والوافدون الجدد في برلين
+متابعة الخطوات تسمح لك بمعرفة معاني الرموز المستخدمة في الخريطة "</string>
+<string name="info_internet">"لا يوجد شبكة إتصال بالإنترنت ؟
+يوجد الكثير من المناطق العامة في برلين يمكنك إستخدام شبكة الإنترنت بالمجان ,على سبيل المثال في محطات النقل الداخلي والمكتبات العامة والمقاهي .
+يمكنك أيضا إيجاد نظرة عامة عن شبكات الإنترنت المتاحة من خلال تطبيق الخريطة  ."</string>
+<string name="info_counseling">"الإرشاد - العدد من الجمعيات والمشاريع في المجتمع العام تقدم نصائح ومعلومات من أجل اللاجئين في برلين .
+- هذه الخدمات الإرشادية لديه أهداف مختلفة ولهذا تستطيع حل مشاكل مختلفة , ومنها خصوصا خطوات اللجوء .
+على سبيل المثال شخصا ما يستطيع أن يشرح لك حقوقك ويساعدك في إجراءات اللجوء وأخرون يقدمون المساعدة عن طريق ترجمة الوثائق وتقديم الدعم لك عند ذهابك إلى الدوائر الحكومية أو المكاتب العامة .
+البعض يقدم إرشادات نفسية خاصة
+والبعض الأخر يقدم دروس في تعلم اللغة الألمانية . "</string>
+    <string name="info_doctors">الأطباء - هنا يمكنك البحث عن أي طبيب يتضمن الأطباء النسائية الذين يستطيعون تحدث العربية والفارسية . </string>
+    <string name="info_laywers">المحاميون - المختصون في مجال اللجوء وقوانين الإقامة </string>
+<string name="info_libraries">المكتبات - المكتبات العامة متاحة للجميع ,يمكنك العمل  ,القراءة ,إستخدام شبكات الإنترنت ,متواجدون في عدة مناطق في برلين .</string>
+<string name="info_german_courses">"دورات تعليم اللغة الألمانية- الكثير من المنظمات يقدمون دورات لغة ألمانية مجانية وتتضمن هذه الدورات دورات الإندماج مثل الدورات المقدمة من Volkshochschulen .
+إذا كنت تسكن في مقر للاجئين العاملين هناك يمكنهم مساعدتك في العثور على مدارس تعليم اللغة الألمانية . "</string>
+<string name="info_gov">"المكاتب الحكومية-الدوائر الحكومية في هذه الفئة تستطيع أن تجد مكاتب متنوعة التي لها أهمية في أمور اللاجئين
+على سبيل المثال المكتب الفيدرالي  للمهاجرين واللاجئين (BAMF) ومكتب الدولة لشؤؤن اللاجئين (LAF)"</string>
+<string name="info_sports">"الرياضة والنشاطات الترفيهية - بحال كانت هوايتك الإستمتاع بالسباحة, المشي, الإسترخاء .
+برلين تقدم الكثير من النشاطات الرياضية , هذه الفئة تقدم الكثير من الخيارات المشابهة ."</string>
+<string name="info_shopping">التسوق,المقاهي ,المخابز ,محلات التموين المنزلي -التي تبيع مواد غذائية ( حلال ) المتواجدين تحت هذه الفئة .</string>
+<string name="info_transport">النقل - يمكنك إيجاد الكثير من وجهات النقل,المواقف والمحطات وخطوط الباصات هنا </string>
+<string name="info_final">"هل نسيت أي من المناطق المثيرة للإهتمام ؟
+إذا نسيت أرسال إلينا رسالة نصية "</string>
+<string name="about_one">"تطبيق القادمون في برلين ,خارطة رقمية تحوي معلومات مفيدة للاجئين والوافدون في برلين , بيت الثقافات العالمي ,
+Refugees on Rails .
+بكل لطف يتم دعمهم عن طريق أصدقاء من بيت الثقافة العالمي "</string>
+<string name="about_two">"مقر التطبيق يتواجد في مشروع الخرائط - القادمون إلى برلين
+خريطة تم عملها عن طريق لاجئين عن طريق   Haus Leo (Berliner Stadtmission) and Haus der Kulturen Welt der Welt
+هو جزء من مشروع Berlin Mondale  "</string>
+<string name="about_three">التطبيق يتواجد على صندوق الخرائط (SDK) , إطار العمل , وهو مفتوح المصدر (documentation on GitHub) </string>
+<string name="about_four">"كل الأيقونات تم تطويرها من قبل العاملين في مشروع الخرائط
+ (Source: Freepik from www.flaticon.com )"</string>
+
+<string name="main_title">xx</string>
+<string name="contact_text">"هل يوجد لديك أي إستفسار أو تعليق ؟
+أو نسينا شيئا , أو مناطق مثيرة للإهتمام ؟
+إذا فعلنا ,رجاءا أرسل ألينا رسائل نصية ."</string>
+<string name="send_email">xx</string>
+
+</resources>

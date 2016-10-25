@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Arriving</string>
+    <string name="access_token">pk.eyJ1IjoiYW5vdWtuaWMiLCJhIjoiY2lyb3kwOGg3MDA5ZGh1bmhnaXZqdmdpNyJ9.oFl9SAJR9tYZL1h76EQMIw</string>
+    <string name="categories">Categories</string>
+    <string name="all_categories">All</string>
+    <string name="offline_message">You appear to be offline. Connect to the internet to view locations.</string>
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
+    <string name="hint_search">hint</string>
+    <string name="loading">Loading, please wait...</string>
+    <string name="region_loaded">Region downloaded successfully.</string>
+    <string name="all">All</string>
+    <string name="title_activity_startup">StartupActivity</string>
+    <string name="next">Continue</string>
+    <string name="title_screen_one">Welcome!</string>
+    <string name="title_screen_two">Overview</string>
+    <string name="map">Map</string>
+    <string name="list">List</string>
+    <string name="info">Info</string>
+    <string name="contact">Contact</string>
+    <string name="language">Language</string>
+    <string name="about">About</string>
+
+    <string name="screen_one">ارايفينگ ان برلين: يک نقشه ديجيتالی دارای اطلاعات مفيد برای پناه جويان ومهاجرين که تازه وارد برلين شدند. ميباشد.</string>
+    <string name="screen_two">شما میتوانید از نقشه و فهرست آدرس هابرای یافتن آدرس مورد نظر استفاده نماید. از طریق search bar میتوانید آدرس مورد نظرتان را بیابید. نقشه همچنان به شما کمک میکندتا بتوانید راه رفتن را در یابید. و این نقشه بدون انترنت هم قابل استفاده میباشد</string>
+
+    <string name="info_general">ارایفینگ ان برلین: یک نقشه دیجیتالی دارای اطلاعات مفید برای پناه جویان ومهاجرین که تازه وارد برلین شدند میباشد. توضیات ذیل آدرس های موجود در نقشه را نمایش میدهد</string>
+    <string name="info_internet">به انترنت دسترسی ندارید؟ در برلین درمکان های عمومی انترنت wifiرایگان میباشد شما میتوانید از آن طریق وصل شوید. طور مثال در ایستگاه ها کتاب خانه ها و کفی شاپ ها قابل دسترس میباشد.از لینک زیر میتوانید برای یافتن مکان های دارای انترنت استفاده نمایدhttp://www.hoerbuecher-blog.de/wifi</string>
+    <string name="info_counseling">مشاوره: تعداد زیادی از سازمان های جامه معدنی در برلین میباشد که برای پناجویان مشاورت میدهند . طور مثال مشاوره در مورد حق زندگی در برلین کمک کردن در حرصه پناهندگی ترجمه کردن اسناد اگر با مشکلی مواجه هستید مشورت در مورد یافتن کلاس آلمانی وغیره میباشد</string>
+    <string name="info_doctors">دوکتران: اینجا شما میتوانید دکتر یا متخصص مورد نظر تان را پیدا نماید.</string>
+    <string name="info_laywers">وکلا: وکلا با تجربه در زمینه پناهندگان.</string>
+    <string name="info_libraries">کتاب خانه ها: کتاب خانه ها در مناطق مختلف شهر برلین باز میباشند و شما میتوانید در آنجا برای اسنفاده از انترنت و مطالعه بروید برای مهاجرین رایگان میباشد.</string>
+    <string name="info_german_courses">کلاس زبان آلمانی: خیلی از سازمان ها کلاسهای زبان برگذار می کنند امثال فولکس هوخشوله اگر در کمپ پناجویان زندگی میکنید مسول کمپ به شما میبواند کمک نماید.</string>
+    <string name="info_gov">ادارات دولتی: درین بخش به شما مکان هاب ادارات مهم دولتی را نشان میدهد که برای مهاجرین رفتن ضروری میباشد.</string>
+    <string name="info_sports">ورزش و اوقات فراغت:   اگر شنا بلد هستید یا قدم زدن را دوست دارید. برلین مکان های  زیادی برای ورزش و تفریح دارد اینجا تعدادی از آنها میباشد.</string>
+    <string name="info_shopping">خریداری:  کافی شاپ نانوایی ومغاره های کوشت حلال میفروشند درین فهرست میباشد.</string>
+    <string name="info_transport">ترانسپورت:  درین فهرست خطوط اتوبوس.اسیتگاه های مهم قطار میباشد.</string>
+    <string name="info_final">اگر کدام محل یا موقیعتی شما درباره آن اطلاغ دارید و روی این نقشه نمایان نمیباشد.یا پیشنهاد یا انتقاد دارید لطفا با در تماس شوید</string>
+    <string name="about_one">نرم افزار ارایفینگ ان برلین یک نقشه دیجیتالی دارای اطلاعات مفید برای پناهجویان و پناهجویانی که تازه وارد برلین شدند میباشد. این نرم افزار توسطه خانه فرهنگی جهان ,HKW),ودوستان عزیز وخوبه خانه فرهنگی جهان توسعه و پشتبانی میشود.</string>
+    <string name="about_two">این نرم افزار بر روی پروژه نقشه برداری "پس از رسیدن در برلین" بر اساس - نقشه های ساخته شده توسط پناهندگان "توسط هاوس لئو (برلینر Stadtmission) و هاوس DER Kulturen DER ولت این بخشی از ابتکار عمل برلین موندیال است.</string>
+    <string name="about_three">این نرم افزار در چارچوب از MapBox SDK بر اساس و منبع باز (اسناد و مدارک در GitHub است</string>
+    <string name="about_four">همه آیکون ها توسط شرکت کنندگان در پروژه نقشه کشی طراحی شده است. (منبع از: Freepik  www.flaticon.com)</string>
+
+    <string name="main_title">xx</string>
+    <string name="contact_text">اگر کدام محل یا موقیعتی شما درباره آن اطلاغ دارید و روی این نقشه نمایان نمیباشد.یا پیشنهاد یا انتقاد دارید لطفا با در تماس شوید</string>
+    <string name="send_email">xx</string>
+
+</resources>

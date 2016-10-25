@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Arriving</string>
+    <string name="access_token">pk.eyJ1IjoiYW5vdWtuaWMiLCJhIjoiY2lyb3kwOGg3MDA5ZGh1bmhnaXZqdmdpNyJ9.oFl9SAJR9tYZL1h76EQMIw</string>
+    <string name="categories">Categories</string>
+    <string name="all_categories">All</string>
+    <string name="offline_message">You appear to be offline. Connect to the internet to view locations.</string>
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
+    <string name="hint_search">hint</string>
+    <string name="loading">Loading, please wait...</string>
+    <string name="region_loaded">Region downloaded successfully.</string>
+    <string name="all">All</string>
+    <string name="title_activity_startup">StartupActivity</string>
+    <string name="next">Continue</string>
+    <string name="title_screen_one">Welcome!</string>
+    <string name="title_screen_two">Overview</string>
+    <string name="map">Map</string>
+    <string name="list">List</string>
+    <string name="info">Info</string>
+    <string name="contact">Contact</string>
+    <string name="language">Language</string>
+    <string name="about">About</string>
+
+    <string name="screen_one">The Arriving in Berlin App is a digital map containing helpful information for refugees and newcomers to Berlin.</string>
+    <string name="screen_two">You can use the map or the list view to find places. Use the search box to find specific information. The map also helps you navigate to a destination and even works when you are not online. </string>
+
+    <string name="info_general">The Arriving in Berlin App offers lots of useful information for refugees and newcomers to Berlin. The following explanation shows you the meaning of the icons on the map.</string>
+    <string name="info_internet">No Internet access? There are many public places in Berlin where you can use free Wi-Fi, for example at many subway stations, in public libraries and in cafés. You can also find an overview of free Wi-Fi access with this map: http://www.hoerbuecher-blog.de/wifi/.</string>
+    <string name="info_counseling">Counseling – A great many civil society organizations and initiatives offer advice and information for refugees in Berlin. These advisory services have various focal points and can help you resolve a number of issues. For example, some can explain your rights to you and help you with the asylum procedure. Others will translate documents and give you support when you go to government or public offices. Some offer specific psychological support, others offer German courses.</string>
+    <string name="info_doctors">Doctors – Here you can search for doctors, including gynecologists, who speak Farsi or Arabic.</string>
+    <string name="info_laywers">Lawyers – These attorneys are specialized in asylum and residency law.</string>
+    <string name="info_libraries">Libraries – Public libraries are open to you where you can work, read and use the Internet. They are located in a number of Berlin districts.</string>
+    <string name="info_german_courses">German courses – Many organizations offer free German courses. This also includes public institutions such as the Berlin Volkshochschulen. If you are living in refugee housing, the supervisors there can help you find a German course.</string>
+    <string name="info_gov">Government offices –  In this category you can find various offices that are important for refugees such as the Federal Office for Migration and Refugees (BAMF) and the State Office for Refugee Affairs (LAF).</string>
+    <string name="info_sports">Sporting and leisure activities – Whether you enjoy swimming, walking or relaxing, Berlin offers plenty of athletic and leisure time options. This category contains a selection of them.</string>
+    <string name="info_shopping">Shopping - Cafés, bakeries and supermarkets that sell Halal food are shown in this category.</string>
+    <string name="info_transport">Transport - You will find important means of transport, stops and stations and bus lines here.</string>
+    <string name="info_final">Have we forgotten any interesting places? If so, please send us a message.</string>
+    <string name="about_one">The Arriving in Berlin App is a digital map containing helpful information for refugees and newcomers to Berlin. Developed by Haus der Kulturen der Welt and Refugees on Rails, kindly supported by the Friends of Haus der Kulturen der Welt. </string>
+    <string name="about_two">The app is based on the mapping project "Arriving in Berlin" - A map made by refugees" by Haus Leo (Berliner Stadtmission) and Haus der Kulturen der Welt. It is part of the initiative Berlin Mondiale.</string>
+    <string name="about_three">The app is based on the Mapbox SDK framework and is open source (documentation on GitHub)</string>
+    <string name="about_four">All icons have been developed by the participants of the mapping project. (Source: Freepik from www.flaticon.com )</string>
+
+    <string name="main_title">Arriving</string>
+    <string name="contact_text">Do you have question or comments? Or have we forgotten any interesting places? If so, please send us a message</string>
+    <string name="send_email">Send Email</string>
+</resources>
