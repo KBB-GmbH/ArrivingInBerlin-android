@@ -13,9 +13,9 @@ import java.util.Locale;
 
 public class LocaleUtils {
     @Retention(RetentionPolicy.SOURCE)
-    @StringDef({ENGLISH, FRENCH, GERMAN, FARSI, ARABIC})
+    @StringDef({ENGLISH, FRENCH, GERMAN, FARSI, ARABIC, KURDISH})
     public @interface LocaleDef {
-        String[] SUPPORTED_LOCALES = {ENGLISH, FRENCH, GERMAN, FARSI, ARABIC};
+        String[] SUPPORTED_LOCALES = {ENGLISH, FRENCH, GERMAN, FARSI, ARABIC, KURDISH};
     }
 
     public static final String ENGLISH = "en";
@@ -23,6 +23,7 @@ public class LocaleUtils {
     public static final String GERMAN = "de";
     public static final String FARSI = "fa";
     public static final String ARABIC = "ar";
+    public static final String KURDISH = "ku";
     public  static final String LANGUAGE = "LANGUAGE";
 
     public static void initialize(Context context) {

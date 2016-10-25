@@ -61,6 +61,14 @@
             android:background="@null"
             android:textColor="@drawable/button_text_color"
             android:text="français"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/french"
+            android:id="@+id/kurdish"
+            android:background="@null"
+            android:textColor="@drawable/button_text_color"
+            android:text="Kurdî"/>
 
     </RelativeLayout>
     </ScrollView>

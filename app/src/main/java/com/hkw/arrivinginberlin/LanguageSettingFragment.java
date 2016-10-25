@@ -36,6 +36,7 @@ public class LanguageSettingFragment extends Fragment {
     private Button german;
     private Button farsi;
     private Button arabic;
+    private Button kurdish;
 
     public LanguageSettingFragment() {
         // Required empty public constructor
@@ -65,6 +66,7 @@ public class LanguageSettingFragment extends Fragment {
         farsi = (Button) layout.findViewById(R.id.farsi);
         arabic = (Button) layout.findViewById(R.id.arabic);
         french = (Button) layout.findViewById(R.id.french);
+        kurdish = (Button) layout.findViewById(R.id.kurdish);
         german.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,6 +101,12 @@ public class LanguageSettingFragment extends Fragment {
             }
         });
 
+        kurdish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                languageSelected(LocaleUtils.KURDISH, kurdish);
+            }
+        });
         setLanguageSelected();
 
         return layout;
@@ -112,6 +120,7 @@ public class LanguageSettingFragment extends Fragment {
         german.setPressed(false);
         arabic.setPressed(false);
         farsi.setPressed(false);
+        kurdish.setPressed(false);
 
         switch (loc) {
             case LocaleUtils.ENGLISH:
@@ -129,6 +138,9 @@ public class LanguageSettingFragment extends Fragment {
             case LocaleUtils.ARABIC:
                 arabic.setPressed(true);
                 break;
+            case LocaleUtils.KURDISH:
+                kurdish.setPressed(true);
+                break;
         }
     }
 
@@ -137,7 +149,7 @@ public class LanguageSettingFragment extends Fragment {
         LocaleUtils.setLocale(getActivity().getApplicationContext(), language);
         button.setSelected(true);
         //store as user preference:
-        PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext()).edit().putString(LocaleUtils.LANGUAGE, language).commit();
+        PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext()).edit().putString(LocaleUtils.LANGUAGE, language).apply();
 
         //Restart activity:
         getActivity().setResult(Activity.RESULT_OK, null);
