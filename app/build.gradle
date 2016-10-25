@@ -15,7 +15,7 @@ android {
         applicationId "com.hkw.arrivinginberlin"
         minSdkVersion 21
         targetSdkVersion 24
-        versionCode 2
+        versionCode 3
         versionName "1.0.2"
         manifestPlaceholders = [HOCKEYAPP_APP_ID: "72a2b6a517cc4406b2dd41ee926f0e7e"]
     }
