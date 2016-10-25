@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.UiThread;
 import android.support.design.widget.FloatingActionButton;
@@ -74,6 +75,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -111,12 +114,18 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private boolean isEndNotified;
     private ProgressBar progressBar;
     private Boolean didDownload = false;
+    static final int CHANGE_LANGUAGE = 1;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         MapboxAccountManager.start(this, getString(R.string.access_token));
         setContentView(R.layout.activity_main);
+
+        //Language:
+        LocaleUtils.setLanguageFromPreference(getApplicationContext());
+        Log.i(TAG, "default language on create: " + Locale.getDefault());
 
         locationServices = LocationServices.getLocationServices(this);
 
@@ -203,19 +212,19 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         break;
                     case R.id.info_item:
                         intent.putExtra("startFragment", 1);
-                        startActivity(intent);
+                        startActivityForResult(intent, CHANGE_LANGUAGE);
                         break;
                     case R.id.lang_item:
                         intent.putExtra("startFragment", 2);
-                        startActivity(intent);
+                        startActivityForResult(intent, CHANGE_LANGUAGE);
                         break;
                     case R.id.contact_item:
                         intent.putExtra("startFragment", 3);
-                        startActivity(intent);
+                        startActivityForResult(intent, CHANGE_LANGUAGE);
                         break;
                     case R.id.about_item:
                         intent.putExtra("startFragment", 4);
-                        startActivity(intent);
+                        startActivityForResult(intent, CHANGE_LANGUAGE);
                         break;
                     default:
                         break;
@@ -1027,6 +1036,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         super.onResume();
         bottomBar.selectTabAtPosition(0, false);
         mapView.onResume();
+        LocaleUtils.setLanguageFromPreference(getApplicationContext());
+        Log.i(TAG, "default language on resume: " + Locale.getDefault());
     }
 
     @Override
@@ -1059,4 +1070,15 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         super.onRestoreInstanceState(savedInstanceState);
         didDownload = savedInstanceState.getBoolean("didDownload");
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == CHANGE_LANGUAGE) {
+            if (resultCode == RESULT_OK) {
+                this.finish();
+                startActivity(this.getIntent());
+            }
+        }
+    }
+
 }

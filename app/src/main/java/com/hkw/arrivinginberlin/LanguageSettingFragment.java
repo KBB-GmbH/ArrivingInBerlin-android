@@ -1,10 +1,12 @@
 package com.hkw.arrivinginberlin;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.StringDef;
 import android.support.v4.app.Fragment;
 import android.util.DisplayMetrics;
@@ -131,11 +133,15 @@ public class LanguageSettingFragment extends Fragment {
     }
 
     public void languageSelected(String language, Button button){
+
         LocaleUtils.setLocale(getActivity().getApplicationContext(), language);
         button.setSelected(true);
-        getActivity().finish();
-        startActivity(getActivity().getIntent());
+        //store as user preference:
+        PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext()).edit().putString(LocaleUtils.LANGUAGE, language).commit();
 
+        //Restart activity:
+        getActivity().setResult(Activity.RESULT_OK, null);
+        getActivity().finish();
         if (mListener != null){
         }
     }
@@ -161,4 +167,6 @@ public class LanguageSettingFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+
 }

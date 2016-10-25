@@ -12,9 +12,12 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.Locale;
+import java.util.Objects;
 import java.util.prefs.Preferences;
 
 public class StartupActivity extends AppCompatActivity implements LanguageFragment.OnFragmentInteractionListener, StartupTextFragment.OnFragmentInteractionListener {
@@ -61,6 +64,9 @@ public class StartupActivity extends AppCompatActivity implements LanguageFragme
     @Override
     public void onStartupFlowFinished() {
         //Move to main activity
+        //Language:
+        LocaleUtils.setLanguageFromPreference(getApplicationContext());
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor editor = prefs.edit();
         editor.remove(KEY);
@@ -70,5 +76,15 @@ public class StartupActivity extends AppCompatActivity implements LanguageFragme
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
 
+    }
+
+    private @LocaleUtils.LocaleDef String mapLanguage(String language) {
+        @LocaleUtils.LocaleDef String new_lang= LocaleUtils.ENGLISH;
+        for (String lang: LocaleUtils.LocaleDef.SUPPORTED_LOCALES){
+            if (lang == language){
+                new_lang = lang;
+            }
+        }
+        return new_lang;
     }
 }
