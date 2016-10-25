@@ -111,9 +111,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private boolean isEndNotified;
     private ProgressBar progressBar;
     private Boolean didDownload = false;
-    private static final String DOWNLOADTAG = "download";
-    private static final String LOCDATA = "location_data";
-
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {

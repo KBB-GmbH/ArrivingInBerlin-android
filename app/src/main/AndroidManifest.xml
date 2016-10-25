@@ -55,12 +55,6 @@
         <meta-data
             android:name="net.hockeyapp.android.appIdentifier"
             android:value="${HOCKEYAPP_APP_ID}" />
-
-        <!-- <activity -->
-        <!-- android:name=".StartupActivity" -->
-        <!-- android:label="@string/title_activity_startup" -->
-        <!-- android:theme="@style/AppTheme"></activity> -->
-        <activity android:name=".BarActivity" />
         <activity
             android:name=".SettingActivity"
             android:label="@string/title_activity_setting"
