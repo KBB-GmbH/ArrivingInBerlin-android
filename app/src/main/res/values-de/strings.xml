@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Arriving</string>
-    <string name="access_token">pk.eyJ1IjoiYW5vdWtuaWMiLCJhIjoiY2lyb3kwOGg3MDA5ZGh1bmhnaXZqdmdpNyJ9.oFl9SAJR9tYZL1h76EQMIw</string>
-    <string name="categories">Categories</string>
-    <string name="all_categories">All</string>
-    <string name="offline_message">You appear to be offline. Connect to the internet to view locations.</string>
-    <string name="drawer_open">open</string>
-    <string name="drawer_close">close</string>
-    <string name="hint_search">hint</string>
-    <string name="loading">Loading, please wait...</string>
-    <string name="region_loaded">Region downloaded successfully.</string>
-    <string name="all">All</string>
-    <string name="title_activity_startup">StartupActivity</string>
-    <string name="next">Continue</string>
-    <string name="title_screen_one">Welcome!</string>
-    <string name="title_screen_two">Overview</string>
-    <string name="map">Map</string>
-    <string name="list">List</string>
+    <string name="categories">Kategorien</string>
+    <string name="all_categories">Alle</string>
+    <string name="offline_message">Sie sind offline. Verbinden Sie Ihr Smartphone mit dem Internet, um die Karte zu nutzen.</string>
+    <string name="drawer_open">Öffnen</string>
+    <string name="drawer_close">Schließen</string>
+    <string name="hint_search">Tipp</string>
+    <string name="loading">Karte wird geladen, bitte warten...</string>
+    <string name="region_loaded">Die Karte wurde erfolgreich heruntergeladen.</string>
+    <string name="all">Alle</string>
+    <string name="next">Weiter</string>
+    <string name="title_screen_one">Willkommen!</string>
+    <string name="title_screen_two">Einführung</string>
+    <string name="map">Karte</string>
+    <string name="list">Liste</string>
     <string name="info">Info</string>
-    <string name="contact">Contact</string>
-    <string name="language">Language</string>
+    <string name="contact">Kontakt</string>
+    <string name="language">Sprache</string>
     <string name="about">About</string>
+
+    <string name="access_token">pk.eyJ1IjoiYW5vdWtuaWMiLCJhIjoiY2lyb3kwOGg3MDA5ZGh1bmhnaXZqdmdpNyJ9.oFl9SAJR9tYZL1h76EQMIw</string>
 
     <string name="screen_one">“Arriving in Berlin - App” ist eine digitale Karte mit hilfreichen Informationen für Geflüchtete und Neuankommende in Berlin.</string>
     <string name="screen_two">Nutzen Sie die Karte oder die Listenansicht, um Orte zu finden. Mithilfe des Suchfeldes können Sie ganz bestimmte Informationen suchen. Die Karte hilft Ihnen außerdem, zu einem Ziel zu navigieren und funktioniert auch, wenn Sie offline sind. </string>
@@ -42,8 +41,12 @@
     <string name="about_three">Die App nutzt Mapbox SDK und ist Open Source (Dokumentation auf GitHub)</string>
     <string name="about_four">Alle Icons wurde von den Teilnehmer*innen des Mapping-Projektes erstellt. (Quelle: Freepik von www.flaticon.com )</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="main_title">xx</string>
+
     <string name="contact_text">Haben Sie Fragen und Anregungen? Oder gibt es einen interessanten Ort, den wir vergessen haben? Dann schreiben Sie uns einfach eine Nachricht. </string>
-    <string name="send_email">xx</string>
+
+    <string name="app_name">Arriving</string>
+    <string name="send_email">Send</string>
+    <string name="main_title">Arriving</string>
+
 
 </resources>

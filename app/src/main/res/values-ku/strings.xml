@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="categories">پۆلبەندی</string>
+    <string name="all_categories">هەموو</string>
+    <string name="offline_message">هەنووکە ئێوە بە ئینتێرنێتەوە وەسڵ نین، بۆ دۆزینەوەی شوێنەکان بە ئینتێرنێتەوە وەسڵ بن</string>
+    <string name="drawer_open">چوونەژوور</string>
+    <string name="drawer_close">دەرچوون</string>
+    <string name="hint_search">یارمەتی</string>
+    <string name="loading">تکایە چاوەڕێ بن، هەنووکە داونلۆد دەکری</string>
+    <string name="region_loaded">شوێنەکە سەرکەوتوانە داونلۆد کرا</string>
+    <string name="all">هەموو</string>
+    <string name="next">بەردەوام بە</string>
+    <string name="title_screen_one">بەخێر‌هاتن</string>
+    <string name="title_screen_two">سەردان</string>
+    <string name="map">نەخشە</string>
+    <string name="list">پێرست</string>
+    <string name="info">زانیاری</string>
+    <string name="contact">پێوەندی</string>
+    <string name="language">زمان</string>
+
+</resources>

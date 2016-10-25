@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <string name="app_name">Arriving</string>
-<string name="access_token">pk.eyJ1IjoiYW5vdWtuaWMiLCJhIjoiY2lyb3kwOGg3MDA5ZGh1bmhnaXZqdmdpNyJ9.oFl9SAJR9tYZL1h76EQMIw</string>
-<string name="categories">Categories</string>
-<string name="all_categories">All</string>
-<string name="offline_message">You appear to be offline. Connect to the internet to view locations.</string>
-<string name="drawer_open">open</string>
-<string name="drawer_close">close</string>
-<string name="hint_search">hint</string>
-<string name="loading">Loading, please wait...</string>
-<string name="region_loaded">Region downloaded successfully.</string>
-<string name="all">All</string>
-<string name="title_activity_startup">StartupActivity</string>
-<string name="next">Continue</string>
-<string name="title_screen_one">Welcome!</string>
-<string name="title_screen_two">Overview</string>
-<string name="map">Map</string>
-<string name="list">List</string>
-<string name="info">Info</string>
-<string name="contact">Contact</string>
-<string name="language">Language</string>
+<string name="access_token">pk.eyJ1IjoiYW5vdWtuaWMiLCJhIjoiY2lyb3kwOGg3MDA5ZGh1bmhnaXZqdmdpNyJ9.oFl9SAJR9tYZL1h76EQMIw</string><string name="categories">الفئات</string>
+    <string name="all_categories">الكل</string>
+    <string name="offline_message">عند ظهورك غير متصل.اتصل بالانترنيت لتظهر لك المواقع</string>
+    <string name="drawer_open">افتح</string>
+    <string name="drawer_close">الخروج</string>
+    <string name="hint_search">مساعدة</string>
+    <string name="loading">جاري تحميل الرجاء الانتظار</string>
+    <string name="region_loaded">تم تحميل بنجاح</string>
+    <string name="all">الكل</string>
+    <string name="next">متابعة</string>
+    <string name="title_screen_one">اهلا وسهلا!</string>
+    <string name="title_screen_two">نظرة عامة</string>
+    <string name="map">خريطة</string>
+    <string name="list">القائمة</string>
+    <string name="info">المعلومات</string>
+    <string name="contact">للاتصال</string>
+    <string name="language">اللغة</string>
 <string name="about">About</string>
 
 <string name="screen_one">تطبيق القادمون إلى برلين هو خريطة رقمية تحتوي على معلومات مساعدة من أجل اللاجئين والقادمون الجدد إلى برلين . </string>
