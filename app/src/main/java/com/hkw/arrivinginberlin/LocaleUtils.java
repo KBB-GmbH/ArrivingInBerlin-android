@@ -34,7 +34,7 @@ public class LocaleUtils {
     }
 
     public static void setLanguageFromPreference(Context context){
-        String lang = PreferenceManager.getDefaultSharedPreferences(context).getString(LocaleUtils.LANGUAGE, "defaultStringIfNothingFound");
+        String lang = PreferenceManager.getDefaultSharedPreferences(context).getString(LocaleUtils.LANGUAGE, "en");
         LocaleUtils.setLocaleNonStrict(context,lang);
         Log.i("UTILS", "default language on create: " + Locale.getDefault());
     }

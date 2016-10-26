@@ -109,7 +109,14 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     // JSON encoding/decoding
     public final static String JSON_CHARSET = "UTF-8";
+    public final static String ENGLISH_KEY = "english_data";
+    public final static String GERMAN_KEY = "german_data";
+    public final static String FARSI_KEY = "farsi_data";
+    public final static String ARABIC_KEY = "arabic_data";
+    public final static String KURDISH_KEY = "kurdish_data";
+    public final static String FRENCH_KEY = "french_data";
     public final static String JSON_FIELD_REGION_NAME = "BERLIN_REGION";
+
     private static final int PERMISSIONS_LOCATION = 0;
     private boolean isEndNotified;
     private ProgressBar progressBar;
@@ -889,11 +896,32 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         }
     }
 
+
     /********* FETCHING AND SETTING LOCATION DATA**********************/
     public class FetchLocationsTask extends AsyncTask<Void, Void, List<JSONObject>> {
+        private String key = "en";
         @Override
         protected List<JSONObject> doInBackground(Void... params) {
-            return new UmapDataRequest().fetchLocations();
+            key = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString(LocaleUtils.LANGUAGE, "en");
+
+            switch (key){
+                case "en":
+                    return new UmapDataRequest().getLocationsEnglish();
+                case "fr":
+                    return new UmapDataRequest().getLocations(159184, 159198);
+                case "de":
+                    return new UmapDataRequest().getLocations(226926, 226940);
+                case "fa":
+                    return new UmapDataRequest().getLocations(128475, 128489);
+                case "ar":
+                    return new UmapDataRequest().getLocations(128884, 128897);
+                case "ku":
+                    return new UmapDataRequest().getLocations(128475, 128497);
+                default:
+                    return new UmapDataRequest().getLocationsEnglish();
+
+            }
+
         }
 
         private void processDataUpdate(ArrayList<JSONObject> locations) {
@@ -950,17 +978,37 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         private ArrayList<JSONObject> getStoredLocations() {
             SaveArray save = new SaveArray(MainActivity.this.getApplicationContext());
-            ArrayList<JSONObject> locations = save.getArray("locations");
+            ArrayList<JSONObject> locations = save.getArray(getKeyForData());
             return locations;
         }
 
         private void storeLocations(ArrayList<JSONObject> locations) {
             SaveArray save = new SaveArray(MainActivity.this.getApplicationContext());
-            save.saveArray("locations", locations);
+            save.saveArray(getKeyForData(), locations);
             Log.i(TAG, "Saved Locations");
+        }
+
+        private String getKeyForData(){
+            switch (key){
+                case "en":
+                    return ENGLISH_KEY;
+                case "fr":
+                    return FRENCH_KEY;
+                case "de":
+                    return GERMAN_KEY;
+                case "fa":
+                    return FARSI_KEY;
+                case "ar":
+                    return ARABIC_KEY;
+                case "ku":
+                    return KURDISH_KEY;
+                default:
+                    return ENGLISH_KEY;
+            }
         }
     }
 
+    //*************** ROUTE ******************************//
 
     private void getRoute(Position destination, String profile) throws ServicesException {
 

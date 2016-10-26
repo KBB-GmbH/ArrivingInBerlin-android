@@ -19,6 +19,12 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
+
+import static com.google.common.collect.Lists.newLinkedList;
+import static com.google.common.primitives.Shorts.toArray;
+import static java.util.stream.IntStream.range;
+import static java.util.stream.Stream.concat;
 
 /**
  * Created by ubuntu on 15.08.16.
@@ -54,9 +60,35 @@ public class UmapDataRequest {
         return  new String(getUrlBytes(urlSpec));
     }
 
-    public List<JSONObject> fetchLocations() {
+//    public List<JSONObject> fetchLocations(String language) {
+//        Log.i("LOAD", language);
+//
+//        if (language == null){
+//            return getLocationsEnglish();
+//        }
+//        switch (language){
+//            case "fr":
+//                return getLocations(french.get(0), french.get(1));
+//            case "de":
+//                return getLocations(french.get(0), french.get(1));
+//            case "ar":
+//                return getLocations(french.get(0), french.get(1));
+//            case "fa":
+//                return getLocations(french.get(0), french.get(1));
+//            case "ku":
+//                return getLocations(french.get(0), french.get(1));
+//            case "en":
+//                return getLocationsEnglish();
+//            default:
+//                return getLocationsEnglish();
+//
+//        }
+//
+//    }
+
+    public List<JSONObject>getLocations(int start, int end){
         List<JSONObject> locations = new ArrayList<>();
-        for (int i = 226926; i < 226940; i++)
+        for (int i = start; i < end; i++)
             try {
                 String url = Uri.parse("http://umap.openstreetmap.fr/en/datalayer/"+i+"/")
                         .buildUpon()
@@ -74,4 +106,26 @@ public class UmapDataRequest {
             }
         return locations;
     }
+
+    public List<JSONObject>getLocationsEnglish() {
+        List<JSONObject> locations = new ArrayList<>();
+        for (int i:english)
+            try {
+                String url = Uri.parse("http://umap.openstreetmap.fr/en/datalayer/"+i+"/")
+                        .buildUpon()
+                        .appendQueryParameter("format", "json")
+                        .build().toString();
+
+                String result = getUrlString(url);
+                JSONObject jsonBody = new JSONObject(result);
+                locations.add(jsonBody);
+                Log.i("JSON Loader", "Downloading json: " + i);
+            } catch (JSONException je) {
+                Log.e("JSON Loader", "JSON failed to get contents: " + je);
+            } catch (IOException ioe) {
+                Log.e("JSON Loader", "Failed to get contents: " + ioe);
+            }
+        return locations;
+    }
+
 }
