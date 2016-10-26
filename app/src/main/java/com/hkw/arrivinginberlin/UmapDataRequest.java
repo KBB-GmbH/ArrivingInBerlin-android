@@ -109,7 +109,22 @@ public class UmapDataRequest {
 
     public List<JSONObject>getLocationsEnglish() {
         List<JSONObject> locations = new ArrayList<>();
-        for (int i:english)
+        List<Integer> ints = new ArrayList<>();
+        ints.add(119513);
+        ints.add(103122);
+        ints.add(103125);
+        ints.add(103130);
+        ints.add(119468);
+        ints.add(115921);
+        ints.add(93689);
+        ints.add(93512);
+        ints.add(93515);
+        ints.add(119511);
+        ints.add(119437);
+        ints.add(115892);
+        ints.add(259820);
+
+        for (int i:ints)
             try {
                 String url = Uri.parse("http://umap.openstreetmap.fr/en/datalayer/"+i+"/")
                         .buildUpon()
