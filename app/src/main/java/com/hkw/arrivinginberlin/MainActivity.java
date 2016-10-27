@@ -806,18 +806,24 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             locationServices.addLocationListener(new LocationListener() {
                 @Override
                 public void onLocationChanged(Location location) {
-                    if (location != null) {
-                        // Move the map camera to where the user location is
-// Update directions
+                    if (location != null && mapBox != null) {
+
                     }
                 }
             });
-            floatingActionButton.setImageResource(R.drawable.ic_my_location_24dp);
-        } else {
             floatingActionButton.setImageResource(R.drawable.ic_location_disabled_24dp);
+        } else {
+            floatingActionButton.setImageResource(R.drawable.ic_my_location_24dp);
         }
         // Enable or disable the location layer on the map
         mapBox.setMyLocationEnabled(enabled);
+
+        if (mapBox.isMyLocationEnabled()){
+            LatLng origin = new LatLng(mapBox.getMyLocation().getLatitude(), mapBox.getMyLocation().getLongitude());
+            if (origin != null) {
+                zoomInOnPoint(origin, 13);
+            }
+        }
     }
 
     @Override
