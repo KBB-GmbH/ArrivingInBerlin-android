@@ -61,7 +61,7 @@
             android:layout_margin="10dp"
             android:layout_alignBottom="@id/mapView"
             android:layout_toLeftOf="@id/location_toggle_fab"
-            android:src="@drawable/school_bus_front"
+            android:src="@drawable/google_maps"
             tools:backgroundTint="#438D8D"
             tools:visibility="invisible"
             android:visibility="invisible">
