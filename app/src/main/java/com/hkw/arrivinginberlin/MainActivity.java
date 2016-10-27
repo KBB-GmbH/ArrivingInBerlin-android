@@ -98,7 +98,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private List<CategoryMarker> allMarkers = new ArrayList<>();
     FloatingActionButton floatingActionButton;
     FloatingActionButton walkButton;
-    FloatingActionButton driveButton;
     FloatingActionButton publicTransportButton;
     LocationServices locationServices;
 
@@ -163,19 +162,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             }
         });
 
-        driveButton = (FloatingActionButton) findViewById(R.id.drive);
-        driveButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                if(destination != null){
-                    try {
-                        getRoute(destination, DirectionsCriteria.PROFILE_DRIVING);
-                    } catch (ServicesException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        });
 
         publicTransportButton = (FloatingActionButton) findViewById(R.id.public_transport);
         publicTransportButton.setOnClickListener(new View.OnClickListener(){
@@ -874,11 +860,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     public void showTransportButtons(Boolean show){
         if (show){
             walkButton.setVisibility(Button.VISIBLE);
-            driveButton.setVisibility(Button.VISIBLE);
             publicTransportButton.setVisibility(Button.VISIBLE);
         } else {
             walkButton.setVisibility(Button.INVISIBLE);
-            driveButton.setVisibility(Button.INVISIBLE);
             publicTransportButton.setVisibility(Button.INVISIBLE);
         }
     }
