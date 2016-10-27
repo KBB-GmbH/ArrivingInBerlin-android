@@ -668,6 +668,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         for (CategoryMarker cm : allMarkers) {
             if ((cm.marker.getTitle().contains(searchTerm)) || (cm.marker.getSnippet().contains(searchTerm))) {
                 cm.marker = mapBox.addMarker(cm.markerViewOptions);
+                double lat = cm.getMarker().getPosition().getLatitude();
+                double lon = cm.getMarker().getPosition().getLongitude();
+                zoomInOnPoint(new LatLng(lat, lon), 12);
             }
         }
     }
