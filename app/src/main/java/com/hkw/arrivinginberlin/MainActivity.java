@@ -844,10 +844,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         double lat = marker.getPosition().getLatitude() + 0.012;
         double lng = marker.getPosition().getLongitude();
-        mapBox.setCameraPosition(new CameraPosition.Builder()
-                .target(new LatLng(lat,lng))
-                .zoom(12)
-                .build());
+        zoomInOnPoint(new LatLng(lat, lng), 12);
         return false;
     }
 
@@ -940,7 +937,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     }
 
 
-    private void getRoute(Position destination, String profile) throws ServicesException {
+    private void getRoute(final Position destination, String profile) throws ServicesException {
 
         Position origin;
         if (mapBox.getMyLocation() != null) {
@@ -972,7 +969,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 Toast.makeText(MainActivity.this, "Route is " +  currentRoute.getDistance() + " meters long.", Toast.LENGTH_SHORT).show();
 
                 // Draw the route on the map
-                drawRoute(currentRoute);
+                drawRoute(currentRoute, new LatLng(destination.getLatitude(), destination.getLongitude()));
             }
 
             @Override
@@ -989,7 +986,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         }
     }
 
-    private void drawRoute(DirectionsRoute route) {
+    private void drawRoute(DirectionsRoute route, LatLng destination) {
         removePolyline();
         // Convert LineString coordinates into LatLng[]
         LineString lineString = LineString.fromPolyline(route.getGeometry(), Constants.OSRM_PRECISION_V5);
@@ -1004,9 +1001,17 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         // Draw Points on MapView
         polyLine = new PolylineOptions()
                 .add(points)
-                .color(Color.parseColor("#009688"))
+                .color(Color.parseColor("#ff0000"))
                 .width(5);
         mapBox.addPolyline(polyLine);
+        zoomInOnPoint(destination, 15);
+    }
+
+    private void zoomInOnPoint(LatLng point, int zoom){
+        mapBox.setCameraPosition(new CameraPosition.Builder()
+                .target(point)
+                .zoom(zoom)
+                .build());
     }
 
     @Override
