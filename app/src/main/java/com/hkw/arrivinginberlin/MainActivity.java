@@ -602,7 +602,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
                         TextView markerText = (TextView)findViewById(R.id.markerDescription);
                         markerText.setVisibility(View.VISIBLE);
-                        markerText.setText(Html.fromHtml(marker.getTitle() + "</b>" + marker.getSnippet()));
+                        markerText.setText(Html.fromHtml(marker.getTitle() + "<br/>" + marker.getSnippet()));
                         Linkify.addLinks(markerText, Linkify.ALL);
                         return true;
                     }
