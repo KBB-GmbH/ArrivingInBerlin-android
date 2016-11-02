@@ -119,6 +119,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     public final static String KURDISH_KEY = "kurdish_data";
     public final static String FRENCH_KEY = "french_data";
     public final static String JSON_FIELD_REGION_NAME = "BERLIN_REGION";
+    public final static double MARKER_OFFSET = 0.003;
 
     private static final int PERMISSIONS_LOCATION = 0;
     private boolean isEndNotified;
@@ -694,9 +695,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         for (CategoryMarker cm : allMarkers) {
             if ((cm.marker.getTitle().contains(searchTerm)) || (cm.marker.getSnippet().contains(searchTerm))) {
                 cm.marker = mapBox.addMarker(cm.markerViewOptions);
-                double lat = cm.getMarker().getPosition().getLatitude();
+                double lat = cm.getMarker().getPosition().getLatitude() + MARKER_OFFSET;
                 double lon = cm.getMarker().getPosition().getLongitude();
-                zoomInOnPoint(new LatLng(lat, lon), 12);
+                zoomInOnPoint(new LatLng(lat, lon), 13);
             }
         }
     }
@@ -877,7 +878,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         destination = Position.fromCoordinates(marker.getPosition().getLongitude(), marker.getPosition().getLatitude());
 
-        double lat = marker.getPosition().getLatitude() + 0.003;
+        double lat = marker.getPosition().getLatitude() + MARKER_OFFSET;
         double lng = marker.getPosition().getLongitude();
         zoomInOnPoint(new LatLng(lat, lng), 14);
 
