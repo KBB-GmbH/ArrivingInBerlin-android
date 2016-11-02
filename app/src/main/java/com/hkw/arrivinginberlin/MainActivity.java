@@ -582,26 +582,26 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 Icon icon = iconFactory.fromDrawable(iconDrawable);
 
 
-                mapboxMap.setOnMarkerClickListener(new MapboxMap.OnMarkerClickListener(){
-                    @Override
-                    public boolean onMarkerClick(Marker marker){
+//                mapboxMap.setOnMarkerClickListener(new MapboxMap.OnMarkerClickListener(){
+//                    @Override
+//                    public boolean onMarkerClick(Marker marker){
+//
+//                        TextView markerText = (TextView)findViewById(R.id.markerDescription);
+//                        markerText.setVisibility(View.VISIBLE);
+//                        markerText.setText(Html.fromHtml(marker.getTitle() + "<br/>" + marker.getSnippet()));
+//                        Linkify.addLinks(markerText, Linkify.ALL);
+//                        return true;
+//                    }
+//                });
 
-                        TextView markerText = (TextView)findViewById(R.id.markerDescription);
-                        markerText.setVisibility(View.VISIBLE);
-                        markerText.setText(Html.fromHtml(marker.getTitle() + "<br/>" + marker.getSnippet()));
-                        Linkify.addLinks(markerText, Linkify.ALL);
-                        return true;
-                    }
-                });
-
-                mapboxMap.setOnMapClickListener(new MapboxMap.OnMapClickListener(){
-                    @Override
-                    public void onMapClick(LatLng point){
-
-                        TextView markerText = (TextView)findViewById(R.id.markerDescription);
-                        markerText.setVisibility(View.INVISIBLE);
-                    }
-                });
+//                mapboxMap.setOnMapClickListener(new MapboxMap.OnMapClickListener(){
+//                    @Override
+//                    public void onMapClick(LatLng point){
+//
+//                        TextView markerText = (TextView)findViewById(R.id.markerDescription);
+//                        markerText.setVisibility(View.INVISIBLE);
+//                    }
+//                });
 
 
 
@@ -890,15 +890,22 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         destination = Position.fromCoordinates(marker.getPosition().getLongitude(), marker.getPosition().getLatitude());
 
-        double lat = marker.getPosition().getLatitude() + 0.012;
+        double lat = marker.getPosition().getLatitude() + 0.005;
         double lng = marker.getPosition().getLongitude();
-        zoomInOnPoint(new LatLng(lat, lng), 12);
-        return false;
+        zoomInOnPoint(new LatLng(lat, lng), 14);
+
+        TextView markerText = (TextView)findViewById(R.id.markerDescription);
+        markerText.setVisibility(View.VISIBLE);
+        markerText.setText(Html.fromHtml(marker.getTitle() + "<br/>" + marker.getSnippet()));
+        Linkify.addLinks(markerText, Linkify.ALL);
+        return true;
     }
 
     @Override
     public void onMapClick(@NonNull LatLng point) {
         //remove direction buttons
+        TextView markerText = (TextView)findViewById(R.id.markerDescription);
+        markerText.setVisibility(View.INVISIBLE);
         showTransportButtons(false);
     }
 
