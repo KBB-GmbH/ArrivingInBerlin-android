@@ -581,38 +581,12 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 Drawable iconDrawable = getResources().getDrawable(imageResource);
                 Icon icon = iconFactory.fromDrawable(iconDrawable);
 
-
-//                mapboxMap.setOnMarkerClickListener(new MapboxMap.OnMarkerClickListener(){
-//                    @Override
-//                    public boolean onMarkerClick(Marker marker){
-//
-//                        TextView markerText = (TextView)findViewById(R.id.markerDescription);
-//                        markerText.setVisibility(View.VISIBLE);
-//                        markerText.setText(Html.fromHtml(marker.getTitle() + "<br/>" + marker.getSnippet()));
-//                        Linkify.addLinks(markerText, Linkify.ALL);
-//                        return true;
-//                    }
-//                });
-
-//                mapboxMap.setOnMapClickListener(new MapboxMap.OnMapClickListener(){
-//                    @Override
-//                    public void onMapClick(LatLng point){
-//
-//                        TextView markerText = (TextView)findViewById(R.id.markerDescription);
-//                        markerText.setVisibility(View.INVISIBLE);
-//                    }
-//                });
-
-
-
                 MarkerViewOptions marker = new MarkerViewOptions()
                         .position(latLng)
                         .title(name)
                         .icon(icon)
                         .snippet(beschreibung + "<br/>" + adresse + "<br/>" + telefon + "<br/>" + medium);
-
-
-
+                
                 CategoryMarker catMarker = new CategoryMarker(mapboxMap.addMarker(marker), categoryID, true, marker);
                 allMarkers.add(catMarker);
             }
@@ -890,7 +864,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         destination = Position.fromCoordinates(marker.getPosition().getLongitude(), marker.getPosition().getLatitude());
 
-        double lat = marker.getPosition().getLatitude() + 0.005;
+        double lat = marker.getPosition().getLatitude() + 0.003;
         double lng = marker.getPosition().getLongitude();
         zoomInOnPoint(new LatLng(lat, lng), 14);
 
