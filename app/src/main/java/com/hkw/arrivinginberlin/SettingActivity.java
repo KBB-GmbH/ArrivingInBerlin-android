@@ -2,6 +2,7 @@ package com.hkw.arrivinginberlin;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
@@ -16,6 +17,8 @@ import android.view.View;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabSelectedListener;
 
+import java.util.Locale;
+
 public class SettingActivity extends AppCompatActivity implements LanguageSettingFragment.OnFragmentInteractionListener, InfoFragment.OnFragmentInteractionListener, ContactFragment.OnFragmentInteractionListener, AboutFragment.OnFragmentInteractionListener {
     private BottomBar bottomBar;
 
@@ -25,6 +28,9 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
         setContentView(R.layout.activity_setting);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        LocaleUtils.setLanguageFromPreference(getApplicationContext());
+        Log.i("SETTINGS", "default language on create: " + Locale.getDefault());
 
         AboutFragment aboutFragment = new AboutFragment();
 
@@ -82,4 +88,5 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
     public void onFragmentInteraction(Uri uri) {
 
     }
+
 }

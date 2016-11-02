@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="categories">Kategorien</string>
+    <string name="all_categories">Alle</string>
+    <string name="offline_message">Sie sind offline. Verbinden Sie Ihr Smartphone mit dem Internet, um die Karte zu nutzen.</string>
+    <string name="drawer_open">Öffnen</string>
+    <string name="drawer_close">Schließen</string>
+    <string name="hint_search">Tipp</string>
+    <string name="loading">Karte wird geladen, bitte warten...</string>
+    <string name="region_loaded">Die Karte wurde erfolgreich heruntergeladen.</string>
+    <string name="all">Alle</string>
+    <string name="next">Weiter</string>
+    <string name="title_screen_one">Willkommen!</string>
+    <string name="title_screen_two">Einführung</string>
+    <string name="map">Karte</string>
+    <string name="list">Liste</string>
+    <string name="info">Info</string>
+    <string name="contact">Kontakt</string>
+    <string name="language">Sprache</string>
+    <string name="about">About</string>
+
+    <string name="access_token">pk.eyJ1IjoiYW5vdWtuaWMiLCJhIjoiY2lyb3kwOGg3MDA5ZGh1bmhnaXZqdmdpNyJ9.oFl9SAJR9tYZL1h76EQMIw</string>
+
+    <string name="screen_one">“Arriving in Berlin - App” ist eine digitale Karte mit hilfreichen Informationen für Geflüchtete und Neuankommende in Berlin.</string>
+    <string name="screen_two">Nutzen Sie die Karte oder die Listenansicht, um Orte zu finden. Mithilfe des Suchfeldes können Sie ganz bestimmte Informationen suchen. Die Karte hilft Ihnen außerdem, zu einem Ziel zu navigieren und funktioniert auch, wenn Sie offline sind. </string>
+
+    <string name="info_general">„Arriving in Berlin – App“ bietet viele nützliche Informationen für Geflüchtete und Neuankommende in Berlin. Die folgende Erklärung zeigt Ihnen, welche Bedeutung die Icons auf der Karte haben.</string>
+    <string name="info_internet">Kein Internet? In Berlin gibt es viele öffentliche Plätze, wo Sie kostenlos WIFI nutzen können – so zum Beispiel an vielen U-Bahnhöfen, in öffentlichen Bibliotheken und Cafés. Einen Überblick für kostenlosten WIFI-Zugang bietet außerdem diese Karte (http://www.hoerbuecher-blog.de/wifi/).</string>
+    <string name="info_counseling">Beratungsstellen - Viele zivilgesellschaftliche Organisationen und Initiativen bieten Beratungen und Informationen für Geflüchtete in Berlin an. Diese Beratungsstellen haben unterschiedliche Schwerpunkte und können Ihnen in vielen Fragen weiterhelfen. Zum Beispiel erklären sie Ihnen Ihre Rechte und helfen beim Asylverfahren. Oder sie übersetzen Dokumente und unterstützen Sie bei Behördengängen. Manche bieten spezielle psychologische Hilfe an, andere wiederum Deutschkurse.</string>
+    <string name="info_doctors">Ärzte – In dieser Kategorie finden Sie Ärzte, die Farsi oder Arabisch sprechen, sowie Frauen- und Kinderärzte.</string>
+    <string name="info_laywers">Anwälte – Diese Anwälte haben sich auf das Asyl- und Aufenthaltsrecht spezialisiert.</string>
+    <string name="info_libraries">Bibliotheken – Auch Sie haben Zugang zu öffentliche Bibliotheken, um zu arbeiten, zu lesen und das Internet zu nutzen. Sie finden sie in verschiedenen Berliner Bezirken.</string>
+    <string name="info_german_courses">Deutschkurse – Viele Organisationen bieten kostenlose Deutschkurse an. Dazu gehören auch staatliche Einrichtungen wie die Berliner Volkshochschulen. Wenn Sie in einer Unterkunft für Geflüchtete wohnen, helfen Ihnen die Betreuerinnen und Betreuer weiter, um einen Deutschkurs zu finden.</string>
+    <string name="info_gov">Behörden –  In dieser Kategorie finden Sie verschiedene Behördenstellen, die für Geflüchtete wichtig sind, wie das Bundesamt für Flüchtlinge (BAMF) oder das Landesamt für Flüchtlingsangelegenheiten (LAF).</string>
+    <string name="info_sports">Sport und Freizeit – Egal ob Schwimmen, Spazieren oder Entspannen: Berlin bietet viele Sport- und Freizeitmöglichkeiten. Eine Auswahl finden Sie in dieser Kategorie.</string>
+    <string name="info_shopping">Einkaufen - Cafés, Bäckereien oder Supermärkte, die Halal-Lebensmittel verkaufen, sind in dieser Kategorie dargestellt.</string>
+    <string name="info_transport">Transport - Wichtige Transportmittel, Haltestellen und Buslinien finden Sie hier.</string>
+    <string name="info_final">Gibt es interessante Orte, die wir vergessen haben? Dann schreiben Sie uns einfach eine Nachricht.</string>
+    <string name="about_one">“Arriving in Berlin - App” ist eine digitale Karte mit hilfreichen Informationen für Geflüchtete und Neuankommende in Berlin. Entwickelt vom Haus der Kulturen der Welt in Zusammenarbeit mit Refugees on Rails. Mit freundlicher Unterstützung des Verein der Freunde – Haus der Kulturen der Welt e.V.</string>
+    <string name="about_two">Die App beruht auf dem Mapping-Projekt "Arriving in Berlin - a map made by refugees" vom Haus der Kulturen der Welt und Haus Leo (Berliner Stadtmission). Das Projekt ist Teil der Initiative Berlin Mondiale. </string>
+    <string name="about_three">Die App nutzt Mapbox SDK und ist Open Source (Dokumentation auf GitHub)</string>
+    <string name="about_four">Alle Icons wurde von den Teilnehmer*innen des Mapping-Projektes erstellt. (Quelle: Freepik von www.flaticon.com )</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="contact_text">Haben Sie Fragen und Anregungen? Oder gibt es einen interessanten Ort, den wir vergessen haben? Dann schreiben Sie uns einfach eine Nachricht. </string>
+
+    <string name="app_name">Arriving</string>
+    <string name="send_email">Send</string>
+    <string name="main_title">Arriving</string>
+
+
+</resources>

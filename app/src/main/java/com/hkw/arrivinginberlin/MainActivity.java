@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.UiThread;
 import android.support.design.widget.FloatingActionButton;
@@ -78,6 +79,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -109,20 +112,30 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     // JSON encoding/decoding
     public final static String JSON_CHARSET = "UTF-8";
+    public final static String ENGLISH_KEY = "english_data";
+    public final static String GERMAN_KEY = "german_data";
+    public final static String FARSI_KEY = "farsi_data";
+    public final static String ARABIC_KEY = "arabic_data";
+    public final static String KURDISH_KEY = "kurdish_data";
+    public final static String FRENCH_KEY = "french_data";
     public final static String JSON_FIELD_REGION_NAME = "BERLIN_REGION";
+
     private static final int PERMISSIONS_LOCATION = 0;
     private boolean isEndNotified;
     private ProgressBar progressBar;
     private Boolean didDownload = false;
-    private static final String DOWNLOADTAG = "download";
-    private static final String LOCDATA = "location_data";
-
+    static final int CHANGE_LANGUAGE = 1;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         MapboxAccountManager.start(this, getString(R.string.access_token));
         setContentView(R.layout.activity_main);
+
+        //Language:
+        LocaleUtils.setLanguageFromPreference(getApplicationContext());
+        Log.i(TAG, "default language on create: " + Locale.getDefault());
 
         locationServices = LocationServices.getLocationServices(this);
 
@@ -196,19 +209,19 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         break;
                     case R.id.info_item:
                         intent.putExtra("startFragment", 1);
-                        startActivity(intent);
+                        startActivityForResult(intent, CHANGE_LANGUAGE);
                         break;
                     case R.id.lang_item:
                         intent.putExtra("startFragment", 2);
-                        startActivity(intent);
+                        startActivityForResult(intent, CHANGE_LANGUAGE);
                         break;
                     case R.id.contact_item:
                         intent.putExtra("startFragment", 3);
-                        startActivity(intent);
+                        startActivityForResult(intent, CHANGE_LANGUAGE);
                         break;
                     case R.id.about_item:
                         intent.putExtra("startFragment", 4);
-                        startActivity(intent);
+                        startActivityForResult(intent, CHANGE_LANGUAGE);
                         break;
                     default:
                         break;
@@ -893,11 +906,32 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         }
     }
 
+
     /********* FETCHING AND SETTING LOCATION DATA**********************/
     public class FetchLocationsTask extends AsyncTask<Void, Void, List<JSONObject>> {
+        private String key = "en";
         @Override
         protected List<JSONObject> doInBackground(Void... params) {
-            return new UmapDataRequest().fetchLocations();
+            key = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString(LocaleUtils.LANGUAGE, "en");
+
+            switch (key){
+                case "en":
+                    return new UmapDataRequest().getLocationsEnglish();
+                case "fr":
+                    return new UmapDataRequest().getLocations(159184, 159198);
+                case "de":
+                    return new UmapDataRequest().getLocations(226926, 226940);
+                case "fa":
+                    return new UmapDataRequest().getLocations(128475, 128489);
+                case "ar":
+                    return new UmapDataRequest().getLocations(128884, 128897);
+                case "ku":
+                    return new UmapDataRequest().getLocations(128475, 128497);
+                default:
+                    return new UmapDataRequest().getLocationsEnglish();
+
+            }
+
         }
 
         private void processDataUpdate(ArrayList<JSONObject> locations) {
@@ -954,17 +988,37 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         private ArrayList<JSONObject> getStoredLocations() {
             SaveArray save = new SaveArray(MainActivity.this.getApplicationContext());
-            ArrayList<JSONObject> locations = save.getArray("locations");
+            ArrayList<JSONObject> locations = save.getArray(getKeyForData());
             return locations;
         }
 
         private void storeLocations(ArrayList<JSONObject> locations) {
             SaveArray save = new SaveArray(MainActivity.this.getApplicationContext());
-            save.saveArray("locations", locations);
+            save.saveArray(getKeyForData(), locations);
             Log.i(TAG, "Saved Locations");
+        }
+
+        private String getKeyForData(){
+            switch (key){
+                case "en":
+                    return ENGLISH_KEY;
+                case "fr":
+                    return FRENCH_KEY;
+                case "de":
+                    return GERMAN_KEY;
+                case "fa":
+                    return FARSI_KEY;
+                case "ar":
+                    return ARABIC_KEY;
+                case "ku":
+                    return KURDISH_KEY;
+                default:
+                    return ENGLISH_KEY;
+            }
         }
     }
 
+    //*************** ROUTE ******************************//
 
     private void getRoute(final Position destination, String profile) throws ServicesException {
 
@@ -1048,6 +1102,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         super.onResume();
         bottomBar.selectTabAtPosition(0, false);
         mapView.onResume();
+        LocaleUtils.setLanguageFromPreference(getApplicationContext());
+        Log.i(TAG, "default language on resume: " + Locale.getDefault());
     }
 
     @Override
@@ -1080,4 +1136,15 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         super.onRestoreInstanceState(savedInstanceState);
         didDownload = savedInstanceState.getBoolean("didDownload");
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == CHANGE_LANGUAGE) {
+            if (resultCode == RESULT_OK) {
+                this.finish();
+                startActivity(this.getIntent());
+            }
+        }
+    }
+
 }

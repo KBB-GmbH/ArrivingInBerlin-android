@@ -1,10 +1,13 @@
 package com.hkw.arrivinginberlin;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.support.annotation.StringDef;
 import android.support.v4.app.Fragment;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -13,6 +16,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.util.Locale;
 
 
@@ -31,6 +36,7 @@ public class LanguageSettingFragment extends Fragment {
     private Button german;
     private Button farsi;
     private Button arabic;
+    private Button kurdish;
 
     public LanguageSettingFragment() {
         // Required empty public constructor
@@ -60,40 +66,47 @@ public class LanguageSettingFragment extends Fragment {
         farsi = (Button) layout.findViewById(R.id.farsi);
         arabic = (Button) layout.findViewById(R.id.arabic);
         french = (Button) layout.findViewById(R.id.french);
+        kurdish = (Button) layout.findViewById(R.id.kurdish);
         german.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                languageSelected("de", german);
+                languageSelected(LocaleUtils.GERMAN, german);
             }
         });
 
         english.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                languageSelected("en", english);
+                languageSelected(LocaleUtils.ENGLISH, english);
             }
         });
 
         farsi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                languageSelected("en", farsi);
+                languageSelected(LocaleUtils.FARSI, farsi);
             }
         });
         arabic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                languageSelected("nl", arabic);
+                languageSelected(LocaleUtils.ARABIC, arabic);
             }
         });
 
         french.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                languageSelected("fr", french);
+                languageSelected(LocaleUtils.FRENCH, french);
             }
         });
 
+        kurdish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                languageSelected(LocaleUtils.KURDISH, kurdish);
+            }
+        });
         setLanguageSelected();
 
         return layout;
@@ -107,54 +120,41 @@ public class LanguageSettingFragment extends Fragment {
         german.setPressed(false);
         arabic.setPressed(false);
         farsi.setPressed(false);
+        kurdish.setPressed(false);
 
         switch (loc) {
-            case ("en"):
+            case LocaleUtils.ENGLISH:
                 english.setPressed(true);
                 break;
-            case ("fr"):
+            case LocaleUtils.FRENCH:
                 french.setPressed(true);
                 break;
-            case ("de"):
+            case LocaleUtils.GERMAN:
                 german.setPressed(true);
                 break;
-            case ("nl"):
+            case LocaleUtils.FARSI:
                 farsi.setPressed(true);
                 break;
-            case ("ar"):
+            case LocaleUtils.ARABIC:
                 arabic.setPressed(true);
+                break;
+            case LocaleUtils.KURDISH:
+                kurdish.setPressed(true);
                 break;
         }
     }
 
-    public void setLocale(String lang) {
-        Locale loc = new Locale(lang);
-        try {
-            Class<?> activityManagerNative = Class.forName("android.app.ActivityManagerNative");
-            Object am = activityManagerNative.getMethod("getDefault").invoke(activityManagerNative);
-            Object config = am.getClass().getMethod("getConfiguration").invoke(am);
-            config.getClass().getDeclaredField("locale").set(config, loc);
-            config.getClass().getDeclaredField("userSetLocale").setBoolean(config, true);
+    public void languageSelected(String language, Button button){
 
-            am.getClass().getMethod("updateConfiguration",android.content.res.Configuration.class).invoke(am,config);
-            setLanguageSelected();
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void languageSelected(String lang, Button button){
-        setLocale(lang);
+        LocaleUtils.setLocale(getActivity().getApplicationContext(), language);
         button.setSelected(true);
+        //store as user preference:
+        PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext()).edit().putString(LocaleUtils.LANGUAGE, language).apply();
 
+        //Restart activity:
+        getActivity().setResult(Activity.RESULT_OK, null);
+        getActivity().finish();
         if (mListener != null){
-        }
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
         }
     }
 
@@ -179,4 +179,6 @@ public class LanguageSettingFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+
 }

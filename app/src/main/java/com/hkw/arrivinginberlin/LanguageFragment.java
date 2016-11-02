@@ -6,6 +6,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.text.Layout;
@@ -59,53 +60,52 @@ public class LanguageFragment extends Fragment {
         german.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                languageSelected("de", german);
+                languageSelected(LocaleUtils.GERMAN, german);
             }
         });
         final Button english = (Button) layout.findViewById(R.id.english);
         english.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                languageSelected("en", english);
+                languageSelected(LocaleUtils.ENGLISH, english);
             }
         });
         final Button farsi = (Button) layout.findViewById(R.id.farsi);
         farsi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                languageSelected("en", farsi);
+                languageSelected(LocaleUtils.FARSI, farsi);
             }
         });
         final Button arabic = (Button) layout.findViewById(R.id.arabic);
         arabic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                languageSelected("en", arabic);
+                languageSelected(LocaleUtils.ARABIC, arabic);
             }
         });
-
+        final Button kurdish = (Button) layout.findViewById(R.id.kurdish);
+        kurdish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                languageSelected(LocaleUtils.KURDISH, kurdish);
+            }
+        });
         final Button french = (Button) layout.findViewById(R.id.french);
         french.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                languageSelected("fr", french);
+                languageSelected(LocaleUtils.FRENCH, french);
             }
         });
 
         return layout;
     }
 
-    public void setLocale(String lang) {
-        Locale myLocale = new Locale(lang);
-        Resources res = getResources();
-        DisplayMetrics dm = res.getDisplayMetrics();
-        Configuration conf = res.getConfiguration();
-        conf.locale = myLocale;
-        res.updateConfiguration(conf, dm);
-    }
 
-    public void languageSelected(String lang, Button button){
-        setLocale(lang);
+    public void languageSelected(@LocaleUtils.LocaleDef String language, Button button){
+        LocaleUtils.setLocale(getActivity().getApplicationContext(), language);
+        PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext()).edit().putString(LocaleUtils.LANGUAGE, language).apply();
         button.setTextColor(getActivity().getResources().getColor(R.color.colorSelected));
         if (mListener != null){
             mListener.onLanguageSelection(true);
