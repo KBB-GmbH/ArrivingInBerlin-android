@@ -101,7 +101,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private List<CategoryMarker> allMarkers = new ArrayList<>();
     FloatingActionButton floatingActionButton;
     FloatingActionButton walkButton;
-    FloatingActionButton driveButton;
     FloatingActionButton publicTransportButton;
     LocationServices locationServices;
 
@@ -176,19 +175,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             }
         });
 
-        driveButton = (FloatingActionButton) findViewById(R.id.drive);
-        driveButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                if(destination != null){
-                    try {
-                        getRoute(destination, DirectionsCriteria.PROFILE_DRIVING);
-                    } catch (ServicesException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        });
 
         publicTransportButton = (FloatingActionButton) findViewById(R.id.public_transport);
         publicTransportButton.setOnClickListener(new View.OnClickListener(){
@@ -695,6 +681,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         for (CategoryMarker cm : allMarkers) {
             if ((cm.marker.getTitle().contains(searchTerm)) || (cm.marker.getSnippet().contains(searchTerm))) {
                 cm.marker = mapBox.addMarker(cm.markerViewOptions);
+                double lat = cm.getMarker().getPosition().getLatitude();
+                double lon = cm.getMarker().getPosition().getLongitude();
+                zoomInOnPoint(new LatLng(lat, lon), 12);
             }
         }
     }
@@ -833,18 +822,24 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             locationServices.addLocationListener(new LocationListener() {
                 @Override
                 public void onLocationChanged(Location location) {
-                    if (location != null) {
-                        // Move the map camera to where the user location is
-// Update directions
+                    if (location != null && mapBox != null) {
+
                     }
                 }
             });
-            floatingActionButton.setImageResource(R.drawable.ic_my_location_24dp);
-        } else {
             floatingActionButton.setImageResource(R.drawable.ic_location_disabled_24dp);
+        } else {
+            floatingActionButton.setImageResource(R.drawable.ic_my_location_24dp);
         }
         // Enable or disable the location layer on the map
         mapBox.setMyLocationEnabled(enabled);
+
+        if (mapBox.isMyLocationEnabled()){
+            LatLng origin = new LatLng(mapBox.getMyLocation().getLatitude(), mapBox.getMyLocation().getLongitude());
+            if (origin != null) {
+                zoomInOnPoint(origin, 13);
+            }
+        }
     }
 
     @Override
@@ -871,10 +866,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         double lat = marker.getPosition().getLatitude() + 0.012;
         double lng = marker.getPosition().getLongitude();
-        mapBox.setCameraPosition(new CameraPosition.Builder()
-                .target(new LatLng(lat,lng))
-                .zoom(12)
-                .build());
+        zoomInOnPoint(new LatLng(lat, lng), 12);
         return false;
     }
 
@@ -887,11 +879,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     public void showTransportButtons(Boolean show){
         if (show){
             walkButton.setVisibility(Button.VISIBLE);
-            driveButton.setVisibility(Button.VISIBLE);
             publicTransportButton.setVisibility(Button.VISIBLE);
         } else {
             walkButton.setVisibility(Button.INVISIBLE);
-            driveButton.setVisibility(Button.INVISIBLE);
             publicTransportButton.setVisibility(Button.INVISIBLE);
         }
     }
@@ -1010,7 +1000,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     //*************** ROUTE ******************************//
 
-    private void getRoute(Position destination, String profile) throws ServicesException {
+    private void getRoute(final Position destination, String profile) throws ServicesException {
 
         Position origin;
         if (mapBox.getMyLocation() != null) {
@@ -1042,7 +1032,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 Toast.makeText(MainActivity.this, "Route is " +  currentRoute.getDistance() + " meters long.", Toast.LENGTH_SHORT).show();
 
                 // Draw the route on the map
-                drawRoute(currentRoute);
+                drawRoute(currentRoute, new LatLng(destination.getLatitude(), destination.getLongitude()));
             }
 
             @Override
@@ -1059,7 +1049,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         }
     }
 
-    private void drawRoute(DirectionsRoute route) {
+    private void drawRoute(DirectionsRoute route, LatLng destination) {
         removePolyline();
         // Convert LineString coordinates into LatLng[]
         LineString lineString = LineString.fromPolyline(route.getGeometry(), Constants.OSRM_PRECISION_V5);
@@ -1074,9 +1064,17 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         // Draw Points on MapView
         polyLine = new PolylineOptions()
                 .add(points)
-                .color(Color.parseColor("#009688"))
+                .color(Color.parseColor("#ff0000"))
                 .width(5);
         mapBox.addPolyline(polyLine);
+        zoomInOnPoint(destination, 15);
+    }
+
+    private void zoomInOnPoint(LatLng point, int zoom){
+        mapBox.setCameraPosition(new CameraPosition.Builder()
+                .target(point)
+                .zoom(zoom)
+                .build());
     }
 
     @Override

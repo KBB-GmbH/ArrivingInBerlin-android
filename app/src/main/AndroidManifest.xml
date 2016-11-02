@@ -24,9 +24,8 @@
         <service android:name="com.mapbox.mapboxsdk.telemetry.TelemetryService" />
 
         <activity
-            android:name=".StartupActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:windowActionBar="false">
+            android:name=".SplashActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,17 +33,13 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".StartupActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowActionBar="false"></activity>
+        <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:windowActionBar="false">
-
-            <!-- <intent-filter> -->
-            <!-- &lt;!&ndash;<action android:name="android.intent.action.MAIN" />&ndash;&gt; -->
-
-
-            <!-- &lt;!&ndash;<category android:name="android.intent.category.LAUNCHER" />&ndash;&gt; -->
-            <!-- </intent-filter> -->
-        </activity>
+            android:windowActionBar="false"></activity>
         <!--
  ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
