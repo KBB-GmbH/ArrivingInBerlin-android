@@ -1,6 +1,7 @@
 package com.hkw.arrivinginberlin;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -27,6 +28,7 @@ import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -150,7 +152,51 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 mapBox.setOnMapClickListener(MainActivity.this);
                 new FetchLocationsTask().execute();
                 enableLocation(true);
+            }
+        });
+
+        floatingActionButton = (FloatingActionButton) findViewById(R.id.download_map_toggle_fab);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 if (!didDownload) {
+                    Context context = getApplicationContext();
+                    CharSequence text = "Download size:";
+                    int duration = Toast.LENGTH_SHORT;
+
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+
+//                    AlertDialog.Builder adb = new AlertDialog.Builder(this);
+//
+//
+//                    adb.setView(alertDialogView);
+//
+//
+//                    adb.setTitle("Title of alert dialog");
+//
+//
+//                    adb.setIcon(android.R.drawable.ic_dialog_alert);
+//
+//
+//                    adb.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int which) {
+//
+//
+//                            EditText et = (EditText)alertDialogView.findViewById(R.id.EditText1);
+//
+//
+//                            Toast.makeText(Tutoriel18_Android.this, et.getText(), Toast.LENGTH_SHORT).show();
+//                        } });
+//
+//
+//                    adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int which) {
+//
+//                            finish();
+//                        } });
+//                    adb.show();
+
                     startDownloadingMap();
                 }
             }

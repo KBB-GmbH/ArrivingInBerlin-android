@@ -52,7 +52,16 @@
             android:background="@color/colorPrimary"
             android:layout_below="@id/toolbar"
             android:linksClickable="true"/>
-
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/download_map_toggle_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_alignTop="@id/mapView"
+            android:layout_alignRight="@id/mapView"
+            android:src="@drawable/ic_my_location_24dp"
+            tools:backgroundTint="#E55E5E">
+        </android.support.design.widget.FloatingActionButton>
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/location_toggle_fab"
             android:layout_width="wrap_content"
