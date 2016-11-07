@@ -61,5 +61,6 @@ Refugees on Rails .
 أو نسينا شيئا , أو مناطق مثيرة للإهتمام ؟
 إذا فعلنا ,رجاءا أرسل ألينا رسائل نصية ."</string>
 <string name="send_email">xx</string>
-
+    <string name="download_button_message">You are about to download 90MB of data. Make sure you are connected to wifi. Would you like to continue?</string>
+    <string name="cancel">Cancel</string>
 </resources>

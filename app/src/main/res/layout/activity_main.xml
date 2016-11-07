@@ -59,8 +59,8 @@
             android:layout_margin="10dp"
             android:layout_alignTop="@id/mapView"
             android:layout_alignRight="@id/mapView"
-            android:src="@drawable/ic_my_location_24dp"
-            tools:backgroundTint="#E55E5E">
+            app:backgroundTint="#FFFFFF"
+            android:src="@drawable/download">
         </android.support.design.widget.FloatingActionButton>
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/location_toggle_fab"

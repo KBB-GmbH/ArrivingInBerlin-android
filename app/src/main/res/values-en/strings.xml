@@ -45,4 +45,6 @@
     <string name="main_title">Arriving</string>
     <string name="contact_text">Do you have question or comments? Or have we forgotten any interesting places? If so, please send us a message</string>
     <string name="send_email">Send Email</string>
+    <string name="download_button_message">You are about to download 90MB of data. Make sure you are connected to wifi. Would you like to continue?</string>
+    <string name="cancel">Cancel</string>
 </resources>

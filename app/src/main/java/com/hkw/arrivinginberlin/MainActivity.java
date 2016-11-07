@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.preference.PreferenceManager;
@@ -29,11 +30,14 @@ import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -106,6 +110,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private DirectionsRoute currentRoute;
     private List<CategoryMarker> allMarkers = new ArrayList<>();
     FloatingActionButton floatingActionButton;
+    FloatingActionButton downloadButton;
     FloatingActionButton walkButton;
     FloatingActionButton publicTransportButton;
     LocationServices locationServices;
@@ -155,50 +160,46 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             }
         });
 
-        floatingActionButton = (FloatingActionButton) findViewById(R.id.download_map_toggle_fab);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+        downloadButton = (FloatingActionButton) findViewById(R.id.download_map_toggle_fab);
+        downloadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!didDownload) {
-                    Context context = getApplicationContext();
-                    CharSequence text = "Download size:";
-                    int duration = Toast.LENGTH_SHORT;
 
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.show();
+                    LayoutInflater layoutInflater
+                            = (LayoutInflater)getBaseContext()
+                            .getSystemService(LAYOUT_INFLATER_SERVICE);
+                    View popupView = layoutInflater.inflate(R.layout.popup_layout, null);
+                    final PopupWindow popupWindow = new PopupWindow(
+                            popupView,
+                            ViewGroup.LayoutParams.WRAP_CONTENT,
+                            ViewGroup.LayoutParams.WRAP_CONTENT);
 
-//                    AlertDialog.Builder adb = new AlertDialog.Builder(this);
-//
-//
-//                    adb.setView(alertDialogView);
-//
-//
-//                    adb.setTitle("Title of alert dialog");
-//
-//
-//                    adb.setIcon(android.R.drawable.ic_dialog_alert);
-//
-//
-//                    adb.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//                        public void onClick(DialogInterface dialog, int which) {
-//
-//
-//                            EditText et = (EditText)alertDialogView.findViewById(R.id.EditText1);
-//
-//
-//                            Toast.makeText(Tutoriel18_Android.this, et.getText(), Toast.LENGTH_SHORT).show();
-//                        } });
-//
-//
-//                    adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-//                        public void onClick(DialogInterface dialog, int which) {
-//
-//                            finish();
-//                        } });
-//                    adb.show();
 
-                    startDownloadingMap();
+                    Button btnDismiss = (Button)popupView.findViewById(R.id.cancel_button);
+                    btnDismiss.setOnClickListener(new Button.OnClickListener(){
+
+                        @Override
+                        public void onClick(View v) {
+                            // TODO Auto-generated method stub
+                            popupWindow.dismiss();
+                        }});
+
+                    Button btnOk = (Button)popupView.findViewById(R.id.ok_button);
+                    btnOk.setOnClickListener(new Button.OnClickListener(){
+
+                        @Override
+                        public void onClick(View v) {
+                            // TODO Auto-generated method stub
+                            //Start downloading
+                            downloadButton.setVisibility(View.INVISIBLE);
+                            startDownloadingMap();
+                            popupWindow.dismiss();
+                        }});
+
+                    popupWindow.showAsDropDown(popupView);
                 }
+
             }
         });
 

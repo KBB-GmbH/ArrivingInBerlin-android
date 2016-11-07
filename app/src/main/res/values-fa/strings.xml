@@ -44,5 +44,6 @@
     <string name="main_title">xx</string>
     <string name="contact_text">اگر کدام محل یا موقیعتی شما درباره آن اطلاغ دارید و روی این نقشه نمایان نمیباشد.یا پیشنهاد یا انتقاد دارید لطفا با در تماس شوید</string>
     <string name="send_email">xx</string>
-
+    <string name="download_button_message">You are about to download 90MB of data. Make sure you are connected to wifi. Would you like to continue?</string>
+    <string name="cancel">Cancel</string>
 </resources>

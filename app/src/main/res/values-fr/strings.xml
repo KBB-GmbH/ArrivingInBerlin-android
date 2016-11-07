@@ -45,5 +45,6 @@
     <string name="main_title">xx</string>
     <string name="contact_text">Avez-vous des questions ou des commentaires? Ou avons-nous oublié des lieux intéressants? Si oui, envoyez-nous un message.</string>
     <string name="send_email">xx</string>
-
+    <string name="download_button_message">You are about to download 90MB of data. Make sure you are connected to wifi. Would you like to continue?</string>
+    <string name="cancel">Cancel</string>
 </resources>
