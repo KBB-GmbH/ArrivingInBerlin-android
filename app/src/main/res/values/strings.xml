@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Arriving</string>
-    <string name="access_token">pk.eyJ1IjoiYW5vdWtuaWMiLCJhIjoiY2lyb3kwOGg3MDA5ZGh1bmhnaXZqdmdpNyJ9.oFl9SAJR9tYZL1h76EQMIw</string>
+    <string name="access_token" translatable="false">pk.eyJ1IjoiYW5vdWtuaWMiLCJhIjoiY2lyb3kwOGg3MDA5ZGh1bmhnaXZqdmdpNyJ9.oFl9SAJR9tYZL1h76EQMIw</string>
     <string name="categories">Categories</string>
     <string name="all_categories">All</string>
     <string name="offline_message">You appear to be offline. Connect to the internet to view locations.</string>
@@ -10,7 +10,7 @@
     <string name="loading">Loading, please wait...</string>
     <string name="region_loaded">Region downloaded successfully.</string>
     <string name="all">All</string>
-    <string name="title_activity_startup">StartupActivity</string>
+    <string name="title_activity_startup" translatable="false">StartupActivity</string>
     <string name="next">Continue</string>
     <string name="title_screen_one">Welcome!</string>
     <string name="title_screen_two">Overview</string>
@@ -41,12 +41,11 @@
     <string name="about_three">The app is based on the Mapbox SDK framework and is open source (documentation on GitHub)</string>
     <string name="about_four">All icons have been developed by the participants of the mapping project. (Source: Freepik from www.flaticon.com )</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="main_title">Arriving</string>
     <string name="contact_text">Do you have question or comments? Or have we forgotten any interesting places? If so, please send us a message</string>
     <string name="send_email">Send Email</string>
-    <string name="title_activity_settings">SettingsActivity</string>
-    <string name="title_activity_setting">SettingActivity</string>
+    <string name="title_activity_settings" translatable="false">SettingsActivity</string>
+    <string name="title_activity_setting" translatable="false">SettingActivity</string>
     <string name="download_button_message">You are about to download 90MB of data. Make sure you are connected to wifi. Would you like to continue?</string>
     <string name="cancel">Cancel</string>
     <string name="continue_button">Continue</string>

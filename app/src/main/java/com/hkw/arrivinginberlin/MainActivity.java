@@ -196,7 +196,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                             startDownloadingMap();
                             popupWindow.dismiss();
                         }});
-
                     popupWindow.showAsDropDown(popupView);
                 }
 
@@ -739,6 +738,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     public void displayMarkersForSearchTerm(String searchTerm) {
         removeAllMarkers();
+        TextView markerText = (TextView)findViewById(R.id.markerDescription);
+        showMarker(markerText, false);
         for (CategoryMarker cm : allMarkers) {
             if ((cm.marker.getTitle().contains(searchTerm)) || (cm.marker.getSnippet().contains(searchTerm))) {
                 cm.marker = mapBox.addMarker(cm.markerViewOptions);
@@ -922,7 +923,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         //show direction buttons
         showTransportButtons(true);
         removePolyline();
-
         destination = Position.fromCoordinates(marker.getPosition().getLongitude(), marker.getPosition().getLatitude());
 
         double lat = marker.getPosition().getLatitude() + MARKER_OFFSET;
@@ -930,9 +930,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         zoomInOnPoint(new LatLng(lat, lng), 14);
 
         TextView markerText = (TextView)findViewById(R.id.markerDescription);
-        markerText.setVisibility(View.VISIBLE);
         markerText.setText(Html.fromHtml(marker.getTitle() + "<br/>" + marker.getSnippet()));
         Linkify.addLinks(markerText, Linkify.ALL);
+        showMarker(markerText, true);
         return true;
     }
 
@@ -940,8 +940,19 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     public void onMapClick(@NonNull LatLng point) {
         //remove direction buttons
         TextView markerText = (TextView)findViewById(R.id.markerDescription);
-        markerText.setVisibility(View.INVISIBLE);
-        showTransportButtons(false);
+        showMarker(markerText, false);
+    }
+
+    private void showMarker(TextView markerTxt, Boolean visible){
+        if (visible){
+            markerTxt.setVisibility(View.VISIBLE);
+            downloadButton.setVisibility(View.INVISIBLE);
+        }
+        else {
+            downloadButton.setVisibility(View.VISIBLE);
+            markerTxt.setVisibility(View.INVISIBLE);
+            showTransportButtons(false);
+        }
     }
 
     public void showTransportButtons(Boolean show){

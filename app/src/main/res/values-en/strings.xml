@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Arriving</string>
-    <string name="access_token">pk.eyJ1IjoiYW5vdWtuaWMiLCJhIjoiY2lyb3kwOGg3MDA5ZGh1bmhnaXZqdmdpNyJ9.oFl9SAJR9tYZL1h76EQMIw</string>
     <string name="categories">Categories</string>
     <string name="all_categories">All</string>
     <string name="offline_message">You appear to be offline. Connect to the internet to view locations.</string>
@@ -11,7 +10,6 @@
     <string name="loading">Loading, please wait...</string>
     <string name="region_loaded">Region downloaded successfully.</string>
     <string name="all">All</string>
-    <string name="title_activity_startup">StartupActivity</string>
     <string name="next">Continue</string>
     <string name="title_screen_one">Welcome!</string>
     <string name="title_screen_two">Overview</string>
@@ -47,4 +45,5 @@
     <string name="send_email">Send Email</string>
     <string name="download_button_message">You are about to download 90MB of data. Make sure you are connected to wifi. Would you like to continue?</string>
     <string name="cancel">Cancel</string>
+    <string name="continue_button">Continue</string>
 </resources>

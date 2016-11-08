@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Arriving</string>
     <string name="categories">پۆلبەندی</string>
     <string name="all_categories">هەموو</string>
     <string name="offline_message">هەنووکە ئێوە بە ئینتێرنێتەوە وەسڵ نین، بۆ دۆزینەوەی شوێنەکان بە ئینتێرنێتەوە وەسڵ بن</string>
@@ -33,6 +34,7 @@
     <string name="info_sports">وەرزش و کاتی ئازاد: گرنگ نییە! مەلەکردن، پیاسەکردن، یان حەسانەوە! لە بێرلین کۆمەڵێک وەرزش و دەرفەت بۆ کاتە ئازادەکانتان هەیە.  بژاردەیەک لەم بەشەدا دەدۆزییەوە.</string>
     <string name="info_transport">گواستنەوە: لەم بەشە گرنگترین هێڵەکانی گواستنەوە، وێستگە و هێڵی پاس دەدۆزییەوە. </string>
     <string name="info_final">شوێنی زۆر سەرەنجڕاکێش هەیە کە ئێمە لە یادمان کردبێت، دەی کەواتە لێرە بە کورتی بۆمان بنووسە.</string>
+    <string name="info_shopping">Shopping - Cafés, bakeries and supermarkets that sell Halal food are shown in this category.</string>
     <string name="about_one">\'ئەڕاڤینگ بێرلین ئەپ\'\' نەخشەیەکی دیجیتالییە و زۆر زانیاری بەسود بۆ پەنابەران و ئەوانەی نوێن لە بێرلین پێشکەش دەکات. نەخشەیەکی داڕژاو و پشتیوانییەکی دڵسۆزانەیە کە \'\'هاوس دێ کلتووەی دنیا\'\' و \'\'ڕەیڵی پەنابەران\'\'  دایانڕشتووە.</string>
     <string name="about_two">ئەم پرۆگرامەلەسەر بنەمای نەخشەی \'\'ئەرائڤینگ بێرلین\'\' داڕژاوە و پەنابەران دیزاینیان کردووە لە ڕێگای \'\'هاوس لیئۆ\'\' و هاوس دێ کلتووە دێ وێلت - بێرلین شتەت‌میسیۆن-. ئەمە بەشێکە لە بەرهەمەکانی مۆندیالی بێرلین </string>
     <string name="about_three">ئەم پرۆگرامەلەسەر بنەمای چوارچێوەی Mapbox SDK و سەرچاوەیەکی کراوەیە (بەڵگەنامەیەک لەسەر GitHub)</string>
@@ -43,4 +45,5 @@
     <string name="send_email">xx</string>
     <string name="download_button_message">You are about to download 90MB of data. Make sure you are connected to wifi. Would you like to continue?</string>
     <string name="cancel">Cancel</string>
+    <string name="continue_button">Continue</string>
 </resources>
