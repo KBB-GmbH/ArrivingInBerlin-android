@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Arriving</string>
-     <string name="categories">Categories</string>
-    <string name="all_categories">All</string>
-    <string name="offline_message">You appear to be offline. Connect to the internet to view locations.</string>
-    <string name="drawer_open">open</string>
-    <string name="drawer_close">close</string>
-    <string name="hint_search">hint</string>
-    <string name="loading">Loading, please wait...</string>
-    <string name="region_loaded">Region downloaded successfully.</string>
-    <string name="all">All</string>
-    <string name="next">Continue</string>
-    <string name="title_screen_one">Welcome!</string>
-    <string name="title_screen_two">Overview</string>
-    <string name="map">Map</string>
-    <string name="list">List</string>
+    <string name="categories">Catégories</string>
+    <string name="all_categories">Tous</string>
+    <string name="offline_message">Vous êtes déconnecté. Connectez votre smartphone à Internet pour utiliser la carte.</string>
+    <string name="drawer_open">Ouvrir</string>
+    <string name="drawer_close">Fermer</string>
+    <string name="hint_search">Conseil</string>
+    <string name="loading">La carte charge, un instant svp...</string>
+    <string name="region_loaded">La carte a été téléchargée avec succès</string>
+    <string name="all">Tous</string>
+    <string name="next">Continuer</string>
+    <string name="title_screen_one">Bienvenue!</string>
+    <string name="title_screen_two">Introduction</string>
+    <string name="map">Carte</string>
+    <string name="list">Liste</string>
     <string name="info">Info</string>
     <string name="contact">Contact</string>
-    <string name="language">Language</string>
+    <string name="language">Langue</string>
     <string name="about">About</string>
 
     <string name="screen_one">„Arriving in Berlin – App“ est une carte digitale contenant des informations utiles pour les réfugiés et les nouveaux arrivants à Berlin.</string>
