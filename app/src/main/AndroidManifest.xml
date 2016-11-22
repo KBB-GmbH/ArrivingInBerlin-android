@@ -35,11 +35,11 @@
         <activity
             android:name=".StartupActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:windowActionBar="false"></activity>
+            android:windowActionBar="false" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:windowActionBar="false"></activity>
+            android:windowActionBar="false"/>
         <!--
  ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.

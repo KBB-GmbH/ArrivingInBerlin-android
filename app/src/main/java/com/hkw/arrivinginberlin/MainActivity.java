@@ -897,8 +897,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         mapBox.setMyLocationEnabled(enabled);
 
         if (mapBox.isMyLocationEnabled()){
-            LatLng origin = new LatLng(mapBox.getMyLocation().getLatitude(), mapBox.getMyLocation().getLongitude());
-            if (origin != null) {
+            if (mapBox.getMyLocation() != null) {
+                LatLng origin = new LatLng(mapBox.getMyLocation().getLatitude(), mapBox.getMyLocation().getLongitude());
                 zoomInOnPoint(origin, 13);
             }
         }
