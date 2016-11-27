@@ -187,7 +187,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
                 final PopupWindow popupWindow = new PopupWindow(
                         popupView,
-                        ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.MATCH_PARENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT);
 
 
@@ -245,15 +245,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             @Override
             public void onClick(View v){
                 if (destination != null){
-                    String loc = "http://maps.google.com/maps?daddr="+ destination.getLatitude()+ ","
-                            + destination.getLongitude()+ "&directionsmode=transit";
-
-                    Uri gmmIntentUri = Uri.parse(loc);
-                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                    mapIntent.setPackage("com.google.android.apps.maps");
-                    if (mapIntent.resolveActivity(getPackageManager()) != null) {
-                        startActivity(mapIntent);
-                    }
+                    showPopupGoogle();
                 }
             }
         });
@@ -366,6 +358,54 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+    }
+
+    private void showPopupGoogle() {
+        LayoutInflater layoutInflater
+                = (LayoutInflater)getBaseContext()
+                .getSystemService(LAYOUT_INFLATER_SERVICE);
+        View popupView = layoutInflater.inflate(R.layout.popup_layout, null);
+        TextView pop_txt = (TextView)popupView.findViewById(R.id.popup_text);
+        pop_txt.setText(R.string.google_maps_popup);
+
+        final PopupWindow popupWindow = new PopupWindow(
+                popupView,
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+
+
+        Button btnDismiss = (Button)popupView.findViewById(R.id.cancel_button);
+        btnDismiss.setOnClickListener(new Button.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                popupWindow.dismiss();
+            }});
+
+        Button btnOk = (Button)popupView.findViewById(R.id.ok_button);
+        btnOk.setOnClickListener(new Button.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                //Redirect
+                redirectToGoogleMaps();
+                popupWindow.dismiss();
+            }});
+        popupWindow.showAsDropDown(popupView);
+    }
+
+    private void redirectToGoogleMaps(){
+        String loc = "http://maps.google.com/maps?daddr="+ destination.getLatitude()+ ","
+                + destination.getLongitude()+ "&directionsmode=transit";
+
+        Uri gmmIntentUri = Uri.parse(loc);
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        mapIntent.setPackage("com.google.android.apps.maps");
+        if (mapIntent.resolveActivity(getPackageManager()) != null) {
+            startActivity(mapIntent);
+        }
     }
 
     private void hideNavBarItems(Boolean shouldHide) {
