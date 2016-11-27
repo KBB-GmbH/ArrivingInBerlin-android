@@ -3,6 +3,7 @@ package com.hkw.arrivinginberlin;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
@@ -126,12 +127,12 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     public final static String KURDISH_KEY = "kurdish_data";
     public final static String FRENCH_KEY = "french_data";
     public final static String JSON_FIELD_REGION_NAME = "BERLIN_REGION";
+    public final static String DOWNLOAD_MAP_KEY = "did_download_map";
     public final static double MARKER_OFFSET = 0.003;
 
     private static final int PERMISSIONS_LOCATION = 0;
     private boolean isEndNotified;
     private ProgressBar progressBar;
-    private Boolean didDownload = false;
     static final int CHANGE_LANGUAGE = 1;
 
     @Override
@@ -164,41 +165,53 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         downloadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!didDownload) {
-
-                    LayoutInflater layoutInflater
-                            = (LayoutInflater)getBaseContext()
-                            .getSystemService(LAYOUT_INFLATER_SERVICE);
-                    View popupView = layoutInflater.inflate(R.layout.popup_layout, null);
-                    final PopupWindow popupWindow = new PopupWindow(
-                            popupView,
-                            ViewGroup.LayoutParams.WRAP_CONTENT,
-                            ViewGroup.LayoutParams.WRAP_CONTENT);
 
 
-                    Button btnDismiss = (Button)popupView.findViewById(R.id.cancel_button);
-                    btnDismiss.setOnClickListener(new Button.OnClickListener(){
+                //Make text depend on download state
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                Boolean didDownload = prefs.getBoolean(DOWNLOAD_MAP_KEY, false);
 
-                        @Override
-                        public void onClick(View v) {
-                            // TODO Auto-generated method stub
-                            popupWindow.dismiss();
-                        }});
-
-                    Button btnOk = (Button)popupView.findViewById(R.id.ok_button);
-                    btnOk.setOnClickListener(new Button.OnClickListener(){
-
-                        @Override
-                        public void onClick(View v) {
-                            // TODO Auto-generated method stub
-                            //Start downloading
-                            downloadButton.setVisibility(View.INVISIBLE);
-                            startDownloadingMap();
-                            popupWindow.dismiss();
-                        }});
-                    popupWindow.showAsDropDown(popupView);
+                String txt = "";
+                if (didDownload) {
+                    txt = getString(R.string.download_again_message);
+                } else {
+                    txt = getString(R.string.download_button_message);
                 }
 
+                LayoutInflater layoutInflater
+                        = (LayoutInflater)getBaseContext()
+                        .getSystemService(LAYOUT_INFLATER_SERVICE);
+                View popupView = layoutInflater.inflate(R.layout.popup_layout, null);
+                TextView pop_txt = (TextView)popupView.findViewById(R.id.popup_text);
+                pop_txt.setText(txt);
+
+                final PopupWindow popupWindow = new PopupWindow(
+                        popupView,
+                        ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT);
+
+
+                Button btnDismiss = (Button)popupView.findViewById(R.id.cancel_button);
+                btnDismiss.setOnClickListener(new Button.OnClickListener(){
+
+                    @Override
+                    public void onClick(View v) {
+                        // TODO Auto-generated method stub
+                        popupWindow.dismiss();
+                    }});
+
+                Button btnOk = (Button)popupView.findViewById(R.id.ok_button);
+                btnOk.setOnClickListener(new Button.OnClickListener(){
+
+                    @Override
+                    public void onClick(View v) {
+                        // TODO Auto-generated method stub
+                        //Start downloading
+                        downloadButton.setVisibility(View.INVISIBLE);
+                        startDownloadingMap();
+                        popupWindow.dismiss();
+                    }});
+                popupWindow.showAsDropDown(popupView);
             }
         });
 
@@ -762,7 +775,12 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private void startDownloadingMap() {
         // Set up the OfflineManager
         Log.i(TAG, "start downloading");
-        didDownload = true;
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.remove(DOWNLOAD_MAP_KEY);
+        editor.putBoolean(DOWNLOAD_MAP_KEY, true);
+        editor.apply();
+
         OfflineManager offlineManager = OfflineManager.getInstance(MainActivity.this);
 
         // Create a bounding box for the offline region
@@ -801,7 +819,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 // Display the download progress bar
                 progressBar = (ProgressBar) findViewById(R.id.progress_bar);
                 progressBar.setVisibility(ProgressBar.VISIBLE);
-                didDownload = true;
                 startProgress();
 
                 // Monitor the download progress using setObserver
@@ -1195,13 +1212,11 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         mapView.onSaveInstanceState(outState);
-        outState.putBoolean("didDownload", didDownload);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        didDownload = savedInstanceState.getBoolean("didDownload");
     }
 
     @Override
