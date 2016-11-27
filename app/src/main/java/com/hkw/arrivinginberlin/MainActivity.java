@@ -631,10 +631,18 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 if(telefon.length()!=0){
                     telefon = "<b>" + telefon.substring(0,7) +"</b>"+telefon.substring(7);
                 }
-                String medium = properties.getString("link").replace("*", "").replace("[[", "").replace("]]", "");
-                if(medium.length()!=0){
-                    medium = "<b>" + medium.substring(0,6) +"</b>"+medium.substring(6);
+                String link = properties.getString("link").replace("*", "").replace("[[", "").replace("]]", "");
+                if(link.length()!=0){
+                    link = "<b>" + link.substring(0,6) +"</b>"+link.substring(6);
+                    Log.i(TAG, "LINK " + link);
                 }
+
+                String medium = properties.getString("medium").replace("*", "").replace("[[", "").replace("]]", "");
+                if(medium.length()!=0){
+                    medium = "<b>" + medium.substring(0,7) +"</b>"+medium.substring(7);
+                    Log.i(TAG, "MEDIUM " + medium);
+                }
+
                 int imageResource = getResources().getIdentifier(uri, null, MainActivity.this.getPackageName());
                 Log.i("IMAGE RESOURCE", String.valueOf(imageResource));
                 IconFactory iconFactory = IconFactory.getInstance(MainActivity.this);
@@ -645,7 +653,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         .position(latLng)
                         .title(name)
                         .icon(icon)
-                        .snippet(beschreibung + "<br/>" + adresse + "<br/>" + telefon + "<br/>" + medium);
+                        .snippet(beschreibung + "<br/>" + adresse + "<br/>" + telefon + "<br/>" + link +"<br/>" + medium );
                 
                 CategoryMarker catMarker = new CategoryMarker(mapboxMap.addMarker(marker), categoryID, true, marker);
                 allMarkers.add(catMarker);
