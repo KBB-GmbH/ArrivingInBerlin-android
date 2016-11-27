@@ -625,21 +625,21 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 String adresse = properties.getString("adresse").replace("*", "");
                 if (adresse.length() != 0) {
                     adresse = adresse.substring(0, 1).toUpperCase() + adresse.substring​(1);
-                    adresse = "<b>"+adresse.substring(0,7)+"</b>"+adresse.substring(7);
+                    adresse = "<br>"+"<b>"+adresse.substring(0,7)+"</b>"+adresse.substring(7);
                 }
                 String telefon = properties.getString("telefon").replace("*", "");
                 if(telefon.length()!=0){
-                    telefon = telefon.substring(0,7) +"</b>"+telefon.substring(7);
+                    telefon = "<b>"+telefon.substring(0,7) +"</b>"+telefon.substring(7);
                 }
                 String link = properties.getString("link").replace("*", "").replace("[[", "").replace("]]", "");
                 if(link.length()!=0){
-                    link = link.substring(0,6) +"</b>"+link.substring(6);
+                    link = "<b>"+link.substring(0,6) +"</b>"+link.substring(6);
                     Log.i(TAG, "LINK " + link);
                 }
 
                 String medium = properties.getString("medium").replace("*", "").replace("[[", "").replace("]]", "");
                 if(medium.length()!=0){
-                    medium = medium.substring(0,7) +"</b>"+medium.substring(7);
+                    medium = "<b>"+medium.substring(0,7) +"</b>"+medium.substring(7);
                     Log.i(TAG, "MEDIUM " + medium);
                 }
 
