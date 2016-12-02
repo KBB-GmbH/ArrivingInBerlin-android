@@ -1263,6 +1263,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CHANGE_LANGUAGE) {
             if (resultCode == RESULT_OK) {
+                mapBox = null;
                 this.finish();
                 startActivity(this.getIntent());
             }
