@@ -802,26 +802,26 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         removeAllMarkers();
         TextView markerText = (TextView)findViewById(R.id.markerDescription);
         showMarker(markerText, false);
-        double lat = 0.0;
-        double lon = 0.0;
         Boolean foundMarker = false;
+        Marker selMarker = null;
 
         for (CategoryMarker cm : allMarkers) {
             String title = cm.marker.getTitle().toLowerCase();
             String lowercaseSearch = searchTerm.toLowerCase();
             if ((title.contains(lowercaseSearch)) || (cm.marker.getSnippet().contains(lowercaseSearch))) {
                 cm.marker = mapBox.addMarker(cm.markerViewOptions);
-                lat = cm.getMarker().getPosition().getLatitude() + MARKER_OFFSET;
-                lon = cm.getMarker().getPosition().getLongitude();
+                selMarker = cm.marker;
                 foundMarker = true;
             }
         }
 
         if (search && foundMarker){
             //show wider area, center on Berlin
-            zoomInOnPoint(new LatLng(lat, lon), 10);
+            double lat = selMarker.getPosition().getLatitude();
+            double lon = selMarker.getPosition().getLongitude();
+            zoomInOnPoint(new LatLng(lat, lon), 9);
         }else if(foundMarker){
-            zoomInOnPoint(new LatLng(lat, lon), 13);
+            onMarkerClick(selMarker);
         }else {
             Toast.makeText(MainActivity.this, R.string.no_location, Toast.LENGTH_LONG).show();
         }
