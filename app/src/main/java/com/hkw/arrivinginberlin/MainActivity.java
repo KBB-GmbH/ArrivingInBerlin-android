@@ -189,8 +189,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 final PopupWindow popupWindow = new PopupWindow(
                         popupView,
                         ViewGroup.LayoutParams.MATCH_PARENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT);
-
+                        ViewGroup.LayoutParams.MATCH_PARENT);
 
                 Button btnDismiss = (Button)popupView.findViewById(R.id.cancel_button);
                 btnDismiss.setOnClickListener(new Button.OnClickListener(){

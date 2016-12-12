@@ -71,7 +71,7 @@
                 android:id="@+id/kurdish"
                 android:background="@null"
                 android:textColor="@drawable/button_text_color"
-                android:text="Kurdî"/>
+                android:text="سۆرانی"/>
 
         </RelativeLayout>
     </ScrollView>
