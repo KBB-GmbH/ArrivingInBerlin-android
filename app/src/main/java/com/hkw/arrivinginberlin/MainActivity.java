@@ -802,7 +802,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         TextView markerText = (TextView)findViewById(R.id.markerDescription);
         showMarker(markerText, false);
         for (CategoryMarker cm : allMarkers) {
-            if ((cm.marker.getTitle().contains(searchTerm)) || (cm.marker.getSnippet().contains(searchTerm))) {
+            String title = cm.marker.getTitle().toLowerCase();
+            String lowercaseSearch = searchTerm.toLowerCase();
+            if ((title.contains(lowercaseSearch)) || (cm.marker.getSnippet().contains(lowercaseSearch))) {
                 cm.marker = mapBox.addMarker(cm.markerViewOptions);
                 double lat = cm.getMarker().getPosition().getLatitude() + MARKER_OFFSET;
                 double lon = cm.getMarker().getPosition().getLongitude();
