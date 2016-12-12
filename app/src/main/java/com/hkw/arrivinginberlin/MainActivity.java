@@ -26,6 +26,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.text.BoringLayout;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
@@ -331,7 +332,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 } else if (childPosition == 0) {
                     displayMarkersForCategory(item.categorieId);
                 } else {
-                    displayMarkersForSearchTerm(item.subItems.get(childPosition));
+                    displayMarkersForSearchTerm(item.subItems.get(childPosition), false);
                 }
                  //Close the navigation drawer
                 mDrawer.closeDrawers();
@@ -611,7 +612,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     @Override
     public boolean onQueryTextSubmit(String query) {
 //        // User pressed the search button
-        displayMarkersForSearchTerm(query);
+        displayMarkersForSearchTerm(query, true);
         return false;
     }
 
@@ -797,19 +798,32 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         }
     }
 
-    public void displayMarkersForSearchTerm(String searchTerm) {
+    public void displayMarkersForSearchTerm(String searchTerm, Boolean search) {
         removeAllMarkers();
         TextView markerText = (TextView)findViewById(R.id.markerDescription);
         showMarker(markerText, false);
+        double lat = 0.0;
+        double lon = 0.0;
+        Boolean foundMarker = false;
+
         for (CategoryMarker cm : allMarkers) {
             String title = cm.marker.getTitle().toLowerCase();
             String lowercaseSearch = searchTerm.toLowerCase();
             if ((title.contains(lowercaseSearch)) || (cm.marker.getSnippet().contains(lowercaseSearch))) {
                 cm.marker = mapBox.addMarker(cm.markerViewOptions);
-                double lat = cm.getMarker().getPosition().getLatitude() + MARKER_OFFSET;
-                double lon = cm.getMarker().getPosition().getLongitude();
-                zoomInOnPoint(new LatLng(lat, lon), 13);
+                lat = cm.getMarker().getPosition().getLatitude() + MARKER_OFFSET;
+                lon = cm.getMarker().getPosition().getLongitude();
+                foundMarker = true;
             }
+        }
+
+        if (search && foundMarker){
+            //show wider area, center on Berlin
+            zoomInOnPoint(new LatLng(lat, lon), 10);
+        }else if(foundMarker){
+            zoomInOnPoint(new LatLng(lat, lon), 13);
+        }else {
+            Toast.makeText(MainActivity.this, R.string.no_location, Toast.LENGTH_LONG).show();
         }
     }
 
