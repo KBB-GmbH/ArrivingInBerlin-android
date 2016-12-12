@@ -3,9 +3,9 @@
     package="com.hkw.arrivinginberlin">
 
     <uses-sdk
-        android:maxSdkVersion="24"
+        android:maxSdkVersion="25"
         android:minSdkVersion="21"
-        android:targetSdkVersion="24" />
+        android:targetSdkVersion="25" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
