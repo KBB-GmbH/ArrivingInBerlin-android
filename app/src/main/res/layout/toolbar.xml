@@ -4,7 +4,7 @@
     android:id="@+id/toolbar"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:fitsSystemWindows="true"
+    android:fitsSystemWindows="false"
     android:minHeight="?attr/actionBarSize"
     android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
     app:titleTextAppearance="@style/Toolbar.TitleText"

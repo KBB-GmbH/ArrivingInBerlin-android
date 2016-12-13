@@ -41,7 +41,7 @@
             android:backgroundTint="#FFFFFF"
             android:text="@string/next"
             android:textColor="@drawable/button_text_color"
-            android:layout_alignRight="@id/startupText"
+            android:layout_alignEnd="@id/startupText"
             />
     </RelativeLayout>
 

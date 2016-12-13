@@ -343,7 +343,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             public boolean onGroupClick(ExpandableListView expandableListView, View view, int groupPosition, long groupId) {
                 showTransportButtons(false);
                 if (groupPosition == 0) {
-                    setTitle("Arriving");
+                    setTitle(getString(R.string.all));
                     displayAllMarkers();
                     mDrawer.closeDrawers();
                     return false;

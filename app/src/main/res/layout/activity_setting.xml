@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:screenOrientation="portrait"
     tools:context="com.hkw.arrivinginberlin.MainActivity"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="false">
 
     <!-- This LinearLayout represents the contents of the screen  -->
     <LinearLayout

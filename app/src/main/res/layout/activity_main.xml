@@ -7,13 +7,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:screenOrientation="portrait"
+    android:orientation="vertical"
     tools:context="com.hkw.arrivinginberlin.MainActivity"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="false">
 
    <!-- This LinearLayout represents the contents of the screen  -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fitsSystemWindows="false"
         android:orientation="vertical">
 
         <!-- The ActionBar displayed at the top -->
@@ -21,13 +23,16 @@
             layout="@layout/toolbar"
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="false"
+            android:visibility="visible" />
 
         <com.mapbox.mapboxsdk.maps.MapView
             android:id="@+id/mapView"
             android:layout_below="@id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fitsSystemWindows="false"
             mapbox:style_url="mapbox://styles/mapbox/streets-v9"
             mapbox:center_latitude="52.516889"
             mapbox:center_longitude="13.388389"
@@ -52,7 +57,8 @@
             android:id="@+id/markerDescription"
             android:background="@color/colorPrimary"
             android:layout_below="@id/toolbar"
-            android:linksClickable="true"/>
+            android:linksClickable="true"
+            android:textAppearance="@style/Toolbar.TitleText" />
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/download_map_toggle_fab"
             android:layout_width="wrap_content"
@@ -103,21 +109,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="0dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="0dp">
+            android:layout_alignParentStart="true">
         </FrameLayout>
     </RelativeLayout>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nvView"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#438D8D"
         android:layout_gravity="start"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="false">
 
         <ExpandableListView
             android:id="@+id/navMenu"
             app:headerLayout="@layout/nav_header"
+            android:fitsSystemWindows="false"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="60dp"
