@@ -678,7 +678,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 String adresse = properties.getString("adresse").replace("*", "");
                 if (adresse.length() != 0) {
                     adresse = adresse.substring(0, 1).toUpperCase() + adresse.substring​(1);
-                    adresse = "<br>"+"<b>"+adresse.substring(0,7)+"</b>"+adresse.substring(7);
+                    adresse = "<b>"+adresse.substring(0,7)+"</b>"+adresse.substring(7);
                 }
                 String telefon = properties.getString("telefon").replace("*", "");
                 if(telefon.length()!=0){
@@ -686,7 +686,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 }
                 String link = properties.getString("link").replace("*", "").replace("[[", "").replace("]]", "");
                 if(link.length()!=0){
-                    link = "<b>"+link.substring(0,6) +"</b>"+link.substring(6);
+                    link = "<b>"+link.substring(0,7) +"</b>"+link.substring(7);
                     Log.i(TAG, "LINK " + link);
                 }
 
@@ -706,7 +706,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         .position(latLng)
                         .title(name)
                         .icon(icon)
-                        .snippet(beschreibung + "<br/>" + adresse + "<br/>" + telefon + "<br/>" + link +"<br/>" + medium );
+                        .snippet("<br/>" + beschreibung + "<br/>" + adresse + "<br/>" + telefon + "<br/>" + link +"<br/>" + medium );
                 
                 CategoryMarker catMarker = new CategoryMarker(mapboxMap.addMarker(marker), categoryID, true, marker);
                 allMarkers.add(catMarker);

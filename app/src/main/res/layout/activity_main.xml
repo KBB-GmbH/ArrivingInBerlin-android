@@ -58,7 +58,7 @@
             android:background="@color/colorPrimary"
             android:layout_below="@id/toolbar"
             android:linksClickable="true"
-            android:textAppearance="@style/Toolbar.TitleText" />
+            android:textAppearance="@style/MarkerDescription" />
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/download_map_toggle_fab"
             android:layout_width="wrap_content"
