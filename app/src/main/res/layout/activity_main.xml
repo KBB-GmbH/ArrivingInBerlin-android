@@ -6,10 +6,8 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:screenOrientation="portrait"
     android:orientation="vertical"
-    tools:context="com.hkw.arrivinginberlin.MainActivity"
-    android:fitsSystemWindows="false">
+    tools:context="com.hkw.arrivinginberlin.MainActivity">
 
    <!-- This LinearLayout represents the contents of the screen  -->
     <RelativeLayout
@@ -24,7 +22,6 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fitsSystemWindows="false"
             android:visibility="visible" />
 
         <com.mapbox.mapboxsdk.maps.MapView
@@ -32,7 +29,6 @@
             android:layout_below="@id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fitsSystemWindows="false"
             mapbox:style_url="mapbox://styles/mapbox/streets-v9"
             mapbox:center_latitude="52.516889"
             mapbox:center_longitude="13.388389"
@@ -107,27 +103,23 @@
         <FrameLayout
             android:id="@+id/bottomBarContainer"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="0dp"
-            android:layout_alignParentStart="true">
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_alignParentBottom="true">
         </FrameLayout>
     </RelativeLayout>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nvView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:textColor="#438D8D"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="false">
+        android:layout_gravity="start">
 
         <ExpandableListView
             android:id="@+id/navMenu"
-            app:headerLayout="@layout/nav_header"
-            android:fitsSystemWindows="false"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginTop="60dp"
             android:background="@android:color/white">
         </ExpandableListView>
     </android.support.design.widget.NavigationView>

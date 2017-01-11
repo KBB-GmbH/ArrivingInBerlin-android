@@ -3,9 +3,7 @@
     package="com.hkw.arrivinginberlin">
 
     <uses-sdk
-        android:maxSdkVersion="25"
-        android:minSdkVersion="21"
-        android:targetSdkVersion="25" />
+        android:maxSdkVersion="25" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -34,11 +32,11 @@
         </activity>
         <activity
             android:name=".StartupActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:theme="@style/ThemeFullScreen"
             android:windowActionBar="false" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:theme="@style/ThemeFullScreen"
             android:windowActionBar="false"/>
         <!--
  ATTENTION: This was auto-generated to add Google Play services to your project for
@@ -54,7 +52,7 @@
             android:name=".SettingActivity"
             android:label="@string/title_activity_setting"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme">
+            android:theme="@style/ThemeFullScreen">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.hkw.arrivinginberlin.MainActivity" />
