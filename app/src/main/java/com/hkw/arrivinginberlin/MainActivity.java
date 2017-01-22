@@ -1,6 +1,7 @@
 package com.hkw.arrivinginberlin;
 
 import android.Manifest;
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -130,6 +131,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     public final static String JSON_FIELD_REGION_NAME = "BERLIN_REGION";
     public final static String DOWNLOAD_MAP_KEY = "did_download_map";
     public final static double MARKER_OFFSET = 0.003;
+
+    private Marker selectedMarker = null;
+    private Icon selectedMarkerIcon = null;
 
     private static final int PERMISSIONS_LOCATION = 0;
     private boolean isEndNotified;
@@ -1000,6 +1004,15 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     //MAP HANDLERS
     @Override
     public boolean onMarkerClick(@NonNull Marker marker) {
+        //Deselect previous marker
+        if (selectedMarker != null && selectedMarkerIcon != null) {
+            //Set this one selected
+            deselectMarker(selectedMarker, selectedMarkerIcon);
+        }
+
+        selectedMarker = marker;
+        selectedMarkerIcon = marker.getIcon();
+
         //show direction buttons
         showTransportButtons(true);
         removePolyline();
@@ -1012,6 +1025,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         TextView markerText = (TextView)findViewById(R.id.markerDescription);
         markerText.setText(Html.fromHtml(marker.getTitle() + "<br/>" + marker.getSnippet()));
         Linkify.addLinks(markerText, Linkify.ALL);
+        selectMarker(marker);
         showMarker(markerText, true);
         return true;
     }
@@ -1023,12 +1037,30 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         showMarker(markerText, false);
     }
 
+    private void deselectMarker(Marker marker, Icon icon) {
+        marker.setIcon(icon);
+    }
+
+    private void selectMarker(Marker marker){
+        int imageResource = getResources().getIdentifier("@drawable/favorite", null, MainActivity.this.getPackageName());
+        IconFactory iconFactory = IconFactory.getInstance(MainActivity.this);
+        Drawable iconDrawable = getResources().getDrawable(imageResource);
+        Icon icon = iconFactory.fromDrawable(iconDrawable);
+
+        marker.setIcon(icon);
+    }
+
     private void showMarker(TextView markerTxt, Boolean visible){
+        //TODO: return icon to it's normal shape
         if (visible){
             markerTxt.setVisibility(View.VISIBLE);
             downloadButton.setVisibility(View.INVISIBLE);
         }
         else {
+            if (selectedMarker != null && selectedMarkerIcon != null) {
+                //Set this one selected
+                deselectMarker(selectedMarker, selectedMarkerIcon);
+            }
             downloadButton.setVisibility(View.VISIBLE);
             markerTxt.setVisibility(View.INVISIBLE);
             showTransportButtons(false);
