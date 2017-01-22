@@ -848,8 +848,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         OfflineTilePyramidRegionDefinition definition = new OfflineTilePyramidRegionDefinition(
                 Style.MAPBOX_STREETS,
                 latLngBounds,
-                12,
-                12,
+                16,
+                16,
                 this.getResources().getDisplayMetrics().density);
 
         // Set the metadata
