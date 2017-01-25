@@ -1194,6 +1194,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     return ARABIC_KEY;
                 case "ku":
                     return KURDISH_KEY;
+                case "ur":
+                    return KURDISH_KEY;
                 default:
                     return ENGLISH_KEY;
             }
