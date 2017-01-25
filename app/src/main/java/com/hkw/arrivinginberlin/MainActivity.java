@@ -1050,11 +1050,21 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         marker.setIcon(icon);
     }
 
-    private void showMarker(TextView markerTxt, Boolean visible){
+    private void showMarker(final TextView markerTxt, Boolean visible){
         //TODO: return icon to it's normal shape
+        Button button = (Button) findViewById(R.id.close_marker);
+
         if (visible){
             markerTxt.setVisibility(View.VISIBLE);
             downloadButton.setVisibility(View.INVISIBLE);
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                   showMarker(markerTxt, false);
+                }
+            });
+
+            button.setVisibility(View.VISIBLE);
         }
         else {
             if (selectedMarker != null && selectedMarkerIcon != null) {
@@ -1062,6 +1072,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 deselectMarker(selectedMarker, selectedMarkerIcon);
             }
             downloadButton.setVisibility(View.VISIBLE);
+            button.setVisibility(View.INVISIBLE);
             markerTxt.setVisibility(View.INVISIBLE);
             showTransportButtons(false);
         }
