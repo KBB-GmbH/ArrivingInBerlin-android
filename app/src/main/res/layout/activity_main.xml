@@ -59,7 +59,7 @@
         <Button
             android:id="@+id/close_marker"
             android:layout_alignTop="@id/markerDescription"
-            android:layout_alignRight="@id/markerDescription"
+            android:layout_alignEnd="@id/markerDescription"
             android:visibility="invisible"
             android:layout_width="40dp"
             android:layout_height="40dp"

@@ -23,7 +23,7 @@ public class LocaleUtils {
     public static final String GERMAN = "de";
     public static final String FARSI = "fa";
     public static final String ARABIC = "ar";
-    public static final String KURDISH = "ku";
+    public static final String KURDISH = "ur";
     public  static final String LANGUAGE = "LANGUAGE";
 
     public static void initialize(Context context) {
