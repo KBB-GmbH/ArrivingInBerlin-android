@@ -777,6 +777,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     public void displayAllMarkers() {
         removePolyline();
         removeAllMarkers();
+        showMarker(false);
+        zoomInOnPoint(new LatLng(52.516889, 13.388389), 10);
         mapBox.removeAnnotations();
         for (CategoryMarker cm : allMarkers) {
             cm.marker = mapBox.addMarker(cm.markerViewOptions);
@@ -792,8 +794,11 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     }
 
     public void displayMarkersForCategory(final int categoryId) {
+        //Zoom in on center
         removePolyline();
         removeAllMarkers();
+        showMarker(false);
+        zoomInOnPoint(new LatLng(52.516889, 13.388389), 10);
         for (CategoryMarker cm : allMarkers) {
             if (cm.categoryID == categoryId) {
                 cm.marker = mapBox.addMarker(cm.markerViewOptions);
@@ -803,8 +808,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     public void displayMarkersForSearchTerm(String searchTerm, Boolean search) {
         removeAllMarkers();
-        TextView markerText = (TextView)findViewById(R.id.markerDescription);
-        showMarker(markerText, false);
+        showMarker(false);
         Boolean foundMarker = false;
         Marker selMarker = null;
 
@@ -852,7 +856,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         OfflineTilePyramidRegionDefinition definition = new OfflineTilePyramidRegionDefinition(
                 Style.MAPBOX_STREETS,
                 latLngBounds,
-                16,
+                10,
                 16,
                 this.getResources().getDisplayMetrics().density);
 
@@ -1026,15 +1030,14 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         markerText.setText(Html.fromHtml(marker.getTitle() + "<br/>" + marker.getSnippet()));
         Linkify.addLinks(markerText, Linkify.ALL);
         selectMarker(marker);
-        showMarker(markerText, true);
+        showMarker(true);
         return true;
     }
 
     @Override
     public void onMapClick(@NonNull LatLng point) {
         //remove direction buttons
-        TextView markerText = (TextView)findViewById(R.id.markerDescription);
-        showMarker(markerText, false);
+        showMarker(false);
     }
 
     private void deselectMarker(Marker marker, Icon icon) {
@@ -1050,8 +1053,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         marker.setIcon(icon);
     }
 
-    private void showMarker(final TextView markerTxt, Boolean visible){
+    private void showMarker(Boolean visible){
         //TODO: return icon to it's normal shape
+        final TextView markerTxt = (TextView)findViewById(R.id.markerDescription);
         Button button = (Button) findViewById(R.id.close_marker);
 
         if (visible){
@@ -1060,7 +1064,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                   showMarker(markerTxt, false);
+                   showMarker(false);
                 }
             });
 
