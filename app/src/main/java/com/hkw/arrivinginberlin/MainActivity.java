@@ -1112,7 +1112,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 case "ar":
                     return new UmapDataRequest().getLocations(128884, 128897);
                 case "ku":
-                    return new UmapDataRequest().getLocations(128475, 128497);
+                    return new UmapDataRequest().getLocations(193257, 193270);
                 default:
                     return new UmapDataRequest().getLocationsEnglish();
 
