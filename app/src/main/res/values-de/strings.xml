@@ -17,7 +17,7 @@
     <string name="info">Info</string>
     <string name="contact">Kontakt</string>
     <string name="language">Sprache</string>
-    <string name="about">About</string>
+    <string name="about">Über</string>
     <string name="screen_one">“Arriving in Berlin - App” ist eine digitale Karte mit hilfreichen Informationen für Geflüchtete und Neuankommende in Berlin.</string>
     <string name="screen_two">Nutzen Sie die Karte oder die Listenansicht, um Orte zu finden. Mithilfe des Suchfeldes können Sie ganz bestimmte Informationen suchen. Die Karte hilft Ihnen außerdem, zu einem Ziel zu navigieren und funktioniert auch, wenn Sie offline sind. </string>
 
@@ -42,12 +42,12 @@
     <string name="contact_text">Haben Sie Fragen und Anregungen? Oder gibt es einen interessanten Ort, den wir vergessen haben? Dann schreiben Sie uns einfach eine Nachricht. </string>
 
     <string name="app_name">Arriving</string>
-    <string name="send_email">Send</string>
+    <string name="send_email">Senden</string>
     <string name="main_title">Arriving</string>
-    <string name="download_button_message">You are about to download 90MB of data. Make sure you are connected to wifi. Would you like to continue?</string>
-    <string name="cancel">Cancel</string>
-    <string name="continue_button">Continue</string>
-    <string name="download_again_message">Would you like to update your offline map? This will download 90MB of data. Make sure you are connected to wifi. Would you like to continue? </string>
-    <string name="google_maps_popup">This will redirect you to Google Maps.</string>
+    <string name="download_button_message">Das Datenvolumen des Downloads beträgt 90 MB. Stellen Sie sicher, dass Sie mit einem Wlan-Netz verbunden sind. Möchten Sie fortfahren?</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="continue_button">Weiter</string>
+    <string name="download_again_message">Möchten Sie Ihre Offline-Karte aktualisieren? Das Datenvolumen des Downloads beträgt 90 MB. Stellen Sie sicher, dass Sie mit einem Wlan-Netz verbunden sind. Möchten Sie fortfahren?</string>
+    <string name="google_maps_popup">Sie werden zu Google Maps weitergeleitet.</string>
     <string name="no_location">No location found</string>
 </resources>

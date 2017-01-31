@@ -19,7 +19,7 @@
     <string name="contact">پێوەندی</string>
     <string name="language">زمان</string>
 
-    <string name="about">About</string>
+    <string name="about">سەبارەت</string>
 
     <string name="screen_one">\"ئەڕاڤینگ بێرلین ئەپ\" نەخشەیەکی دیجیتالیە بۆ پێدانی زانیاری و هاوکاریکردنی پەنابەران و ئەوەانەی ئێستا دەگەنە بێرلین.   </string>
     <string name="screen_two">بەکارهێنانی ئەو نەخشەیە یان ئەم لیستانە بۆ دۆزینەوەی شوێنەکانە. بە هاوکاری پانتایی گەڕانەکە دەتوانی بەتەواوی بە شوێن زانیارییە دیاری‌کراوەکاندا بگەڕیێ. بە جیا لەوە، ئەم نەخشەیە بۆ دیاریکردنی ریگە و مەودا بۆ  گەیشتن بە شوێنی مەبەستیش بەکار دەبرێ. تەنانەت ئەگەر تۆ ئینتێرنێتیشت لەبەر دەستدا نەبێت.</string>
@@ -40,13 +40,13 @@
     <string name="about_three">ئەم پرۆگرامەلەسەر بنەمای چوارچێوەی Mapbox SDK و سەرچاوەیەکی کراوەیە (بەڵگەنامەیەک لەسەر GitHub)</string>
     <string name="about_four">بەشداربووانی پرۆژەکە هەموو ئایکۆنەکانیان گەشە پێداوە.  (سەرچاوە: Freepik from www.flaticon.com )</string>
 
-    <string name="main_title">xx</string>
+    <string name="main_title">Arriving</string>
     <string name="contact_text">ئەگە پرسیارێکت هەیە؟ یان شوێنێکی سەرنجڕاکێش  گرنگمان لە یاد کردبێت؟ کەوایە تەنیا پەیامێکی سادەمان بۆ بنێرە.</string>
-    <string name="send_email">xx</string>
-    <string name="download_button_message">You are about to download 90MB of data. Make sure you are connected to wifi. Would you like to continue?</string>
-    <string name="cancel">Cancel</string>
-    <string name="continue_button">Continue</string>
-    <string name="download_again_message">Would you like to update your offline map? This will download 90MB of data. Make sure you are connected to wifi. Would you like to continue? </string>
-    <string name="google_maps_popup">This will redirect you to Google Maps.</string>
+    <string name="send_email">ناردن</string>
+    <string name="download_button_message">ئێوە خەریکی دابەزاندنی بەرنامەیەکن بە قەبارەی 90 مێگابایت. تکایە ئەرخەیان بن کە بە وایفاوە وەسڵن. دەتانهەوێت بەردەوام بن؟</string>
+    <string name="cancel">پەکخستنەوە</string>
+    <string name="continue_button">بەردەوام‌بوون</string>
+    <string name="download_again_message"> ئایا دەتانهەوێت کە نەخشەکە بەڕۆژ بکەن؟ ئێوە خەریکی دابەزاندنی بەرنامەیەکن بە قەبارەی 90 مێگابایت. تکایە ئەرخەیان بن کە بە وایفاوە وەسڵن. دەتانهەوێت بەردەوام بن؟</string>
+    <string name="google_maps_popup">لێرەوە بە نەخشەگوگڵەوە وەسڵ دەبن</string>
     <string name="no_location">No location found</string>
 </resources>

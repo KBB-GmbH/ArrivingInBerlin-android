@@ -18,7 +18,7 @@
     <string name="info">اطلاعات</string>
     <string name="contact">ارتباط</string>
     <string name="language">زبان</string>
-    <string name="about">About</string>
+    <string name="about">در باره </string>
 
     <string name="screen_one">ارايفينگ ان برلين: يک نقشه ديجيتالی دارای اطلاعات مفيد برای پناه جويان ومهاجرين که تازه وارد برلين شدند. ميباشد.</string>
     <string name="screen_two">شما میتوانید از نقشه و فهرست آدرس هابرای یافتن آدرس مورد نظر استفاده نماید. از طریق search bar میتوانید آدرس مورد نظرتان را بیابید. نقشه همچنان به شما کمک میکندتا بتوانید راه رفتن را در یابید. و این نقشه بدون انترنت هم قابل استفاده میباشد</string>
@@ -40,13 +40,13 @@
     <string name="about_three">این نرم افزار در چارچوب از MapBox SDK بر اساس و منبع باز (اسناد و مدارک در GitHub است</string>
     <string name="about_four">همه آیکون ها توسط شرکت کنندگان در پروژه نقشه کشی طراحی شده است. (منبع از: Freepik  www.flaticon.com)</string>
 
-    <string name="main_title">xx</string>
+    <string name="main_title">Arriving</string>
     <string name="contact_text">اگر کدام محل یا موقیعتی شما درباره آن اطلاغ دارید و روی این نقشه نمایان نمیباشد.یا پیشنهاد یا انتقاد دارید لطفا با در تماس شوید</string>
-    <string name="send_email">xx</string>
-    <string name="download_button_message">You are about to download 90MB of data. Make sure you are connected to wifi. Would you like to continue?</string>
-    <string name="cancel">Cancel</string>
-    <string name="continue_button">Continue</string>
-    <string name="download_again_message">Would you like to update your offline map? This will download 90MB of data. Make sure you are connected to wifi. Would you like to continue? </string>
-    <string name="google_maps_popup">This will redirect you to Google Maps.</string>
+    <string name="send_email">ارسال</string>
+    <string name="download_button_message">شما در حال دانلود نرم افزار به حجم 90 میگابایت میباشید لطفا مطمعا شوید مه به وای فای وصل باشید </string>
+    <string name="cancel">لغو</string>
+    <string name="continue_button">ادامه </string>
+    <string name="download_again_message">آیای شما میخواید که نقشه به روز رسانی کنید. شما در حال دانلود نرم افزار به حجم 90 میگابایت میباشید لطفا مطمعا شوید مه به وای فای وصل باشید  </string>
+    <string name="google_maps_popup">این شما را به گوگل مپس وصل میکند </string>
     <string name="no_location">No location found</string>
 </resources>
