@@ -680,23 +680,25 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 String name = "<b>"+properties.getString("name")+"</b>";
                 String beschreibung = properties.getString("beschreibung").replace("*", "");
                 String adresse = properties.getString("adresse").replace("*", "");
+
+                String finalStr = "";
                 if (adresse.length() != 0) {
                     adresse = adresse.substring(0, 1).toUpperCase() + adresse.substring​(1);
-                    adresse = "<b>"+adresse.substring(0,7)+"</b>"+adresse.substring(7);
+                    finalStr += "<br/><br/>" + "<b>"+adresse.substring(0,7)+"</b>"+adresse.substring(7);
                 }
                 String telefon = properties.getString("telefon").replace("*", "");
                 if(telefon.length()!=0){
-                    telefon = "<b>"+telefon.substring(0,7) +"</b>"+telefon.substring(7);
+                    finalStr += "<br/>"+"<b>"+telefon.substring(0,7) +"</b>"+telefon.substring(7);
                 }
                 String link = properties.getString("link").replace("*", "").replace("[[", "").replace("]]", "");
                 if(link.length()!=0){
-                    link = "<b>"+link.substring(0,7) +"</b>"+link.substring(7);
+                    finalStr += "<br/>"+"<b>"+link.substring(0,7) +"</b>"+link.substring(7);
                     Log.i(TAG, "LINK " + link);
                 }
 
                 String medium = properties.getString("medium").replace("*", "").replace("[[", "").replace("]]", "");
                 if(medium.length()!=0){
-                    medium = "<b>"+medium.substring(0,7) +"</b>"+medium.substring(7);
+                    finalStr += "<br/>"+"<b>"+medium.substring(0,7) +"</b>"+medium.substring(7);
                     Log.i(TAG, "MEDIUM " + medium);
                 }
 
@@ -710,7 +712,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         .position(latLng)
                         .title(name)
                         .icon(icon)
-                        .snippet("<br/>" + beschreibung + "<br/>" + adresse + "<br/>" + telefon + "<br/>" + link +"<br/>" + medium );
+                        .snippet("<br/>" + beschreibung + finalStr);
                 
                 CategoryMarker catMarker = new CategoryMarker(mapboxMap.addMarker(marker), categoryID, true, marker);
                 allMarkers.add(catMarker);
