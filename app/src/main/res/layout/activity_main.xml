@@ -50,11 +50,22 @@
             android:visibility="invisible"
             android:padding="16dp"
             android:layout_marginTop="8dp"
+            android:paddingEnd="40dp"
             android:id="@+id/markerDescription"
             android:background="@color/colorPrimary"
             android:layout_below="@id/toolbar"
             android:linksClickable="true"
             android:textAppearance="@style/MarkerDescription" />
+        <Button
+            android:id="@+id/close_marker"
+            android:layout_alignTop="@id/markerDescription"
+            android:layout_alignEnd="@id/markerDescription"
+            android:visibility="invisible"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:backgroundTint="#FFFFFF"
+            android:text="X"/>
+
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/download_map_toggle_fab"
             android:layout_width="wrap_content"

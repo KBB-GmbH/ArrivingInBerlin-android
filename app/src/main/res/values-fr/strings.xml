@@ -18,7 +18,7 @@
     <string name="info">Info</string>
     <string name="contact">Contact</string>
     <string name="language">Langue</string>
-    <string name="about">About</string>
+    <string name="about">À propos</string>
 
     <string name="screen_one">„Arriving in Berlin – App“ est une carte digitale contenant des informations utiles pour les réfugiés et les nouveaux arrivants à Berlin.</string>
     <string name="screen_two">Utilisez la carte ou la liste pour trouver les endroits. La case „rechercher“ vous aide à trouver des informations spécifiques. La carte aide aussi à vous guider à une destination et fonctionne même si vous êtes hors ligne.</string>
@@ -40,13 +40,13 @@
     <string name="about_three">L\'application utilise Mapbox SDK et est en open source. (documentation sur GitHub)</string>
     <string name="about_four">Toutes les icônes ont été développées par les participant(e)s du projet de Mapping (Source: Freepik de www.flaticon.com )</string>
 
-    <string name="main_title">xx</string>
+    <string name="main_title">Arriving</string>
     <string name="contact_text">Avez-vous des questions ou des commentaires? Ou avons-nous oublié des lieux intéressants? Si oui, envoyez-nous un message.</string>
-    <string name="send_email">xx</string>
-    <string name="download_button_message">You are about to download 90MB of data. Make sure you are connected to wifi. Would you like to continue?</string>
-    <string name="cancel">Cancel</string>
-    <string name="continue_button">Continue</string>
-    <string name="download_again_message">Would you like to update your offline map? This will download 90MB of data. Make sure you are connected to wifi. Would you like to continue? </string>
-    <string name="google_maps_popup">This will redirect you to Google Maps.</string>
+    <string name="send_email">Envoyer</string>
+    <string name="download_button_message">Le volume des téléchargements correspond à 90 MB. Vérifiez que vous soyez bien connecté à un réseau wifi. Souhaitez-vous continuer?</string>
+    <string name="cancel">Annuler</string>
+    <string name="continue_button">Continuer</string>
+    <string name="download_again_message">Souhaitez-vous mettre à jour votre carte offline? Ceci implique le téléchargement de 90 MB de données. Vérifiez que vous soyez bien connecté à un réseau wifi. Souhaitez-vous continuer?</string>
+    <string name="google_maps_popup">Ceci vous redirigera vers Google Map</string>
     <string name="no_location">No location found</string>
 </resources>

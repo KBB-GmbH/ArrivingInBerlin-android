@@ -1,6 +1,7 @@
 package com.hkw.arrivinginberlin;
 
 import android.Manifest;
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -130,6 +131,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     public final static String JSON_FIELD_REGION_NAME = "BERLIN_REGION";
     public final static String DOWNLOAD_MAP_KEY = "did_download_map";
     public final static double MARKER_OFFSET = 0.003;
+
+    private Marker selectedMarker = null;
+    private Icon selectedMarkerIcon = null;
 
     private static final int PERMISSIONS_LOCATION = 0;
     private boolean isEndNotified;
@@ -773,6 +777,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     public void displayAllMarkers() {
         removePolyline();
         removeAllMarkers();
+        showMarker(false);
+        zoomInOnPoint(new LatLng(52.516889, 13.388389), 10);
         mapBox.removeAnnotations();
         for (CategoryMarker cm : allMarkers) {
             cm.marker = mapBox.addMarker(cm.markerViewOptions);
@@ -788,8 +794,11 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     }
 
     public void displayMarkersForCategory(final int categoryId) {
+        //Zoom in on center
         removePolyline();
         removeAllMarkers();
+        showMarker(false);
+        zoomInOnPoint(new LatLng(52.516889, 13.388389), 10);
         for (CategoryMarker cm : allMarkers) {
             if (cm.categoryID == categoryId) {
                 cm.marker = mapBox.addMarker(cm.markerViewOptions);
@@ -799,8 +808,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     public void displayMarkersForSearchTerm(String searchTerm, Boolean search) {
         removeAllMarkers();
-        TextView markerText = (TextView)findViewById(R.id.markerDescription);
-        showMarker(markerText, false);
+        showMarker(false);
         Boolean foundMarker = false;
         Marker selMarker = null;
 
@@ -848,8 +856,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         OfflineTilePyramidRegionDefinition definition = new OfflineTilePyramidRegionDefinition(
                 Style.MAPBOX_STREETS,
                 latLngBounds,
-                12,
-                12,
+                10,
+                16,
                 this.getResources().getDisplayMetrics().density);
 
         // Set the metadata
@@ -1000,6 +1008,15 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     //MAP HANDLERS
     @Override
     public boolean onMarkerClick(@NonNull Marker marker) {
+        //Deselect previous marker
+        if (selectedMarker != null && selectedMarkerIcon != null) {
+            //Set this one selected
+            deselectMarker(selectedMarker, selectedMarkerIcon);
+        }
+
+        selectedMarker = marker;
+        selectedMarkerIcon = marker.getIcon();
+
         //show direction buttons
         showTransportButtons(true);
         removePolyline();
@@ -1012,24 +1029,54 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         TextView markerText = (TextView)findViewById(R.id.markerDescription);
         markerText.setText(Html.fromHtml(marker.getTitle() + "<br/>" + marker.getSnippet()));
         Linkify.addLinks(markerText, Linkify.ALL);
-        showMarker(markerText, true);
+        selectMarker(marker);
+        showMarker(true);
         return true;
     }
 
     @Override
     public void onMapClick(@NonNull LatLng point) {
         //remove direction buttons
-        TextView markerText = (TextView)findViewById(R.id.markerDescription);
-        showMarker(markerText, false);
+        showMarker(false);
     }
 
-    private void showMarker(TextView markerTxt, Boolean visible){
+    private void deselectMarker(Marker marker, Icon icon) {
+        marker.setIcon(icon);
+    }
+
+    private void selectMarker(Marker marker){
+        int imageResource = getResources().getIdentifier("@drawable/favorite", null, MainActivity.this.getPackageName());
+        IconFactory iconFactory = IconFactory.getInstance(MainActivity.this);
+        Drawable iconDrawable = getResources().getDrawable(imageResource);
+        Icon icon = iconFactory.fromDrawable(iconDrawable);
+
+        marker.setIcon(icon);
+    }
+
+    private void showMarker(Boolean visible){
+        //TODO: return icon to it's normal shape
+        final TextView markerTxt = (TextView)findViewById(R.id.markerDescription);
+        Button button = (Button) findViewById(R.id.close_marker);
+
         if (visible){
             markerTxt.setVisibility(View.VISIBLE);
             downloadButton.setVisibility(View.INVISIBLE);
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                   showMarker(false);
+                }
+            });
+
+            button.setVisibility(View.VISIBLE);
         }
         else {
+            if (selectedMarker != null && selectedMarkerIcon != null) {
+                //Set this one selected
+                deselectMarker(selectedMarker, selectedMarkerIcon);
+            }
             downloadButton.setVisibility(View.VISIBLE);
+            button.setVisibility(View.INVISIBLE);
             markerTxt.setVisibility(View.INVISIBLE);
             showTransportButtons(false);
         }
@@ -1065,7 +1112,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 case "ar":
                     return new UmapDataRequest().getLocations(128884, 128897);
                 case "ku":
-                    return new UmapDataRequest().getLocations(128475, 128497);
+                    return new UmapDataRequest().getLocations(193257, 193270);
                 default:
                     return new UmapDataRequest().getLocationsEnglish();
 
@@ -1150,6 +1197,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 case "ar":
                     return ARABIC_KEY;
                 case "ku":
+                    return KURDISH_KEY;
+                case "ur":
                     return KURDISH_KEY;
                 default:
                     return ENGLISH_KEY;
@@ -1272,6 +1321,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
+
     }
 
     @Override
