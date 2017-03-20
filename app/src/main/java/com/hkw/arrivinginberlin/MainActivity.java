@@ -518,6 +518,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             case 13:
                 iconPng = R.drawable.sports_and_freetime;
                 break;
+            case 14:
+                iconPng = R.drawable.wifi;
+                break;
 
         }
 
@@ -671,13 +674,16 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 JSONObject feature = features.getJSONObject(i);
                 JSONObject geometry = feature.getJSONObject("geometry");
                 JSONArray coord = geometry.getJSONArray("coordinates");
+
                 LatLng latLng = new LatLng(coord.getDouble(1), coord.getDouble(0));
                 points.add(latLng);
 
                 Log.i("JSON_FEATURE", feature.getJSONObject("properties").toString());
+
                 // Information in Each point
                 JSONObject properties = feature.getJSONObject("properties");
                 String name = "<b>"+properties.getString("name")+"</b>";
+                Log.i("COORD",name  + latLng);
                 String beschreibung = properties.getString("beschreibung").replace("*", "");
                 String adresse = properties.getString("adresse").replace("*", "");
 
@@ -768,6 +774,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 break;
             case 13:
                 iconPng = "sports_and_freetime";
+                break;
+            case 14:
+                iconPng = "wifi";
                 break;
 
         }
@@ -1106,15 +1115,15 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 case "en":
                     return new UmapDataRequest().getLocationsEnglish();
                 case "fr":
-                    return new UmapDataRequest().getLocations(159184, 159198);
+                    return new UmapDataRequest().getLocations(159184, 159198, 325432);
                 case "de":
-                    return new UmapDataRequest().getLocations(226926, 226940);
+                    return new UmapDataRequest().getLocations(226926, 226940, 325444);
                 case "fa":
-                    return new UmapDataRequest().getLocations(128475, 128489);
+                    return new UmapDataRequest().getLocations(128475, 128489, 325455);
                 case "ar":
-                    return new UmapDataRequest().getLocations(128884, 128897);
+                    return new UmapDataRequest().getLocations(128884, 128897, 325451);
                 case "ku":
-                    return new UmapDataRequest().getLocations(193257, 193270);
+                    return new UmapDataRequest().getLocations(193257, 193270, 325457);
                 default:
                     return new UmapDataRequest().getLocationsEnglish();
 

@@ -86,11 +86,12 @@ public class UmapDataRequest {
 //
 //    }
 
-    public List<JSONObject>getLocations(int start, int end){
+    public List<JSONObject>getLocations(int start, int end, int extra){
         List<JSONObject> locations = new ArrayList<>();
-        for (int i = start; i < end; i++)
+        List<Integer> myInts = getIntegerListForInts(start, end, extra);
+        for (int i = 0; i < myInts.size(); i++) {
             try {
-                String url = Uri.parse("http://umap.openstreetmap.fr/en/datalayer/"+i+"/")
+                String url = Uri.parse("http://umap.openstreetmap.fr/en/datalayer/" + myInts.get(i) + "/")
                         .buildUpon()
                         .appendQueryParameter("format", "json")
                         .build().toString();
@@ -98,13 +99,22 @@ public class UmapDataRequest {
                 String result = getUrlString(url);
                 JSONObject jsonBody = new JSONObject(result);
                 locations.add(jsonBody);
-                Log.i("JSON Loader", "Downloading json: " + i);
+                Log.i("JSON Loader", "Downloading json: " + myInts.get(i));
             } catch (JSONException je) {
                 Log.e("JSON Loader", "JSON failed to get contents: " + je);
             } catch (IOException ioe) {
                 Log.e("JSON Loader", "Failed to get contents: " + ioe);
             }
+        }
         return locations;
+    }
+    public List<Integer> getIntegerListForInts(int start, int end, int extra) {
+        List<Integer> ints = new ArrayList<>();
+        ints.add(extra);
+        for (int i = start; i < end; i++){
+            ints.add(i);
+        }
+        return  ints;
     }
 
     public List<JSONObject>getLocationsEnglish() {
@@ -123,6 +133,7 @@ public class UmapDataRequest {
         ints.add(119437);
         ints.add(115892);
         ints.add(259820);
+        ints.add(320118);
 
         for (int i:ints)
             try {

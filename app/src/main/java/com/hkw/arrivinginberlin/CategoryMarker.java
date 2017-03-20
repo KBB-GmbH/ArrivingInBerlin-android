@@ -29,7 +29,7 @@ public class CategoryMarker extends Object {
     }
 
     public void validateCategoryID(int categoryID) {
-        if (categoryID > 13) {
+        if (categoryID > 14) {
             throw new RuntimeException("This category does not exist.");
         }
     }
