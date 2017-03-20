@@ -690,7 +690,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 String finalStr = "";
                 if (adresse.length() != 0) {
                     adresse = adresse.substring(0, 1).toUpperCase() + adresse.substring​(1);
-                    finalStr += "<br/><br/>" + "<b>"+adresse.substring(0,7)+"</b>"+adresse.substring(7);
+                    finalStr += "<br/>" + "<b>"+adresse.substring(0,7)+"</b>"+adresse.substring(7);
                 }
                 String telefon = properties.getString("telefon").replace("*", "");
                 if(telefon.length()!=0){
@@ -718,7 +718,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         .position(latLng)
                         .title(name)
                         .icon(icon)
-                        .snippet("<br/>" + beschreibung + finalStr);
+                        .snippet("<br/>" + beschreibung + "<br/>"+ finalStr);
                 
                 CategoryMarker catMarker = new CategoryMarker(mapboxMap.addMarker(marker), categoryID, true, marker);
                 allMarkers.add(catMarker);
