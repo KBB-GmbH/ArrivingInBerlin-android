@@ -53,6 +53,7 @@ import com.mapbox.mapboxsdk.annotations.Icon;
 import com.mapbox.mapboxsdk.annotations.IconFactory;
 import com.mapbox.mapboxsdk.annotations.Marker;
 import com.mapbox.mapboxsdk.annotations.MarkerViewOptions;
+import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.annotations.Polyline;
 import com.mapbox.mapboxsdk.annotations.PolylineOptions;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
@@ -112,6 +113,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private MapboxMap mapBox;
     private DirectionsRoute currentRoute;
     private List<CategoryMarker> allMarkers = new ArrayList<>();
+    private List<Marker> wifiMarkers = new ArrayList<>();
     FloatingActionButton floatingActionButton;
     FloatingActionButton downloadButton;
     FloatingActionButton walkButton;
@@ -170,8 +172,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         downloadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 //Make text depend on download state
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                 Boolean didDownload = prefs.getBoolean(DOWNLOAD_MAP_KEY, false);
@@ -718,10 +718,11 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         .position(latLng)
                         .title(name)
                         .icon(icon)
-                        .snippet("<br/>" + beschreibung + "<br/>"+ finalStr);
-                
+                        .snippet(finalStr);
                 CategoryMarker catMarker = new CategoryMarker(mapboxMap.addMarker(marker), categoryID, true, marker);
                 allMarkers.add(catMarker);
+                
+
             }
         } catch (Exception e) {
             Log.e("MainActivity", "Exception Loading GeoJSON: " + e.toString());
@@ -789,8 +790,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         removePolyline();
         removeAllMarkers();
         showMarker(false);
-        zoomInOnPoint(new LatLng(52.516889, 13.388389), 10);
-        mapBox.removeAnnotations();
+        zoomInOnPoint(new LatLng(52.516889, 13.388389), 13);
         for (CategoryMarker cm : allMarkers) {
             cm.marker = mapBox.addMarker(cm.markerViewOptions);
         }
@@ -798,10 +798,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     public void removeAllMarkers() {
         removePolyline();
-        for (Marker m : mapBox.getMarkers()) {
-            mapBox.removeMarker(m);
-            mapBox.removeAnnotations();
-        }
+        mapBox.clear();
     }
 
     public void displayMarkersForCategory(final int categoryId) {
@@ -809,10 +806,15 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         removePolyline();
         removeAllMarkers();
         showMarker(false);
-        zoomInOnPoint(new LatLng(52.516889, 13.388389), 10);
+        zoomInOnPoint(new LatLng(52.516889, 13.388389), 13);
+        boolean first = true;
         for (CategoryMarker cm : allMarkers) {
             if (cm.categoryID == categoryId) {
                 cm.marker = mapBox.addMarker(cm.markerViewOptions);
+                if(first){
+                    zoomInOnPoint(new LatLng(cm.marker.getPosition()), 13);
+                    first = false;
+                }
             }
         }
     }
@@ -1035,7 +1037,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         double lat = marker.getPosition().getLatitude() + MARKER_OFFSET;
         double lng = marker.getPosition().getLongitude();
-        zoomInOnPoint(new LatLng(lat, lng), 14);
+        zoomInOnPoint(new LatLng(lat, lng), 13);
 
         TextView markerText = (TextView)findViewById(R.id.markerDescription);
         markerText.setText(Html.fromHtml(marker.getTitle() + "<br/>" + marker.getSnippet()));
