@@ -704,11 +704,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         .snippet("<br/>" + beschreibung + "<br/>"+ finalStr);
                 
                 CategoryMarker catMarker = new CategoryMarker(categoryID, true, marker);
-
-                Log.d("CAT 13?", ""+ categoryID);
-                if(categoryID == 13){
-                    Log.d("CAT 13", marker.getTitle());
-                }
                 allMarkers.add(catMarker);
             }
         } catch (Exception e) {
@@ -785,7 +780,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         removePolyline();
         removeAllMarkers();
         showMarker(false);
-        zoomInOnPoint(new LatLng(52.516889, 13.388389), 12);
+        zoomInOnPoint(new LatLng(52.516889, 13.388389), 13);
         for (CategoryMarker cm : allMarkers) {
             if (cm.categoryID == categoryId) {
                 mapBox.addMarker(cm.markerViewOptions);
