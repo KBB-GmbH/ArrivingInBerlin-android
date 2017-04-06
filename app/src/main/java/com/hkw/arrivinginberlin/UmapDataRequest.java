@@ -86,12 +86,12 @@ public class UmapDataRequest {
 //
 //    }
 
-    public List<JSONObject>getLocations(int start, int end, int extra){
+    public List<JSONObject>getLocations(int start, int end, int extra, String lang){
         List<JSONObject> locations = new ArrayList<>();
         List<Integer> myInts = getIntegerListForInts(start, end, extra);
         for (int i = 0; i < myInts.size(); i++) {
             try {
-                String url = Uri.parse("http://umap.openstreetmap.fr/en/datalayer/" + myInts.get(i) + "/")
+                String url = Uri.parse("http://umap.openstreetmap.fr/lang/datalayer/" + myInts.get(i) + "/")
                         .buildUpon()
                         .appendQueryParameter("format", "json")
                         .build().toString();

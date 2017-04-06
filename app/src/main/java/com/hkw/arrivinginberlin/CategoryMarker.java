@@ -5,7 +5,6 @@ import com.mapbox.mapboxsdk.annotations.MarkerViewOptions;
 
 
 public class CategoryMarker extends Object {
-    public Marker marker;
     public MarkerViewOptions markerViewOptions;
     public int categoryID;
 
@@ -19,13 +18,11 @@ public class CategoryMarker extends Object {
 
     public Boolean active;
 
-    public CategoryMarker(Marker marker, int categoryID, Boolean active, MarkerViewOptions markerViewOptions) {
+    public CategoryMarker(int categoryID, Boolean active, MarkerViewOptions markerViewOptions) {
         validateCategoryID(categoryID);
         this.active = active;
         this.categoryID = categoryID;
-        this.marker = marker;
         this.markerViewOptions = markerViewOptions;
-
     }
 
     public void validateCategoryID(int categoryID) {
@@ -34,13 +31,6 @@ public class CategoryMarker extends Object {
         }
     }
 
-    public Marker getMarker() {
-        return marker;
-    }
-
-    public void setMarker(Marker marker) {
-        this.marker = marker;
-    }
 
     public int getCategoryID() {
         return categoryID;

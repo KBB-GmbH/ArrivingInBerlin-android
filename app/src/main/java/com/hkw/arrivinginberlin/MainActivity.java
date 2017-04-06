@@ -330,9 +330,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 ExpandedMenuItem item = listDataHeader.get(groupPosition);
                 setTitle(item.getIconName());
 
-                if (groupPosition == 0) {
-                    displayAllMarkers();
-                } else if (childPosition == 0) {
+                if (childPosition == 0) {
                     displayMarkersForCategory(item.categorieId);
                 } else {
                     displayMarkersForSearchTerm(item.subItems.get(childPosition), false);
@@ -342,19 +340,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 return false;
             }
         });
-        expandableList.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
-            @Override
-            public boolean onGroupClick(ExpandableListView expandableListView, View view, int groupPosition, long groupId) {
-                showTransportButtons(false);
-                if (groupPosition == 0) {
-                    setTitle(getString(R.string.all));
-                    displayAllMarkers();
-                    mDrawer.closeDrawers();
-                    return false;
-                }
-                return false;
-            }
-        });
+
 
         // Hockeyapp
         checkForUpdates();
@@ -424,11 +410,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     }
 
     public ArrayList<ExpandedMenuItem> setMenuItemsFromJSON(List<JSONObject> locations) {
-        listDataHeader = new ArrayList<ExpandedMenuItem>();
-        ExpandedMenuItem item0 = new ExpandedMenuItem();
-        item0.setIconName(getString(R.string.all));
-        item0.setIconImg(R.drawable.favorite);
-        listDataHeader.add(item0);
+        listDataHeader = new ArrayList<>();
 
         for (JSONObject location : locations) {
             try {
@@ -538,7 +520,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         searchView.setOnCloseListener(new SearchView.OnCloseListener() {
             @Override
             public boolean onClose() {
-                displayAllMarkers();
                 return false;
             }
         });
@@ -625,7 +606,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     @Override
     public boolean onQueryTextChange(String newText) {
         if (newText.isEmpty()) {
-            displayAllMarkers();
         }
         return false;
     }
@@ -720,7 +700,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         .icon(icon)
                         .snippet("<br/>" + beschreibung + "<br/>"+ finalStr);
                 
-                CategoryMarker catMarker = new CategoryMarker(mapboxMap.addMarker(marker), categoryID, true, marker);
+                CategoryMarker catMarker = new CategoryMarker(categoryID, true, marker);
                 allMarkers.add(catMarker);
             }
         } catch (Exception e) {
@@ -785,22 +765,10 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         return uri;
     }
 
-    public void displayAllMarkers() {
-        removePolyline();
-        removeAllMarkers();
-        showMarker(false);
-        zoomInOnPoint(new LatLng(52.516889, 13.388389), 10);
-        mapBox.removeAnnotations();
-        for (CategoryMarker cm : allMarkers) {
-            cm.marker = mapBox.addMarker(cm.markerViewOptions);
-        }
-    }
-
     public void removeAllMarkers() {
         removePolyline();
         for (Marker m : mapBox.getMarkers()) {
             mapBox.removeMarker(m);
-            mapBox.removeAnnotations();
         }
     }
 
@@ -809,10 +777,10 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         removePolyline();
         removeAllMarkers();
         showMarker(false);
-        zoomInOnPoint(new LatLng(52.516889, 13.388389), 10);
+        zoomInOnPoint(new LatLng(52.516889, 13.388389), 12);
         for (CategoryMarker cm : allMarkers) {
             if (cm.categoryID == categoryId) {
-                cm.marker = mapBox.addMarker(cm.markerViewOptions);
+                mapBox.addMarker(cm.markerViewOptions);
             }
         }
     }
@@ -824,11 +792,10 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         Marker selMarker = null;
 
         for (CategoryMarker cm : allMarkers) {
-            String title = cm.marker.getTitle().toLowerCase();
+            String title = cm.markerViewOptions.getTitle().toLowerCase();
             String lowercaseSearch = searchTerm.toLowerCase();
-            if ((title.contains(lowercaseSearch)) || (cm.marker.getSnippet().contains(lowercaseSearch))) {
-                cm.marker = mapBox.addMarker(cm.markerViewOptions);
-                selMarker = cm.marker;
+            if ((title.contains(lowercaseSearch)) || (cm.markerViewOptions.getSnippet().contains(lowercaseSearch))) {
+                selMarker = mapBox.addMarker(cm.markerViewOptions);
                 foundMarker = true;
             }
         }
@@ -837,7 +804,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             //show wider area, center on Berlin
             double lat = selMarker.getPosition().getLatitude();
             double lon = selMarker.getPosition().getLongitude();
-            zoomInOnPoint(new LatLng(lat, lon), 9);
+            zoomInOnPoint(new LatLng(lat, lon), 12);
         }else if(foundMarker){
             onMarkerClick(selMarker);
         }else {
@@ -1115,20 +1082,19 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 case "en":
                     return new UmapDataRequest().getLocationsEnglish();
                 case "fr":
-                    return new UmapDataRequest().getLocations(159184, 159198, 325432);
+                    return new UmapDataRequest().getLocations(159184, 159198, 325432, "en");
                 case "de":
-                    return new UmapDataRequest().getLocations(226926, 226940, 325444);
+                    return new UmapDataRequest().getLocations(226926, 226940, 325444, "de");
                 case "fa":
-                    return new UmapDataRequest().getLocations(128475, 128489, 325455);
+                    return new UmapDataRequest().getLocations(128475, 128489, 325455, "en");
                 case "ar":
-                    return new UmapDataRequest().getLocations(128884, 128897, 325451);
-                case "ku":
-                    return new UmapDataRequest().getLocations(193257, 193270, 325457);
+                    return new UmapDataRequest().getLocations(128884, 128897, 325451, "en");
+                case "ur":
+                    return new UmapDataRequest().getLocations(193257, 193270, 325457, "de");
                 default:
                     return new UmapDataRequest().getLocationsEnglish();
 
             }
-
         }
 
         private void processDataUpdate(ArrayList<JSONObject> locations) {
@@ -1207,8 +1173,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     return FARSI_KEY;
                 case "ar":
                     return ARABIC_KEY;
-                case "ku":
-                    return KURDISH_KEY;
                 case "ur":
                     return KURDISH_KEY;
                 default:
