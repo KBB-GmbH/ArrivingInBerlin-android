@@ -120,9 +120,9 @@ public class UmapDataRequest {
     public List<JSONObject>getLocationsEnglish() {
         List<JSONObject> locations = new ArrayList<>();
         List<Integer> ints = new ArrayList<>();
+        ints.add(103125);
         ints.add(119513);
         ints.add(103122);
-        ints.add(103125);
         ints.add(103130);
         ints.add(119468);
         ints.add(115921);

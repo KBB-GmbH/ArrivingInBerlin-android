@@ -411,9 +411,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     public ArrayList<ExpandedMenuItem> setMenuItemsFromJSON(List<JSONObject> locations) {
         listDataHeader = new ArrayList<>();
-
         for (JSONObject location : locations) {
             try {
+                Log.i("HELLO WORLD", "HELLO WORLD");
                 JSONArray features = location.getJSONArray("features");
                 JSONObject props = features.getJSONObject(0).getJSONObject("properties");
 
@@ -423,9 +423,13 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 item.setIconImg(getIconForCategory(item.getCategorieId()));
 
                 if (item.categorieId == 8) {
-                    item.setSubItems(getPoliceFromJSON(features));
+                    item.setSubItems(getPoliceOrWifiFromJSON());
+                } else if(item.categorieId == 14) {
+                    item.setSubItems(getPoliceOrWifiFromJSON());
                 } else {
-                    item.setSubItems(getLocationsFromJSON(features));
+                    ArrayList<String> places = new ArrayList<String>();
+                    places.add(getString(R.string.all));
+                    item.setSubItems(getLocationsFromJSON(features, places));
                 }
                 listDataHeader.add(item);
 
@@ -436,9 +440,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         return null;
     }
 
-    public ArrayList<String> getLocationsFromJSON(JSONArray features) {
-        ArrayList<String> places = new ArrayList<String>();
-        places.add("All");
+    public ArrayList<String> getLocationsFromJSON(JSONArray features, ArrayList<String> places) {
         try {
             for (int i = 0; i < features.length(); i++) {
                 JSONObject properties = features.getJSONObject(i).getJSONObject("properties");
@@ -451,11 +453,12 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         return places;
     }
 
-    public ArrayList<String> getPoliceFromJSON(JSONArray features) {
+    public ArrayList<String> getPoliceOrWifiFromJSON() {
         ArrayList<String> places = new ArrayList<String>();
         places.add(getString(R.string.all));
         return places;
     }
+
 
     public int getIconForCategory(int categoryID) {
         // Make Custom Icon
@@ -701,6 +704,11 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         .snippet("<br/>" + beschreibung + "<br/>"+ finalStr);
                 
                 CategoryMarker catMarker = new CategoryMarker(categoryID, true, marker);
+
+                Log.d("CAT 13?", ""+ categoryID);
+                if(categoryID == 13){
+                    Log.d("CAT 13", marker.getTitle());
+                }
                 allMarkers.add(catMarker);
             }
         } catch (Exception e) {
@@ -1088,7 +1096,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 case "fa":
                     return new UmapDataRequest().getLocations(128475, 128489, 325455, "en");
                 case "ar":
-                    return new UmapDataRequest().getLocations(128884, 128897, 325451, "en");
+                    return new UmapDataRequest().getLocations(128884, 128898, 325451, "en");
                 case "ur":
                     return new UmapDataRequest().getLocations(193257, 193270, 325457, "de");
                 default:
@@ -1099,7 +1107,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         private void processDataUpdate(ArrayList<JSONObject> locations) {
             mainLocations = locations;
-            setMenuItemsFromJSON(mainLocations);
 
             if (mMenuAdapter != null) {
                 setMenuItemsFromJSON(locations);
