@@ -52,4 +52,5 @@
     <string name="download_again_message">Would you like to update your offline map? This will download 90MB of data. Make sure you are connected to wifi. Would you like to continue? </string>
     <string name="google_maps_popup">This will redirect you to Google Maps.</string>
     <string name="no_location">No location found</string>
+    <string name="select_category">Select a category from the menu on the left.</string>
 </resources>

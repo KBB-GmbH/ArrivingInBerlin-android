@@ -60,38 +60,13 @@ public class UmapDataRequest {
         return  new String(getUrlBytes(urlSpec));
     }
 
-//    public List<JSONObject> fetchLocations(String language) {
-//        Log.i("LOAD", language);
-//
-//        if (language == null){
-//            return getLocationsEnglish();
-//        }
-//        switch (language){
-//            case "fr":
-//                return getLocations(french.get(0), french.get(1));
-//            case "de":
-//                return getLocations(french.get(0), french.get(1));
-//            case "ar":
-//                return getLocations(french.get(0), french.get(1));
-//            case "fa":
-//                return getLocations(french.get(0), french.get(1));
-//            case "ku":
-//                return getLocations(french.get(0), french.get(1));
-//            case "en":
-//                return getLocationsEnglish();
-//            default:
-//                return getLocationsEnglish();
-//
-//        }
-//
-//    }
 
     public List<JSONObject>getLocations(int start, int end, int extra, String lang){
         List<JSONObject> locations = new ArrayList<>();
         List<Integer> myInts = getIntegerListForInts(start, end, extra);
         for (int i = 0; i < myInts.size(); i++) {
             try {
-                String url = Uri.parse("http://umap.openstreetmap.fr/lang/datalayer/" + myInts.get(i) + "/")
+                String url = Uri.parse("http://umap.openstreetmap.fr/"+lang+"/datalayer/" + myInts.get(i) + "/")
                         .buildUpon()
                         .appendQueryParameter("format", "json")
                         .build().toString();

@@ -49,4 +49,5 @@
     <string name="download_again_message"> ئایا دەتانهەوێت کە نەخشەکە بەڕۆژ بکەن؟ ئێوە خەریکی دابەزاندنی بەرنامەیەکن بە قەبارەی 90 مێگابایت. تکایە ئەرخەیان بن کە بە وایفاوە وەسڵن. دەتانهەوێت بەردەوام بن؟</string>
     <string name="google_maps_popup">لێرەوە بە نەخشەگوگڵەوە وەسڵ دەبن</string>
     <string name="no_location">No location found</string>
+    <string name="select_category">Select a category from the menu on the left.</string>
 </resources>

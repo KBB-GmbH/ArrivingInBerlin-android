@@ -52,6 +52,8 @@ import com.mapbox.mapboxsdk.MapboxAccountManager;
 import com.mapbox.mapboxsdk.annotations.Icon;
 import com.mapbox.mapboxsdk.annotations.IconFactory;
 import com.mapbox.mapboxsdk.annotations.Marker;
+import com.mapbox.mapboxsdk.annotations.MarkerOptions;
+import com.mapbox.mapboxsdk.annotations.MarkerView;
 import com.mapbox.mapboxsdk.annotations.MarkerViewOptions;
 import com.mapbox.mapboxsdk.annotations.Polyline;
 import com.mapbox.mapboxsdk.annotations.PolylineOptions;
@@ -163,6 +165,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 mapBox.setOnMapClickListener(MainActivity.this);
                 new FetchLocationsTask().execute();
                 enableLocation(true);
+                showPopupMenu();
             }
         });
 
@@ -196,6 +199,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         ViewGroup.LayoutParams.MATCH_PARENT);
 
                 Button btnDismiss = (Button)popupView.findViewById(R.id.cancel_button);
+                btnDismiss.setVisibility(View.VISIBLE);
                 btnDismiss.setOnClickListener(new Button.OnClickListener(){
 
                     @Override
@@ -350,6 +354,12 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
+    private void showPopupMenu() {
+        TextView markerText = (TextView)findViewById(R.id.markerDescription);
+        markerText.setText(R.string.select_category);
+        showMarker(true);
+    }
+
     private void showPopupGoogle() {
         LayoutInflater layoutInflater
                 = (LayoutInflater)getBaseContext()
@@ -365,6 +375,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
 
         Button btnDismiss = (Button)popupView.findViewById(R.id.cancel_button);
+        btnDismiss.setVisibility(View.VISIBLE);
         btnDismiss.setOnClickListener(new Button.OnClickListener(){
 
             @Override
@@ -780,7 +791,13 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         removePolyline();
         removeAllMarkers();
         showMarker(false);
-        zoomInOnPoint(new LatLng(52.516889, 13.388389), 13);
+
+        if (categoryId == 14) {
+            zoomInOnPoint(new LatLng(52.516889, 13.388389), 14);
+        } else {
+            zoomInOnPoint(new LatLng(52.516889, 13.388389), 11);
+        }
+
         for (CategoryMarker cm : allMarkers) {
             if (cm.categoryID == categoryId) {
                 mapBox.addMarker(cm.markerViewOptions);
@@ -1007,11 +1024,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         double lng = marker.getPosition().getLongitude();
         zoomInOnPoint(new LatLng(lat, lng), 14);
 
-        TextView markerText = (TextView)findViewById(R.id.markerDescription);
-        markerText.setText(Html.fromHtml(marker.getTitle() + "<br/>" + marker.getSnippet()));
-        Linkify.addLinks(markerText, Linkify.ALL);
-        selectMarker(marker);
-        showMarker(true);
         return true;
     }
 
