@@ -17,7 +17,7 @@
     <string name="info">Info</string>
     <string name="contact">Kontakt</string>
     <string name="language">Sprache</string>
-    <string name="about">Über</string>
+    <string name="about">About</string>
     <string name="screen_one">“Arriving in Berlin - App” ist eine digitale Karte mit hilfreichen Informationen für Geflüchtete und Neuankommende in Berlin.</string>
     <string name="screen_two">Nutzen Sie die Karte oder die Listenansicht, um Orte zu finden. Mithilfe des Suchfeldes können Sie ganz bestimmte Informationen suchen. Die Karte hilft Ihnen außerdem, zu einem Ziel zu navigieren und funktioniert auch, wenn Sie offline sind. </string>
 
@@ -41,9 +41,9 @@
 
     <string name="contact_text">Haben Sie Fragen und Anregungen? Oder gibt es einen interessanten Ort, den wir vergessen haben? Dann schreiben Sie uns einfach eine Nachricht. </string>
 
-    <string name="app_name">Arriving</string>
+    <string name="app_name">Arriving in Berlin</string>
     <string name="send_email">Senden</string>
-    <string name="main_title">Arriving</string>
+    <string name="main_title">Arriving in Berlin</string>
     <string name="download_button_message">Das Datenvolumen des Downloads beträgt 90 MB. Stellen Sie sicher, dass Sie mit einem Wlan-Netz verbunden sind. Möchten Sie fortfahren?</string>
     <string name="cancel">Abbrechen</string>
     <string name="continue_button">Weiter</string>

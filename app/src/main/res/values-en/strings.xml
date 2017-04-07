@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Arriving</string>
+    <string name="app_name">Arriving in Berlin</string>
     <string name="categories">Categories</string>
     <string name="all_categories">All</string>
     <string name="offline_message">You appear to be offline. Connect to the internet to view locations.</string>
@@ -40,7 +40,7 @@
     <string name="about_three">The app is based on the Mapbox SDK framework and is open source (documentation on GitHub)</string>
     <string name="about_four">All icons have been developed by the participants of the mapping project. (Source: Freepik from www.flaticon.com )</string>
 
-    <string name="main_title">Arriving</string>
+    <string name="main_title">Arriving in Berlin</string>
     <string name="contact_text">Do you have question or comments? Or have we forgotten any interesting places? If so, please send us a message</string>
     <string name="send_email">Send Email</string>
     <string name="download_button_message">You are about to download 90MB of data. Make sure you are connected to wifi. Would you like to continue?</string>

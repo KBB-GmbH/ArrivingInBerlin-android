@@ -133,6 +133,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     public final static String JSON_FIELD_REGION_NAME = "BERLIN_REGION";
     public final static String DOWNLOAD_MAP_KEY = "did_download_map";
     public final static double MARKER_OFFSET = 0.003;
+    private static final String START_KEY = "first_start_done";
 
     private Marker selectedMarker = null;
     private Icon selectedMarkerIcon = null;
@@ -165,7 +166,18 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 mapBox.setOnMapClickListener(MainActivity.this);
                 new FetchLocationsTask().execute();
                 enableLocation(true);
-                showPopupMenu();
+
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                Boolean didShowStartup = prefs.getBoolean(START_KEY, false);
+
+                if (!didShowStartup) {
+                    showPopupMenu();
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.remove(START_KEY);
+                    editor.putBoolean(START_KEY, true);
+                    editor.apply();
+                }
             }
         });
 

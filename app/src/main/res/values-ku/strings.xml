@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Arriving</string>
+    <string name="app_name">Arriving in Berlin</string>
     <string name="categories">پۆلبەندی</string>
     <string name="all_categories">هەموو</string>
     <string name="offline_message">هەنووکە ئێوە بە ئینتێرنێتەوە وەسڵ نین، بۆ دۆزینەوەی شوێنەکان بە ئینتێرنێتەوە وەسڵ بن</string>
@@ -40,7 +40,7 @@
     <string name="about_three">ئەم پرۆگرامەلەسەر بنەمای چوارچێوەی Mapbox SDK و سەرچاوەیەکی کراوەیە (بەڵگەنامەیەک لەسەر GitHub)</string>
     <string name="about_four">بەشداربووانی پرۆژەکە هەموو ئایکۆنەکانیان گەشە پێداوە.  (سەرچاوە: Freepik from www.flaticon.com )</string>
 
-    <string name="main_title">xx</string>
+    <string name="main_title">Arriving in Berlin</string>
     <string name="contact_text">ئەگە پرسیارێکت هەیە؟ یان شوێنێکی سەرنجڕاکێش  گرنگمان لە یاد کردبێت؟ کەوایە تەنیا پەیامێکی سادەمان بۆ بنێرە.</string>
     <string name="send_email">xx</string>
     <string name="download_button_message">You are about to download 90MB of data. Make sure you are connected to wifi. Would you like to continue?</string>

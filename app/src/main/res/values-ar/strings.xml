@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<string name="app_name">Arriving</string>
+<string name="app_name">Arriving in Berlin</string>
     <string name="all_categories">الكل</string>
     <string name="categories">Categories</string>
     <string name="offline_message">عند ظهورك غير متصل.اتصل بالانترنيت لتظهر لك المواقع</string>
@@ -56,7 +56,7 @@ Refugees on Rails .
 <string name="about_four">"كل الأيقونات تم تطويرها من قبل العاملين في مشروع الخرائط
  (Source: Freepik from www.flaticon.com )"</string>
 
-<string name="main_title">xx</string>
+<string name="main_title">Arriving in Berlin</string>
 <string name="contact_text">"هل يوجد لديك أي إستفسار أو تعليق ؟
 أو نسينا شيئا , أو مناطق مثيرة للإهتمام ؟
 إذا فعلنا ,رجاءا أرسل ألينا رسائل نصية ."</string>

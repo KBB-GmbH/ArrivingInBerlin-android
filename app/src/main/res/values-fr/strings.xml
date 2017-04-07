@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Arriving</string>
+    <string name="app_name">Arriving in Berlin</string>
     <string name="categories">Catégories</string>
     <string name="all_categories">Tous</string>
     <string name="offline_message">Vous êtes déconnecté. Connectez votre smartphone à Internet pour utiliser la carte.</string>
@@ -40,7 +40,7 @@
     <string name="about_three">L\'application utilise Mapbox SDK et est en open source. (documentation sur GitHub)</string>
     <string name="about_four">Toutes les icônes ont été développées par les participant(e)s du projet de Mapping (Source: Freepik de www.flaticon.com )</string>
 
-    <string name="main_title">Arriving</string>
+    <string name="main_title">Arriving in Berlin</string>
     <string name="contact_text">Avez-vous des questions ou des commentaires? Ou avons-nous oublié des lieux intéressants? Si oui, envoyez-nous un message.</string>
     <string name="send_email">Envoyer</string>
     <string name="download_button_message">Le volume des téléchargements correspond à 90 MB. Vérifiez que vous soyez bien connecté à un réseau wifi. Souhaitez-vous continuer?</string>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Arriving</string>
+    <string name="app_name">Arriving in Berlin</string>
     <string name="categories">رده بندی ها</string>
     <string name="all_categories">همه</string>
     <string name="offline_message">در حال حاظر شما به انتر نت وصل نمیباشید برای یافتن موقیعت ها به انترنت وصل شوید</string>
@@ -40,7 +40,7 @@
     <string name="about_three">این نرم افزار در چارچوب از MapBox SDK بر اساس و منبع باز (اسناد و مدارک در GitHub است</string>
     <string name="about_four">همه آیکون ها توسط شرکت کنندگان در پروژه نقشه کشی طراحی شده است. (منبع از: Freepik  www.flaticon.com)</string>
 
-    <string name="main_title">Arriving</string>
+    <string name="main_title">Arriving in Berlin</string>
     <string name="contact_text">اگر کدام محل یا موقیعتی شما درباره آن اطلاغ دارید و روی این نقشه نمایان نمیباشد.یا پیشنهاد یا انتقاد دارید لطفا با در تماس شوید</string>
     <string name="send_email">ارسال</string>
     <string name="download_button_message">شما در حال دانلود نرم افزار به حجم 90 میگابایت میباشید لطفا مطمعا شوید مه به وای فای وصل باشید </string>

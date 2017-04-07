@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Arriving</string>
+    <string name="app_name">Arriving in Berlin</string>
     <string name="access_token" translatable="false">pk.eyJ1IjoiYW5vdWtuaWMiLCJhIjoiY2lyb3kwOGg3MDA5ZGh1bmhnaXZqdmdpNyJ9.oFl9SAJR9tYZL1h76EQMIw</string>
     <string name="categories">Categories</string>
     <string name="all_categories">All</string>
@@ -41,7 +41,7 @@
     <string name="about_three">The app is based on the Mapbox SDK framework and is open source (documentation on GitHub)</string>
     <string name="about_four">All icons have been developed by the participants of the mapping project. (Source: Freepik from www.flaticon.com )</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="main_title">Arriving</string>
+    <string name="main_title">Arriving in Berlin</string>
     <string name="contact_text">Do you have question or comments? Or have we forgotten any interesting places? If so, please send us a message</string>
     <string name="send_email">Send Email</string>
     <string name="title_activity_settings" translatable="false">SettingsActivity</string>

@@ -32,7 +32,18 @@
             mapbox:style_url="mapbox://styles/mapbox/streets-v9"
             mapbox:center_latitude="52.516889"
             mapbox:center_longitude="13.388389"
-            mapbox:zoom="13" />
+            mapbox:zoom="13" >
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/download_map_toggle_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/mapView"
+                android:layout_alignTop="@id/mapView"
+                android:layout_margin="10dp"
+                android:src="@drawable/download"
+                app:backgroundTint="#FFFFFF" />
+        </com.mapbox.mapboxsdk.maps.MapView>
 
         <ProgressBar
             android:id="@+id/progress_bar"
@@ -66,16 +77,6 @@
             app:backgroundTint="#FFFFFF"
             android:text="X"/>
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/download_map_toggle_fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_alignTop="@id/mapView"
-            android:layout_alignRight="@id/mapView"
-            app:backgroundTint="#FFFFFF"
-            android:src="@drawable/download">
-        </android.support.design.widget.FloatingActionButton>
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/location_toggle_fab"
             android:layout_width="wrap_content"
