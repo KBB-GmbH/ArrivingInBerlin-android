@@ -357,7 +357,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             }
         });
 
-
+        setTitle(R.string.main_title);
         // Hockeyapp
         checkForUpdates();
 

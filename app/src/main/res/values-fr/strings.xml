@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Arriving in Berlin</string>
+    <string name="app_name">Arriving</string>
     <string name="categories">Catégories</string>
     <string name="all_categories">Tous</string>
     <string name="offline_message">Vous êtes déconnecté. Connectez votre smartphone à Internet pour utiliser la carte.</string>

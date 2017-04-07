@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Arriving in Berlin</string>
+    <string name="app_name">Arriving</string>
     <string name="categories">Categories</string>
     <string name="all_categories">All</string>
     <string name="offline_message">You appear to be offline. Connect to the internet to view locations.</string>

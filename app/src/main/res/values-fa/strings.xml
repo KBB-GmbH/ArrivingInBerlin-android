@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Arriving in Berlin</string>
+    <string name="app_name">Arriving</string>
     <string name="categories">رده بندی ها</string>
     <string name="all_categories">همه</string>
     <string name="offline_message">در حال حاظر شما به انتر نت وصل نمیباشید برای یافتن موقیعت ها به انترنت وصل شوید</string>

@@ -38,7 +38,7 @@
                 android:id="@+id/download_map_toggle_fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignRight="@id/mapView"
+                android:layout_alignEnd="@id/mapView"
                 android:layout_alignTop="@id/mapView"
                 android:layout_margin="10dp"
                 android:src="@drawable/download"
