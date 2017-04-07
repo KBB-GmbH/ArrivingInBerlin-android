@@ -1024,6 +1024,11 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         double lng = marker.getPosition().getLongitude();
         zoomInOnPoint(new LatLng(lat, lng), 14);
 
+        TextView markerText = (TextView)findViewById(R.id.markerDescription);
+        markerText.setText(Html.fromHtml(marker.getTitle() + "<br/>" + marker.getSnippet()));
+        Linkify.addLinks(markerText, Linkify.ALL);
+        selectMarker(marker);
+        showMarker(true);
         return true;
     }
 
