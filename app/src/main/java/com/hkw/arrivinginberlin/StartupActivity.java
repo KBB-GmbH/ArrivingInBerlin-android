@@ -20,8 +20,9 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.prefs.Preferences;
 
-public class StartupActivity extends AppCompatActivity implements LanguageFragment.OnFragmentInteractionListener, StartupTextFragment.OnFragmentInteractionListener {
+public class StartupActivity extends AppCompatActivity implements LanguageFragment.OnFragmentInteractionListener, StartupTextFragment.OnFragmentInteractionListener, TermsStartupFragment.OnFragmentInteractionListener {
     private LanguageFragment lang;
+    private  TermsStartupFragment termsFragment;
     private static final String KEY = "Startup_Finished";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class StartupActivity extends AppCompatActivity implements LanguageFragme
             Boolean didShowStartup = prefs.getBoolean(KEY, false);
 
             if (didShowStartup) {
-                onStartupFlowFinished();
+                onTermsAgreed();
             } else {
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 lang = new LanguageFragment();
@@ -71,9 +72,8 @@ public class StartupActivity extends AppCompatActivity implements LanguageFragme
     }
 
     @Override
-    public void onStartupFlowFinished() {
-        //Move to main activity
-        //Language:
+    public void onTermsAgreed() {
+        //Move to next main
         LocaleUtils.setLanguageFromPreference(getApplicationContext());
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
@@ -84,16 +84,16 @@ public class StartupActivity extends AppCompatActivity implements LanguageFragme
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-
     }
 
-    private @LocaleUtils.LocaleDef String mapLanguage(String language) {
-        @LocaleUtils.LocaleDef String new_lang= LocaleUtils.ENGLISH;
-        for (String lang: LocaleUtils.LocaleDef.SUPPORTED_LOCALES){
-            if (lang == language){
-                new_lang = lang;
-            }
-        }
-        return new_lang;
+    @Override
+    public void onStartupFlowFinished() {
+        //Move to terms & conditions
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        termsFragment = new TermsStartupFragment();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_container, termsFragment, "TERMS");
+        fragmentTransaction.commit();
+
     }
 }
