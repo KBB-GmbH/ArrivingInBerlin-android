@@ -51,7 +51,7 @@
     <string name="no_location">No location found</string>
     <string name="select_category">"یێکێک لەم شتانەی لە لای چەپەوە هەڵبژێرین  "</string>
     <string name="terms_text"> بۆ بەکار هێنانی ئەم برنامەیە لە بێرلین تکایە سیاسەتی پاراستنی تابەت بەخۆت بخێنەوە و موافەقەت بکە دۆای وەی مۆافەقەتان کرد دەتۆانن لەم بەرنامەیە کەڵک وەرگرن ئەگە دەتانهەوێ مۆافەقە نەکەن (نا و دەچمە دەرەوە)لێ بدەن</string>
-    <string name="terms_agree">Accepter</string>
-    <string name="terms_decline">Decline and Close</string>
+    <string name="terms_agree">موافه قه ته</string>
+    <string name="terms_decline">"ناو دچمه ده ره وه "</string>
     <string name="info_wifi_text">هەروەها  ئەنگو دەتۆانن لەم بەرنامەیە بۆ گێشتن بۆ بێرلین لە بۆ گەڕان بۆ وایفای بەلاش هەر وەها دەتۆانن کەڵک وەرگرن</string>
 </resources>

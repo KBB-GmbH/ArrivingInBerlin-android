@@ -33,23 +33,43 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/info_general" />
+        <ImageView
+            android:id="@+id/icon_wifi"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/wifi"
+            android:layout_below="@id/info_general"/>
         <TextView
             android:id="@+id/info_internet"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginBottom="15dp"
             android:layout_marginTop="10dp"
-            android:layout_below="@id/info_general"
+            android:layout_below="@id/icon_wifi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/info_internet" />
+        <TextView
+            android:id="@+id/info_wifi"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/info_internet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/info_wifi_text" />
         <ImageView
             android:id="@+id/icon_counseling"
             android:layout_margin="20dp"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/counseling"
-            android:layout_below="@id/info_internet"/>
+            android:layout_below="@id/info_wifi" />
         <TextView
             android:id="@+id/info_counseling"
             android:layout_marginLeft="15dp"
@@ -210,27 +230,6 @@
             android:layout_height="wrap_content"
             android:text="@string/info_transport" />
 
-        <ImageView
-            android:id="@+id/icon_wifi"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginTop="10dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/wifi"
-            android:layout_below="@id/info_transport"/>
-        <TextView
-            android:id="@+id/info_wifi"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginTop="10dp"
-            android:layout_below="@id/icon_wifi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/info_wifi_text" />
-
         <TextView
             android:id="@+id/info_final"
             android:layout_marginLeft="15dp"
@@ -239,7 +238,7 @@
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/info_wifi"
+            android:layout_below="@id/info_transport"
             android:text="@string/info_final" />
     </RelativeLayout>
  </ScrollView>
