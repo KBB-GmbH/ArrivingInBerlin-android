@@ -53,5 +53,5 @@
     <string name="terms_text">براي استفاده از برنامه رسيد در برلين لطفا سياست  حفظ حريم خصوصي را مطالعه نموده و موافقت نمايد. پس از موافقت نمودن شما ميتوانيد از برنامه استفاده نمايد. اگر ميخواهيد ادامه آن منصرف شويد (منصرف وخروج) را فشار دهيد.</string>
     <string name="terms_agree">موافقت</string>
     <string name="terms_decline">منصرف و خروج</string>
-    <string name="info_wifi_text">You can also use the Arriving in Berlin app to find open and free networks of the Berlin Freifunknetz.</string>
+    <string name="info_wifi_text">"هم چنين شما ميتوانيد از برنامه رسيدن به برلين براي جستجوي واي فاي رايگان هم استفاده نمايد "</string>
 </resources>

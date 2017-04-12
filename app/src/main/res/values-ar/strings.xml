@@ -71,6 +71,6 @@ Refugees on Rails .
     <string name="terms_text">"لإستخدام تطبيق القادمون إلى برلين ،من فضلك اقرا و وافق على شروط الخصوصية . وكذلك الاحكام والشروط العامة للعمل على تطبيق القادمون إلي برلين . باختيارك الموافقة انت تؤكد على المصادقة (القبول) وتستطيع الاستمرار . عندما لا تريد الاستمرار وتريد اغلاق التطبيق اختر رفض (تراجع ) واغلاق التطبيق "</string>
     <string name="terms_agree">"الموافقة "</string>
     <string name="terms_decline">"رفض (تراجع ) و اغلاق "</string>
-    <string name="info_wifi_text">You can also use the Arriving in Berlin app to find open and free networks of the Berlin Freifunknetz.</string>
+    <string name="info_wifi_text">تستطيع ايضا استخدام تطبيق القادمون الى برلين لإجاد شبكات انترنيت مجانية ومفتوحة في برلين الشبكة المجانية (freifunknetz)</string>
 
 </resources>
