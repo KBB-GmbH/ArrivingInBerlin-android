@@ -67,9 +67,10 @@ Refugees on Rails .
     <string name="no_location">No location found</string>
     <string name="download_again_message">هل تريد ترقية (تحديث) خريطتك التي تعمل بدون اتصال الشبكة  ؟ بذلك سيتم تحميل ٩٠MB من البيانات . تأكد من اتصالك بشبكة الواي فاي . هل تريد الأستمرار ؟ </string>
     <string name="continue_button">الأستمرار </string>
-    <string name="select_category">Select a category from the menu on the left.</string>
-    <string name="terms_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mattis est quis leo elementum, nec blandit risus varius. Ut mauris arcu, sodales eu maximus et, dapibus sed nisl. Sed luctus nisl vitae quam lobortis dapibus. Cras feugiat turpis lacus, eget varius eros iaculis sed. Ut ultrices lectus mauris, in rutrum risus ultricies nec. Vivamus et hendrerit urna. In a diam at lorem ornare elementum sed at ante. Mauris laoreet sed odio quis convallis. Sed eleifend metus sit amet massa ultricies, vitae dignissim nulla volutpat. Nunc sollicitudin sed erat vel lacinia. Etiam fringilla augue quis pulvinar ultricies. Proin rutrum nunc id dui pretium, id efficitur arcu tincidunt. Proin elementum tortor sit amet nulla gravida pretium non in dolor. Nunc a leo nec mi viverra viverra. Pellentesque et cursus turpis, non vehicula justo. Cras pellentesque posuere sem ac sollicitudin. Sed vel tincidunt est, eget aliquet neque.</string>
-    <string name="terms_agree">I agree</string>
-    <string name="terms_decline">Decline and close</string>
+    <string name="select_category">"اختر الفئة من القائمة على اليمين "</string>
+    <string name="terms_text">"لإستخدام تطبيق القادمون إلى برلين ،من فضلك اقرا و وافق على شروط الخصوصية . وكذلك الاحكام والشروط العامة للعمل على تطبيق القادمون إلي برلين . باختيارك الموافقة انت تؤكد على المصادقة (القبول) وتستطيع الاستمرار . عندما لا تريد الاستمرار وتريد اغلاق التطبيق اختر رفض (تراجع ) واغلاق التطبيق "</string>
+    <string name="terms_agree">"الموافقة "</string>
+    <string name="terms_decline">"رفض (تراجع ) و اغلاق "</string>
+    <string name="info_wifi_text">You can also use the Arriving in Berlin app to find open and free networks of the Berlin Freifunknetz.</string>
 
 </resources>

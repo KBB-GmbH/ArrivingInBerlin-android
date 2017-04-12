@@ -49,8 +49,9 @@
     <string name="download_again_message"> ئایا دەتانهەوێت کە نەخشەکە بەڕۆژ بکەن؟ ئێوە خەریکی دابەزاندنی بەرنامەیەکن بە قەبارەی 90 مێگابایت. تکایە ئەرخەیان بن کە بە وایفاوە وەسڵن. دەتانهەوێت بەردەوام بن؟</string>
     <string name="google_maps_popup">لێرەوە بە نەخشەگوگڵەوە وەسڵ دەبن</string>
     <string name="no_location">No location found</string>
-    <string name="select_category">Select a category from the menu on the left.</string>
-    <string name="terms_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mattis est quis leo elementum, nec blandit risus varius. Ut mauris arcu, sodales eu maximus et, dapibus sed nisl. Sed luctus nisl vitae quam lobortis dapibus. Cras feugiat turpis lacus, eget varius eros iaculis sed. Ut ultrices lectus mauris, in rutrum risus ultricies nec. Vivamus et hendrerit urna. In a diam at lorem ornare elementum sed at ante. Mauris laoreet sed odio quis convallis. Sed eleifend metus sit amet massa ultricies, vitae dignissim nulla volutpat. Nunc sollicitudin sed erat vel lacinia. Etiam fringilla augue quis pulvinar ultricies. Proin rutrum nunc id dui pretium, id efficitur arcu tincidunt. Proin elementum tortor sit amet nulla gravida pretium non in dolor. Nunc a leo nec mi viverra viverra. Pellentesque et cursus turpis, non vehicula justo. Cras pellentesque posuere sem ac sollicitudin. Sed vel tincidunt est, eget aliquet neque.</string>
-    <string name="terms_agree">I agree</string>
+    <string name="select_category">"یێکێک لەم شتانەی لە لای چەپەوە هەڵبژێرین  "</string>
+    <string name="terms_text"> بۆ بەکار هێنانی ئەم برنامەیە لە بێرلین تکایە سیاسەتی پاراستنی تابەت بەخۆت بخێنەوە و موافەقەت بکە دۆای وەی مۆافەقەتان کرد دەتۆانن لەم بەرنامەیە کەڵک وەرگرن ئەگە دەتانهەوێ مۆافەقە نەکەن (نا و دەچمە دەرەوە)لێ بدەن</string>
+    <string name="terms_agree">Accepter</string>
     <string name="terms_decline">Decline and close</string>
+    <string name="info_wifi_text">You can also use the Arriving in Berlin app to find open and free networks of the Berlin Freifunknetz.</string>
 </resources>
