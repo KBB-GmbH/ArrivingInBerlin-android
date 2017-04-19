@@ -50,7 +50,7 @@
     <string name="google_maps_popup">Ceci vous redirigera vers Google Map</string>
     <string name="no_location">No location found</string>
     <string name="select_category">Sélectionnez une catégorie dans le menu à gauche.</string>
-    <string name="terms_text">Pour utiliser l\'application„Arriving in Berlin“, veuillez lire et accepter la déclaration de confidentialité sur la protection de données ainsi que les conditions générales. Avec „accepter“, vous donnez votre accord et pouvez continuer. Si vous ne souhaitez pas aller plus loin et désirez fermer l\'application, choisissez „Refuser et fermer“.</string>
+    <string name="terms_text">Pour utiliser l\'application „Arriving in Berlin“, veuillez lire et accepter la déclaration de confidentialité sur la protection de données ainsi que les conditions générales. Avec „accepter“, vous donnez votre accord et pouvez continuer. Si vous ne souhaitez pas aller plus loin et désirez fermer l\'application, choisissez „Refuser et fermer“.</string>
     <string name="terms_agree">Accepter</string>
     <string name="terms_decline">Refuser et fermer</string>
     <string name="info_wifi_text">Avec l\'application „Arriving in Berlin“, trouvez en plus des accès libres et gratuits aux réseaux internet de Berlin (Freifunk).</string>
