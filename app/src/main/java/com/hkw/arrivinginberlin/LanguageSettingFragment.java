@@ -2,6 +2,7 @@ package com.hkw.arrivinginberlin;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.Uri;
@@ -37,6 +38,7 @@ public class LanguageSettingFragment extends Fragment {
     private Button farsi;
     private Button arabic;
     private Button kurdish;
+    private static final String START_KEY = "first_start_done";
 
     public LanguageSettingFragment() {
         // Required empty public constructor
@@ -150,6 +152,12 @@ public class LanguageSettingFragment extends Fragment {
         button.setSelected(true);
         //store as user preference:
         PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext()).edit().putString(LocaleUtils.LANGUAGE, language).apply();
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.remove(START_KEY);
+        editor.putBoolean(START_KEY, false);
+        editor.apply();
 
         //Restart activity:
         getActivity().setResult(Activity.RESULT_OK, null);
