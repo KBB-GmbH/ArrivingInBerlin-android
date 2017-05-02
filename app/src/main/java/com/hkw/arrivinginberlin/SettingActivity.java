@@ -14,12 +14,13 @@ import android.util.Log;
 import android.view.View;
 
 
+import com.hkw.arrivinginberlin.dummy.DummyContent;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabSelectedListener;
 
 import java.util.Locale;
 
-public class SettingActivity extends AppCompatActivity implements LanguageSettingFragment.OnFragmentInteractionListener, InfoFragment.OnFragmentInteractionListener, ContactFragment.OnFragmentInteractionListener, AboutFragment.OnFragmentInteractionListener {
+public class SettingActivity extends AppCompatActivity implements LanguageSettingFragment.OnFragmentInteractionListener, InfoFragment.OnFragmentInteractionListener, ContactFragment.OnFragmentInteractionListener, AboutItemFragment.OnListFragmentInteractionListener {
     private BottomBar bottomBar;
 
     @Override
@@ -32,7 +33,7 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
         LocaleUtils.setLanguageFromPreference(getApplicationContext());
         Log.i("SETTINGS", "default language on create: " + Locale.getDefault());
 
-        AboutFragment aboutFragment = new AboutFragment();
+        AboutItemFragment aboutFragment = new AboutItemFragment();
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -62,7 +63,7 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
                         ft.replace(R.id.content_container, contact, "CONTACT");
                         break;
                     case R.id.about_item:
-                        AboutFragment about = new AboutFragment();
+                        AboutItemFragment about = new AboutItemFragment();
                         ft.replace(R.id.content_container, about, "ABOUT");
                         break;
                     default:
@@ -86,6 +87,10 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
     }
 
     public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    public void onListFragmentInteraction(DummyContent.DummyItem item){
 
     }
 
