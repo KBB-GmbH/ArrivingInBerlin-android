@@ -1,27 +1,24 @@
 package com.hkw.arrivinginberlin;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.hkw.arrivinginberlin.AboutItemFragment.OnListFragmentInteractionListener;
-import com.hkw.arrivinginberlin.dummy.DummyContent.DummyItem;
+import com.hkw.arrivinginberlin.aboutItem.AboutContent.AboutItem;
 
 import java.util.List;
 
-/**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
- * specified {@link OnListFragmentInteractionListener}.
- * TODO: Replace the implementation with code for your data type.
- */
+
 public class MyAboutItemRecyclerViewAdapter extends RecyclerView.Adapter<MyAboutItemRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private final List<AboutItem> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyAboutItemRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public MyAboutItemRecyclerViewAdapter(List<AboutItem> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -36,7 +33,6 @@ public class MyAboutItemRecyclerViewAdapter extends RecyclerView.Adapter<MyAbout
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
         holder.mContentView.setText(mValues.get(position).content);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
@@ -58,14 +54,12 @@ public class MyAboutItemRecyclerViewAdapter extends RecyclerView.Adapter<MyAbout
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mIdView;
         public final TextView mContentView;
-        public DummyItem mItem;
+        public AboutItem mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.id);
             mContentView = (TextView) view.findViewById(R.id.content);
         }
 

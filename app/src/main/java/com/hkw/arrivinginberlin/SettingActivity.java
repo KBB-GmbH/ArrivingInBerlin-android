@@ -14,7 +14,8 @@ import android.util.Log;
 import android.view.View;
 
 
-import com.hkw.arrivinginberlin.dummy.DummyContent;
+import com.hkw.arrivinginberlin.aboutItem.AboutContent;
+import com.hkw.arrivinginberlin.aboutItem.AboutContent.AboutItem;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabSelectedListener;
 
@@ -90,8 +91,13 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
 
     }
 
-    public void onListFragmentInteraction(DummyContent.DummyItem item){
-
+    public void onListFragmentInteraction(AboutItem item){
+        Log.i("SETTINGS", item.content);
+        ContactFragment contact = new ContactFragment();
+        FragmentManager fm = getSupportFragmentManager();
+        final FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.content_container, contact, "CONTACT");
+        ft.commit();
     }
 
 }

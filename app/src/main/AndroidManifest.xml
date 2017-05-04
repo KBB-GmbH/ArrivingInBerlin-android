@@ -2,8 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hkw.arrivinginberlin">
 
-    <uses-sdk
-        android:maxSdkVersion="25" />
+    <uses-sdk android:maxSdkVersion="25" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -38,7 +37,7 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/ThemeFullScreen"
-            android:windowActionBar="false"/>
+            android:windowActionBar="false" />
         <!--
  ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -49,6 +48,7 @@
         <meta-data
             android:name="net.hockeyapp.android.appIdentifier"
             android:value="${HOCKEYAPP_APP_ID}" />
+
         <activity
             android:name=".SettingActivity"
             android:label="@string/title_activity_setting"

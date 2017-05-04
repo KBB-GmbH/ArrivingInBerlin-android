@@ -3,6 +3,7 @@ package com.hkw.arrivinginberlin;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,10 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.hkw.arrivinginberlin.dummy.DummyContent;
-import com.hkw.arrivinginberlin.dummy.DummyContent.DummyItem;
-
-import java.util.List;
+import com.hkw.arrivinginberlin.aboutItem.AboutContent;
+import com.hkw.arrivinginberlin.aboutItem.AboutContent.AboutItem;
 
 /**
  * A fragment representing a list of Items.
@@ -22,9 +21,6 @@ import java.util.List;
  * interface.
  */
 public class AboutItemFragment extends Fragment {
-
-    // TODO: Customize parameters
-    private int mColumnCount = 1;
 
     private OnListFragmentInteractionListener mListener;
 
@@ -41,6 +37,8 @@ public class AboutItemFragment extends Fragment {
 
     }
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -50,12 +48,11 @@ public class AboutItemFragment extends Fragment {
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-            }
-            recyclerView.setAdapter(new MyAboutItemRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setLayoutManager(new LinearLayoutManager(context));
+            recyclerView.setAdapter(new MyAboutItemRecyclerViewAdapter(AboutContent.ITEMS, mListener));
+            DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
+                    getResources().getConfiguration().orientation);
+            recyclerView.addItemDecoration(dividerItemDecoration);
         }
         return view;
     }
@@ -90,6 +87,6 @@ public class AboutItemFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(AboutItem item);
     }
 }
