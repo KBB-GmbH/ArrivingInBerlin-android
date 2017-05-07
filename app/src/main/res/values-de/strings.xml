@@ -55,4 +55,11 @@
     <string name="terms_agree">Akzeptieren</string>
     <string name="terms_decline">Ablehnen und Schließen</string>
     <string name="info_wifi_text">"Mit der Arriving in Berlin App finden Sie darüberhinaus freie und kostenlose Netzwerke des Freifunknetzes Berlin. "</string>
+    <string name="back">Back</string>
+    <string name="legal_title">Legal Notice</string>
+    <string name="legal_text">text</string>
+    <string name="privacy_title">Privacy Policy</string>
+    <string name="privacy_text">Privacy text</string>
+    <string name="terms_title">Terms of Use</string>
+    <string name="terms_details_txt">Terms of Use text</string>
 </resources>

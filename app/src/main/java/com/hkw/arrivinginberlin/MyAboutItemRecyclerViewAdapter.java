@@ -1,5 +1,6 @@
 package com.hkw.arrivinginberlin;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,10 +18,12 @@ public class MyAboutItemRecyclerViewAdapter extends RecyclerView.Adapter<MyAbout
 
     private final List<AboutItem> mValues;
     private final OnListFragmentInteractionListener mListener;
+    private final Context mContext;
 
-    public MyAboutItemRecyclerViewAdapter(List<AboutItem> items, OnListFragmentInteractionListener listener) {
+    public MyAboutItemRecyclerViewAdapter(List<AboutItem> items, OnListFragmentInteractionListener listener, Context context) {
         mValues = items;
         mListener = listener;
+        mContext = context;
     }
 
     @Override
@@ -33,7 +36,7 @@ public class MyAboutItemRecyclerViewAdapter extends RecyclerView.Adapter<MyAbout
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mContentView.setText(getTextItem(mValues.get(position).content));
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +69,19 @@ public class MyAboutItemRecyclerViewAdapter extends RecyclerView.Adapter<MyAbout
         @Override
         public String toString() {
             return super.toString() + " '" + mContentView.getText() + "'";
+        }
+    }
+
+    private String getTextItem(String itemName){
+        switch (itemName){
+            case "privacy":
+                return mContext.getString(R.string.privacy_title);
+            case "legal":
+                return mContext.getString(R.string.legal_title);
+            case "terms":
+                return mContext.getString(R.string.terms_title);
+            default:
+                return mContext.getString(R.string.privacy_title);
         }
     }
 }

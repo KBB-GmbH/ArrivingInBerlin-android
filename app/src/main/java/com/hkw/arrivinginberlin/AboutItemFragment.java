@@ -49,7 +49,7 @@ public class AboutItemFragment extends Fragment {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            recyclerView.setAdapter(new MyAboutItemRecyclerViewAdapter(AboutContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyAboutItemRecyclerViewAdapter(AboutContent.ITEMS, mListener, context));
             DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
                     getResources().getConfiguration().orientation);
             recyclerView.addItemDecoration(dividerItemDecoration);

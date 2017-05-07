@@ -54,4 +54,11 @@
     <string name="terms_agree">موافه قه ته</string>
     <string name="terms_decline">ناو دچمه ده ره وه</string>
     <string name="info_wifi_text"> بۆ بەکار هێنانی ئەم برنامەیە لە بێرلین تکایە سیاسەتی پاراستنی تابەت بەخۆت بخێنەوە و موافەقەت بکە دۆای وەی مۆافەقەتان کرد دەتۆانن لەم بەرنامەیە کەڵک وەرگرن ئەگە دەتانهەوێ مۆافەقە نەکەن (نا و دەچمە دەرەوە)لێ بدەن </string>
+    <string name="back">Back</string>
+    <string name="legal_title">Legal Notice</string>
+    <string name="legal_text">text</string>
+    <string name="privacy_title">Privacy Policy</string>
+    <string name="privacy_text">Privacy text</string>
+    <string name="terms_title">Terms of Use</string>
+    <string name="terms_details_txt">Terms of Use text</string>
 </resources>

@@ -1,0 +1,51 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hkw.arrivinginberlin.AboutDetailFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/back_button"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="0dp"
+                android:backgroundTint="#FFFFFF"
+                android:gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:text="@string/back"/>
+
+            <TextView
+                android:id="@+id/detail_title"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_below="@id/back_button"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/detail_text"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_below="@id/detail_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="" />
+        </RelativeLayout>
+    </ScrollView>
+
+</FrameLayout>

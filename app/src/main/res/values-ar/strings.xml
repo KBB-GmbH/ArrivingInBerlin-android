@@ -72,5 +72,12 @@ Refugees on Rails .
     <string name="terms_agree">الموافقة</string>
     <string name="terms_decline">"رفض (تراجع ) و اغلاق "</string>
     <string name="info_wifi_text">تستطيع ايضا استخدام تطبيق القادمون الى برلين لإجاد شبكات انترنيت مجانية ومفتوحة في برلين الشبكة المجانية (freifunknetz)</string>
+    <string name="back">Back</string>
+    <string name="legal_title">Legal Notice</string>
+    <string name="legal_text">text</string>
+    <string name="privacy_title">Privacy Policy</string>
+    <string name="privacy_text">Privacy text</string>
+    <string name="terms_title">Terms of Use</string>
+    <string name="terms_details_txt">Terms of Use text</string>
 
 </resources>

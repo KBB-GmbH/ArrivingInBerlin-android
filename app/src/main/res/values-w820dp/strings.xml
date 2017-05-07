@@ -4,4 +4,11 @@
     <string name="terms_agree">Accept</string>
     <string name="terms_decline">Decline and Close</string>
     <string name="info_wifi_text">You can also use the Arriving in Berlin app to find open and free networks of the Berlin Freifunknetz.</string>
+    <string name="back">Back</string>
+    <string name="legal_title">Legal Notice</string>
+    <string name="legal_text">text</string>
+    <string name="privacy_title">Privacy Policy</string>
+    <string name="privacy_text">Privacy text</string>
+    <string name="terms_title">Terms of Use</string>
+    <string name="terms_details_txt">Terms of Use text</string>
 </resources>

@@ -4,11 +4,16 @@ package com.hkw.arrivinginberlin.aboutItem;
  * Created by anouk on 03/05/17.
  */
 
+import android.content.res.Resources;
+
+import com.hkw.arrivinginberlin.R;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static java.security.AccessController.getContext;
 
 
 public class AboutContent {
@@ -18,9 +23,10 @@ public class AboutContent {
 
 
     static {
-        addItem(createAboutItem("Legal Notice", 0));
-        addItem(createAboutItem("Privacy Policy", 1));
-        addItem(createAboutItem("Terms of Use", 2));
+        addItem(new AboutItem("0", "privacy"));
+        addItem(new AboutItem("1", "legal"));
+        addItem(new AboutItem("2", "terms"));
+
     }
 
     private static void addItem(AboutItem item) {
@@ -28,31 +34,15 @@ public class AboutContent {
         ITEM_MAP.put(item.id, item);
     }
 
-    private static AboutItem createAboutItem(String title, int position) {
-        return new AboutItem(String.valueOf(position), title , makeDetails(position));
-    }
 
-    private static String makeDetails(int position) {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Details about Item: ").append(position);
-        for (int i = 0; i < position; i++) {
-            builder.append("\nMore details information here.");
-        }
-        return builder.toString();
-    }
-
-    /**
-     * A dummy item representing a piece of content.
-     */
     public static class AboutItem {
         public final String id;
         public final String content;
-        public final String details;
 
-        public AboutItem(String id, String content, String details) {
+        public AboutItem(String id, String content) {
             this.id = id;
             this.content = content;
-            this.details = details;
+
         }
 
         @Override

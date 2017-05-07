@@ -21,7 +21,7 @@ import com.roughike.bottombar.OnMenuTabSelectedListener;
 
 import java.util.Locale;
 
-public class SettingActivity extends AppCompatActivity implements LanguageSettingFragment.OnFragmentInteractionListener, InfoFragment.OnFragmentInteractionListener, ContactFragment.OnFragmentInteractionListener, AboutItemFragment.OnListFragmentInteractionListener {
+public class SettingActivity extends AppCompatActivity implements LanguageSettingFragment.OnFragmentInteractionListener, InfoFragment.OnFragmentInteractionListener, ContactFragment.OnFragmentInteractionListener, AboutItemFragment.OnListFragmentInteractionListener, AboutDetailFragment.OnFragmentInteractionListener {
     private BottomBar bottomBar;
 
     @Override
@@ -91,13 +91,55 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
 
     }
 
-    public void onListFragmentInteraction(AboutItem item){
-        Log.i("SETTINGS", item.content);
-        ContactFragment contact = new ContactFragment();
+    public void onBackPressed() {
+        Log.i("SETTING", "listening");
+        AboutItemFragment about = new AboutItemFragment();
         FragmentManager fm = getSupportFragmentManager();
         final FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.content_container, contact, "CONTACT");
+        ft.replace(R.id.content_container, about, "ABOUT");
         ft.commit();
+    }
+
+
+    public void onListFragmentInteraction(AboutItem item){
+
+        Bundle bundle = new Bundle();
+        bundle.putString("detail_text", getTextItem(item.content));
+        bundle.putString("detail_title", getTitleItem(item.content));
+
+        Log.i("SETTINGS", item.content);
+        AboutDetailFragment detail = new AboutDetailFragment();
+        detail.setArguments(bundle);
+        FragmentManager fm = getSupportFragmentManager();
+        final FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.content_container, detail, "DETAIL");
+        ft.commit();
+    }
+
+    private String getTitleItem(String itemName){
+        switch (itemName){
+            case "privacy":
+                return getApplicationContext().getString(R.string.privacy_title);
+            case "legal":
+                return getApplicationContext().getString(R.string.legal_title);
+            case "terms":
+                return getApplicationContext().getString(R.string.terms_title);
+            default:
+                return getApplicationContext().getString(R.string.privacy_title);
+        }
+    }
+
+    private String getTextItem(String itemName){
+        switch (itemName){
+            case "privacy":
+                return getApplicationContext().getString(R.string.privacy_text);
+            case "legal":
+                return getApplicationContext().getString(R.string.legal_text);
+            case "terms":
+                return getApplicationContext().getString(R.string.terms_details_txt);
+            default:
+                return getApplicationContext().getString(R.string.privacy_text);
+        }
     }
 
 }

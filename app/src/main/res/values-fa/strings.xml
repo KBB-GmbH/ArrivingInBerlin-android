@@ -54,4 +54,11 @@
     <string name="terms_agree">موافقت</string>
     <string name="terms_decline">منصرف و خروج</string>
     <string name="info_wifi_text">"هم چنين شما ميتوانيد از برنامه رسيدن به برلين براي جستجوي واي فاي رايگان هم استفاده نمايد "</string>
+    <string name="back">Back</string>
+    <string name="legal_title">Legal Notice</string>
+    <string name="legal_text">text</string>
+    <string name="privacy_title">Privacy Policy</string>
+    <string name="privacy_text">Privacy text</string>
+    <string name="terms_title">Terms of Use</string>
+    <string name="terms_details_txt">Terms of Use text</string>
 </resources>
