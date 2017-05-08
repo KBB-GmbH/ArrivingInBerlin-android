@@ -66,7 +66,7 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
                         ft.replace(R.id.content_container, contact, "CONTACT");
                         break;
                     case R.id.about_item:
-                        showSettingTitle("About", true);
+                        showSettingTitle(getString(R.string.about), true);
                         AboutItemFragment about = new AboutItemFragment();
                         ft.replace(R.id.content_container, about, "ABOUT");
                         break;
