@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 
 import com.hkw.arrivinginberlin.aboutItem.AboutContent;
@@ -47,6 +48,7 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
             public void onMenuItemSelected(int itemId) {
                 FragmentManager fm = getSupportFragmentManager();
                 final FragmentTransaction ft = fm.beginTransaction();
+                showSettingTitle("", false);
                 switch (itemId) {
                     case R.id.map_item:
                         finish();
@@ -64,6 +66,7 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
                         ft.replace(R.id.content_container, contact, "CONTACT");
                         break;
                     case R.id.about_item:
+                        showSettingTitle("About", true);
                         AboutItemFragment about = new AboutItemFragment();
                         ft.replace(R.id.content_container, about, "ABOUT");
                         break;
@@ -93,6 +96,7 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
 
     public void onBackPressed() {
         Log.i("SETTING", "listening");
+        showSettingTitle("About", true);
         AboutItemFragment about = new AboutItemFragment();
         FragmentManager fm = getSupportFragmentManager();
         final FragmentTransaction ft = fm.beginTransaction();
@@ -102,6 +106,7 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
 
 
     public void onListFragmentInteraction(AboutItem item){
+        showSettingTitle("", false);
 
         Bundle bundle = new Bundle();
         bundle.putString("detail_text", item.content);
@@ -114,6 +119,20 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
         final FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.content_container, detail, "DETAIL");
         ft.commit();
+    }
+
+    private void showSettingTitle(String title, boolean show) {
+        if (show) {
+            TextView tv = (TextView) findViewById(R.id.title_settings);
+            tv.setText(title);
+            tv.setPadding(0,70,0,0);
+            tv.setHeight(130);
+        } else {
+            TextView tv = (TextView) findViewById(R.id.title_settings);
+            tv.setText("");
+            tv.setPadding(0,0,0,0);
+            tv.setHeight(0);
+        }
     }
 
     private String getTitleItem(String itemName){
