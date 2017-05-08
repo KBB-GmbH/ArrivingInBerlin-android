@@ -104,7 +104,7 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
     public void onListFragmentInteraction(AboutItem item){
 
         Bundle bundle = new Bundle();
-        bundle.putString("detail_text", getTextItem(item.content));
+        bundle.putString("detail_text", item.content);
         bundle.putString("detail_title", getTitleItem(item.content));
 
         Log.i("SETTINGS", item.content);
@@ -128,18 +128,4 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
                 return getApplicationContext().getString(R.string.privacy_title);
         }
     }
-
-    private String getTextItem(String itemName){
-        switch (itemName){
-            case "privacy":
-                return getApplicationContext().getString(R.string.privacy_text);
-            case "legal":
-                return getApplicationContext().getString(R.string.legal_text);
-            case "terms":
-                return getApplicationContext().getString(R.string.terms_details_txt);
-            default:
-                return getApplicationContext().getString(R.string.privacy_text);
-        }
-    }
-
 }

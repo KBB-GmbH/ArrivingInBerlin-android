@@ -65,7 +65,7 @@ public class AboutDetailFragment extends Fragment {
 
         if ((title != null) && (text != null)) {
             TextView txt = (TextView) layout.findViewById(R.id.detail_text);
-            txt.setText(text);
+            setTextForItem(text, txt);
 
             TextView title_view = (TextView) layout.findViewById(R.id.detail_title);
             title_view.setText(title);
@@ -107,4 +107,17 @@ public class AboutDetailFragment extends Fragment {
         void onBackPressed();
     }
 
+
+    private void setTextForItem(String itemName, TextView tv){
+        switch (itemName){
+            case "privacy":
+                tv.setText(getActivity().getText(R.string.privacy_text));
+            case "legal":
+                tv.setText(getActivity().getText(R.string.legal_text));
+            case "terms":
+                tv.setText(getActivity().getText(R.string.terms_details_txt));
+            default:
+                tv.setText(getActivity().getText(R.string.legal_text));
+        }
+    }
 }

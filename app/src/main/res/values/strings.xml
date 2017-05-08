@@ -63,5 +63,6 @@
     <string name="privacy_title">Privacy Policy</string>
     <string name="privacy_text">Privacy text</string>
     <string name="terms_title">Terms of Use</string>
-    <string name="terms_details_txt">Terms of Use text</string>
+    <string name="terms_details_txt">Terms of Use <b>bold text here</b> \n\n
+        text 2</string>
 </resources>

@@ -56,9 +56,25 @@
     <string name="info_wifi_text">You can also use the Arriving in Berlin app to find open and free networks of the Berlin Freifunknetz.</string>
     <string name="back">Back</string>
     <string name="legal_title">Legal Notice</string>
-    <string name="legal_text">text</string>
+    <string name="legal_text"><b>Haus der Kulturen der Welt</b>\n
+John-Foster-Dulles-Allee 10\n 10557 Berlin\n telephone +49 30 397 87–0\n telefax +49 30 394 86 79\n e-mail: info@hkw.de\n\n
+<b>The Haus der Kulturen der Welt is a business division of the Kulturveranstaltungen des Bundes in Berlin (KBB) GmbH.</b>\n
+Kulturveranstaltungen des Bundes in Berlin (KBB) GmbH\n
+Schöneberger Straße 15 \n 10963 Berlin \n telephone +49 30 26 397-0\n telefax +49 30 26 397-397\n e-mail: info@kbb.eu\n\n
+<b>KBB’s Managing Directors:</b>\n
+Dr. Thomas Oberender (Director Berliner Festspiele)\n Charlotte Sieben (Managing Director, KBB GmbH)\n Dr. Bernd M. Scherer (Director Haus der Kulturen der Welt)\n Dieter Kosslick (Director Internationale Filmfestspiele Berlin)\n
+Please address written correspondence to the managing directors to\n
+Schöneberger Straße 15 \n 10963 Berlin\n\n
+<b>Person responsible for content pursuant to section 55 paragraph 2 RStV</b>\n
+Silvia Fehrmann\n John-Foster-Dulles-Allee 10\n 10557 Berlin\n e-mail: fehrmann@hkw.de\n\n
+<b>Commercial Register</b>\n
+Amtsgericht Charlottenburg\n
+Commercial register number:\n 96 HRB 29357\n\n
+<b>VAT identification number under Section 27a of the Value Added Tax Act:</b>\n
+DE 136 78 27 46\n</string>
     <string name="privacy_title">Privacy Policy</string>
     <string name="privacy_text">Privacy text</string>
     <string name="terms_title">Terms of Use</string>
-    <string name="terms_details_txt">Terms of Use text</string>
+    <string name="terms_details_txt">Terms of Use <b>bold text here</b> \n\n text 2</string>
+
 </resources>
