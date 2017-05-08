@@ -23,8 +23,8 @@ public class AboutContent {
 
 
     static {
-        addItem(new AboutItem("0", "privacy"));
-        addItem(new AboutItem("1", "legal"));
+        addItem(new AboutItem("0", "legal"));
+        addItem(new AboutItem("1", "privacy"));
         addItem(new AboutItem("2", "terms"));
 
     }

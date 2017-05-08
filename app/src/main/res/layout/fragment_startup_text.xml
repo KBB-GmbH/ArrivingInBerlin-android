@@ -29,19 +29,30 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:layout_marginBottom="10dp"
+            android:text="@string/screen_one"
+            android:textSize="17sp"/>
+
+        <TextView
+            android:id="@+id/startupText2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/startupText"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="10dp"
             android:text="@string/screen_two"
-            android:textSize="19sp"/>
+            android:textSize="17sp"/>
 
         <Button
             android:id="@+id/next"
             android:layout_width="110dp"
             android:layout_height="40dp"
             android:layout_margin="10dp"
-            android:layout_below="@id/startupText"
+            android:layout_below="@id/startupText2"
             android:backgroundTint="#FFFFFF"
             android:text="@string/next"
             android:textColor="@drawable/button_text_color"
-            android:layout_alignEnd="@id/startupText"
+            android:layout_alignEnd="@id/startupText2"
             />
     </RelativeLayout>
 

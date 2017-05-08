@@ -20,7 +20,6 @@ import android.support.v4.app.Fragment;
 public class StartupTextFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
-    private int page;
 
     public StartupTextFragment() {
         // Required empty public constructor
@@ -30,7 +29,7 @@ public class StartupTextFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        page = 1;
+
         // Inflate the layout for this fragment
         View layout =  inflater.inflate(R.layout.fragment_startup_text, container, false);
         final TextView text = (TextView) layout.findViewById(R.id.startupText);
@@ -43,13 +42,7 @@ public class StartupTextFragment extends Fragment {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (page == 1) {
-                    page = 2;
-                    text.setText(getString(R.string.screen_two));
-                    title.setText(getString(R.string.title_screen_two));
-                } else {
-                    mListener.onStartupFlowFinished();
-                }
+                mListener.onStartupFlowFinished();
             }
         });
 
