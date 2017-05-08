@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,6 +22,7 @@ import android.widget.Button;
  */
 public class TermsStartupFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
+    private boolean didAgreeOnTerms = false;
 
     public TermsStartupFragment() {
         // Required empty public constructor
@@ -46,12 +48,21 @@ public class TermsStartupFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View layout =  inflater.inflate(R.layout.fragment_terms_startup, container, false);
+        final View layout =  inflater.inflate(R.layout.fragment_terms_startup, container, false);
         final Button agree = (Button) layout.findViewById(R.id.button_ok);
         agree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               mListener.onTermsAgreed();
+                if (didAgreeOnTerms) {
+                    mListener.onTermsAgreed();
+                } else {
+                    didAgreeOnTerms = true;
+                    TextView ttv = (TextView) layout.findViewById(R.id.termsTitle2);
+                    ttv.setText(getText(R.string.privacy_title));
+
+                    TextView tv = (TextView) layout.findViewById(R.id.termsText2);
+                    tv.setText(getText(R.string.privacy_text));
+                }
             }
         });
         final Button cancel = (Button) layout.findViewById(R.id.button_decline);
