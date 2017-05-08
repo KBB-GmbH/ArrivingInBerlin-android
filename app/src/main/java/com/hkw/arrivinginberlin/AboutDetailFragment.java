@@ -112,10 +112,13 @@ public class AboutDetailFragment extends Fragment {
         switch (itemName){
             case "privacy":
                 tv.setText(getActivity().getText(R.string.privacy_text));
+                break;
             case "legal":
                 tv.setText(getActivity().getText(R.string.legal_text));
+                break;
             case "terms":
                 tv.setText(getActivity().getText(R.string.terms_details_txt));
+                break;
             default:
                 tv.setText(getActivity().getText(R.string.legal_text));
         }
