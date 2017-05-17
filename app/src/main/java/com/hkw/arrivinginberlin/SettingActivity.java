@@ -100,7 +100,7 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
         AboutItemFragment about = new AboutItemFragment();
         FragmentManager fm = getSupportFragmentManager();
         final FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.content_container, about, "ABOUT");
+        ft.replace(R.id.content_container, about, getString(R.string.about));
         ft.commit();
     }
 
