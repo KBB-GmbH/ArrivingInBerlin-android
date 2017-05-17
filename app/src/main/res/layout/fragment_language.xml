@@ -60,7 +60,7 @@
             android:id="@+id/french"
             android:background="@null"
             android:textColor="@drawable/button_text_color"
-            android:text="français"/>
+            android:text="Français"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
