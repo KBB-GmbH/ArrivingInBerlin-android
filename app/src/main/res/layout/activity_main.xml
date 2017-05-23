@@ -73,10 +73,12 @@
             android:layout_alignTop="@id/markerDescription"
             android:layout_alignEnd="@id/markerDescription"
             android:visibility="invisible"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            style="?android:attr/borderlessButtonStyle"
             app:backgroundTint="#FFFFFF"
             android:fontFamily="sans-serif"
+            android:textSize="20sp"
             android:text="X"/>
 
         <android.support.design.widget.FloatingActionButton
