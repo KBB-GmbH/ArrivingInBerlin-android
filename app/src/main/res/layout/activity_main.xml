@@ -56,6 +56,7 @@
             android:layout_below="@id/toolbar"
             tools:visibility="invisible" />
         <TextView
+            android:fontFamily="sans-serif"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="invisible"
@@ -75,6 +76,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             app:backgroundTint="#FFFFFF"
+            android:fontFamily="sans-serif"
             android:text="X"/>
 
         <android.support.design.widget.FloatingActionButton
@@ -126,6 +128,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textColor="#438D8D"
+        android:fontFamily="sans-serif"
         android:layout_gravity="start">
 
         <ExpandableListView

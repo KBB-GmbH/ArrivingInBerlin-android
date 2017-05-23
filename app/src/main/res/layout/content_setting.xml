@@ -11,6 +11,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.hkw.arrivinginberlin.SettingActivity"
+    android:fontFamily="sans-serif"
     tools:showIn="@layout/activity_setting">
 
 </RelativeLayout>

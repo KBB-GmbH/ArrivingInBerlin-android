@@ -28,6 +28,7 @@
             android:id="@+id/german"
             android:background="@null"
             android:textColor="@drawable/button_text_color"
+            android:fontFamily="sans-serif"
             android:text="Deutsch"/>
         <Button
             android:layout_width="match_parent"
@@ -36,6 +37,7 @@
             android:id="@+id/english"
             android:background="@null"
             android:textColor="@drawable/button_text_color"
+            android:fontFamily="sans-serif"
             android:text="English"/>
         <Button
             android:layout_width="match_parent"
@@ -44,12 +46,14 @@
             android:id="@+id/farsi"
             android:background="@null"
             android:textColor="@drawable/button_text_color"
+            android:fontFamily="sans-serif"
             android:text="فارسی"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/farsi"
             android:id="@+id/arabic"
+            android:fontFamily="sans-serif"
             android:background="@null"
             android:textColor="@drawable/button_text_color"
             android:text="العربية"/>
@@ -58,6 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/arabic"
             android:id="@+id/french"
+            android:fontFamily="sans-serif"
             android:background="@null"
             android:textColor="@drawable/button_text_color"
             android:text="Français"/>
@@ -66,6 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/french"
             android:id="@+id/kurdish"
+            android:fontFamily="sans-serif"
             android:background="@null"
             android:textColor="@drawable/button_text_color"
             android:text="سۆرانی"/>

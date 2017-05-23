@@ -32,7 +32,8 @@
                 android:layout_below="@id/back_button"
                 android:textStyle="bold"
                 android:textSize="20sp"
-                android:text="" />
+                android:text=""
+                android:fontFamily="sans-serif"/>
 
             <TextView
                 android:id="@+id/detail_text"
@@ -44,7 +45,8 @@
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center_horizontal"
-                android:textAlignment="textStart" />
+                android:textAlignment="textStart"
+                android:fontFamily="sans-serif"/>
         </RelativeLayout>
     </ScrollView>
 

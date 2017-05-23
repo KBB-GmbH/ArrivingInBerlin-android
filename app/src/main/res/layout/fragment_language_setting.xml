@@ -23,6 +23,7 @@
                 android:gravity="center_horizontal"
                 android:textStyle="bold"
                 android:textSize="20sp"
+                android:fontFamily="sans-serif"
                 android:text="@string/language" />
             <Button
                 android:layout_width="match_parent"
@@ -30,6 +31,7 @@
                 android:layout_below="@id/title"
                 android:id="@+id/german"
                 android:background="@null"
+                android:fontFamily="sans-serif"
                 android:textColor="@drawable/button_text_color"
                 android:text="Deutsch"/>
             <Button
@@ -37,6 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/german"
                 android:id="@+id/english"
+                android:fontFamily="sans-serif"
                 android:background="@null"
                 android:textColor="@drawable/button_text_color"
                 android:text="English"/>
@@ -45,6 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/english"
                 android:id="@+id/farsi"
+                android:fontFamily="sans-serif"
                 android:background="@null"
                 android:textColor="@drawable/button_text_color"
                 android:text="فارسی"/>
@@ -52,6 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/farsi"
+                android:fontFamily="sans-serif"
                 android:id="@+id/arabic"
                 android:background="@null"
                 android:textColor="@drawable/button_text_color"
@@ -62,6 +67,7 @@
                 android:layout_below="@id/arabic"
                 android:id="@+id/french"
                 android:background="@null"
+                android:fontFamily="sans-serif"
                 android:textColor="@drawable/button_text_color"
                 android:text="Français"/>
             <Button
@@ -70,6 +76,7 @@
                 android:layout_below="@id/french"
                 android:id="@+id/kurdish"
                 android:background="@null"
+                android:fontFamily="sans-serif"
                 android:textColor="@drawable/button_text_color"
                 android:text="سۆرانی"/>
 

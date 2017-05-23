@@ -3,21 +3,26 @@
     <item
         android:id="@+id/map_item"
         android:icon="@drawable/tool"
+        android:fontFamily="sans-serif"
         android:title="@string/map" />
     <item
         android:id="@+id/info_item"
         android:icon="@drawable/sheet"
+        android:fontFamily="sans-serif"
         android:title="@string/info" />
     <item
         android:id="@+id/lang_item"
         android:icon="@drawable/symbol"
+        android:fontFamily="sans-serif"
         android:title="@string/language" />
     <item
         android:id="@+id/contact_item"
         android:icon="@drawable/envelope"
+        android:fontFamily="sans-serif"
         android:title="@string/contact" />
     <item
         android:id="@+id/about_item"
         android:icon="@drawable/signs"
+        android:fontFamily="sans-serif"
         android:title="@string/about" />
 </menu>

@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:divider="@color/hockeyapp_text_black"
+        android:fontFamily="sans-serif"
         android:dividerHeight="10dp"
         android:layout_margin="@dimen/text_margin" />
 </LinearLayout>

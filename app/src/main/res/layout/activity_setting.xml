@@ -23,6 +23,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:textAlignment="center"
+            android:fontFamily="sans-serif"
             />
 
         <FrameLayout
@@ -35,6 +36,7 @@
             android:id="@+id/bottomBarContainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fontFamily="sans-serif"
             android:padding="16dp" />
     </LinearLayout>
 </android.support.v4.widget.DrawerLayout>

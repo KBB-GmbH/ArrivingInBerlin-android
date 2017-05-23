@@ -19,6 +19,7 @@
             android:layout_marginRight="30dp"
             android:text="@string/title_screen_two"
             android:textSize="20sp"
+            android:fontFamily="sans-serif"
             android:textStyle="bold" />
 
         <TextView
@@ -28,6 +29,7 @@
             android:layout_below="@id/startupTitle"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
+            android:fontFamily="sans-serif"
             android:layout_marginBottom="10dp"
             android:text="@string/screen_one"
             android:textSize="17sp"/>
@@ -39,6 +41,7 @@
             android:layout_below="@id/startupText"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
+            android:fontFamily="sans-serif"
             android:layout_marginBottom="10dp"
             android:text="@string/screen_two"
             android:textSize="17sp"/>
@@ -51,6 +54,7 @@
             android:layout_below="@id/startupText2"
             android:backgroundTint="#FFFFFF"
             android:text="@string/next"
+            android:fontFamily="sans-serif"
             android:textColor="@drawable/button_text_color"
             android:layout_alignEnd="@id/startupText2"
             />
