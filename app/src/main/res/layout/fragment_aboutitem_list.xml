@@ -9,7 +9,6 @@
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     android:layout_marginTop="60dp"
-    android:fontFamily="sans-serif"
     app:layoutManager="LinearLayoutManager"
     tools:context="com.hkw.arrivinginberlin.AboutItemFragment"
     tools:listitem="@layout/fragment_aboutitem" />

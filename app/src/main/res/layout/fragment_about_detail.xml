@@ -10,7 +10,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <Button
+            <com.hkw.arrivinginberlin.ButtonPlus
                 android:id="@+id/back_button"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -20,7 +20,7 @@
                 android:layout_marginStart="20dp"
                 android:text="@string/back"/>
 
-            <TextView
+            <com.hkw.arrivinginberlin.TextviewPlus
                 android:id="@+id/detail_title"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
@@ -32,10 +32,9 @@
                 android:layout_below="@id/back_button"
                 android:textStyle="bold"
                 android:textSize="20sp"
-                android:text=""
-                android:fontFamily="sans-serif"/>
+                android:text="" />
 
-            <TextView
+            <com.hkw.arrivinginberlin.TextviewPlus
                 android:id="@+id/detail_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -45,8 +44,7 @@
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center_horizontal"
-                android:textAlignment="textStart"
-                android:fontFamily="sans-serif"/>
+                android:textAlignment="textStart" />
         </RelativeLayout>
     </ScrollView>
 

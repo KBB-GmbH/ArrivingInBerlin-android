@@ -55,8 +55,7 @@
             android:visibility="invisible"
             android:layout_below="@id/toolbar"
             tools:visibility="invisible" />
-        <TextView
-            android:fontFamily="sans-serif"
+        <com.hkw.arrivinginberlin.TextviewPlus
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="invisible"
@@ -68,7 +67,7 @@
             android:layout_below="@id/toolbar"
             android:linksClickable="true"
             android:textAppearance="@style/MarkerDescription" />
-        <Button
+        <com.hkw.arrivinginberlin.ButtonPlus
             android:id="@+id/close_marker"
             android:layout_alignTop="@id/markerDescription"
             android:layout_alignEnd="@id/markerDescription"

@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
+        <com.hkw.arrivinginberlin.TextviewPlus
             android:id="@+id/startupTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -19,34 +19,31 @@
             android:layout_marginRight="30dp"
             android:text="@string/title_screen_two"
             android:textSize="20sp"
-            android:fontFamily="sans-serif"
             android:textStyle="bold" />
 
-        <TextView
+        <com.hkw.arrivinginberlin.TextviewPlus
             android:id="@+id/startupText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/startupTitle"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:fontFamily="sans-serif"
             android:layout_marginBottom="10dp"
             android:text="@string/screen_one"
             android:textSize="17sp"/>
 
-        <TextView
+        <com.hkw.arrivinginberlin.TextviewPlus
             android:id="@+id/startupText2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/startupText"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:fontFamily="sans-serif"
             android:layout_marginBottom="10dp"
             android:text="@string/screen_two"
             android:textSize="17sp"/>
 
-        <Button
+        <com.hkw.arrivinginberlin.ButtonPlus
             android:id="@+id/next"
             android:layout_width="110dp"
             android:layout_height="40dp"

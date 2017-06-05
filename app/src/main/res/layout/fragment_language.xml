@@ -21,57 +21,51 @@
             android:layout_centerHorizontal="true"
             android:id="@+id/logo"/>
 
-        <Button
+        <com.hkw.arrivinginberlin.ButtonPlus
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/logo"
             android:id="@+id/german"
             android:background="@null"
             android:textColor="@drawable/button_text_color"
-            android:fontFamily="sans-serif"
             android:text="Deutsch"/>
-        <Button
+        <com.hkw.arrivinginberlin.ButtonPlus
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/german"
             android:id="@+id/english"
             android:background="@null"
             android:textColor="@drawable/button_text_color"
-            android:fontFamily="sans-serif"
             android:text="English"/>
-        <Button
+        <com.hkw.arrivinginberlin.ButtonPlus
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/english"
             android:id="@+id/farsi"
             android:background="@null"
             android:textColor="@drawable/button_text_color"
-            android:fontFamily="sans-serif"
             android:text="فارسی"/>
-        <Button
+        <com.hkw.arrivinginberlin.ButtonPlus
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/farsi"
             android:id="@+id/arabic"
-            android:fontFamily="sans-serif"
             android:background="@null"
             android:textColor="@drawable/button_text_color"
             android:text="العربية"/>
-        <Button
+        <com.hkw.arrivinginberlin.ButtonPlus
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/arabic"
             android:id="@+id/french"
-            android:fontFamily="sans-serif"
             android:background="@null"
             android:textColor="@drawable/button_text_color"
             android:text="Français"/>
-        <Button
+        <com.hkw.arrivinginberlin.ButtonPlus
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/french"
             android:id="@+id/kurdish"
-            android:fontFamily="sans-serif"
             android:background="@null"
             android:textColor="@drawable/button_text_color"
             android:text="سۆرانی"/>
