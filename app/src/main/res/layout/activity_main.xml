@@ -76,7 +76,6 @@
             android:layout_height="50dp"
             style="?android:attr/borderlessButtonStyle"
             app:backgroundTint="#FFFFFF"
-            android:fontFamily="sans-serif"
             android:textSize="20sp"
             android:text="X"/>
 

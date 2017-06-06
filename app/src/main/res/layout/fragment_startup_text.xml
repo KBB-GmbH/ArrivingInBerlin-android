@@ -18,7 +18,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:text="@string/title_screen_two"
-            android:textSize="20sp"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
         <com.hkw.arrivinginberlin.TextviewPlus
@@ -30,7 +30,7 @@
             android:layout_marginRight="30dp"
             android:layout_marginBottom="10dp"
             android:text="@string/screen_one"
-            android:textSize="17sp"/>
+            android:textSize="16sp"/>
 
         <com.hkw.arrivinginberlin.TextviewPlus
             android:id="@+id/startupText2"
@@ -41,7 +41,7 @@
             android:layout_marginRight="30dp"
             android:layout_marginBottom="10dp"
             android:text="@string/screen_two"
-            android:textSize="17sp"/>
+            android:textSize="16sp"/>
 
         <com.hkw.arrivinginberlin.ButtonPlus
             android:id="@+id/next"

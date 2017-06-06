@@ -9,7 +9,7 @@
         android:layout_height="match_parent">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
             <com.hkw.arrivinginberlin.TextviewPlus
                 android:id="@+id/title_contact"
                 android:layout_marginLeft="10dp"
@@ -20,7 +20,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:textStyle="bold"
-                android:textSize="20sp"
+                android:textSize="22sp"
                 android:text="@string/contact" />
             <com.hkw.arrivinginberlin.TextviewPlus
                 android:id="@+id/contact_text"
@@ -32,6 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
+                android:textSize="16sp"
                 android:text="@string/contact_text" />
             <com.hkw.arrivinginberlin.ButtonPlus
                 android:id="@+id/email_button"
@@ -39,6 +40,7 @@
                 android:layout_height="40dp"
                 android:layout_margin="40dp"
                 android:backgroundTint="#FFFFFF"
+                android:textSize="16sp"
                 android:gravity="center_horizontal"
                 android:layout_below="@id/contact_text"
                 android:text="@string/send_email"/>
