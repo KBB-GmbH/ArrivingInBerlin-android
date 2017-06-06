@@ -6,11 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:screenOrientation="portrait"
+    android:background="#FFF"
     tools:context="com.hkw.arrivinginberlin.SettingActivity"
     android:fitsSystemWindows="false">
 
     <!-- This LinearLayout represents the contents of the screen  -->
-    <LinearLayout
+    <RelativeLayout
         android:screenOrientation="portrait"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,22 +21,28 @@
             android:id="@+id/title_settings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textStyle="bold"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
             android:textAlignment="center"
-            />
+            android:textSize="24sp" />
 
         <FrameLayout
             android:id="@+id/content_container"
+            android:layout_below="@id/title_settings"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:layout_height="wrap_content"
+            >
         </FrameLayout>
 
         <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/bottomBarContainer"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
+            android:layout_alignParentBottom="true"
             android:padding="16dp" />
-    </LinearLayout>
+    </RelativeLayout>
 </android.support.v4.widget.DrawerLayout>

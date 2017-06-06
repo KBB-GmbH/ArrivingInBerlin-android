@@ -8,8 +8,9 @@
     android:layout_height="match_parent"
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
-    android:textSize="16sp"
-    android:layout_marginTop="60dp"
+    android:textSize="18sp"
+    android:background="#FFF"
+    android:layout_marginTop="80dp"
     app:layoutManager="LinearLayoutManager"
     tools:context="com.hkw.arrivinginberlin.AboutItemFragment"
     tools:listitem="@layout/fragment_aboutitem" />

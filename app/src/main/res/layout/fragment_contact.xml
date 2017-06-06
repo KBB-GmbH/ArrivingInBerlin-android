@@ -2,9 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF"
     tools:context="com.hkw.arrivinginberlin.ContactFragment">
 
     <ScrollView
+        android:background="#FFF"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <RelativeLayout
@@ -20,19 +22,19 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:textStyle="bold"
-                android:textSize="22sp"
+                android:textSize="24sp"
                 android:text="@string/contact" />
             <com.hkw.arrivinginberlin.TextviewPlus
                 android:id="@+id/contact_text"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:layout_below="@id/title_contact"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:text="@string/contact_text" />
             <com.hkw.arrivinginberlin.ButtonPlus
                 android:id="@+id/email_button"
@@ -40,7 +42,7 @@
                 android:layout_height="40dp"
                 android:layout_margin="40dp"
                 android:backgroundTint="#FFFFFF"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:gravity="center_horizontal"
                 android:layout_below="@id/contact_text"
                 android:text="@string/send_email"/>

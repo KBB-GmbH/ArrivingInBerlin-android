@@ -32,6 +32,7 @@ public class ButtonPlus extends Button {
         if (!isInEditMode()) {
             Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Medium.ttf");
             setTypeface(tf);
+            setTextSize(18);
         }
     }
 }

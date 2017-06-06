@@ -3,7 +3,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:divider="@color/hockeyapp_text_black"
-    android:dividerHeight="10dp"
+    android:background="#FFF"
+    android:dividerHeight="18dp"
     android:orientation="horizontal">
 
     <com.hkw.arrivinginberlin.TextviewPlus
@@ -11,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:divider="@color/hockeyapp_text_black"
-        android:dividerHeight="10dp"
-        android:textSize="16sp"
+        android:dividerHeight="20dp"
+        android:textSize="18sp"
         android:layout_margin="@dimen/text_margin" />
 </LinearLayout>

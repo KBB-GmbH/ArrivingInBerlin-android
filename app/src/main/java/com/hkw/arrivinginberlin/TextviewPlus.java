@@ -34,8 +34,9 @@ public class TextviewPlus extends android.support.v7.widget.AppCompatTextView {
 
     private void init() {
         if (!isInEditMode()) {
-            Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Medium.ttf");
+            Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Light.ttf");
             setTypeface(tf);
+            setTextColor(getResources().getColor(R.color.black));
         }
     }
 }

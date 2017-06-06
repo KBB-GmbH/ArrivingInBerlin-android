@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF"
     tools:context="com.hkw.arrivinginberlin.AboutDetailFragment">
 
     <ScrollView
@@ -22,8 +23,8 @@
 
             <com.hkw.arrivinginberlin.TextviewPlus
                 android:id="@+id/detail_title"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="30dp"
                 android:layout_width="match_parent"
@@ -31,7 +32,7 @@
                 android:gravity="center_horizontal"
                 android:layout_below="@id/back_button"
                 android:textStyle="bold"
-                android:textSize="18sp"
+                android:textSize="24sp"
                 android:text="" />
 
             <com.hkw.arrivinginberlin.TextviewPlus
@@ -40,10 +41,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/detail_title"
                 android:layout_marginBottom="20dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
                 android:layout_marginTop="20dp"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:gravity="center_horizontal"
                 android:textAlignment="textStart" />
         </RelativeLayout>

@@ -96,7 +96,7 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
 
     public void onBackPressed() {
         Log.i("SETTING", "listening");
-        showSettingTitle("About", true);
+        showSettingTitle(getString(R.string.about), true);
         AboutItemFragment about = new AboutItemFragment();
         FragmentManager fm = getSupportFragmentManager();
         final FragmentTransaction ft = fm.beginTransaction();
@@ -125,8 +125,8 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
         if (show) {
             TextView tv = (TextView) findViewById(R.id.title_settings);
             tv.setText(title);
-            tv.setPadding(0,70,0,0);
-            tv.setHeight(130);
+            tv.setPadding(0,50,0,0);
+            tv.setHeight(150);
         } else {
             TextView tv = (TextView) findViewById(R.id.title_settings);
             tv.setText("");
