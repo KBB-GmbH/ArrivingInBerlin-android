@@ -26,7 +26,7 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
     private BottomBar bottomBar;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -147,4 +147,27 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
                 return getApplicationContext().getString(R.string.privacy_title);
         }
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+    }
+
 }

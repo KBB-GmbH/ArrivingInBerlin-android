@@ -22,7 +22,8 @@
 
         <activity
             android:name=".SplashActivity"
-            android:configChanges="keyboardHidden|orientation"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,11 +34,15 @@
         <activity
             android:name=".StartupActivity"
             android:theme="@style/ThemeFullScreen"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:windowActionBar="false" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/ThemeFullScreen"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:windowActionBar="false" />
+
         <!--
  ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -52,7 +57,9 @@
         <activity
             android:name=".SettingActivity"
             android:label="@string/title_activity_setting"
+            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:theme="@style/ThemeFullScreen">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
