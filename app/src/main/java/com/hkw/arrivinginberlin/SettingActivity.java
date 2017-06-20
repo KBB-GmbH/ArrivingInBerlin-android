@@ -35,12 +35,6 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
         LocaleUtils.setLanguageFromPreference(getApplicationContext());
         Log.i("SETTINGS", "default language on create: " + Locale.getDefault());
 
-        AboutItemFragment aboutFragment = new AboutItemFragment();
-
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.content_container, aboutFragment, "ABOUT");
-        fragmentTransaction.commit();
 
         bottomBar = BottomBar.attach(this, savedInstanceState);
         bottomBar.setItemsFromMenu(R.menu.bottom_navigation, new OnMenuTabSelectedListener() {
@@ -94,7 +88,7 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
 
     }
 
-    public void onBackPressed() {
+    public void onBackButtonPressed() {
         Log.i("SETTING", "listening");
         showSettingTitle(getString(R.string.about), true);
         AboutItemFragment about = new AboutItemFragment();

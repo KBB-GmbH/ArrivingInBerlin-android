@@ -119,6 +119,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     FloatingActionButton walkButton;
     FloatingActionButton publicTransportButton;
     LocationServices locationServices;
+    Intent starterIntent;
 
     private Position destination;
 
@@ -146,6 +147,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        starterIntent = getIntent();
 
         MapboxAccountManager.start(this, getString(R.string.access_token));
         setContentView(R.layout.activity_main);
@@ -571,20 +574,20 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     public void onStart() {
         super.onStart();
 
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client.connect();
-        Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "Main Page", // TODO: Define a title for the content shown.
-                // TODO: If you have web page content that matches this app activity's content,
-                // make sure this auto-generated web page URL is correct.
-                // Otherwise, set the URL to null.
-                Uri.parse("http://host/path"),
-                // TODO: Make sure this auto-generated app URL is correct.
-                Uri.parse("android-app://com.hkw.arrivinginberlin/http/host/path")
-        );
-        AppIndex.AppIndexApi.start(client, viewAction);
+//        // ATTENTION: This was auto-generated to implement the App Indexing API.
+//        // See https://g.co/AppIndexing/AndroidStudio for more information.
+//        client.connect();
+//        Action viewAction = Action.newAction(
+//                Action.TYPE_VIEW, // TODO: choose an action type.
+//                "Main Page", // TODO: Define a title for the content shown.
+//                // TODO: If you have web page content that matches this app activity's content,
+//                // make sure this auto-generated web page URL is correct.
+//                // Otherwise, set the URL to null.
+//                Uri.parse("http://host/path"),
+//                // TODO: Make sure this auto-generated app URL is correct.
+//                Uri.parse("android-app://com.hkw.arrivinginberlin/http/host/path")
+//        );
+//        AppIndex.AppIndexApi.start(client, viewAction);
     }
 
     @Override
@@ -593,18 +596,18 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
-        Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "Main Page", // TODO: Define a title for the content shown.
-                // TODO: If you have web page content that matches this app activity's content,
-                // make sure this auto-generated web page URL is correct.
-                // Otherwise, set the URL to null.
-                Uri.parse("http://host/path"),
-                // TODO: Make sure this auto-generated app URL is correct.
-                Uri.parse("android-app://com.hkw.arrivinginberlin/http/host/path")
-        );
-        AppIndex.AppIndexApi.end(client, viewAction);
-        client.disconnect();
+//        Action viewAction = Action.newAction(
+//                Action.TYPE_VIEW, // TODO: choose an action type.
+//                "Main Page", // TODO: Define a title for the content shown.
+//                // TODO: If you have web page content that matches this app activity's content,
+//                // make sure this auto-generated web page URL is correct.
+//                // Otherwise, set the URL to null.
+//                Uri.parse("http://host/path"),
+//                // TODO: Make sure this auto-generated app URL is correct.
+//                Uri.parse("android-app://com.hkw.arrivinginberlin/http/host/path")
+//        );
+//        AppIndex.AppIndexApi.end(client, viewAction);
+//        client.disconnect();
     }
 
     // Hockeyapp methods
@@ -1314,8 +1317,16 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     @Override
     protected void onDestroy() {
+        allMarkers = null;
         super.onDestroy();
         mapView.onDestroy();
+        drawerToggle = null;
+        mDrawer = null;
+        toolbar = null;
+        mMenuAdapter = null;
+        expandableList = null;
+        locationServices = null;
+        mainLocations = null;
     }
 
     @Override
@@ -1328,9 +1339,10 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CHANGE_LANGUAGE) {
             if (resultCode == RESULT_OK) {
+                Log.i(TAG, "on destroy");
                 mapBox = null;
-                this.finish();
-                startActivity(this.getIntent());
+                finish();
+                startActivity(starterIntent);
             }
         }
     }

@@ -59,7 +59,7 @@ public class AboutDetailFragment extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mListener.onBackPressed();
+                mListener.onBackButtonPressed();
             }
         });
 
@@ -104,7 +104,7 @@ public class AboutDetailFragment extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(Uri uri);
-        void onBackPressed();
+        void onBackButtonPressed();
     }
 
 
