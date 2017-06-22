@@ -143,6 +143,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private boolean isEndNotified;
     private ProgressBar progressBar;
     static final int CHANGE_LANGUAGE = 1;
+    private ProgressBar spinner;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -150,8 +151,10 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         starterIntent = getIntent();
 
-        MapboxAccountManager.start(this, getString(R.string.access_token));
+        MapboxAccountManager.start(getApplicationContext(), getString(R.string.access_token));
         setContentView(R.layout.activity_main);
+        spinner = (ProgressBar)findViewById(R.id.progressBar1);
+        new FetchLocationsTask().execute();
 
         //Language:
         LocaleUtils.setLanguageFromPreference(getApplicationContext());
@@ -167,10 +170,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 mapBox = mapboxMap;
                 mapBox.setOnMarkerClickListener(MainActivity.this);
                 mapBox.setOnMapClickListener(MainActivity.this);
-                new FetchLocationsTask().execute();
                 enableLocation(true);
-
-
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                 Boolean didShowStartup = prefs.getBoolean(START_KEY, false);
 
@@ -181,6 +181,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     editor.putBoolean(START_KEY, true);
                     editor.apply();
                 }
+
+                spinner.setVisibility(View.GONE);
             }
         });
 
