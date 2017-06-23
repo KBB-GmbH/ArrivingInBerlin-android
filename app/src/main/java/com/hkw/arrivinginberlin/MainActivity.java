@@ -705,8 +705,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     adresse = adresse.substring(0, 1).toUpperCase() + adresse.substring(1);
                     finalStr += "<br/>" + "<b>"+adresse.substring(0,7)+"</b>"+adresse.substring(7);
                 }
-                String telefon = properties.getString("telefon").replace("*", "");
-                if(telefon.length()!=0){
+                String telefon = properties.optString("telefon");
+                if(!telefon.isEmpty()){
+                    telefon.replace("*", "");
                     finalStr += "<br/>"+"<b>"+telefon.substring(0,7) +"</b>"+telefon.substring(7);
                 }
                 String link = properties.getString("link").replace("*", "").replace("[[", "").replace("]]", "");
