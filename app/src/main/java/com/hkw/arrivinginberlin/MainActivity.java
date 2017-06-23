@@ -92,6 +92,7 @@ import org.json.JSONObject;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -157,13 +158,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         MapboxAccountManager.start(getApplicationContext(), getString(R.string.access_token));
         setContentView(R.layout.activity_main);
         spinner = (ProgressBar)findViewById(R.id.progressBar1);
-        new FetchLocationsTask().execute();
 
-        ArrayList<JSONObject> loc = getStoredLocations();
-        if (loc != null) {
-            processDataUpdate(loc);
-        }
-
+        new FetchStoredLocations().execute();
         //Language:
         LocaleUtils.setLanguageFromPreference(getApplicationContext());
         Log.i(TAG, "default language on create: " + Locale.getDefault());
@@ -665,7 +661,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     }
 
-    public void updateLocationPoints(List<JSONObject> locations) {
+    public  ArrayList<CategoryMarker> updateLocationPoints(List<JSONObject> locations) {
         ArrayList<CategoryMarker> markers = new ArrayList<>();
         for (JSONObject location : locations) {
             try {
@@ -678,9 +674,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             }
         }
 
-        if (markers != null){
-            allMarkers = markers;
-        }
+        return markers;
     }
 
     public ArrayList<CategoryMarker> addGeoPointsForCategory(int categoryID, JSONObject json, ArrayList<CategoryMarker> markers) {
@@ -1160,50 +1154,104 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         }
     }
     /********* FETCHING AND SETTING LOCATION DATA**********************/
-    public class FetchLocationsTask extends AsyncTask<Void, Void, List<JSONObject>> {
-        private String key = "en";
+    private class MyMap {
+        ArrayList<CategoryMarker> markers;
+        ArrayList<JSONObject> locations;
+    }
+
+    public class FetchStoredLocations extends AsyncTask<Void, Void, MyMap> {
+
         @Override
-        protected List<JSONObject> doInBackground(Void... params) {
-            key = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString(LocaleUtils.LANGUAGE, "en");
-
-            switch (key){
-                case "en":
-                    return new UmapDataRequest().getLocationsEnglish();
-                case "fr":
-                    return new UmapDataRequest().getLocations(159184, 159198, 325432, "en");
-                case "de":
-                    return new UmapDataRequest().getLocations(226926, 226940, 325444, "de");
-                case "fa":
-                    return new UmapDataRequest().getLocations(128475, 128489, 325455, "en");
-                case "ar":
-                    return new UmapDataRequest().getLocations(128884, 128898, 325451, "en");
-                case "ur":
-                    return new UmapDataRequest().getLocations(193257, 193270, 325457, "de");
-                default:
-                    return new UmapDataRequest().getLocationsEnglish();
-
-            }
+        protected MyMap doInBackground(Void... params) {
+            ArrayList<JSONObject> loc = getStoredLocations();
+            MyMap map = new MyMap();
+            map.locations = loc;
+            return map;
         }
 
 
         @Override
         protected void onCancelled() {
-            ArrayList<JSONObject> locations = getStoredLocations();
-            if ((locations != null) && (locations.size() > 0)) {
-                processDataUpdate(locations);
+            //Dance and sing
+        }
 
+        @Override
+        protected void onPostExecute(MyMap map) {
+            //check if the map exists already
+            ArrayList<CategoryMarker> markers = processData(map.locations);
+            map.markers = markers;
+            if (map.locations != null & map.locations.size() > 0 & map.markers != null){
+                mainLocations = map.locations;
+                if (mMenuAdapter != null) {
+                    setMenuItemsFromJSON(map.locations);
+                    mMenuAdapter.updateData(listDataHeader);
+                }
+                allMarkers = map.markers;
             } else {
+                new FetchLocationsTask().execute();
+            }
+
+        }
+    }
+    public class FetchLocationsTask extends AsyncTask<Void, Void, MyMap> {
+        private String key = "en";
+
+        @Override
+        protected MyMap doInBackground(Void... params) {
+            key = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString(LocaleUtils.LANGUAGE, "en");
+            ArrayList<JSONObject> loc;
+
+            switch (key){
+                case "en":
+                    loc =  new UmapDataRequest().getLocationsEnglish();
+                    break;
+                case "fr":
+                    loc = new UmapDataRequest().getLocations(159184, 159198, 325432, "en");
+                    break;
+                case "de":
+                    loc =  new UmapDataRequest().getLocations(226926, 226940, 325444, "de");
+                    break;
+                case "fa":
+                    loc = new UmapDataRequest().getLocations(128475, 128489, 325455, "en");
+                    break;
+                case "ar":
+                    loc = new UmapDataRequest().getLocations(128884, 128898, 325451, "en");
+                    break;
+                case "ur":
+                    loc =  new UmapDataRequest().getLocations(193257, 193270, 325457, "de");
+                    break;
+                default:
+                    loc =  new UmapDataRequest().getLocationsEnglish();
+                    break;
+            }
+
+
+            MyMap map = new MyMap();
+            map.locations = loc;
+            return map;
+        }
+
+
+        @Override
+        protected void onCancelled() {
+            if (!showStoredLocations()) {
                 showOfflineMessage();
             }
         }
 
         @Override
-        protected void onPostExecute(List<JSONObject> locations) {
+        protected void onPostExecute(MyMap map) {
             //check if the map exists already
-            Log.i("FETCH", "arrived at post exec with locations: " + locations);
-            if ((locations != null) && (locations.size() > 0)) {
-                processDataUpdate((ArrayList<JSONObject>) locations);
-                storeLocations((ArrayList<JSONObject>) locations);
+            ArrayList<CategoryMarker> markers = processData(map.locations);
+            map.markers = markers;
+            if (map.locations != null & map.locations.size() > 0 & map.markers != null){
+                mainLocations = map.locations;
+                storeLocations(mainLocations);
+                if (mMenuAdapter != null) {
+                    setMenuItemsFromJSON(map.locations);
+                    mMenuAdapter.updateData(listDataHeader);
+                }
+                allMarkers = map.markers;
             } else {
                 if (!showStoredLocations()) {
                     showOfflineMessage();
@@ -1214,7 +1262,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         private boolean showStoredLocations() {
             List<JSONObject> storedLocations = getStoredLocations();
             if ((storedLocations != null) && (storedLocations.size() > 0)) {
-                processDataUpdate((ArrayList<JSONObject>) storedLocations);
                 return true;
             } else {
                 return false;
@@ -1242,14 +1289,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         return save.getArray(getKeyForData(key));
     }
 
-    private void processDataUpdate(ArrayList<JSONObject> locations) {
-        mainLocations = locations;
 
-        if (mMenuAdapter != null) {
-            setMenuItemsFromJSON(locations);
-            mMenuAdapter.updateData(listDataHeader);
-        }
-        updateLocationPoints(mainLocations);
+    private ArrayList<CategoryMarker> processData(ArrayList<JSONObject> locations) {
+        return updateLocationPoints(locations);
     }
 
     private String getKeyForData(String key){

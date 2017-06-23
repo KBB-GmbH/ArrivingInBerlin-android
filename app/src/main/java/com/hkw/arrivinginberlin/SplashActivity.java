@@ -9,6 +9,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import org.json.JSONObject;
@@ -26,29 +28,24 @@ public class SplashActivity extends AppCompatActivity {
     public final static String KURDISH_KEY = "kurdish_data";
     public final static String FRENCH_KEY = "french_data";
     private static final String KEY = "Startup_Finished";
+    Boolean didShowStartup;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        Boolean didShowStartup = prefs.getBoolean(KEY, false);
-
-        if (didShowStartup) {
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-            startActivity(intent);
-        } else {
-            new FetchAllLocationsTask().execute();
-        }
+        didShowStartup = prefs.getBoolean(KEY, false);
+        new FetchAllLocationsTask().execute();
     }
 
-    /********* FETCHING AND SETTING LOCATION DATA**********************/
+
+
     public class FetchAllLocationsTask extends AsyncTask<Void, Void, Map<String, ArrayList<JSONObject>>> {
         @Override
         protected Map<String, ArrayList<JSONObject>> doInBackground(Void... params) {
             HashMap<String, ArrayList<JSONObject>> hm = new HashMap<>();
-            ArrayList<JSONObject> jsonEn = new UmapDataRequest().getLocations(159184, 159198, 325432, "en");
+            ArrayList<JSONObject> jsonEn = new UmapDataRequest().getLocationsEnglish();
             ArrayList<JSONObject> jsonFr = new UmapDataRequest().getLocations(159184, 159198, 325432, "en");
             ArrayList<JSONObject> jsonDe = new UmapDataRequest().getLocations(226926, 226940, 325444, "de");
             ArrayList<JSONObject> jsonFa = new UmapDataRequest().getLocations(128475, 128489, 325455, "en");
@@ -71,55 +68,83 @@ public class SplashActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Map<String, ArrayList<JSONObject>> locations) {
             //check if the map exists already
-            for ( Map.Entry<String, ArrayList<JSONObject>> entry : locations.entrySet()) {
+            for (Map.Entry<String, ArrayList<JSONObject>> entry : locations.entrySet()) {
                 String language = entry.getKey();
                 ArrayList<JSONObject> loc = entry.getValue();
 
                 if ((loc != null) && (loc.size() > 0)) {
                     Log.i("SPLASH", "found locations" + loc.size());
                     storeLocations(loc, language);
+                    proceedAfterDownload();
                 } else {
-                    showOfflineMessage();
+                    if(hasStoredLocations()){
+                        proceedAfterDownload();
+                    } else {
+                        showOfflineMessage();
+                    }
                 }
             }
+
+        }
+
+    }
+
+    private void proceedAfterDownload(){
+        if(!didShowStartup) {
             Intent intent = new Intent(getApplicationContext(), StartupActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent);
+        } else {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(intent);
         }
+    }
+
+    private void showOfflineMessage() {
+        String message = getString(R.string.offline_message);
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+    }
 
 
+    private void storeLocations(ArrayList<JSONObject> locations, String language) {
+        SaveArray save = new SaveArray(getApplicationContext());
+        save.saveArray(getKeyForData(language), locations);
+        Log.i("SPLASH", "Saved Locations");
+    }
 
-        private void showOfflineMessage() {
-            String message = getString(R.string.offline_message);
-            Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+    private boolean hasStoredLocations(){
+        String key = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString(LocaleUtils.LANGUAGE, "en");
+        SaveArray save = new SaveArray(getApplicationContext());
+        ArrayList<JSONObject> locs = save.getArray(getKeyForData(key));
+
+        if (locs != null & locs.size()>0){
+            return true;
+        } else {
+            return false;
         }
+    }
 
-
-        private void storeLocations(ArrayList<JSONObject> locations, String language) {
-            SaveArray save = new SaveArray(getApplicationContext());
-            save.saveArray(getKeyForData(language), locations);
-            Log.i("SPLASH", "Saved Locations");
-        }
-
-        private String getKeyForData(String language){
-            switch (language){
-                case "en":
-                    return ENGLISH_KEY;
-                case "fr":
-                    return FRENCH_KEY;
-                case "de":
-                    return GERMAN_KEY;
-                case "fa":
-                    return FARSI_KEY;
-                case "ar":
-                    return ARABIC_KEY;
-                case "ur":
-                    return KURDISH_KEY;
-                default:
-                    return ENGLISH_KEY;
-            }
+    private String getKeyForData(String language){
+        switch (language){
+            case "en":
+                return ENGLISH_KEY;
+            case "fr":
+                return FRENCH_KEY;
+            case "de":
+                return GERMAN_KEY;
+            case "fa":
+                return FARSI_KEY;
+            case "ar":
+                return ARABIC_KEY;
+            case "ur":
+                return KURDISH_KEY;
+            default:
+                return ENGLISH_KEY;
         }
     }
 }
