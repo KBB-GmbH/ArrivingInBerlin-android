@@ -159,7 +159,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         setContentView(R.layout.activity_main);
         spinner = (ProgressBar)findViewById(R.id.progressBar1);
 
-        new FetchStoredLocations().execute();
         //Language:
         LocaleUtils.setLanguageFromPreference(getApplicationContext());
         Log.i(TAG, "default language on create: " + Locale.getDefault());
@@ -171,6 +170,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(MapboxMap mapboxMap) {
+                new FetchStoredLocations().execute();
                 mapBox = mapboxMap;
                 mapBox.setOnMarkerClickListener(MainActivity.this);
                 mapBox.setOnMapClickListener(MainActivity.this);

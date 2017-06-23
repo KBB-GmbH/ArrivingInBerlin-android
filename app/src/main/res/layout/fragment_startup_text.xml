@@ -54,6 +54,7 @@
             android:fontFamily="sans-serif"
             android:background="#438D8D"
             android:textColor="#FFFFFF"
+            android:gravity="center"
             android:layout_alignEnd="@id/startupText2"
             />
     </RelativeLayout>

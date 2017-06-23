@@ -39,12 +39,12 @@
             <com.hkw.arrivinginberlin.ButtonPlus
                 android:id="@+id/email_button"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="60dp"
                 android:layout_margin="40dp"
                 android:background="#438D8D"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:layout_below="@id/contact_text"
                 android:text="@string/send_email"/>
         </RelativeLayout>
