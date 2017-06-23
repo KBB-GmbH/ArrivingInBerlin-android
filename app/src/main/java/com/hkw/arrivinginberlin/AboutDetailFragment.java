@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.util.Linkify;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -66,6 +67,7 @@ public class AboutDetailFragment extends Fragment {
         if ((title != null) && (text != null)) {
             TextView txt = (TextView) layout.findViewById(R.id.detail_text);
             setTextForItem(text, txt);
+            Linkify.addLinks(txt, Linkify.ALL);
 
             TextView title_view = (TextView) layout.findViewById(R.id.detail_title);
             title_view.setText(title);
