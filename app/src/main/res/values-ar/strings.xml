@@ -172,5 +172,6 @@ https://www.mapbox.com/privacy/
 يجب أن يكون مستخدمو التطبيق لدينا ١٣ أو فوق إذا كنت تحت سن ١٣ يرجى التوقف عن استخدام التطبيق لدينا . نحن نسعى جاهدين لتحديث الخريطة الآن وفيما بعد .
 مزيد من المعلومات عندما تجري آخر تحديث
 </string>
+    <string name="offline_message_2">You appear to be offline. Go online to view route!</string>
 
 </resources>

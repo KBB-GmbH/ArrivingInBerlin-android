@@ -37,13 +37,12 @@
             android:text="@string/info_general" />
         <ImageView
             android:id="@+id/icon_wifi"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="sans-serif"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:src="@drawable/wifi"
             android:layout_below="@id/info_general"/>
         <com.hkw.arrivinginberlin.TextviewPlus
@@ -70,12 +69,12 @@
             android:text="@string/info_wifi_text" />
         <ImageView
             android:id="@+id/icon_counseling"
-            android:layout_margin="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:fontFamily="sans-serif"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:src="@drawable/counseling"
             android:layout_below="@id/info_wifi" />
         <com.hkw.arrivinginberlin.TextviewPlus
@@ -92,12 +91,12 @@
 
         <ImageView
             android:id="@+id/icon_doctors"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginTop="10dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_below="@id/info_counseling"
             android:src="@drawable/doctors_general_practitioner_arabic"
             android:contentDescription="@string/info_counseling" />
@@ -115,12 +114,12 @@
 
         <ImageView
             android:id="@+id/icon_laywers"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginTop="10dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:src="@drawable/lawyers_residence_and_asylum_law"
             android:layout_below="@id/info_doctors"/>
         <com.hkw.arrivinginberlin.TextviewPlus
@@ -137,12 +136,12 @@
 
         <ImageView
             android:id="@+id/icon_libraries"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginTop="10dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:src="@drawable/public_libraries"
             android:layout_below="@id/info_lawyers"/>
         <com.hkw.arrivinginberlin.TextviewPlus
@@ -159,12 +158,12 @@
 
         <ImageView
             android:id="@+id/icon_german"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginTop="10dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:src="@drawable/german_language_classes"
             android:layout_below="@id/info_libraries"/>
         <com.hkw.arrivinginberlin.TextviewPlus
@@ -181,12 +180,12 @@
 
         <ImageView
             android:id="@+id/icon_gov"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginTop="10dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:src="@drawable/public_authorities"
             android:layout_below="@id/info_german"/>
         <com.hkw.arrivinginberlin.TextviewPlus
@@ -204,12 +203,12 @@
 
         <ImageView
             android:id="@+id/icon_shopping"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginTop="10dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:src="@drawable/shopping_and_food"
             android:layout_below="@id/info_gov"/>
         <com.hkw.arrivinginberlin.TextviewPlus
@@ -226,12 +225,12 @@
 
         <ImageView
             android:id="@+id/icon_transport"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginTop="10dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:src="@drawable/public_transport"
             android:layout_below="@id/info_shopping"/>
         <com.hkw.arrivinginberlin.TextviewPlus

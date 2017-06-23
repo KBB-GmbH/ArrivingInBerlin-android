@@ -61,8 +61,8 @@ public class UmapDataRequest {
     }
 
 
-    public List<JSONObject>getLocations(int start, int end, int extra, String lang){
-        List<JSONObject> locations = new ArrayList<>();
+    public ArrayList<JSONObject>getLocations(int start, int end, int extra, String lang){
+        ArrayList<JSONObject> locations = new ArrayList<>();
         List<Integer> myInts = getIntegerListForInts(start, end, extra);
         for (int i = 0; i < myInts.size(); i++) {
             try {
@@ -83,8 +83,8 @@ public class UmapDataRequest {
         }
         return locations;
     }
-    public List<Integer> getIntegerListForInts(int start, int end, int extra) {
-        List<Integer> ints = new ArrayList<>();
+    public ArrayList<Integer> getIntegerListForInts(int start, int end, int extra) {
+        ArrayList<Integer> ints = new ArrayList<>();
         ints.add(extra);
         for (int i = start; i < end; i++){
             ints.add(i);
@@ -92,9 +92,9 @@ public class UmapDataRequest {
         return  ints;
     }
 
-    public List<JSONObject>getLocationsEnglish() {
-        List<JSONObject> locations = new ArrayList<>();
-        List<Integer> ints = new ArrayList<>();
+    public ArrayList<JSONObject>getLocationsEnglish() {
+        ArrayList<JSONObject> locations = new ArrayList<>();
+        ArrayList<Integer> ints = new ArrayList<>();
         ints.add(103125);
         ints.add(119513);
         ints.add(103122);

@@ -149,4 +149,5 @@
     <string name="terms_title">شرایط استفاده</string>
     <string name="terms_details_txt">\u202A"Arriving in Berlin"یک نرم افزار تلفن همراه توسط خانه Haus der Kulturen der Weltو Refugess on Railsوتوسط دوستان مهربان Haus der Kulturen der Welt پشتیبانی میشود.
 کاربران از برنامه های ما باید 13سال یا بالاتر باشد. اگر سن شما کمتر از 13 سال است لطفا به استفاده از برنامه ما پایان دهید. ما در تلاش برای به روز رسانی نقشه  هر حال حاضر و پس از آن هستیم. آخرین بروز رسانی </string>
+    <string name="offline_message_2">You appear to be offline. Go online to view route!</string>
 </resources>

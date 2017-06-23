@@ -62,5 +62,6 @@
     <string name="terms_title">Terms of Use</string>
     <string name="terms_details_txt"><b>Arriving in Berlin</b> is a mobile application by Haus der Kulturen der Welt and Refugees on Rails kindly supported by the Friends of Haus der Kulturen der Welt. It provides helpful information for refugees and newcomers to Berlin.\n\nUsers of our Apps must be 13 or above. If you are under the age of 13 please stop using our App.\n
 We strive to update the map every now and then. More information when the last update took place…</string>
+    <string name="offline_message_2">You appear to be offline. Go online to view route!</string>
 
 </resources>

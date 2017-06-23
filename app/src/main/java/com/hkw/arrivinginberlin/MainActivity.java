@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
+import android.net.ConnectivityManager;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.UiThread;
@@ -88,6 +89,8 @@ import net.hockeyapp.android.UpdateManager;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -155,6 +158,11 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         setContentView(R.layout.activity_main);
         spinner = (ProgressBar)findViewById(R.id.progressBar1);
         new FetchLocationsTask().execute();
+
+        ArrayList<JSONObject> loc = getStoredLocations();
+        if (loc != null) {
+            processDataUpdate(loc);
+        }
 
         //Language:
         LocaleUtils.setLanguageFromPreference(getApplicationContext());
@@ -254,12 +262,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         walkButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if(destination != null){
-                    try {
-                        getRoute(destination, DirectionsCriteria.PROFILE_WALKING );
-                    } catch (ServicesException e) {
-                        e.printStackTrace();
-                    }
+                if (destination != null) {
+                    new GetRouteForMap().execute();
                 }
             }
         });
@@ -662,20 +666,24 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     }
 
     public void updateLocationPoints(List<JSONObject> locations) {
+        ArrayList<CategoryMarker> markers = new ArrayList<>();
         for (JSONObject location : locations) {
             try {
                 JSONObject feature = location.getJSONArray("features").getJSONObject(0);
                 JSONObject properties = feature.getJSONObject("properties");
                 int categoryID = Integer.parseInt(properties.get("category_id").toString());
-                addGeoPointsForCategory(categoryID, location, mapBox);
-
+                markers = addGeoPointsForCategory(categoryID, location, markers);
             } catch (Exception e) {
                 Log.e(TAG, "Exception Loading GeoJSON: " + e.toString());
             }
         }
+
+        if (markers != null){
+            allMarkers = markers;
+        }
     }
 
-    public void addGeoPointsForCategory(int categoryID, JSONObject json, MapboxMap mapboxMap) {
+    public ArrayList<CategoryMarker> addGeoPointsForCategory(int categoryID, JSONObject json, ArrayList<CategoryMarker> markers) {
         ArrayList<LatLng> points = new ArrayList<>();
         String uri = getIconStringForCategory(categoryID);
         try {
@@ -732,12 +740,12 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         .snippet("<br/>" + beschreibung + "<br/>"+ finalStr);
                 
                 CategoryMarker catMarker = new CategoryMarker(categoryID, true, marker);
-                allMarkers.add(catMarker);
+                markers.add(catMarker);
             }
         } catch (Exception e) {
             Log.e("MainActivity", "Exception Loading GeoJSON: " + e.toString());
         }
-        Log.i("MainActivity", "my markers:" + allMarkers);
+       return markers;
     }
 
 
@@ -823,6 +831,11 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     }
 
     public void displayMarkersForSearchTerm(String searchTerm, Boolean search) {
+
+        if (mapBox == null) {
+            return;
+        }
+
         removeAllMarkers();
         showMarker(false);
         Boolean foundMarker = false;
@@ -830,8 +843,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         for (CategoryMarker cm : allMarkers) {
             String title = cm.markerViewOptions.getTitle().toLowerCase();
+            String snippet = cm.markerViewOptions.getSnippet().toLowerCase();
             String lowercaseSearch = searchTerm.toLowerCase();
-            if ((title.contains(lowercaseSearch)) || (cm.markerViewOptions.getSnippet().contains(lowercaseSearch))) {
+            if ((title.contains(lowercaseSearch)) || (snippet.contains(lowercaseSearch))) {
                 selMarker = mapBox.addMarker(cm.markerViewOptions);
                 foundMarker = true;
             }
@@ -1107,7 +1121,44 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         }
     }
 
+    public class GetRouteForMap extends AsyncTask<Void, Void, String> {
+        protected String doInBackground(Void... params) {
+            try {
+                InetAddress ipAddr = InetAddress.getByName("apple.com"); //You can replace it with your name
+                return ipAddr.toString();
+            } catch (UnknownHostException e) {
+                Log.i("OUT GOOGLE", "error");
+                e.printStackTrace();
+                return "";
+            }
+        }
 
+        @Override
+        protected void onCancelled() {
+            Log.i("OUT GOOGLE", "cancel");
+            showOfflineMessage();
+        }
+
+        @Override
+        protected void onPostExecute(String name) {
+            //check if the map exists already
+            Log.i("OUT GOOGLE", name);
+            if(!name.equals("")){
+                try {
+                    getRoute(destination, DirectionsCriteria.PROFILE_WALKING );
+                } catch (ServicesException e) {
+                    e.getMessage();
+                }
+            } else {
+                showOfflineMessage();
+            }
+        }
+
+        private void showOfflineMessage() {
+            String message = getString(R.string.offline_message_2);
+            Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+        }
+    }
     /********* FETCHING AND SETTING LOCATION DATA**********************/
     public class FetchLocationsTask extends AsyncTask<Void, Void, List<JSONObject>> {
         private String key = "en";
@@ -1134,15 +1185,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             }
         }
 
-        private void processDataUpdate(ArrayList<JSONObject> locations) {
-            mainLocations = locations;
-
-            if (mMenuAdapter != null) {
-                setMenuItemsFromJSON(locations);
-                mMenuAdapter.updateData(listDataHeader);
-            }
-            updateLocationPoints(mainLocations);
-        }
 
         @Override
         protected void onCancelled() {
@@ -1185,37 +1227,51 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         }
 
 
-        private ArrayList<JSONObject> getStoredLocations() {
-            SaveArray save = new SaveArray(MainActivity.this.getApplicationContext());
-            ArrayList<JSONObject> locations = save.getArray(getKeyForData());
-            return locations;
-        }
-
         private void storeLocations(ArrayList<JSONObject> locations) {
-            SaveArray save = new SaveArray(MainActivity.this.getApplicationContext());
-            save.saveArray(getKeyForData(), locations);
+            SaveArray save = new SaveArray(getApplicationContext());
+            save.saveArray(getKeyForData(key), locations);
             Log.i(TAG, "Saved Locations");
         }
+    }
 
-        private String getKeyForData(){
-            switch (key){
-                case "en":
-                    return ENGLISH_KEY;
-                case "fr":
-                    return FRENCH_KEY;
-                case "de":
-                    return GERMAN_KEY;
-                case "fa":
-                    return FARSI_KEY;
-                case "ar":
-                    return ARABIC_KEY;
-                case "ur":
-                    return KURDISH_KEY;
-                default:
-                    return ENGLISH_KEY;
-            }
+    //*************** UPDATE THE DATA ***************
+    private ArrayList<JSONObject> getStoredLocations() {
+        String key = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString(LocaleUtils.LANGUAGE, "en");
+
+        SaveArray save = new SaveArray(getApplicationContext());
+        return save.getArray(getKeyForData(key));
+    }
+
+    private void processDataUpdate(ArrayList<JSONObject> locations) {
+        mainLocations = locations;
+
+        if (mMenuAdapter != null) {
+            setMenuItemsFromJSON(locations);
+            mMenuAdapter.updateData(listDataHeader);
+        }
+        updateLocationPoints(mainLocations);
+    }
+
+    private String getKeyForData(String key){
+        switch (key){
+            case "en":
+                return ENGLISH_KEY;
+            case "fr":
+                return FRENCH_KEY;
+            case "de":
+                return GERMAN_KEY;
+            case "fa":
+                return FARSI_KEY;
+            case "ar":
+                return ARABIC_KEY;
+            case "ur":
+                return KURDISH_KEY;
+            default:
+                return ENGLISH_KEY;
         }
     }
+
+
 
     //*************** ROUTE ******************************//
 
@@ -1348,5 +1404,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             }
         }
     }
+
+
 
 }
