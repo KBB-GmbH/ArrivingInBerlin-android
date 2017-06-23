@@ -37,16 +37,16 @@
             android:layout_below="@id/popup_text">
 
             <com.hkw.arrivinginberlin.ButtonPlus android:id="@+id/cancel_button"
-                android:layout_width="100dp"
+                android:layout_width="120dp"
                 android:layout_height="40dp"
-                android:background="#438D8D"
                 android:fontFamily="sans-serif"
+                android:background="#438D8D"
                 android:textColor="#FFFFFF"
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
                 android:text="@string/cancel" />
             <com.hkw.arrivinginberlin.ButtonPlus android:id="@+id/ok_button"
-                android:layout_width="100dp"
+                android:layout_width="120dp"
                 android:layout_height="40dp"
                 android:fontFamily="sans-serif"
                 android:background="#438D8D"

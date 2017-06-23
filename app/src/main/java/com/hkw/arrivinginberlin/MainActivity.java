@@ -702,7 +702,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
                 String finalStr = "";
                 if (adresse.length() != 0) {
-                    adresse = adresse.substring(0, 1).toUpperCase() + adresse.substring​(1);
+                    adresse = adresse.substring(0, 1).toUpperCase() + adresse.substring(1);
                     finalStr += "<br/>" + "<b>"+adresse.substring(0,7)+"</b>"+adresse.substring(7);
                 }
                 String telefon = properties.getString("telefon").replace("*", "");
