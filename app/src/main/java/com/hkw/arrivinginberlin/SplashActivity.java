@@ -15,9 +15,12 @@ import android.widget.Toast;
 
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class SplashActivity extends AppCompatActivity {
@@ -28,7 +31,9 @@ public class SplashActivity extends AppCompatActivity {
     public final static String KURDISH_KEY = "kurdish_data";
     public final static String FRENCH_KEY = "french_data";
     private static final String KEY = "Startup_Finished";
+    private static final String KEY_LOAD = "Last_Load";
     Boolean didShowStartup;
+    String lastLoaded;
 
 
     @Override
@@ -36,7 +41,15 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         didShowStartup = prefs.getBoolean(KEY, false);
-        new FetchAllLocationsTask().execute();
+        lastLoaded = prefs.getString(KEY_LOAD, "none");
+        Log.i(KEY, getTodayString());
+        if (!lastLoaded.equals(getTodayString())){
+            new FetchAllLocationsTask().execute();
+        } else {
+            proceedAfterDownload();
+        }
+
+
     }
 
 
@@ -75,6 +88,11 @@ public class SplashActivity extends AppCompatActivity {
                 if ((loc != null) && (loc.size() > 0)) {
                     Log.i("SPLASH", "found locations" + loc.size());
                     storeLocations(loc, language);
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.remove(KEY_LOAD);
+                    editor.putString(KEY_LOAD, getTodayString());
+                    editor.apply();
                     proceedAfterDownload();
                 } else {
                     if(hasStoredLocations()){
@@ -146,5 +164,12 @@ public class SplashActivity extends AppCompatActivity {
             default:
                 return ENGLISH_KEY;
         }
+    }
+
+    private String getTodayString(){
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, 1);
+        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd", Locale.GERMANY);
+        return format1.format(cal.getTime());
     }
 }
