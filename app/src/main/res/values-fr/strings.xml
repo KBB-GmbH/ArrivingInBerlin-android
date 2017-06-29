@@ -56,10 +56,93 @@
     <string name="info_wifi_text">Avec l\'application „Arriving in Berlin“, trouvez en plus des accès libres et gratuits aux réseaux internet de Berlin (Freifunk).</string>
     <string name="back">Back</string>
     <string name="legal_title">Mentions légales</string>
-    <string name="legal_text"><b><i>Haus der Kulturen der Welt</i></b> (La maison des cultures du monde)\nAdresse:\n\nJohn-Foster-Dulles-Allee 10\n10557 Berlin\nTéléphone 0049 30 397 87-0\nFax 0049 30 394 86 79\nAdresse-mail: info@hkw.de\n\n<b>La <i>Haus der Kulturen der Welt</i> est une divison de la <i>Kulturveranstaltungen des Bundes in Berlin (KBB) GmbH</i> (SARL des évènements culturels de la fédération à Berlin).</b>\n<i>Kulturveranstaltungen des Bundes in Berlin (KBB) GmbH</i>\nSchöneberger Straße 15\n10963 Berlin\nTéléphone 0049 30 26 397-0\nFax 0049 30 26 397-397\nAdresse e-mail: info@kbb.eu\n<b>Les directeurs de la KBB</b>\nDr. Thomas Oberender (Directeur <i>Berliner Festspiele</i>)/nCharlotte Sieben (Directrice commerciale KBB GmbH)\nDr. Bernd M. Scherer (Directeur Haus der Kulturen der Welt)\nDieter Kosslick (Directeur Internationale Filmfestspiele Berlin)\nVous pouvez contacter les directeurs de la KBB à l\'adresse suivante: \nSchöneberger Straße 15 \n10963 Berlin\n\n<b>Personne responsable selon l\'article 55-2 du RStV</b>\nSilvia Fehrmann\nJohn-Foster-Dulles-Allee 10\n10557 Berlin\nAdresse-mail:fehrmann@hkw.de\n\n<b>Registre du commerce (équivalent au RCS)</b>\nTribunal d\'instance de Charlottenburg\n\nNuméro RCS\n96 HRB 29357\n<b>Numéro de TVA intercommunautaire selon l\'article 27a de la loi relative à la taxe sur le chiffre d\'affaires</b>\nDE 136 78 27 46</string>
+    <string name="legal_text"><b>Haus der Kulturen der Welt</b> (<i>La maison des cultures du monde</i>)
+\nAdresse: \nJohn-Foster-Dulles-Allee 10 \n10557 Berlin \nTéléphone 0049 30 397 87-0 \nFax 0049 30 394 86 79 Adresse-mail: info@hkw.de
+\nLa <i>Haus der Kulturen der Welt</i> est une divison de la <i>Kulturveranstaltungen des Bundes in Berlin (KBB) GmbH </i> (<i>SARL des évènements culturels de la fédération à Berlin</i>).
+\n<i>Kulturveranstaltungen des Bundes in Berlin (KBB) GmbH</i>  \nSchöneberger Straße 15  10963 Berlin  \nTéléphone 0049 30 26 397-0 \nFax 0049 30 26 397-397
+\n Adresse e-mail: info@kbb.eu
+
+\n\n<b>Les directeurs de la <i>KBB</i></b>
+\nDr. Thomas Oberender (Directeur <i>Berliner Festspiele</i>) \nCharlotte Sieben (Directrice commerciale <i>KBB GmbH</i>) \nDr. Bernd M. Scherer (Directeur <i>Haus der Kulturen der Welt</i>) \nDieter Kosslick (Directeur <i>Internationale Filmfestspiele Berlin</i>)
+\nVous pouvez contacter les directeurs de la <i>KBB</i> à l\’adresse suivante:
+\nSchöneberger Straße 15  10963 Berlin
+\nPersonne responsable selon l\’article 55-2 du RStV
+\nSilvia Fehrmann \nJohn-Foster-Dulles-Allee 10 \n10557 Berlin Adresse-mail: fehrmann@hkw.de
+
+\n\n<b>Registre du commerce (équivalent au RCS)</b>
+\nTribunal d\’instance de Charlottenburg
+
+\n<b>Numéro RCS 96 HRB 29357</b>
+\nNuméro de TVA intercommunautaire selon l\’article 27a de la loi relative à la taxe sur le chiffre d\’affaires
+\nDE 136 78 27 46</string>
     <string name="privacy_title">Protection des données personnelles</string>
-    <string name="privacy_text"><b>Arriving in Berlin</b>  (ci-après dénommée <i>nous</i>) est soucieuse de la protection de vos données personnelles. Cette déclaration de protection de données vous informe de notre gestion de vos données personnelles.\n\nDomaine d\'application\nCette déclaration de protection de données s\'applique uniquement à l\'utilisation de l\'application mobile « Arriving in Berlin », ci-après dénommée « App ». Si vous utilisez une application mobile tierce ou vous visitez un site web tiers, la déclaration de protection de données de l\'opérateur de cette application mobile/ce site web s\'applique. Cela s\'applique également  si nous faisons référence à un site web tiers ou quand un service tiers est implémenté dans notre App. Nous vous invitons à consulter les politiques de protection des données personnelles de la page liée afin de prendre connaissance des informations qui sont collectées.\n\nDonnées personnelles\nLes données personnelles sont toutes les informations concernant la situation personnelle ou professionnelle d\'une personne physique déterminé ou déterminable. Vos données personnelles comprennent toute information permettant de vous identifier comme, par exemple, votre nom, adresse, numéro de téléphone ou adresse e-mail.\n\nCollecte et exploitation des données\nL\'App emploie des kits de développement de «Mapbox». L\'App collectionne et transmet à «Mapbox» les données suivantes:\nDémarrage de la session\n\u2022Chargement de la carte: Quand la carte est chargée, quelle carte est chargée et à quelle niveau de zoom\n\u2022Déplacement sur la carte\n\u2022Zoom sur la carte\n\u2022Changement de perspective et rotation de la carte\n\u2022Géolocalisation avec horodatage\n\u2022Vitesse et direction\n\u2022Emplacement et temps de visite\n\nLes données de géolocalisation collectées <b> ne sont pas associées à des informations permettant d\'identifier une personne</b>, y compris le nom, l\'adresse IP, l\'adresse e-mail ou le numéro de téléphone.\nA chaque consultation l\'App transmet les données suivantes à <i>Mapbox</i>:\n\u2022Identifiants de session et d\'instance\n\u2022Identifiant de l\'application\n\u2022Type de système d\'exploitation et modèle de l\'appareil\n\u2022Type de connectivité: Wifi, CAT5, données cellulaires\n\u2022Données d\'affichage: Orientation, résolution et ajustement de l\'écran\n\u2022Horodatage\nLes données susmentionnées sont collectionnées et transférées par un traitement « file transfert protocole » de manière asynchrone.\n<i>Mapbox</i> est une entreprise basée aux Etats Unis. L\'utilisation de vos données a donc lieu aux Etats Unis.\n\nUsage des données\n<i>Mapbox</i>  utilises ces données à des fins analytiques et pour des raisons de vérifications internes. <i>Mapbox</i> profite des données afin d\'améliorer ses produits et services à ses clients et aux utilisateurs finaux. \nPour plus d\'informations sur les politiques de protection des données personnelles de «Mapbox», consultez le site: https://www.mapbox.com/privacy/#[ALaMALaM]\n\nSécurité des données collectées\nLe transfert de vos données à « Mapbox » à l\'aide de l\'App se fait uniquement par des connexions sécurisées conformément aux standards techniques les plus récents.\nNous vous recommandons de protéger votre mot de passe ainsi que votre téléphone portable des personnes non autorisées.\n\nRefus de collecte des données\nVous pouvez à tout moment révoquer votre consentement à la collecte et utilisation de vos données en désactivant cette option dans les paramétrages de votre téléphone mobile. La révocation se fait en cochant l\'option de désactivation en bas à gauche sur la carte de l\'App. Cette révocation ne prendra effet que pour les futures consultations. \n\nDroit d\'accès, de suppression et de rectification\nVous disposez d\'un droit d\'accès et de rectification et d\'opposition aux données personnelles vous concernant. Vous pouvez également demander la suppression de vos données personnelles. L\'exercice de vos droits est gratuit. \nSi vous souhaitez exercer vos droits ou que vous avez des questions concernant vos données personnelles, il vous suffit d\'écrire en ligne à la personne en charge de la protection des données à datenschutz@kbb.eu\n\nValidité\nCette déclaration de protection de données entre en vigueur en mai 2017.\n\nIdentité du responsable du traitement\nLes données personnelles sont collectées par :\n\n<i>Kulturveranstaltungen des Bundes in Berlin (KBB) GmbH</i>\n\nAdresse :\nSchöneberger Straße 15\n10963 Berlin \nTéléphone\n0049 30 26 397-0\nFax 0049 30 26 397 397 \nAdresse e-mail: info@kbb.eu \n\nPersonne en charge de la protection des données à la KBB: datenschutz@kbb.eu</string>
+    <string name="privacy_text"><b><i> Arriving in Berlin</i>  (ci\-après dénommée <i> nous </i>)</b> est soucieuse de la protection de vos données personnelles. Cette déclaration de protection de données vous informe de notre gestion de vos données personnelles.
+
+\n\n<b>Domaine d’application</b>
+\nCette déclaration de protection de données s’applique uniquement à l’utilisation de l’application mobile <i> Arriving in Berlin </i>, ci-après dénommée <i> App </i>. Si vous utilisez une application mobile tierce ou vous visitez un site web tiers, la déclaration de protection de données de l’opérateur de cette application mobile/ce site web s’applique. Cela s’applique également  si nous faisons référence à un site web tiers ou quand un service tiers est implémenté dans notre App. Nous vous invitons à consulter les politiques de protection des données personnelles de la page liée afin de prendre connaissance des informations qui sont collectées.
+
+\n\n<b>Données personnelles</b>
+\nLes données personnelles sont toutes les informations concernant la situation personnelle ou professionnelle d’une personne physique déterminé ou déterminable. Vos données personnelles comprennent toute information permettant de vous identifier comme, par exemple, votre nom, adresse, numéro de téléphone ou adresse e-mail.
+
+\n\n<b>Collecte et exploitation des données</b>
+\nL’App emploie des kits de développement de <i>Mapbox</i>. L’App collectionne et transmet à <i>Mapbox</i> les données suivantes:\n
+	•	Démarrage de la session\n
+	•	Chargement de la carte: Quand la carte est chargée, quelle carte est chargée et à quelle niveau de zoom\n
+	•	Déplacement sur la carte\n
+	•	Zoom sur la carte\n
+	•	Changement de perspective et rotation de la carte\n
+	•	Géolocalisation avec horodatage\n
+	•	Vitesse et direction\n
+	•	Emplacement et temps de visite
+\nLes données de géolocalisation collectées ne sont pas associées à des informations permettant d’identifier une personne, y compris le nom, l’adresse IP, l’adresse e-mail ou le numéro de téléphone.\n\n
+A chaque consultation l’App transmet les données suivantes à <i> Mapbox </i>:\n
+	•	Identifiants de session et d’instance\n
+	•	Identifiant de l’application\n
+	•	Type de système d’exploitation et modèle de l’appareil\n
+	•	Type de connectivité: Wifi, CAT5, données cellulaires\n
+	•	Données d’affichage: Orientation, résolution et ajustement de l’écran\n
+	•	Horodatage
+
+\n\nLes données susmentionnées sont collectionnées et transférées par un traitement <i> file transfert protocole </i> de manière asynchrone.
+
+\n\n<i>Mapbox</i> est une entreprise basée aux Etats Unis. L’utilisation de vos données a donc lieu aux Etats Unis.
+
+\n\nUsage des données
+<i>Mapbox</i>  utilises ces données à des fins analytiques et pour des raisons de vérifications internes. <i>Mapbox</i> profite des données afin d’améliorer ses produits et services à ses clients et aux utilisateurs finaux.
+
+\n\nPour plus d’informations sur les politiques de protection des données personnelles de <i>Mapbox</i>, consultez le site: https://www.mapbox.com/privacy/
+
+\n\n<b>Sécurité des données collectées</b>
+\nLe transfert de vos données à <i>Mapbox </i> à l’aide de l’App se fait uniquement par des connexions sécurisées conformément aux standards techniques les plus récents.
+Nous vous recommandons de protéger votre mot de passe ainsi que votre téléphone portable des personnes non autorisées.
+
+\n\n<b>Refus de collecte des données</b>
+\nVous pouvez à tout moment révoquer votre consentement à la collecte et utilisation de vos données en désactivant cette option dans les paramétrages de votre téléphone mobile. La révocation se fait en cochant l’option de désactivation en bas à gauche sur la carte de l’App. Cette révocation ne prendra effet que pour les futures consultations.
+
+\n\n<b>Droit d’accès, de suppression et de rectification</b>
+\nVous disposez d’un droit d’accès et de rectification et d’opposition aux données personnelles vous concernant. Vous pouvez également demander la suppression de vos données personnelles. L’exercice de vos droits est gratuit.
+\nSi vous souhaitez exercer vos droits ou que vous avez des questions concernant vos données personnelles, il vous suffit d’écrire en ligne à la personne en charge de la protection des données à datenschutz@kbb.eu
+
+\n\n<b>Validite</b>
+\nCette déclaration de protection de données entre en vigueur en mai 2017.
+
+\n\n<b>Identité du responsable du traitement</b>
+Les données personnelles sont collectées par:
+
+\n\n<i> Kulturveranstaltungen des Bundes in Berlin (KBB) GmbH </i>
+
+\n\nAdresse:
+\nSchöneberger Straße 15
+\n10963 Berlin
+\nTéléphone 0049 30 26 397-0
+\nFax 0049 30 26 397 397
+\nAdresse e-mail: info@kbb.eu
+
+\n\nPersonne en charge de la protection des données à la KBB: datenschutz@kbb.eu
+</string>
     <string name="terms_title">Conditions générales d\'utilisation</string>
-    <string name="terms_details_txt"><b>Arriving in Berlin</b>  est une application mobile de la <b>Haus der Kulturen der Welt et Refugees on Rails</b> avec le soutien des amis de la <b>Haus der Kulturen der Welt</b>. L\'application fournie les informations utiles pour des refugiés et immigrés à Berlin.\n\nLes utilisateurs de cette application doivent être 13 ans ou plus. Pour utiliser l\'application, vous devez accepter les conditions d\'utilisation.\n\n<b>Arriving in Berlin</b> fait de son mieux pour mettre à jour les informations données de temps en temps. Nous vous invitons à vous informer sur la dernière date de mise à jour en consultant la page suivante.</string>
-    <string name="offline_message_2">You appear to be offline. Go online to view route!</string>
+    <string name="terms_details_txt"><i>Arriving in Berlin</i>  est une application mobile de la <i> Haus der Kulturen der Welt </i> et <i>Refugees on Rails</i> avec le soutien des amis de la <i> Haus der Kulturen der Welt </i>. L’application fournie les informations utiles pour des refugiés et immigrés à Berlin.
+ \n\nLes utilisateurs de cette application doivent être 13 ans ou plus. Pour utiliser l’application, vous devez accepter les conditions d’utilisation.
+
+\n\n<i>Arriving in Berlin</i>  fait de son mieux pour mettre à jour les informations données de temps en temps. Nous vous invitons à vous informer sur la dernière date de mise à jour en consultant la page suivante. </string>
 </resources>
