@@ -141,6 +141,6 @@ Wenn Sie Auskunft über Ihre personenbezogenen Daten beziehungsweise deren Korre
 \n\nNutzerinnen dieser App müssen 13 Jahre oder älter sein. Damit Sie die App nutzen können, müssen Sie den Nutzungsbedingungen zustimmen.
 \n<i>Arriving in Berlin</i>  bemüht sich, die in der Karte gespeicherten Informationen von Zeit zu Zeit zu aktualisieren. Den aktuellen Stand des Kartenmaterials können Sie hier erfahren. </string>
     <string name="offline_message_2">Verbinden Sie Ihr Smartphone mit dem Internet, um diese Funktion nutzen können.</string>
-    <string name="project_title">Project</string>
-    <string name="project_text">Find more about the project here:</string>
+    <string name="project_title">Projekt</string>
+    <string name="project_text">“Arriving in Berlin - App” ist eine digitale Karte mit hilfreichen Informationen für Geflüchtete und Neuankommende in Berlin. Erfahren Sie hier mehr über das Projekt: https://arriving-in-berlin.de/app/</string>
 </resources>

@@ -80,6 +80,8 @@ public class MyAboutItemRecyclerViewAdapter extends RecyclerView.Adapter<MyAbout
                 return mContext.getString(R.string.legal_title);
             case "terms":
                 return mContext.getString(R.string.terms_title);
+            case "project":
+                return mContext.getString(R.string.project_title);
             default:
                 return mContext.getString(R.string.privacy_title);
         }

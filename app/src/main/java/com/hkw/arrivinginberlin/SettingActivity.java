@@ -111,6 +111,7 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
         detail.setArguments(bundle);
         FragmentManager fm = getSupportFragmentManager();
         final FragmentTransaction ft = fm.beginTransaction();
+        ft.setCustomAnimations(0,0);
         ft.replace(R.id.content_container, detail, "DETAIL");
         ft.commit();
     }
@@ -137,6 +138,8 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
                 return getApplicationContext().getString(R.string.legal_title);
             case "terms":
                 return getApplicationContext().getString(R.string.terms_title);
+            case "project":
+                return getApplicationContext().getString(R.string.project_title);
             default:
                 return getApplicationContext().getString(R.string.privacy_title);
         }

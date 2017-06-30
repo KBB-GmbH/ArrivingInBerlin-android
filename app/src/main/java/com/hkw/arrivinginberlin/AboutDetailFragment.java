@@ -47,7 +47,7 @@ public class AboutDetailFragment extends Fragment {
         if (getArguments() != null) {
             text = getArguments().getString("detail_text");
             title = getArguments().getString("detail_title");
-            Log.i("Hello world", text + title);
+
         }
     }
 
@@ -120,6 +120,9 @@ public class AboutDetailFragment extends Fragment {
                 break;
             case "terms":
                 tv.setText(getActivity().getText(R.string.terms_details_txt));
+                break;
+            case "project":
+                tv.setText(getActivity().getText(R.string.project_text));
                 break;
             default:
                 tv.setText(getActivity().getText(R.string.legal_text));

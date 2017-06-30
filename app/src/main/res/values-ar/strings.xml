@@ -174,7 +174,8 @@ e-mail: info@kbb.eu
 مزيد من المعلومات عندما تجري آخر تحديث
 </string>
     <string name="offline_message_2">أوصل هاتفك الذكي بلأنترنيت لتستطيع أستخدام هذه الوظيفة </string>
-    <string name="project_title">Project</string>
-    <string name="project_text">Find more about the project here:</string>
+    <string name="project_title">المشروع</string>
+    <string name="project_text">تطبيق القادمون إلى برلين هو خريطة رقمية تحتوي على معلومات مساعدة من أجل اللاجئين والقادمون الجدد إلى برلين . أعرف المزيد هنا عن هذا المشروع :https://arriving-in-berlin.de/app/
+</string>
 
 </resources>

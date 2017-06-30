@@ -26,6 +26,7 @@ public class AboutContent {
         addItem(new AboutItem("0", "legal"));
         addItem(new AboutItem("1", "privacy"));
         addItem(new AboutItem("2", "terms"));
+        addItem(new AboutItem("3", "project"));
 
     }
 

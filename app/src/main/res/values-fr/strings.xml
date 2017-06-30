@@ -146,6 +146,7 @@ Les données personnelles sont collectées par:
 
 \n\n<i>Arriving in Berlin</i>  fait de son mieux pour mettre à jour les informations données de temps en temps. Nous vous invitons à vous informer sur la dernière date de mise à jour en consultant la page suivante. </string>
     <string name="offline_message_2">Connecter votre smartphone à internet pour utiliser cette fonctionnalité.</string>
-    <string name="project_title">Project</string>
-    <string name="project_text">Find more about the project here:</string>
+    <string name="project_title">Projet</string>
+    <string name="project_text">„Arriving in Berlin – App“ est une carte digitale contenant des informations utiles pour les réfugiés et les nouveaux arrivants à Berlin. Pour en savoir plus sur le projet: https://arriving-in-berlin.de/app/
+</string>
 </resources>
