@@ -61,7 +61,7 @@ Refugees on Rails .
 أو نسينا شيئا , أو مناطق مثيرة للإهتمام ؟
 إذا فعلنا ,رجاءا أرسل ألينا رسائل نصية ."</string>
 <string name="send_email">إرسال </string>
-    <string name="download_button_message">أنت على وشك تحميل ٩٠MB من البيانات  . تأكد من اتصالك بشبكة الواي فاي . هل تريد الاستمرار ؟ </string>
+    <string name="download_button_message">أنت على وشك تحميل ٩٠MB مع هذا التحميل فقط تنزيل الخريطة بنسخة اللغة المانية   من البيانات  . تأكد من اتصالك بشبكة الواي فاي . هل تريد الاستمرار ؟ </string>
     <string name="cancel">إلغاء </string>
     <string name="google_maps_popup">ذلك سيعيد توجيهك إلى خرائط غوغل </string>
     <string name="no_location">No location found</string>
@@ -72,7 +72,7 @@ Refugees on Rails .
     <string name="terms_agree">الموافقة</string>
     <string name="terms_decline">"رفض (تراجع ) و اغلاق "</string>
     <string name="info_wifi_text">تستطيع ايضا استخدام تطبيق القادمون الى برلين لإجاد شبكات انترنيت مجانية ومفتوحة في برلين الشبكة المجانية (freifunknetz)</string>
-    <string name="back">Back</string>
+    <string name="back">رجوع </string>
     <string name="legal_title">إشعار قانوني</string>
     <string name="legal_text">Haus der Kulturen der Welt
 \nJohn-Foster-Dulles-Allee 10
@@ -173,6 +173,8 @@ e-mail: info@kbb.eu
 يجب أن يكون مستخدمو التطبيق لدينا ١٣ أو فوق إذا كنت تحت سن ١٣ يرجى التوقف عن استخدام التطبيق لدينا . نحن نسعى جاهدين لتحديث الخريطة الآن وفيما بعد .
 مزيد من المعلومات عندما تجري آخر تحديث
 </string>
-    <string name="offline_message_2">You appear to be offline. Go online to view route!</string>
+    <string name="offline_message_2">أوصل هاتفك الذكي بلأنترنيت لتستطيع أستخدام هذه الوظيفة </string>
+    <string name="project_title">Project</string>
+    <string name="project_text">Find more about the project here:</string>
 
 </resources>

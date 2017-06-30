@@ -1,11 +1,14 @@
 package com.hkw.arrivinginberlin;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -39,17 +42,17 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         didShowStartup = prefs.getBoolean(KEY, false);
         lastLoaded = prefs.getString(KEY_LOAD, "none");
         Log.i(KEY, getTodayString());
         if (!lastLoaded.equals(getTodayString())){
+            Toast.makeText(getApplicationContext(), R.string.loading, Toast.LENGTH_LONG).show();
             new FetchAllLocationsTask().execute();
         } else {
             proceedAfterDownload();
         }
-
-
     }
 
 

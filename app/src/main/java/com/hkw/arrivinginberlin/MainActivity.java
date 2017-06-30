@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         //Language:
         LocaleUtils.setLanguageFromPreference(getApplicationContext());
         Log.i(TAG, "default language on create: " + Locale.getDefault());
-
+        new FetchStoredLocations().execute();
         locationServices = LocationServices.getLocationServices(this);
 
         mapView = (MapView) findViewById(R.id.mapView);
@@ -170,7 +170,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(MapboxMap mapboxMap) {
-                new FetchStoredLocations().execute();
                 mapBox = mapboxMap;
                 mapBox.setOnMarkerClickListener(MainActivity.this);
                 mapBox.setOnMapClickListener(MainActivity.this);

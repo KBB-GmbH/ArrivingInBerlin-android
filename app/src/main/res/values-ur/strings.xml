@@ -43,7 +43,7 @@
     <string name="main_title">Arriving in Berlin</string>
     <string name="contact_text">ئەگە پرسیارێکت هەیە؟ یان شوێنێکی سەرنجڕاکێش  گرنگمان لە یاد کردبێت؟ کەوایە تەنیا پەیامێکی سادەمان بۆ بنێرە.</string>
     <string name="send_email">ناردن</string>
-    <string name="download_button_message">ئێوە خەریکی دابەزاندنی بەرنامەیەکن بە قەبارەی 90 مێگابایت. تکایە ئەرخەیان بن کە بە وایفاوە وەسڵن. دەتانهەوێت بەردەوام بن؟</string>
+    <string name="download_button_message">ئێوە خەریکی دابەزاندنی بەرنامەیەکن بە قەبارەیبەمە كار تۆ تەرخان دابەزاندن نوسخەى زمانى ئەڵمانيى نەخشەكە. 90 مێگابایت. تکایە ئەرخەیان بن کە بە وایفاوە وەسڵن. دەتانهەوێت بەردەوام بن؟</string>
     <string name="cancel">پەکخستنەوە</string>
     <string name="continue_button">بەردەوام‌بوون</string>
     <string name="download_again_message"> ئایا دەتانهەوێت کە نەخشەکە بەڕۆژ بکەن؟ ئێوە خەریکی دابەزاندنی بەرنامەیەکن بە قەبارەی 90 مێگابایت. تکایە ئەرخەیان بن کە بە وایفاوە وەسڵن. دەتانهەوێت بەردەوام بن؟</string>
@@ -54,7 +54,7 @@
     <string name="terms_agree">موافه قه ته</string>
     <string name="terms_decline">ناو دچمه ده ره وه</string>
     <string name="info_wifi_text"> بۆ بەکار هێنانی ئەم برنامەیە لە بێرلین تکایە سیاسەتی پاراستنی تابەت بەخۆت بخێنەوە و موافەقەت بکە دۆای وەی مۆافەقەتان کرد دەتۆانن لەم بەرنامەیە کەڵک وەرگرن ئەگە دەتانهەوێ مۆافەقە نەکەن (نا و دەچمە دەرەوە)لێ بدەن </string>
-    <string name="back">Back</string>
+    <string name="back">ڕۆیشتن</string>
     <string name="legal_title">بڵاو بونەوەی قانونی</string>
     <string name="legal_text">Haus der Kulturen der Welt \nJohn-Foster-Dulles-Allee 10 \n10557 Berlin \ntelephone +49 30 397 87–0 \ntelefax +49 30 394 86 79 e-mail: info@hkw.de
 \nThe Haus der Kulturen der Welt is a business division of the Kulturveranstaltungen des Bundes in \nBerlin (KBB) GmbH. \nKulturveranstaltungen des Bundes in Berlin (KBB) GmbH \nSchöneberger Stra   ße 15  10963 Berlin  \ntelephone: +49 30 26 397-0 \ntelefax: +49 30 26 397-397 e-mail: info@kbb.eu
@@ -109,7 +109,8 @@
  و Haus der Kulturen der Welt  یکه له اشیاکانی ته له فون Arriving in berlin
 Haus der Kulturen der Welt له گل هاوره نه زیکه کانتا له ماله وه پشتیوانی ده کره Refugess on   Rails
 اوانه به برنامه کانی امه به کار ده نن ده به سه ره وی ۱۳ سال بن یان سه ره وه ی ۱۳ اگه ر ته مه نتان که متره تکایه به رنا مه کانی امه به کار مه هینه امه هه ول ده دین بو به روژ کردنی خه ریته کان له هه رکاته وه به دوایه وه هین کوتایی به روژ که ردهن
-
-</string>
-    <string name="offline_message_2">You appear to be offline. Go online to view route!</string>
+    </string>
+    <string name="offline_message_2">تەلەفۆنى زيرەكت بە ببەستەوە بە ئينتەرنێتەكە بۆ ئەوەى ئەم كارە بەكار بهێنێت.</string>
+    <string name="project_title">Project</string>
+    <string name="project_text">Find more about the project here:</string>
 </resources>

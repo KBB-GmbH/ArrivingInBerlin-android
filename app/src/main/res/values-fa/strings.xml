@@ -43,7 +43,7 @@
     <string name="main_title">Arriving in Berlin</string>
     <string name="contact_text">اگر کدام محل یا موقیعتی شما درباره آن اطلاغ دارید و روی این نقشه نمایان نمیباشد.یا پیشنهاد یا انتقاد دارید لطفا با در تماس شوید</string>
     <string name="send_email">ارسال</string>
-    <string name="download_button_message">شما در حال دانلود نرم افزار به حجم 90 میگابایت میباشید لطفا مطمعا شوید مه به وای فای وصل باشید </string>
+    <string name="download_button_message">شما در حال دانلود نرم افزار به حجم 90 میگابایت میباشید لطفا مطمعا شوید مه به وای فای وصل باشید  اين دانلود فقط براي نسخه آلماني ميباشد </string>
     <string name="cancel">لغو</string>
     <string name="continue_button">ادامه </string>
     <string name="download_again_message">آیای شما میخواید که نقشه به روز رسانی کنید. شما در حال دانلود نرم افزار به حجم 90 میگابایت میباشید لطفا مطمعا شوید مه به وای فای وصل باشید  </string>
@@ -54,7 +54,7 @@
     <string name="terms_agree">موافقت</string>
     <string name="terms_decline">منصرف و خروج</string>
     <string name="info_wifi_text">"هم چنين شما ميتوانيد از برنامه رسيدن به برلين براي جستجوي واي فاي رايگان هم استفاده نمايد "</string>
-    <string name="back">Back</string>
+    <string name="back">برگشت</string>
     <string name="legal_title">طلاع قانونی</string>
     <string name="legal_text"><b>Haus der Kulturen der Welt</b>
 \nJohn-Foster-Dulles-Allee 10
@@ -166,5 +166,7 @@
     <string name="terms_title">شرایط استفاده</string>
     <string name="terms_details_txt">"Arriving in Berlin"یک نرم افزار تلفن همراه توسط خانه Haus der Kulturen der Weltو Refugess on Railsوتوسط دوستان مهربان Haus der Kulturen der Welt پشتیبانی میشود.
 کاربران از برنامه های ما باید 13سال یا بالاتر باشد. اگر سن شما کمتر از 13 سال است لطفا به استفاده از برنامه ما پایان دهید. ما در تلاش برای به روز رسانی نقشه  هر حال حاضر و پس از آن هستیم. آخرین بروز رسانی </string>
-    <string name="offline_message_2">You appear to be offline. Go online to view route!</string>
+    <string name="offline_message_2">براي استفاده از اين ويژگي گوشي خودرا با انترنت وصل نمايد </string>
+    <string name="project_title">Project</string>
+    <string name="project_text">Find more about the project here:</string>
 </resources>

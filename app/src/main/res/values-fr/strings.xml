@@ -43,7 +43,7 @@
     <string name="main_title">Arriving in Berlin</string>
     <string name="contact_text">Avez-vous des questions ou des commentaires? Ou avons-nous oublié des lieux intéressants? Si oui, envoyez-nous un message.</string>
     <string name="send_email">Envoyer</string>
-    <string name="download_button_message">Le volume des téléchargements correspond à 90 MB. Vérifiez que vous soyez bien connecté à un réseau wifi. Souhaitez-vous continuer?</string>
+    <string name="download_button_message">Le volume des téléchargements correspond à 90 MB. Vérifiez que vous soyez bien connecté à un réseau wifi. Ce téléchargement vous donne accès uniquement à la carte en langue allemande. Souhaitez-vous continuer?</string>
     <string name="cancel">Annuler</string>
     <string name="continue_button">Continuer</string>
     <string name="download_again_message">Souhaitez-vous mettre à jour votre carte offline? Ceci implique le téléchargement de 90 MB de données. Vérifiez que vous soyez bien connecté à un réseau wifi. Souhaitez-vous continuer?</string>
@@ -54,7 +54,7 @@
     <string name="terms_agree">Accepter</string>
     <string name="terms_decline">Refuser et fermer</string>
     <string name="info_wifi_text">Avec l\'application „Arriving in Berlin“, trouvez en plus des accès libres et gratuits aux réseaux internet de Berlin (Freifunk).</string>
-    <string name="back">Back</string>
+    <string name="back">Retour</string>
     <string name="legal_title">Mentions légales</string>
     <string name="legal_text"><b>Haus der Kulturen der Welt</b> (<i>La maison des cultures du monde</i>)
 \nAdresse: \nJohn-Foster-Dulles-Allee 10 \n10557 Berlin \nTéléphone 0049 30 397 87-0 \nFax 0049 30 394 86 79 Adresse-mail: info@hkw.de
@@ -145,4 +145,7 @@ Les données personnelles sont collectées par:
  \n\nLes utilisateurs de cette application doivent être 13 ans ou plus. Pour utiliser l’application, vous devez accepter les conditions d’utilisation.
 
 \n\n<i>Arriving in Berlin</i>  fait de son mieux pour mettre à jour les informations données de temps en temps. Nous vous invitons à vous informer sur la dernière date de mise à jour en consultant la page suivante. </string>
+    <string name="offline_message_2">Connecter votre smartphone à internet pour utiliser cette fonctionnalité.</string>
+    <string name="project_title">Project</string>
+    <string name="project_text">Find more about the project here:</string>
 </resources>

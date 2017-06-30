@@ -27,19 +27,20 @@
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".StartupActivity"
-            android:theme="@style/ThemeFullScreen"
-            android:screenOrientation="portrait"
             android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/ThemeFullScreen"
             android:windowActionBar="false" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/ThemeFullScreen"
             android:configChanges="orientation|screenSize|keyboardHidden"
+            android:theme="@style/ThemeFullScreen"
             android:windowActionBar="false" />
 
         <!--
@@ -55,15 +56,16 @@
 
         <activity
             android:name=".SettingActivity"
-            android:label="@string/title_activity_setting"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/title_activity_setting"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/ThemeFullScreen">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.hkw.arrivinginberlin.MainActivity" />
         </activity>
+
     </application>
 
 </manifest>
