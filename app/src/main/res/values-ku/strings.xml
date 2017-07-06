@@ -19,7 +19,7 @@
     <string name="contact">پێوەندی</string>
     <string name="language">زمان</string>
 
-    <string name="about">About</string>
+    <string name="about">سەبارەت</string>
 
     <string name="screen_one">\"ئەڕاڤینگ بێرلین ئەپ\" نەخشەیەکی دیجیتالیە بۆ پێدانی زانیاری و هاوکاریکردنی پەنابەران و ئەوەانەی ئێستا دەگەنە بێرلین.   </string>
     <string name="screen_two">بەکارهێنانی ئەو نەخشەیە یان ئەم لیستانە بۆ دۆزینەوەی شوێنەکانە. بە هاوکاری پانتایی گەڕانەکە دەتوانی بەتەواوی بە شوێن زانیارییە دیاری‌کراوەکاندا بگەڕیێ. بە جیا لەوە، ئەم نەخشەیە بۆ دیاریکردنی ریگە و مەودا بۆ  گەیشتن بە شوێنی مەبەستیش بەکار دەبرێ. تەنانەت ئەگەر تۆ ئینتێرنێتیشت لەبەر دەستدا نەبێت.</string>
@@ -42,24 +42,76 @@
 
     <string name="main_title">Arriving in Berlin</string>
     <string name="contact_text">ئەگە پرسیارێکت هەیە؟ یان شوێنێکی سەرنجڕاکێش  گرنگمان لە یاد کردبێت؟ کەوایە تەنیا پەیامێکی سادەمان بۆ بنێرە.</string>
-    <string name="send_email">xx</string>
-    <string name="download_button_message">You are about to download 90MB of data. Make sure you are connected to wifi. Would you like to continue?</string>
-    <string name="cancel">Cancel</string>
-    <string name="continue_button">Continue</string>
-    <string name="download_again_message">Would you like to update your offline map? This will download 90MB of data. Make sure you are connected to wifi. Would you like to continue? </string>
-    <string name="google_maps_popup">This will redirect you to Google Maps.</string>
+    <string name="send_email">ناردن</string>
+    <string name="download_button_message">ئێوە خەریکی دابەزاندنی بەرنامەیەکن بە قەبارەیبەمە كار تۆ تەرخان دابەزاندن نوسخەى زمانى ئەڵمانيى نەخشەكە. 90 مێگابایت. تکایە ئەرخەیان بن کە بە وایفاوە وەسڵن. دەتانهەوێت بەردەوام بن؟</string>
+    <string name="cancel">پەکخستنەوە</string>
+    <string name="continue_button">بەردەوام‌بوون</string>
+    <string name="download_again_message"> ئایا دەتانهەوێت کە نەخشەکە بەڕۆژ بکەن؟ ئێوە خەریکی دابەزاندنی بەرنامەیەکن بە قەبارەی 90 مێگابایت. تکایە ئەرخەیان بن کە بە وایفاوە وەسڵن. دەتانهەوێت بەردەوام بن؟</string>
+    <string name="google_maps_popup">لێرەوە بە نەخشەگوگڵەوە وەسڵ دەبن</string>
     <string name="no_location">No location found</string>
     <string name="select_category">"یێکێک لەم شتانەی لە لای چەپەوە هەڵبژێرین  "</string>
     <string name="terms_text"> بۆ بەکار هێنانی ئەم برنامەیە لە بێرلین تکایە سیاسەتی پاراستنی تابەت بەخۆت بخێنەوە و موافەقەت بکە دۆای وەی مۆافەقەتان کرد دەتۆانن لەم بەرنامەیە کەڵک وەرگرن ئەگە دەتانهەوێ مۆافەقە نەکەن (نا و دەچمە دەرەوە)لێ بدەن</string>
     <string name="terms_agree">موافه قه ته</string>
     <string name="terms_decline">ناو دچمه ده ره وه</string>
-    <string name="info_wifi_text">هەروەها  ئەنگو دەتۆانن لەم بەرنامەیە بۆ گێشتن بۆ بێرلین لە بۆ گەڕان بۆ وایفای بەلاش هەر وەها دەتۆانن کەڵک وەرگرن</string>
-    <string name="back">Back</string>
-    <string name="legal_title">Legal Notice</string>
-    <string name="legal_text">text</string>
-    <string name="privacy_title">Privacy Policy</string>
-    <string name="privacy_text">Privacy text</string>
-    <string name="terms_title">Terms of Use</string>
-    <string name="terms_details_txt">Terms of Use text</string>
-    <string name="offline_message_2">You appear to be offline. Go online to view route!</string>
+    <string name="info_wifi_text"> بۆ بەکار هێنانی ئەم برنامەیە لە بێرلین تکایە سیاسەتی پاراستنی تابەت بەخۆت بخێنەوە و موافەقەت بکە دۆای وەی مۆافەقەتان کرد دەتۆانن لەم بەرنامەیە کەڵک وەرگرن ئەگە دەتانهەوێ مۆافەقە نەکەن (نا و دەچمە دەرەوە)لێ بدەن </string>
+    <string name="back">ڕۆیشتن</string>
+    <string name="legal_title">بڵاو بونەوەی قانونی</string>
+    <string name="legal_text">Haus der Kulturen der Welt \nJohn-Foster-Dulles-Allee 10 \n10557 Berlin \ntelephone +49 30 397 87–0 \ntelefax +49 30 394 86 79 e-mail: info@hkw.de
+\nThe Haus der Kulturen der Welt is a business division of the Kulturveranstaltungen des Bundes in \nBerlin (KBB) GmbH. \nKulturveranstaltungen des Bundes in Berlin (KBB) GmbH \nSchöneberger Stra   ße 15  10963 Berlin  \ntelephone: +49 30 26 397-0 \ntelefax: +49 30 26 397-397 e-mail: info@kbb.eu
+ 
+\n\nمدیران گشتی KBB
+\nDr. Thomas Oberender (مدیر گشنتی Berliner Festspiele)
+\nCharlote Sieben (مدیر گشتی KBB GmbH)
+\nDr. Bernd M. Scherer (مدیر گشتی Haus der Kulturen der Welt)
+\nDieter Kosslick (مدیر گشتی Internaional FilmfestSpiele Berlin)
+\nتکایە بۆ نامە ناردن بۆ مدیر ئەم ئەدرەسە بەکار بێنە
+
+\n\nPlease address written correspondence to the managing directors to \nSchöneberger Straße 15  10963 Berlin
+\nPerson responsible for content pursuant to section 55 paragraph 2 RStV \nSilvia Fehrmann \nJohn-Foster-Dulles-Allee 10 10557 Berlin e-mail: fehrmann@hkw.de
+\n\nCommercial Register \nAmtsgericht Charlottenburg Commercial register number: 96 HRB 29357
+\nVAT identification number under Section 27a of the Value Added Tax Act: \nDE 136 78 27 46
+</string>
+    <string name="privacy_title">سیاسەتی پاراستنی شوێنی تایبەت</string>
+    <string name="privacy_text">Haus der Kulturen der Welt \nJohn-Foster-Dulles-Allee 10 \n10557 Berlin \ntelephone +49 30 397 87–0 \ntelefax +49 30 394 86 79 e-mail: info@hkw.de
+\nThe Haus der Kulturen der Welt is a business division of the Kulturveranstaltungen des Bundes in \nBerlin (KBB) GmbH. \nKulturveranstaltungen des Bundes in Berlin (KBB) GmbH \nSchöneberger Stra   ße 15  10963 Berlin  \ntelephone: +49 30 26 397-0 \ntelefax: +49 30 26 397-397 e-mail: info@kbb.eu
+ 
+\n\nمدیران گشتی KBB
+\nDr. Thomas Oberender (مدیر گشنتی Berliner Festspiele)
+\nCharlote Sieben (مدیر گشتی KBB GmbH)
+\nDr. Bernd M. Scherer (مدیر گشتی Haus der Kulturen der Welt)
+\nDieter Kosslick (مدیر گشتی Internaional FilmfestSpiele Berlin)
+\nتکایە بۆ نامە ناردن بۆ مدیر ئەم ئەدرەسە بەکار بێنە
+
+\n\nPlease address written correspondence to the managing directors to \nSchöneberger Straße 15  10963 Berlin
+\nPerson responsible for content pursuant to section 55 paragraph 2 RStV \nSilvia Fehrmann \nJohn-Foster-Dulles-Allee 10 10557 Berlin e-mail: fehrmann@hkw.de
+\n\nCommercial Register \nAmtsgericht Charlottenburg Commercial register number: 96 HRB 29357
+\nVAT identification number under Section 27a of the Value Added Tax Act: \nDE 136 78 27 46
+ 
+بۆ تایبت مەندی شەخسی ێوە فرە راست گۆ دەبین  ئەم قانونانە پارێزراوە بۆ ێوە شی دەکەینۆ کە ێمە چۆن زانیاری شەخسی ێوە چۆن دەپارێزین    یەک ئەم قانونانە پارێزراوە  بەڵام کاتێک کە لەم برنامە یستفادە دەکی arriving in    یستفادە دەکیberlin\n\n
+ 
+بەڵام ئەگەر تۆ لە بەرنامەیکی تر  یان وابسایتی تر یستفادە بکەی  پارێزگاری بە دست ێمە نیە ئەمانە بەشێکن لەو قانونانە :کە ئمە بۆ یەک ویبسایتی کەسی سئهەم لە رێگەی یک لینک یان کاتێک نامەیک لە یک کەسی سێوما لە برنامەی ێمە دایە\n\n
+ئەم پرۆگرامە لە نڤئیسباری بەرفرەکراوی kits mapbox بکار ئانئیت. کومپانیای mapbox بنەجئی لە ئەمریکاێە. لەوما کۆمەڵە مالووماتەکانتان لە ئەمریکا سەرکەوئیت. پرۆگرامی mapbox ئەم مالووماتە کوو کەئیتەوە و بەکارهئنیت: دەستپئکی بەکارهئنینی پرۆگرام: بەکارهئنینی پێشئینی نڤیس باری. داگیربئۆنی پڵان(نەخشە): کاتێک کە پڵانێک داگیرکرا بئێت, پڵانەکانی داگیرکراو و هەروەها پڵانەکانی دووپشک کراو. پان بۆنی پڵان: کاتێک کە پڵانێک پان بئێتەوە. دووپشکی پڵان: کاتێک کە پڵانێک دووپشک بئێتەوە نشئیڤئی و فەتلی پڵان: کاتێک کە وێزیۆنێک لە پڵان دەگووڕێتەوە رست: رستی مەکانی پڵان بەرامبەری سەردەم. تەوس و سەرناۆ: سەردانی ڕاوەستێنی شوونو سەردەم. دەیتاکان لەگەل هەرجوور زانیاریەکانی پێناسە وەک : ناۆ , پێناسەی هەرتمی, ئونۆانی ئیمەیل, ئونۆانی IP یان ژێمارەی تلیفوون کۆ نە کراون.
+وە یا ئەوەی کە دادەی تەلەفون وەسلبێ . \n\nچاوو لە ئیتلاعات تەنزیمی دەزگاکەت وە وازح کردنی شاشەکەی لەگەڵ ئەندازەی نوسینەکەت. تاریخی ئەو شتانەی لە جمعیکیدا جەماوەری بوە بێ ئەوەی بزانی گوزارشتی دەدا . هەدەفی ئەو بەرنامەیی بۆ وەسڵ بونەکەی MapBox بۆ خڕ کردنەوە پۆلێ لە زانیارێکانو ناساندن لەنێو بەرنامەکەیدا بۆ چاک بوونی بەروبومی خەریتەی هەڵ گرتنو خەدەماتی ئاخری بدات بە مشتەرێکانی. بۆ زانیاری زیاتر لە پێناو سیاسەتێکی حەوشەی قسوسی لە MapBox چاوو لێکەن لەو سایتەی https://www,mapbox.com/privacy 5پاراستنی ئەوشتانەی کەکۆبونەتەوە . \n\n
+زانیاری شەخسی ئێوە لەنێوان ئەو بەرنامەو ئێمە MapBox هەموو شتێ دەپارێزترێ لە نێوان ئێمەدا بە ستانداردای جیهانی وەر دەگیرێن ئەمنێتەکانی شەخسی خۆتان ئێمە پێتان ئەڵێی کە 100 ڕەمزی چونەنێو ئەوشتەی لای خۆتان ڕای گرنوو مەیدەن بەکەس. \n\n
+بۆ هەڵبژاردنی ئەو شتانەی کە ئێوە بە ئێمەتان داوە ئەتوانی لێی پەشیمان بیتەوە ئێوە لەخوارەوەی خەریتە لای دەستی چەپت ئەتوانن ئەو شتە هەڵبژێرنا
+ 
+
+\n\nKulturveranstaltungen des Bundes in Berlin (KBB) GmbH
+\nSchöneberger Straße 15
+\n10963 Berlin
+\ntelephone +49 30 26 397-0
+\ntelefax +49 30 26 397 397
+\ne-mail: info@kbb.eu
+
+\n\nData Protection Officer of KBB: datenschutz@kbb.eu</string>
+    <string name="terms_title">"چونیه تی به کار هه نان</string>
+    <string name="terms_details_txt">
+ و Haus der Kulturen der Welt  یکه له اشیاکانی ته له فون Arriving in berlin
+Haus der Kulturen der Welt له گل هاوره نه زیکه کانتا له ماله وه پشتیوانی ده کره Refugess on   Rails
+اوانه به برنامه کانی امه به کار ده نن ده به سه ره وی ۱۳ سال بن یان سه ره وه ی ۱۳ اگه ر ته مه نتان که متره تکایه به رنا مه کانی امه به کار مه هینه امه هه ول ده دین بو به روژ کردنی خه ریته کان له هه رکاته وه به دوایه وه هین کوتایی به روژ که ردهن
+    </string>
+    <string name="offline_message_2">تەلەفۆنى زيرەكت بە ببەستەوە بە ئينتەرنێتەكە بۆ ئەوەى ئەم كارە بەكار بهێنێت.</string>
+    <string name="project_title">پروژه</string>
+    <string name="project_text">"ئەڕاڤینگ بێرلین ئەپ" نەخشەیەکی دیجیتالیە بۆ پێدانی زانیاری و هاوکاریکردنی پەنابەران و ئەوەانەی ئێستا دەگەنە بێرلین. لێرە زياتر بزانە دەربارەى پرۆژەكە.:https://arriving-in-berlin.de/app/
+</string>
 </resources>
