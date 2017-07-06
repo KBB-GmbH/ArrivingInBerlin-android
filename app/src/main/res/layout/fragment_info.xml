@@ -37,8 +37,7 @@
             android:text="@string/info_general" />
         <ImageView
             android:id="@+id/icon_wifi"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+            android:layout_centerHorizontal="true"
             android:layout_marginBottom="20dp"
             android:layout_marginTop="15dp"
             android:layout_width="60dp"
@@ -69,8 +68,7 @@
             android:text="@string/info_wifi_text" />
         <ImageView
             android:id="@+id/icon_counseling"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+            android:layout_centerHorizontal="true"
             android:layout_marginBottom="20dp"
             android:layout_marginTop="15dp"
             android:layout_width="60dp"
@@ -91,8 +89,7 @@
 
         <ImageView
             android:id="@+id/icon_doctors"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+            android:layout_centerHorizontal="true"
             android:layout_marginBottom="20dp"
             android:layout_marginTop="15dp"
             android:layout_width="60dp"
@@ -114,8 +111,7 @@
 
         <ImageView
             android:id="@+id/icon_laywers"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+            android:layout_centerHorizontal="true"
             android:layout_marginBottom="20dp"
             android:layout_marginTop="15dp"
             android:layout_width="60dp"
@@ -136,8 +132,7 @@
 
         <ImageView
             android:id="@+id/icon_libraries"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+            android:layout_centerHorizontal="true"
             android:layout_marginBottom="20dp"
             android:layout_marginTop="15dp"
             android:layout_width="60dp"
@@ -158,8 +153,7 @@
 
         <ImageView
             android:id="@+id/icon_german"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+            android:layout_centerHorizontal="true"
             android:layout_marginBottom="20dp"
             android:layout_marginTop="15dp"
             android:layout_width="60dp"
@@ -180,8 +174,7 @@
 
         <ImageView
             android:id="@+id/icon_gov"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+            android:layout_centerHorizontal="true"
             android:layout_marginBottom="20dp"
             android:layout_marginTop="15dp"
             android:layout_width="60dp"
@@ -203,8 +196,7 @@
 
         <ImageView
             android:id="@+id/icon_shopping"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+            android:layout_centerHorizontal="true"
             android:layout_marginBottom="20dp"
             android:layout_marginTop="15dp"
             android:layout_width="60dp"
@@ -225,8 +217,7 @@
 
         <ImageView
             android:id="@+id/icon_transport"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+            android:layout_centerHorizontal="true"
             android:layout_marginBottom="20dp"
             android:layout_marginTop="15dp"
             android:layout_width="60dp"

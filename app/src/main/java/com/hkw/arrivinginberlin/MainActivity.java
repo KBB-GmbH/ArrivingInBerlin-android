@@ -710,9 +710,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     Log.i("phone", telefon);
                     finalStr += "<br/>"+"<b>"+telefon.substring(0,7) +"</b>"+telefon.substring(7);
                 }
-                String link = properties.getString("link").replace("*", "").replace("[[", "").replace("]]", "");
+                 String link = properties.getString("link").replace("*", "").replace("[[", "").replace("]]", "");
                 if(link.length()!=0){
-                    finalStr += "<br/>"+"<b>"+link.substring(0,7) +"</b>"+link.substring(7);
+                    finalStr += "<br/>"+"<b>"+link.substring(0,6) +"</b>"+link.substring(6);
                     Log.i(TAG, "LINK " + link);
                 }
 

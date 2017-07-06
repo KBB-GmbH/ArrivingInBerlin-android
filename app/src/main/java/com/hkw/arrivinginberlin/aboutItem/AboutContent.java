@@ -23,11 +23,10 @@ public class AboutContent {
 
 
     static {
-        addItem(new AboutItem("0", "legal"));
-        addItem(new AboutItem("1", "privacy"));
-        addItem(new AboutItem("2", "terms"));
-        addItem(new AboutItem("3", "project"));
-
+        addItem(new AboutItem("0", "project"));
+        addItem(new AboutItem("1", "legal"));
+        addItem(new AboutItem("2", "privacy"));
+        addItem(new AboutItem("3", "terms"));
     }
 
     private static void addItem(AboutItem item) {
