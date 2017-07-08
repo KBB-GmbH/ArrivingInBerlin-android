@@ -12,22 +12,9 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <com.hkw.arrivinginberlin.TextviewPlus
-                android:id="@+id/title"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="50dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:textStyle="bold"
-                android:textSize="24sp"
-                android:text="@string/language" />
             <com.hkw.arrivinginberlin.ButtonPlus
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/title"
                 android:id="@+id/german"
                 android:background="@null"
                 android:textColor="@drawable/button_text_color"

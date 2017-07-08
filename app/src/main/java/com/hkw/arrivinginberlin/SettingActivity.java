@@ -42,7 +42,6 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
             public void onMenuItemSelected(int itemId) {
                 FragmentManager fm = getSupportFragmentManager();
                 final FragmentTransaction ft = fm.beginTransaction();
-                showSettingTitle("", false);
                 switch (itemId) {
                     case R.id.map_item:
                         finish();
@@ -50,19 +49,22 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
                     case R.id.info_item:
                         InfoFragment info = new InfoFragment();
                         ft.replace(R.id.content_container, info, "INFO");
+                        showSettingTitle(getString(R.string.info));
                         break;
                     case R.id.lang_item:
                         LanguageSettingFragment language = new LanguageSettingFragment();
                         ft.replace(R.id.content_container, language, "LANG");
+                        showSettingTitle(getString(R.string.language));
                         break;
                     case R.id.contact_item:
                         ContactFragment contact = new ContactFragment();
                         ft.replace(R.id.content_container, contact, "CONTACT");
+                        showSettingTitle(getString(R.string.contact));
                         break;
                     case R.id.about_item:
-                        showSettingTitle(getString(R.string.about), true);
                         AboutItemFragment about = new AboutItemFragment();
                         ft.replace(R.id.content_container, about, "ABOUT");
+                        showSettingTitle(getString(R.string.about));
                         break;
                     default:
                         break;
@@ -90,7 +92,8 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
 
     public void onBackButtonPressed() {
         Log.i("SETTING", "listening");
-        showSettingTitle(getString(R.string.about), true);
+        hideSettingTitle(false);
+        showSettingTitle(getString(R.string.about));
         AboutItemFragment about = new AboutItemFragment();
         FragmentManager fm = getSupportFragmentManager();
         final FragmentTransaction ft = fm.beginTransaction();
@@ -100,7 +103,7 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
 
 
     public void onListFragmentInteraction(AboutItem item){
-        showSettingTitle("", false);
+        showSettingTitle("");
 
         Bundle bundle = new Bundle();
         bundle.putString("detail_text", item.content);
@@ -114,19 +117,20 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
         ft.setCustomAnimations(0,0);
         ft.replace(R.id.content_container, detail, "DETAIL");
         ft.commit();
+        hideSettingTitle(true);
     }
 
-    private void showSettingTitle(String title, boolean show) {
-        if (show) {
-            TextView tv = (TextView) findViewById(R.id.title_settings);
-            tv.setText(title);
-            tv.setPadding(0,50,0,0);
-            tv.setHeight(150);
+    private void showSettingTitle(String title) {
+        TextView tv = (TextView) findViewById(R.id.title_settings);
+        tv.setText(title);
+    }
+
+    private void hideSettingTitle(Boolean hide) {
+        TextView tv = (TextView) findViewById(R.id.title_settings);
+        if (hide){
+            tv.setVisibility(View.GONE);
         } else {
-            TextView tv = (TextView) findViewById(R.id.title_settings);
-            tv.setText("");
-            tv.setPadding(0,0,0,0);
-            tv.setHeight(0);
+            tv.setVisibility(View.VISIBLE);
         }
     }
 

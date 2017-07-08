@@ -13,4 +13,5 @@
     android:layout_marginTop="80dp"
     app:layoutManager="LinearLayoutManager"
     tools:context="com.hkw.arrivinginberlin.AboutItemFragment"
-    tools:listitem="@layout/fragment_aboutitem" />
+    tools:listitem="@layout/fragment_aboutitem" >
+</android.support.v7.widget.RecyclerView>
