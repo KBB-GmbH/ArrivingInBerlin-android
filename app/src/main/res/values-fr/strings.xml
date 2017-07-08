@@ -58,22 +58,24 @@
     <string name="legal_title">Mentions légales</string>
     <string name="legal_text"><b>Haus der Kulturen der Welt</b> (<i>La maison des cultures du monde</i>)
 \nAdresse: \nJohn-Foster-Dulles-Allee 10 \n10557 Berlin \nTéléphone 0049 30 397 87-0 \nFax 0049 30 394 86 79 Adresse-mail: info@hkw.de
-\nLa <i>Haus der Kulturen der Welt</i> est une divison de la <i>Kulturveranstaltungen des Bundes in Berlin (KBB) GmbH </i> (<i>SARL des évènements culturels de la fédération à Berlin</i>).
+
+\n\n<b>La <i>Haus der Kulturen der Welt</i> est une divison de la <i>Kulturveranstaltungen des Bundes in Berlin (KBB) GmbH </i> (<i>SARL des évènements culturels de la fédération à Berlin</i>)</b>.
 \n<i>Kulturveranstaltungen des Bundes in Berlin (KBB) GmbH</i>  \nSchöneberger Straße 15  10963 Berlin  \nTéléphone 0049 30 26 397-0 \nFax 0049 30 26 397-397
 \n Adresse e-mail: info@kbb.eu
 
 \n\n<b>Les directeurs de la <i>KBB</i></b>
 \nDr. Thomas Oberender (Directeur <i>Berliner Festspiele</i>) \nCharlotte Sieben (Directrice commerciale <i>KBB GmbH</i>) \nDr. Bernd M. Scherer (Directeur <i>Haus der Kulturen der Welt</i>) \nDieter Kosslick (Directeur <i>Internationale Filmfestspiele Berlin</i>)
-\nVous pouvez contacter les directeurs de la <i>KBB</i> à l\’adresse suivante:
+\nVous pouvez contacter les directeurs de la <i>KBB</i> à l’adresse suivante:
 \nSchöneberger Straße 15  10963 Berlin
-\nPersonne responsable selon l\’article 55-2 du RStV
+
+\n\n<b>Personne responsable selon l’article 55-2 du RStV</b>
 \nSilvia Fehrmann \nJohn-Foster-Dulles-Allee 10 \n10557 Berlin Adresse-mail: fehrmann@hkw.de
 
 \n\n<b>Registre du commerce (équivalent au RCS)</b>
-\nTribunal d\’instance de Charlottenburg
+\nTribunal d’instance de Charlottenburg
+\n Numéro RCS 96 HRB 29357
 
-\n<b>Numéro RCS 96 HRB 29357</b>
-\nNuméro de TVA intercommunautaire selon l\’article 27a de la loi relative à la taxe sur le chiffre d\’affaires
+\n\n<b>Numéro de TVA intercommunautaire selon l’article 27a de la loi relative à la taxe sur le chiffre d’affaires </b>
 \nDE 136 78 27 46</string>
     <string name="privacy_title">Protection des données personnelles</string>
     <string name="privacy_text"><b><i> Arriving in Berlin</i>  (ci\-après dénommée <i> nous </i>)</b> est soucieuse de la protection de vos données personnelles. Cette déclaration de protection de données vous informe de notre gestion de vos données personnelles.
@@ -94,7 +96,7 @@
 	•	Géolocalisation avec horodatage\n
 	•	Vitesse et direction\n
 	•	Emplacement et temps de visite
-\nLes données de géolocalisation collectées ne sont pas associées à des informations permettant d’identifier une personne, y compris le nom, l’adresse IP, l’adresse e-mail ou le numéro de téléphone.\n\n
+\nLes données de géolocalisation collectées <b>ne sont pas associées à des informations permettant d’identifier une personne</b>, y compris le nom, l’adresse IP, l’adresse e-mail ou le numéro de téléphone.\n\n
 A chaque consultation l’App transmet les données suivantes à <i> Mapbox </i>:\n
 	•	Identifiants de session et d’instance\n
 	•	Identifiant de l’application\n
@@ -107,8 +109,8 @@ A chaque consultation l’App transmet les données suivantes à <i> Mapbox </i>
 
 \n\n<i>Mapbox</i> est une entreprise basée aux Etats Unis. L’utilisation de vos données a donc lieu aux Etats Unis.
 
-\n\nUsage des données
-<i>Mapbox</i>  utilises ces données à des fins analytiques et pour des raisons de vérifications internes. <i>Mapbox</i> profite des données afin d’améliorer ses produits et services à ses clients et aux utilisateurs finaux.
+\n\n<b>Usage des données</b>
+\n<i>Mapbox</i>  utilises ces données à des fins analytiques et pour des raisons de vérifications internes. <i>Mapbox</i> profite des données afin d’améliorer ses produits et services à ses clients et aux utilisateurs finaux.
 
 \n\nPour plus d’informations sur les politiques de protection des données personnelles de <i>Mapbox</i>, consultez le site: https://www.mapbox.com/privacy/
 
@@ -144,7 +146,7 @@ Les données personnelles sont collectées par:
     <string name="terms_details_txt"><i>Arriving in Berlin</i>  est une application mobile de la <i> Haus der Kulturen der Welt </i> et <i>Refugees on Rails</i> avec le soutien des amis de la <i> Haus der Kulturen der Welt </i>. L’application fournie les informations utiles pour des refugiés et immigrés à Berlin.
  \n\nLes utilisateurs de cette application doivent être 13 ans ou plus. Pour utiliser l’application, vous devez accepter les conditions d’utilisation.
 
-\n\n<i>Arriving in Berlin</i>  fait de son mieux pour mettre à jour les informations données de temps en temps. Nous vous invitons à vous informer sur la dernière date de mise à jour en consultant la page suivante. </string>
+\n\n<i>Arriving in Berlin</i>  fait de son mieux pour mettre à jour les informations données de temps en temps. Nous vous invitons à vous informer sur la dernière date de mise à jour en consultant la page suivante. https://arriving-in-berlin.de/impressum/arriving-in-berlin-app/ </string>
     <string name="offline_message_2">Connecter votre smartphone à internet pour utiliser cette fonctionnalité.</string>
     <string name="project_title">Projet</string>
     <string name="project_text">„Arriving in Berlin – App“ est une carte digitale contenant des informations utiles pour les réfugiés et les nouveaux arrivants à Berlin. Pour en savoir plus sur le projet: https://arriving-in-berlin.de/app/

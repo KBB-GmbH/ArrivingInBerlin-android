@@ -59,8 +59,10 @@
     <string name="legal_title">Impressum</string>
     <string name="legal_text"><b>Haus der Kulturen der Welt</b>
 \nJohn-Foster-Dulles-Allee 10 \n10557 Berlin \nTelefon +49 30 397 87-0 \nTelefax +49 30 394 86 79 E-Mail: info@hkw.de
-\nDas Haus der Kulturen der Welt ist ein Geschäftsbereich der Kulturveranstaltungen des Bundes in \nBerlin (KBB) GmbH.
-\nKulturveranstaltungen des Bundes in Berlin (KBB) GmbH
+
+\n\n<b>Das Haus der Kulturen der Welt ist ein Geschäftsbereich der Kulturveranstaltungen des Bundes in \nBerlin (KBB) GmbH.</b>
+
+\n\nKulturveranstaltungen des Bundes in Berlin (KBB) GmbH
 \nSchöneberger Straße 15  10963 Berlin 
 \nTelefon +49 30 26 397-0 \nTelefax +49 30 26 397-397 E-Mail: info@kbb.eu
 
@@ -74,7 +76,7 @@
 \n\n<b>Handelsregister</b>
 \nAmtsgericht Charlottenburg
 \nHandelsregisternummer: 96 HRB 29357
-\n\nUmsatzsteuer-Identifikationsnummer nach § 27a UStG
+\n\n<b>Umsatzsteuer-Identifikationsnummer nach § 27a UStG</b>
 \nDE 136 78 27 46</string>
     <string name="privacy_title">Datenschutzerklärung</string>
     <string name="privacy_text">Arriving in Berlin (nachfolgend <i>wir</i>) nimmt den Schutz Ihrer personenbezogenen Daten sehr ernst. Mit diesen Datenschutzbestimmungen informieren wir Sie über den Umgang mit Ihren personenbezogenen Daten.
@@ -84,9 +86,9 @@
 
 \n\n<b>Personenbezogene Daten</b>
 \nPersonenbezogene Daten sind Angaben über persönliche oder sachliche Verhältnisse einer bestimmten oder bestimmbaren natürlichen Person. Zu Ihren personenbezogenen Daten gehören sämtliche Daten, die eine Identifikation Ihrer Person zulassen, wie z.B. Ihr Name, Ihre Anschrift, Ihre Telefonnummer oder Ihre E-Mail-Adresse.
-Erhebung und Weitergabe Ihrer personenbezogenen Daten
 
-\n\nDie App verwendet das Softwareentwicklungssystem Mapbox. Folgende Daten werden erhoben und an Mapbox gesandt:\n
+\n\n<b>Erhebung und Weitergabe Ihrer personenbezogenen Daten</b>
+\nDie App verwendet das Softwareentwicklungssystem Mapbox. Folgende Daten werden erhoben und an Mapbox gesandt:\n
 	•	Inbetriebnahme der App\n
 	•	Laden der Landkarte: Der Ladevorgang als solches, der jeweilige Kartenausschnitt sowie die Vergrößerungsstufe\n
 	•	Schwenken der Landkarte\n
@@ -139,7 +141,7 @@ Wenn Sie Auskunft über Ihre personenbezogenen Daten beziehungsweise deren Korre
     <string name="terms_title">Nutzungsbedingungen</string>
     <string name="terms_details_txt">Arriving in Berlin ist eine App, die in Kooperation des Hauses der Kulturen der Welt und Refugees on Rails unter der freundlichen Unterstützung von Freunden des Hauses der Kulturen der Welt entstanden ist. Die App enthält hilfreiche Informationen über Berlin für Geflüchtete und Neuankommende.
 \n\nNutzerinnen dieser App müssen 13 Jahre oder älter sein. Damit Sie die App nutzen können, müssen Sie den Nutzungsbedingungen zustimmen.
-\n<i>Arriving in Berlin</i>  bemüht sich, die in der Karte gespeicherten Informationen von Zeit zu Zeit zu aktualisieren. Den aktuellen Stand des Kartenmaterials können Sie hier erfahren. </string>
+\n<i>Arriving in Berlin</i>  bemüht sich, die in der Karte gespeicherten Informationen von Zeit zu Zeit zu aktualisieren. Den aktuellen Stand des Kartenmaterials können Sie hier erfahren. https://arriving-in-berlin.de/impressum/arriving-in-berlin-app/</string>
     <string name="offline_message_2">Verbinden Sie Ihr Smartphone mit dem Internet, um diese Funktion nutzen können.</string>
     <string name="project_title">Projekt</string>
     <string name="project_text">“Arriving in Berlin - App” ist eine digitale Karte mit hilfreichen Informationen für Geflüchtete und Neuankommende in Berlin. Erfahren Sie hier mehr über das Projekt: https://arriving-in-berlin.de/app/</string>
