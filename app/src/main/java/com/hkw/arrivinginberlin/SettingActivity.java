@@ -49,22 +49,18 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
                     case R.id.info_item:
                         InfoFragment info = new InfoFragment();
                         ft.replace(R.id.content_container, info, "INFO");
-                        showSettingTitle(getString(R.string.info));
                         break;
                     case R.id.lang_item:
                         LanguageSettingFragment language = new LanguageSettingFragment();
                         ft.replace(R.id.content_container, language, "LANG");
-                        showSettingTitle(getString(R.string.language));
                         break;
                     case R.id.contact_item:
                         ContactFragment contact = new ContactFragment();
                         ft.replace(R.id.content_container, contact, "CONTACT");
-                        showSettingTitle(getString(R.string.contact));
                         break;
                     case R.id.about_item:
                         AboutItemFragment about = new AboutItemFragment();
                         ft.replace(R.id.content_container, about, "ABOUT");
-                        showSettingTitle(getString(R.string.about));
                         break;
                     default:
                         break;
@@ -92,8 +88,6 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
 
     public void onBackButtonPressed() {
         Log.i("SETTING", "listening");
-        hideSettingTitle(false);
-        showSettingTitle(getString(R.string.about));
         AboutItemFragment about = new AboutItemFragment();
         FragmentManager fm = getSupportFragmentManager();
         final FragmentTransaction ft = fm.beginTransaction();
@@ -103,8 +97,6 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
 
 
     public void onListFragmentInteraction(AboutItem item){
-        showSettingTitle("");
-
         Bundle bundle = new Bundle();
         bundle.putString("detail_text", item.content);
         bundle.putString("detail_title", getTitleItem(item.content));
@@ -117,21 +109,6 @@ public class SettingActivity extends AppCompatActivity implements LanguageSettin
         ft.setCustomAnimations(0,0);
         ft.replace(R.id.content_container, detail, "DETAIL");
         ft.commit();
-        hideSettingTitle(true);
-    }
-
-    private void showSettingTitle(String title) {
-        TextView tv = (TextView) findViewById(R.id.title_settings);
-        tv.setText(title);
-    }
-
-    private void hideSettingTitle(Boolean hide) {
-        TextView tv = (TextView) findViewById(R.id.title_settings);
-        if (hide){
-            tv.setVisibility(View.GONE);
-        } else {
-            tv.setVisibility(View.VISIBLE);
-        }
     }
 
     private String getTitleItem(String itemName){

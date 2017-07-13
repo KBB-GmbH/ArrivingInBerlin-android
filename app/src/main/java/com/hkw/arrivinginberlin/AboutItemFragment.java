@@ -21,7 +21,7 @@ import com.hkw.arrivinginberlin.aboutItem.AboutContent.AboutItem;
  * interface.
  */
 public class AboutItemFragment extends Fragment {
-
+    private RecyclerView recyclerView;
     private OnListFragmentInteractionListener mListener;
 
     /**
@@ -43,17 +43,13 @@ public class AboutItemFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_aboutitem_list, container, false);
-
-        // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            recyclerView.setAdapter(new MyAboutItemRecyclerViewAdapter(AboutContent.ITEMS, mListener, context));
-            DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
-                    getResources().getConfiguration().orientation);
-            recyclerView.addItemDecoration(dividerItemDecoration);
-        }
+        recyclerView = (RecyclerView) view.findViewById(R.id.list);
+        Context context = view.getContext();
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        recyclerView.setAdapter(new MyAboutItemRecyclerViewAdapter(AboutContent.ITEMS, mListener, context));
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
+                getResources().getConfiguration().orientation);
+        recyclerView.addItemDecoration(dividerItemDecoration);
         return view;
     }
 

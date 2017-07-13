@@ -1,17 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/list"
     android:name="com.hkw.arrivinginberlin.AboutItemFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
-    android:textSize="18sp"
-    android:background="#FFF"
-    android:layout_marginTop="80dp"
-    app:layoutManager="LinearLayoutManager"
-    tools:context="com.hkw.arrivinginberlin.AboutItemFragment"
-    tools:listitem="@layout/fragment_aboutitem" >
-</android.support.v7.widget.RecyclerView>
+    android:layout_height="match_parent">
+
+    <com.hkw.arrivinginberlin.TextviewPlus
+        android:id="@+id/title_settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="20dp"
+        android:textAlignment="center"
+        android:visibility="visible"
+        android:text="@string/about"
+        android:textSize="24sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_below="@id/title_settings"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:textSize="18sp"
+        android:background="#FFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        tools:context="com.hkw.arrivinginberlin.AboutItemFragment"
+        tools:listitem="@layout/fragment_aboutitem"
+        app:layoutManager="LinearLayoutManager"/>
+</RelativeLayout>

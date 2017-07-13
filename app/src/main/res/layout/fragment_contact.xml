@@ -12,7 +12,22 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <com.hkw.arrivinginberlin.TextviewPlus
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="20dp"
+                android:textAlignment="center"
+                android:visibility="visible"
+                android:text="@string/contact"
+                android:textSize="24sp" />
+
+            <com.hkw.arrivinginberlin.TextviewPlus
+                android:layout_below="@id/title"
                 android:id="@+id/contact_text"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
