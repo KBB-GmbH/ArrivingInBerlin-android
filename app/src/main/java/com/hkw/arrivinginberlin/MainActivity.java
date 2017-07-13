@@ -799,6 +799,58 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         return uri;
     }
 
+    public String getCategoryName(int categoryID) {
+        // Make Custom Icon
+        String name = "";
+        switch (categoryID) {
+            case 1:
+                name = "counseling services for refugees";
+                break;
+            case 2:
+                name = "doctors general practitioner arabic";
+                break;
+            case 3:
+                name = "doctors general practitioner farsi";
+                break;
+            case 4:
+                name = "doctors gynaecologist arabic";
+                break;
+            case 5:
+                name = "doctors gynaecologist farsi";
+                break;
+            case 6:
+                name = "german language classes";
+                break;
+            case 7:
+                name = "lawyers residence and asylum law";
+                break;
+            case 8:
+                name = "police";
+                break;
+            case 9:
+                name = "public authorities";
+                break;
+            case 10:
+                name = "public libraries";
+                break;
+            case 11:
+                name = "public transport";
+                break;
+            case 12:
+                name = "shopping_and_food";
+                break;
+            case 13:
+                name = "sports and freetime";
+                break;
+            case 14:
+                name = "wifi";
+                break;
+
+        }
+
+        return name;
+    }
+
     public void removeAllMarkers() {
         removePolyline();
         for (Marker m : mapBox.getMarkers()) {
@@ -837,10 +889,11 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         Marker selMarker = null;
 
         for (CategoryMarker cm : allMarkers) {
+            String category = getCategoryName(cm.categoryID);
             String title = cm.markerViewOptions.getTitle().toLowerCase();
             String snippet = cm.markerViewOptions.getSnippet().toLowerCase();
             String lowercaseSearch = searchTerm.toLowerCase();
-            if ((title.contains(lowercaseSearch)) || (snippet.contains(lowercaseSearch))) {
+            if ((category.contains(lowercaseSearch))|| (title.contains(lowercaseSearch)) || (snippet.contains(lowercaseSearch))) {
                 selMarker = mapBox.addMarker(cm.markerViewOptions);
                 foundMarker = true;
             }
